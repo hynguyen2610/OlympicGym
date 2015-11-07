@@ -120,7 +120,8 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel> ThongKeSoLuong()
+        internal static List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel> 
+            ThongKeSoLuong(DateTime start, DateTime end, PhongTap phong )
         {
             List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel> li = new List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel>();
             

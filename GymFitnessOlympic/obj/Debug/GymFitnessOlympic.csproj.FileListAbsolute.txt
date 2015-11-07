@@ -301,3 +301,4 @@ D:\DATA\Dropbox\OneDrive-2015-11-05\GymFitnessOlympic\GymFitnessOlympic\GymFitne
 C:\Users\Duc-PC\Documents\GitHub\GymFitnessOlympic\GymFitnessOlympic\bin\Debug\GymFitnessOlympic.exe.config
 C:\Users\Duc-PC\Documents\GitHub\GymFitnessOlympic\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.exe
 C:\Users\Duc-PC\Documents\GitHub\GymFitnessOlympic\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.pdb
+D:\github\commit2\OlympicGym\GymFitnessOlympic\bin\Debug\GymFitnessOlympic.exe.config

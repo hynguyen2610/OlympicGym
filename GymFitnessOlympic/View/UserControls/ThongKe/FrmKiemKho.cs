@@ -75,7 +75,7 @@ namespace GymFitnessOlympic.View.ActForm
                     start = dtpFrom.Value;
                     end = dtpTo.Value;
                 }
-                List<ThongKeSoLuongModel> tks = SanPhamController.ThongKeSoLuong();
+                List<ThongKeSoLuongModel> tks = SanPhamController.ThongKeSoLuong(start, end, phongHienTai);
                 dataGridView1.DataSource = tks;
             }
             catch { }
