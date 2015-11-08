@@ -169,6 +169,12 @@
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.Designer.cs">
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmKhachLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmKhachLe.Designer.cs">
+      <DependentUpon>FrmKhachLe.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\TacNghiep\Checkin\NhanVien\FrmCheckinNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.resx">
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmKhachLe.resx">
+      <DependentUpon>FrmKhachLe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\NhanVien\FrmCheckinNhanVien.resx">
       <DependentUpon>FrmCheckinNhanVien.cs</DependentUpon>
