@@ -26,7 +26,7 @@ namespace TanHongPhat
             InitializeComponent();
             int phongID = Login1.GetPhongHienTai().MaPhongTap;
             allSanPham = SanPhamController.GetList(phongID);
-            lbSanPham.DisplayMember = "TenSanPham";
+            lbSanPham.DisplayMember = "ListBoxString";
             hoaDon = new HoaDon();
             this.isNhap = isNhap;
             if (isNhap) {
@@ -112,11 +112,17 @@ namespace TanHongPhat
 
         private void btnChiTietSua_Click(object sender, EventArgs e)
         {
-            var mh = Convert.ToInt32(lvHangNhap.SelectedItems[0].SubItems[0].Text);
-            var c = hoaDon.DanhSachChiTiet.FirstOrDefault(c1 => c1.MaSanPham == mh);
-            FrmChiTietEdit f = new FrmChiTietEdit(c);
-            f.Show();
-            f.FormClosed += finishEdit;
+            if (lvHangNhap.SelectedItems[0] != null)
+            {
+                var mh = Convert.ToInt32(lvHangNhap.SelectedItems[0].SubItems[0].Text);
+                var c = hoaDon.DanhSachChiTiet.FirstOrDefault(c1 => c1.MaSanPham == mh);
+                FrmChiTietEdit f = new FrmChiTietEdit(c);
+                f.Show();
+                f.FormClosed += finishEdit;
+            }
+            else {
+                MessageBox.Show("Chưa chọn mục để sửa");
+            }
         }
 
         void finishEdit(object sender, FormClosedEventArgs e)
@@ -139,16 +145,31 @@ namespace TanHongPhat
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!isNhap)
+            {
+                var ct = hoaDon.DanhSachChiTiet.FirstOrDefault(c => c.SoLuong > c.SanPham.SoLuongHienTai);
+                if (ct != null)
+                {
+                    MessageBox.Show("Mặt hàng " + ct.SanPham.TenSanPham + " có số lượng bán ra yêu cầu lớn hơn số lượng hiện có");
+                    return;
+                }
+            }
+            if (hoaDon.DanhSachChiTiet.Count > 0)
+            {
+                //hoaDon.ThoiGianTao = DateTime.Now;
+                var nhanVien = Login1.TaiKhoanHienTai;
 
-            //hoaDon.ThoiGianTao = DateTime.Now;
-            var nhanVien = Login1.TaiKhoanHienTai;
-
-            string message =isNhap ? "Đã tạo hóa đơn" : "Đã tạo phiếu nhập";
-            hoaDon.IsNhap = isNhap;
-            hoaDon.NgayLap = dtpThoiGian.Value;
-            HelperBanHang.taoHoaDonTamThoi(hoaDon, nhanVien, message);
-            btnReset_Click(null, null);
-
+                string message = isNhap ? "Đã tạo phiếu nhập" : "Đã tạo hóa đơn";
+                hoaDon.IsNhap = isNhap;
+                hoaDon.NgayLap = dtpThoiGian.Value;
+                HelperBanHang.taoHoaDonTamThoi(hoaDon, nhanVien, message);
+                btnReset_Click(null, null);
+                return;
+            }
+            
+            else {
+                MessageBox.Show("Chưa có mặt hàng nào trong "+ (isNhap ? "phiếu nhập" : "hóa đơn"));
+            }
         }
 
         private void btnChiTietXoa_Click(object sender, EventArgs e)
@@ -162,6 +183,9 @@ namespace TanHongPhat
                     hoaDon.DanhSachChiTiet.Remove(c);
                 }
                 updateForm();
+            }
+            else {
+                MessageBox.Show("Chưa chọn mục để xóa");
             }
         }
 
@@ -177,6 +201,22 @@ namespace TanHongPhat
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lvHangNhap_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            var sp = (SanPham) lbSanPham.Items[e.ItemIndex];
+             
+        }
+
+        private void lbSanPham_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+           
+        }
+
+        private void lbSanPham_Validating(object sender, CancelEventArgs e)
+        {
+            
         }
     }
 }

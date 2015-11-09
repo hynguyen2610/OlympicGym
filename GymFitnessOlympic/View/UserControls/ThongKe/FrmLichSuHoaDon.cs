@@ -28,12 +28,12 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
             dataGridView1.AutoGenerateColumns = false;
             for (int i = 2010; i < 2250; i++)
             {
-                cbbTheoQuyNam.Items.Add(i);
                 cbbTheoThangNam.Items.Add(i);
 
             }
-            cbbTheoQuyNam.SelectedIndex = cbbTheoQuyQuy.SelectedIndex = cbbTheoThangNam.SelectedIndex
+            cbbTheoThangNam.SelectedIndex
                 = cbbTheoThangThang.SelectedIndex = 0;
+            
             phongHienTai = Login1.GetPhongHienTai();
             cbbPhong.Properties.NullText = "Chọn một phòng";
             DataFiller.fillPhongCombo(cbbPhong);
@@ -81,29 +81,7 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                     start = new DateTime(year, month, 1);
                     end = start.AddMonths(1).AddDays(-1);
                 }
-                else if (rdTheoQuy.Checked)
-                {
-                    int year = int.Parse(cbbTheoQuyNam.Text);
-                    switch (cbbTheoQuyQuy.SelectedIndex)
-                    {
-                        case 0:
-                            start = new DateTime(year, 1, 1);
-                            end = new DateTime(year, 3, 31);
-                            break;
-                        case 1:
-                            start = new DateTime(year, 4, 1);
-                            end = new DateTime(year, 6, 30);
-                            break;
-                        case 2:
-                            start = new DateTime(year, 7, 1);
-                            end = new DateTime(year, 9, 30);
-                            break;
-                        case 3:
-                            start = new DateTime(year, 10, 1);
-                            end = new DateTime(year, 12, 31);
-                            break;
-                    }
-                }
+                
                 else if (rdTheoKhoangNgay.Checked)
                 {
                     start = dtpFrom.Value;
@@ -113,7 +91,7 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
 
                 //li = allPhieuThu.Where(h => h.NgayLap.CompareTo(start) >= 0 && h.NgayLap.CompareTo(end) <= 0).ToList();
-                allThongKe = SanPhamController.ThongKeBanRa(start, end,  maPhong, nhanVienHienTai);
+                allThongKe = SanPhamController.ThongKeMuaVaoBanRa(start, end,  maPhong, nhanVienHienTai);
                 dataGridView1.DataSource = allThongKe;
                 lblTongTien.Text = allThongKe.Sum(c => c.TongTien).ToString();
             }

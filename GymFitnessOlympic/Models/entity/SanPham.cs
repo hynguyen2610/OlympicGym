@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymFitnessOlympic.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +20,20 @@ namespace GymFitnessOlympic.Models
         public override string ToString()
         {
             return TenSanPham;
+        }
+
+        public int SoLuongHienTai
+        {
+            get {
+                return SanPhamController.ThongKeSoLuong(this);
+            }
+        }
+
+        public string ListBoxString {
+            get
+            {
+                return TenSanPham + "(" + SoLuongHienTai + ")";
+            }
         }
     }
 }

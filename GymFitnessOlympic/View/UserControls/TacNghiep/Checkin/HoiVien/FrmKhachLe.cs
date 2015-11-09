@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GymFitnessOlympic.Controller;
+using GymFitnessOlympic.Models.entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
 {
-    public partial class FrmKhachLe : Form
+    public partial class FrmKhachLe : UserControl
     {
         public FrmKhachLe()
         {
@@ -18,7 +20,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            Close();
+            //Close();
         }
 
         private void btnNhap_Click(object sender, EventArgs e)
@@ -30,7 +32,19 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
                 txtTien.Focus();
                 return;
             }
-
+            var k = new KhachLe()
+            {
+                ThoiGian = DateTime.Now,
+                SoTien = tien
+            };
+            if (KhachLeController.Add(k) == CODE_RESULT_RETURN.ThanhCong)
+            {
+                MessageBox.Show("Hoàn tất");
+                txtTien.Text = "";
+            }
+            else {
+                MessageBox.Show("Có lỗi");
+            }
         }
     }
 }

@@ -27,14 +27,11 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
             loc();
             for (int i = 2010; i < 2250; i++)
             {
-                cbbTheoQuyNam.Items.Add(i);
-                cbbTheoThangNam.Items.Add(i);
+               
 
             }
-            cbbTheoQuyNam.SelectedValue = cbbTheoThangNam.SelectedValue = DateTime.Now.Year;
             cbbTheoThangThang.SelectedValue = DateTime.Now.Month;
-            cbbTheoQuyQuy.SelectedIndex = cbbTheoQuyNam.SelectedIndex = cbbTheoThangNam.SelectedIndex
-                = cbbTheoThangThang.SelectedIndex = cbbCheDoLoc.SelectedIndex = 0;
+  
         }
 
         private void FrmLichSuNhanVien_Load(object sender, EventArgs e)
@@ -63,29 +60,7 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                     start = new DateTime(year, month, 1);
                     end = start.AddMonths(1).AddDays(-1);
                 }
-                else if (rdTheoQuy.Checked)
-                {
-                    int year = int.Parse(cbbTheoQuyNam.Text);
-                    switch (cbbTheoQuyQuy.SelectedIndex)
-                    {
-                        case 0:
-                            start = new DateTime(year, 1, 1);
-                            end = new DateTime(year, 3, 31);
-                            break;
-                        case 1:
-                            start = new DateTime(year, 4, 1);
-                            end = new DateTime(year, 6, 30);
-                            break;
-                        case 2:
-                            start = new DateTime(year, 7, 1);
-                            end = new DateTime(year, 9, 30);
-                            break;
-                        case 3:
-                            start = new DateTime(year, 10, 1);
-                            end = new DateTime(year, 12, 31);
-                            break;
-                    }
-                }
+                
                 else if (rdTheoKhoangNgay.Checked)
                 {
                     start = dtpFrom.Value;
@@ -186,7 +161,7 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
         private void rdTheoQuy_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdTheoQuy.Checked)
+           // if (rdTheoQuy.Checked)
                 loc();
         }
 

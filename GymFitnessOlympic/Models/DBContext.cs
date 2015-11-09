@@ -4,6 +4,7 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.Mapping;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using GymFitnessOlympic.Models.entity;
 
 namespace QldtSdh.DAL.Models
 {
@@ -40,6 +41,7 @@ namespace QldtSdh.DAL.Models
         public DbSet<HistoryHoiVien> HistoryHoiVien { get; set; }
         public DbSet<HistoryNhanVien> HistoryNhanVien { get; set; }
         public DbSet<CaLamViec> CaLamViec { get; set; }
+        public DbSet<KhachLe> KhachLe { get; set; }
         //
         public DbSet<KeyValueConfig> KeyValueDbSet { get; set; }
         //
@@ -62,6 +64,7 @@ namespace QldtSdh.DAL.Models
             modelBuilder.Configurations.Add(new HistoryNhanVienMap());
             modelBuilder.Configurations.Add(new HistoryHoiVienMap());
             modelBuilder.Configurations.Add(new CaLamViecMap());
+            modelBuilder.Configurations.Add(new KhachLeMap());
             //---------------------Primary key------------------------------------
             /**
              * 

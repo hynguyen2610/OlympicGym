@@ -213,6 +213,8 @@
             this.lbSanPham.Size = new System.Drawing.Size(170, 240);
             this.lbSanPham.TabIndex = 57;
             this.lbSanPham.SelectedIndexChanged += new System.EventHandler(this.lbHang_SelectedIndexChanged);
+            this.lbSanPham.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lbSanPham_MeasureItem);
+            this.lbSanPham.Validating += new System.ComponentModel.CancelEventHandler(this.lbSanPham_Validating);
             // 
             // labelControl12
             // 
@@ -245,6 +247,7 @@
             this.lvHangNhap.TabIndex = 56;
             this.lvHangNhap.UseCompatibleStateImageBehavior = false;
             this.lvHangNhap.View = System.Windows.Forms.View.Details;
+            this.lvHangNhap.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lvHangNhap_DrawItem);
             // 
             // columnHeader1
             // 

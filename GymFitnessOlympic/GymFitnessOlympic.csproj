@@ -99,6 +99,7 @@
     <Compile Include="Controller\HoaDonController.cs" />
     <Compile Include="Controller\HoiVienController.cs" />
     <Compile Include="Controller\KeyValueController.cs" />
+    <Compile Include="Controller\KhachLeController.cs" />
     <Compile Include="Controller\NhanVienController.cs" />
     <Compile Include="Controller\PhieuThuController.cs" />
     <Compile Include="Controller\PhongTapController.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Models\entity\HoiVien.cs" />
     <Compile Include="Models\entity\HoiVien_Extention.cs" />
     <Compile Include="Models\entity\KeyValueConfig.cs" />
+    <Compile Include="Models\entity\KhachLe.cs" />
     <Compile Include="Models\Mapping\AppUserMap.cs" />
     <Compile Include="Models\Mapping\CaLamViecMap.cs" />
     <Compile Include="Models\Mapping\ChiTietHoaDonMap.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Models\Mapping\HoaDonMap.cs" />
     <Compile Include="Models\Mapping\HoiVienMap.cs" />
     <Compile Include="Models\Mapping\KeyValueConfigMap.cs" />
+    <Compile Include="Models\Mapping\KhachLeMap.cs" />
     <Compile Include="Models\Mapping\NhanVienMap.cs" />
     <Compile Include="Models\Mapping\PhieuThuMap.cs" />
     <Compile Include="Models\Mapping\PhongTapMap.cs" />
@@ -157,12 +160,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConnectionUtils.cs" />
-    <Compile Include="View\ActForm\RibbonForm1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ActForm\RibbonForm1.Designer.cs">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,7 +167,7 @@
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmKhachLe.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmKhachLe.Designer.cs">
       <DependentUpon>FrmKhachLe.cs</DependentUpon>
@@ -394,9 +391,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ActForm\RibbonForm1.resx">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.resx">
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -525,6 +519,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="Resources\about.png" />
+    <None Include="Resources\Settings-icon.png" />
     <Content Include="res\DB 7-11.sql" />
     <None Include="Resources\add.png" />
     <Content Include="Resources\background.png" />

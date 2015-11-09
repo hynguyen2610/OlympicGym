@@ -266,5 +266,16 @@ namespace GymFitnessOlympic.View
         {
             LoadUC(new FrmKiemKho());
         }
+
+        private void barButtonItem18_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new FrmLichSuHoaDon(Login1.TaiKhoanHienTai));
+        }
+
+        private void rbBtnConfig_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmCauHinh f = new FrmCauHinh();
+            f.ShowDialog();
+        }
     }
 }

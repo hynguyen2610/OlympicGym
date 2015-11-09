@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGioLamViec = new DevExpress.XtraEditors.SimpleButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.spnBaoSinhNhat = new DevExpress.XtraEditors.SpinEdit();
@@ -37,8 +39,6 @@
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnGioLamViec = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spnBaoSinhNhat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnBaoHetHan.Properties)).BeginInit();
@@ -60,6 +60,26 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông báo khi sắp đến ngày";
+            // 
+            // btnGioLamViec
+            // 
+            this.btnGioLamViec.Location = new System.Drawing.Point(232, 129);
+            this.btnGioLamViec.Name = "btnGioLamViec";
+            this.btnGioLamViec.Size = new System.Drawing.Size(75, 23);
+            this.btnGioLamViec.TabIndex = 2;
+            this.btnGioLamViec.Text = "Chỉnh sửa...";
+            this.btnGioLamViec.Click += new System.EventHandler(this.btnGioLamViec_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Giờ làm việc";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label8
             // 
@@ -140,26 +160,6 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Giờ làm việc";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // btnGioLamViec
-            // 
-            this.btnGioLamViec.Location = new System.Drawing.Point(232, 129);
-            this.btnGioLamViec.Name = "btnGioLamViec";
-            this.btnGioLamViec.Size = new System.Drawing.Size(75, 23);
-            this.btnGioLamViec.TabIndex = 2;
-            this.btnGioLamViec.Text = "Chỉnh sửa...";
-            this.btnGioLamViec.Click += new System.EventHandler(this.btnGioLamViec_Click);
-            // 
             // FrmCauHinh
             // 
             this.AcceptButton = this.btnOK;
@@ -171,7 +171,7 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmCauHinh";
-            this.Text = "FrmCauHinh";
+            this.Text = "Cấu hình";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spnBaoSinhNhat.Properties)).EndInit();

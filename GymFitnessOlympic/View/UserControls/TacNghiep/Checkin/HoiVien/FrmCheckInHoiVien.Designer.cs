@@ -61,6 +61,7 @@
             // 
             // btnKiemTra
             // 
+            this.btnKiemTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnKiemTra.Location = new System.Drawing.Point(679, 138);
             this.btnKiemTra.Name = "btnKiemTra";
             this.btnKiemTra.Size = new System.Drawing.Size(130, 37);
@@ -70,6 +71,8 @@
             // 
             // groupControl5
             // 
+            this.groupControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl5.Controls.Add(this.label12);
             this.groupControl5.Controls.Add(this.lblPT_SoNgayConLai);
             this.groupControl5.Controls.Add(this.label16);
@@ -212,7 +215,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 420);
             this.Controls.Add(this.lblChucNang);
             this.Controls.Add(this.groupControl5);
             this.Controls.Add(this.groupControl1);
@@ -220,6 +222,7 @@
             this.Controls.Add(this.btnKiemTra);
             this.Controls.Add(this.txtMa);
             this.Name = "FrmCheckinHoiVien";
+            this.Size = new System.Drawing.Size(940, 420);
             this.Load += new System.EventHandler(this.FrmCheckinHoiVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();

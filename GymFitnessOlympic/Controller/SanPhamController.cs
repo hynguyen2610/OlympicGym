@@ -91,7 +91,20 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static List<ThongKeSanPhamModel> ThongKeBanRa(DateTime start, DateTime end, int maPhong = -1, NhanVien nhanVienHienTai = null)
+        public static int ThongKeSoLuong(SanPham sp) {
+            using (var db = DBContext.GetContext())
+            {
+                var cc = db.ChiTietHoaDon.Include(c => c.HoaDon).Include(c=>c.SanPham).
+                    Where(c => c.SanPham.MaSanPham == sp.MaSanPham);
+                int nhap = cc.Where(c => c.HoaDon.IsNhap).ToList().Sum(c=>c.SoLuong);
+                int ban = cc.Where(c =>!c.HoaDon.IsNhap).ToList().Sum(c => c.SoLuong);
+                int soLuong = nhap - ban;
+                return soLuong;
+            }
+            
+        }
+
+        internal static List<ThongKeSanPhamModel> ThongKeMuaVaoBanRa(DateTime start, DateTime end, int maPhong = -1, NhanVien nhanVienHienTai = null)
         {
             List<ThongKeSanPhamModel> li = new List<ThongKeSanPhamModel>();
             using (var db = DBContext.GetContext())

@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTien = new DevExpress.XtraEditors.TextEdit();
             this.btnNhap = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
@@ -58,21 +57,12 @@
             // 
             // btnNhap
             // 
-            this.btnNhap.Location = new System.Drawing.Point(150, 78);
+            this.btnNhap.Location = new System.Drawing.Point(460, 8);
             this.btnNhap.Name = "btnNhap";
             this.btnNhap.Size = new System.Drawing.Size(150, 44);
             this.btnNhap.TabIndex = 2;
             this.btnNhap.Text = "Nhập";
             this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(306, 78);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(150, 44);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Hủy";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // dxErrorProvider1
             // 
@@ -82,13 +72,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 163);
-            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnNhap);
             this.Controls.Add(this.txtTien);
             this.Controls.Add(this.label1);
             this.Name = "FrmKhachLe";
-            this.Text = "Khách lẻ";
+            this.Size = new System.Drawing.Size(633, 163);
             ((System.ComponentModel.ISupportInitialize)(this.txtTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -101,7 +89,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit txtTien;
         private DevExpress.XtraEditors.SimpleButton btnNhap;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }
