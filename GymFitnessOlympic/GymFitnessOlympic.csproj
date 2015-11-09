@@ -160,6 +160,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConnectionUtils.cs" />
+    <Compile Include="View\Dialog\FrmPhongTapEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\FrmPhongTapEdit.Designer.cs">
+      <DependentUpon>FrmPhongTapEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\QuanLy\QLPhongTap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\QuanLy\QLPhongTap.Designer.cs">
+      <DependentUpon>QLPhongTap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -341,12 +353,6 @@
     <Compile Include="View\UserControls\QuanLy\QLNhanVien.Designer.cs">
       <DependentUpon>QLNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\QuanLy\QLPhongTap.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls\QuanLy\QLPhongTap.Designer.cs">
-      <DependentUpon>QLPhongTap.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\UserControls\QuanLy\QLSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -390,6 +396,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\FrmPhongTapEdit.resx">
+      <DependentUpon>FrmPhongTapEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\QuanLy\QLPhongTap.resx">
+      <DependentUpon>QLPhongTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.resx">
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
@@ -481,9 +493,6 @@
     <EmbeddedResource Include="View\UserControls\QuanLy\QLNhanVien.resx">
       <DependentUpon>QLNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\QuanLy\QLPhongTap.resx">
-      <DependentUpon>QLPhongTap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\QuanLy\QLSanPham.resx">
       <DependentUpon>QLSanPham.cs</DependentUpon>
     </EmbeddedResource>
@@ -518,8 +527,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\1447078652_Android-Barcode-Reader.png" />
     <Content Include="Resources\about.png" />
     <None Include="Resources\Settings-icon.png" />
+    <None Include="Resources\money-icon.png" />
+    <None Include="Resources\ds-1d-barcodes-reader.png" />
+    <None Include="Resources\ds-1d-barcodes-reader1.png" />
+    <None Include="Resources\ds-1d-barcodes-reader.jpg" />
+    <None Include="Resources\Laser-icon.png" />
+    <None Include="Resources\ds-1d-barcodes-reader2.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\Treetog-I-Search.ico" />
+    <None Include="Resources\search1.png" />
+    <None Include="Resources\Hopstarter-Sleek-Xp-Basic-User-Group.ico" />
+    <None Include="Resources\saleman.ico" />
     <Content Include="res\DB 7-11.sql" />
     <None Include="Resources\add.png" />
     <Content Include="Resources\background.png" />

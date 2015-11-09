@@ -146,6 +146,7 @@
             // 
             // imgAnh
             // 
+            this.imgAnh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgAnh.Location = new System.Drawing.Point(690, 134);
             this.imgAnh.Name = "imgAnh";
             this.imgAnh.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
@@ -158,9 +159,9 @@
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.Image = global::GymFitnessOlympic.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(364, 461);
+            this.btnDelete.Location = new System.Drawing.Point(351, 445);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(81, 32);
+            this.btnDelete.Size = new System.Drawing.Size(103, 48);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -171,9 +172,9 @@
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.Image = global::GymFitnessOlympic.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(138, 461);
+            this.btnAdd.Location = new System.Drawing.Point(90, 445);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(89, 32);
+            this.btnAdd.Size = new System.Drawing.Size(111, 48);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
@@ -184,9 +185,9 @@
             this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Appearance.Options.UseFont = true;
             this.btnEdit.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnEdit.Location = new System.Drawing.Point(252, 461);
+            this.btnEdit.Location = new System.Drawing.Point(222, 445);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(89, 32);
+            this.btnEdit.Size = new System.Drawing.Size(111, 48);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
@@ -197,9 +198,9 @@
             this.btnChangePass.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePass.Appearance.Options.UseFont = true;
             this.btnChangePass.Image = global::GymFitnessOlympic.Properties.Resources.permission;
-            this.btnChangePass.Location = new System.Drawing.Point(518, 461);
+            this.btnChangePass.Location = new System.Drawing.Point(531, 445);
             this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(115, 32);
+            this.btnChangePass.Size = new System.Drawing.Size(178, 48);
             this.btnChangePass.TabIndex = 1;
             this.btnChangePass.Text = "Đổi mật khẩu";
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);

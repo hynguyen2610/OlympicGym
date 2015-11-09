@@ -27,9 +27,10 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
             loc();
             for (int i = 2010; i < 2250; i++)
             {
-               
+                cbbTheoThangNam.Items.Add(i);
 
             }
+            cbbCheDoLoc.SelectedIndex = cbbInOut.SelectedIndex = cbbTheoThangNam.SelectedIndex = cbbTheoThangThang.SelectedIndex = 0;
             cbbTheoThangThang.SelectedValue = DateTime.Now.Month;
   
         }

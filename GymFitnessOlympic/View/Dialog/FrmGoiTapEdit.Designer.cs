@@ -242,7 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 383);
             this.Controls.Add(this.groupControl1);
-            this.LookAndFeel.SkinName = "Office 2010 Blue";
+           // this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.Name = "FrmGoiTapEdit";
             this.Text = "Thêm gói tập";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

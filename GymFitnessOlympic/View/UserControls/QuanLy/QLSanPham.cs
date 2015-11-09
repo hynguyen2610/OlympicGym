@@ -21,6 +21,7 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
         {
             InitializeComponent();
             DataFiller.fillPhongCombo(cbbPhong);
+            dgrHoiVien.AutoGenerateColumns = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

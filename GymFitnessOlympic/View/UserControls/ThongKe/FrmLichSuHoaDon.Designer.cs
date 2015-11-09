@@ -36,7 +36,6 @@
             this.cbbTheoThangThang = new System.Windows.Forms.ComboBox();
             this.rdTheoKhoangNgay = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,7 @@
             this.cbbPhong = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
+            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
@@ -131,15 +131,6 @@
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Năm";
-            // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(577, 129);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(105, 37);
-            this.btnTim.TabIndex = 12;
-            this.btnTim.Text = "Lọc";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // dataGridView1
             // 
@@ -225,7 +216,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(747, 110);
+            this.groupBox1.Size = new System.Drawing.Size(756, 110);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chế độ lọc";
@@ -264,12 +255,23 @@
             // lblTongTien
             // 
             this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.ForeColor = System.Drawing.Color.Black;
             this.lblTongTien.Location = new System.Drawing.Point(596, 183);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(148, 37);
+            this.lblTongTien.Size = new System.Drawing.Size(172, 42);
             this.lblTongTien.TabIndex = 14;
             this.lblTongTien.Text = "1000000";
+            // 
+            // btnTim
+            // 
+            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.Treetog_I_Search;
+            this.btnTim.Location = new System.Drawing.Point(580, 119);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(188, 61);
+            this.btnTim.TabIndex = 12;
+            this.btnTim.Text = "Lọc";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // FrmLichSuHoaDon
             // 
@@ -282,6 +284,7 @@
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "FrmLichSuHoaDon";
             this.Size = new System.Drawing.Size(908, 468);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -2,6 +2,7 @@
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
+using GymFitnessOlympic.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,20 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmGiaHan : Form
+    public partial class FrmGiaHan : BaseDialog
     {
         HoiVien hoiVien;
 
         public FrmGiaHan(HoiVien hv = null, bool isGYM = true)
         {
-            InitializeComponent();
-            this.hoiVien = hv;
-            DataFiller.fillGoiCombo(cbbGiaHanGoi,isGYM ? 1 : 2, hoiVien.PhongTap.MaPhongTap);
-            cbbGiaHanGoi_SelectedIndexChanged(null, null);
+            if (hoiVien == null)
+            {
+                InitializeComponent();
+                this.hoiVien = hv;
+                DataFiller.fillGoiCombo(cbbGiaHanGoi, isGYM ? 1 : 2, hoiVien.PhongTap.MaPhongTap);
+                cbbGiaHanGoi_SelectedIndexChanged(null, null);
+            }
+           
         }
 
         private void btnGiaHan_Click(object sender, EventArgs e)

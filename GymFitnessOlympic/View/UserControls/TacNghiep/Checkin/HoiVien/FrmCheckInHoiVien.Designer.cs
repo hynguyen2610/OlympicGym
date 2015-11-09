@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.btnKiemTra = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.label12 = new System.Windows.Forms.Label();
             this.lblPT_SoNgayConLai = new System.Windows.Forms.Label();
@@ -41,8 +40,9 @@
             this.lblTen = new System.Windows.Forms.Label();
             this.lblThongBao = new System.Windows.Forms.Label();
             this.lblKetQua = new System.Windows.Forms.Label();
-            this.btnGiaHan = new DevExpress.XtraEditors.SimpleButton();
             this.lblChucNang = new System.Windows.Forms.Label();
+            this.btnGiaHan = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKiemTra = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
@@ -59,16 +59,6 @@
             this.txtMa.Size = new System.Drawing.Size(622, 40);
             this.txtMa.TabIndex = 4;
             // 
-            // btnKiemTra
-            // 
-            this.btnKiemTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKiemTra.Location = new System.Drawing.Point(679, 138);
-            this.btnKiemTra.Name = "btnKiemTra";
-            this.btnKiemTra.Size = new System.Drawing.Size(130, 37);
-            this.btnKiemTra.TabIndex = 5;
-            this.btnKiemTra.Text = "Kiểm tra thẻ";
-            this.btnKiemTra.Click += new System.EventHandler(this.btnCheckin_Click);
-            // 
             // groupControl5
             // 
             this.groupControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -79,7 +69,7 @@
             this.groupControl5.Controls.Add(this.lblPT_NgayHetHan);
             this.groupControl5.Controls.Add(this.label18);
             this.groupControl5.Controls.Add(this.lblPT_GiaHanCuoi);
-            this.groupControl5.Location = new System.Drawing.Point(513, 204);
+            this.groupControl5.Location = new System.Drawing.Point(574, 204);
             this.groupControl5.Name = "groupControl5";
             this.groupControl5.Size = new System.Drawing.Size(296, 135);
             this.groupControl5.TabIndex = 4;
@@ -155,7 +145,7 @@
             this.groupControl1.Controls.Add(this.lblKetQua);
             this.groupControl1.Location = new System.Drawing.Point(34, 204);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(473, 195);
+            this.groupControl1.Size = new System.Drawing.Size(534, 195);
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "Kết quả";
             // 
@@ -191,15 +181,6 @@
             this.lblKetQua.TabIndex = 0;
             this.lblKetQua.Text = "Thẻ còn hạn";
             // 
-            // btnGiaHan
-            // 
-            this.btnGiaHan.Location = new System.Drawing.Point(513, 345);
-            this.btnGiaHan.Name = "btnGiaHan";
-            this.btnGiaHan.Size = new System.Drawing.Size(296, 54);
-            this.btnGiaHan.TabIndex = 5;
-            this.btnGiaHan.Text = "Gia hạn";
-            this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
-            // 
             // lblChucNang
             // 
             this.lblChucNang.AutoSize = true;
@@ -210,6 +191,35 @@
             this.lblChucNang.TabIndex = 2;
             this.lblChucNang.Text = "Check in Thẻ GYM";
             this.lblChucNang.Visible = false;
+            // 
+            // btnGiaHan
+            // 
+            this.btnGiaHan.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGiaHan.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnGiaHan.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnGiaHan.Appearance.Options.UseImage = true;
+            this.btnGiaHan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGiaHan.Image = global::GymFitnessOlympic.Properties.Resources.money_icon;
+            this.btnGiaHan.Location = new System.Drawing.Point(574, 345);
+            this.btnGiaHan.Name = "btnGiaHan";
+            this.btnGiaHan.Size = new System.Drawing.Size(296, 54);
+            this.btnGiaHan.TabIndex = 5;
+            this.btnGiaHan.Text = "Gia hạn";
+            this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
+            // 
+            // btnKiemTra
+            // 
+            this.btnKiemTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKiemTra.BackgroundImage = global::GymFitnessOlympic.Properties.Resources.ds_1d_barcodes_reader1;
+            this.btnKiemTra.Image = global::GymFitnessOlympic.Properties.Resources.ds_1d_barcodes_reader3;
+            this.btnKiemTra.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopLeft;
+            this.btnKiemTra.Location = new System.Drawing.Point(740, 69);
+            this.btnKiemTra.Name = "btnKiemTra";
+            this.btnKiemTra.Size = new System.Drawing.Size(130, 106);
+            this.btnKiemTra.TabIndex = 5;
+            this.btnKiemTra.Text = "Kiểm tra thẻ";
+            this.btnKiemTra.ToolTip = "Quét thẻ";
+            this.btnKiemTra.Click += new System.EventHandler(this.btnCheckin_Click);
             // 
             // FrmCheckinHoiVien
             // 

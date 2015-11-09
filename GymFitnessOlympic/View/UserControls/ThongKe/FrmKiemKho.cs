@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models;
+using GymFitnessOlympic.Models.DataFiller;
 
 namespace GymFitnessOlympic.View.ActForm
 {
@@ -19,11 +20,21 @@ namespace GymFitnessOlympic.View.ActForm
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
+            rdTheoThang.Checked = true;
             loc();
+            for (int i = 2010; i < 2100; i++ ) {
+                cbbTheoThangNam.Items.Add(i);
+            }
+            DataFiller.fillPhongCombo(cbbPhong);
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            if (cbbPhong.SelectedItem == null) {
+                dxErrorProvider1.SetError(cbbPhong, "Chưa chọn phòng");
+                cbbPhong.Focus();
+                return;
+            }
             loc();
         }
 

@@ -277,5 +277,10 @@ namespace GymFitnessOlympic.View
             FrmCauHinh f = new FrmCauHinh();
             f.ShowDialog();
         }
+
+        private void rbBtnLichSuNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new FrmLichSuNhanVien());
+        }
     }
 }

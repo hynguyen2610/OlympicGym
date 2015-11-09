@@ -40,7 +40,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 22);
+            this.label1.Location = new System.Drawing.Point(27, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // txtTien
             // 
-            this.txtTien.Location = new System.Drawing.Point(91, 12);
+            this.txtTien.Location = new System.Drawing.Point(90, 42);
             this.txtTien.Name = "txtTien";
             this.txtTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTien.Properties.Appearance.Options.UseFont = true;
@@ -57,9 +57,10 @@
             // 
             // btnNhap
             // 
+            this.btnNhap.Image = global::GymFitnessOlympic.Properties.Resources.exit;
             this.btnNhap.Location = new System.Drawing.Point(460, 8);
             this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(150, 44);
+            this.btnNhap.Size = new System.Drawing.Size(150, 106);
             this.btnNhap.TabIndex = 2;
             this.btnNhap.Text = "Nhập";
             this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);

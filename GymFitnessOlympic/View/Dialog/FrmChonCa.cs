@@ -1,5 +1,6 @@
 ﻿using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models.Util;
+using GymFitnessOlympic.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmChonCa : Form
+    public partial class FrmChonCa : BaseDialog
     {
         public int maCa;
 

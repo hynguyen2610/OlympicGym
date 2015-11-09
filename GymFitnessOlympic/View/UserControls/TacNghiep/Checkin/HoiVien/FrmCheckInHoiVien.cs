@@ -158,10 +158,17 @@ namespace GymFitnessOlympic.View.MainForms
 
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
-            FrmGiaHan gh = new FrmGiaHan(hv, isGYM);
-            if (gh.ShowDialog() == DialogResult.OK)
+            if (hv != null)
             {
-                wipeCard();
+                FrmGiaHan gh = new FrmGiaHan(hv, isGYM);
+                if (gh.ShowDialog() == DialogResult.OK)
+                {
+                    wipeCard();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có hội viên checkin hiện tại để gia hạn");
             }
         }
 

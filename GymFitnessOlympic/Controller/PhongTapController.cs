@@ -73,7 +73,7 @@ namespace GymFitnessOlympic.Controller
                 var pt = context.PhongTap.FirstOrDefault(p => p.MaPhongTap == id);
                 if (pt != null)
                 {
-                    var sps = context.SanPham.Where(s => s.MaPhongTap == id);
+                    var sps = context.SanPham.Include(s=>s.PhongTap).Where(s => s.PhongTap.MaPhongTap == id);
                     foreach (var sp in sps) {
                         context.SanPham.Remove(sp);
                     }

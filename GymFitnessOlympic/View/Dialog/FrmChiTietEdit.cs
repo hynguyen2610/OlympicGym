@@ -1,4 +1,5 @@
 ﻿using GymFitnessOlympic.Models;
+using GymFitnessOlympic.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmChiTietEdit : Form
+    public partial class FrmChiTietEdit : BaseDialog
     {
        public ChiTietHoaDon ct;
         public FrmChiTietEdit(ChiTietHoaDon c)

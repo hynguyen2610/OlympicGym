@@ -29,7 +29,7 @@ namespace GymFitnessOlympic.View.MainForms
                 cbbTheoThangNam.Items.Add(i);
 
             }
-            cbbTheoThangThang.SelectedValue = DateTime.Now.Month;
+            cbbTheoThangThang.SelectedIndex = cbbGYM.SelectedIndex = cbbMode.SelectedIndex = 0;
          
         }
 

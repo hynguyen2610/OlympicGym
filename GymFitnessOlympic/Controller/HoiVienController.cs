@@ -109,6 +109,11 @@ namespace GymFitnessOlympic.Controller
                 var pt = context.HoiVien.FirstOrDefault(p => p.MaHoiVien == id);
                 if (pt != null)
                 {
+                    var pts = context.PhieuThu.Include(p => p.HoiVien)
+                        .Where(p => p.HoiVien.MaHoiVien == id);
+                    foreach (var a1 in pts) {
+                        context.PhieuThu.Remove(a1);
+                    }
                     context.HoiVien.Remove(pt);
                     context.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;

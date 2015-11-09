@@ -45,9 +45,9 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.cbbMode = new System.Windows.Forms.ComboBox();
-            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.cbbGYM = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -245,15 +245,6 @@
             this.cbbMode.Size = new System.Drawing.Size(121, 21);
             this.cbbMode.TabIndex = 7;
             // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(514, 141);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 8;
-            this.btnTim.Text = "Lọc";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
             // cbbGYM
             // 
             this.cbbGYM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -275,6 +266,16 @@
             this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "GYM/Sauna";
+            // 
+            // btnTim
+            // 
+            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
+            this.btnTim.Location = new System.Drawing.Point(514, 141);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(197, 51);
+            this.btnTim.TabIndex = 8;
+            this.btnTim.Text = "Lọc";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // FrmLichSuHoiVien
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NhapVao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,7 +36,6 @@
             this.BanRa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ton = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.rdTheoThang = new System.Windows.Forms.RadioButton();
@@ -49,9 +49,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbPhong = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbPhong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -112,18 +115,6 @@
             this.Ton.DataPropertyName = "Ton";
             this.Ton.HeaderText = "Tồn hiện tại";
             this.Ton.Name = "Ton";
-            // 
-            // btnTim
-            // 
-            this.btnTim.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
-            this.btnTim.Location = new System.Drawing.Point(802, 33);
-            this.btnTim.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(105, 94);
-            this.btnTim.TabIndex = 13;
-            this.btnTim.Text = "Lọc";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // groupBox1
             // 
@@ -264,6 +255,22 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Phòng";
             // 
+            // btnTim
+            // 
+            this.btnTim.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
+            this.btnTim.Location = new System.Drawing.Point(802, 33);
+            this.btnTim.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(105, 94);
+            this.btnTim.TabIndex = 13;
+            this.btnTim.Text = "Lọc";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // FrmKiemKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +286,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbPhong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +315,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.ComboBoxEdit cbbPhong;
         private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }

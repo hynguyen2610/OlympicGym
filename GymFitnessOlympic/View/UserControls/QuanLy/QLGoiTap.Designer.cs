@@ -57,13 +57,13 @@
             this.Column1,
             this.Column3,
             this.Column4});
-            this.dgrGoiTap.Location = new System.Drawing.Point(3, 168);
+            this.dgrGoiTap.Location = new System.Drawing.Point(15, 168);
             this.dgrGoiTap.MultiSelect = false;
             this.dgrGoiTap.Name = "dgrGoiTap";
             this.dgrGoiTap.ReadOnly = true;
             this.dgrGoiTap.RowHeadersVisible = false;
             this.dgrGoiTap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrGoiTap.Size = new System.Drawing.Size(815, 242);
+            this.dgrGoiTap.Size = new System.Drawing.Size(871, 242);
             this.dgrGoiTap.TabIndex = 0;
             // 
             // Column1
@@ -164,7 +164,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 375);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbbPhong1);
@@ -174,6 +173,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dgrGoiTap);
             this.Name = "QLGoiTap";
+            this.Size = new System.Drawing.Size(900, 375);
             ((System.ComponentModel.ISupportInitialize)(this.dgrGoiTap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbPhong1.Properties)).EndInit();
             this.ResumeLayout(false);

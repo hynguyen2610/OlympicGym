@@ -40,7 +40,7 @@
             // 
             this.rdCaSang.AutoSize = true;
             this.rdCaSang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdCaSang.Location = new System.Drawing.Point(35, 3);
+            this.rdCaSang.Location = new System.Drawing.Point(41, 3);
             this.rdCaSang.Name = "rdCaSang";
             this.rdCaSang.Size = new System.Drawing.Size(97, 28);
             this.rdCaSang.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.rdCaChieu.AutoSize = true;
             this.rdCaChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdCaChieu.Location = new System.Drawing.Point(35, 41);
+            this.rdCaChieu.Location = new System.Drawing.Point(41, 47);
             this.rdCaChieu.Name = "rdCaChieu";
             this.rdCaChieu.Size = new System.Drawing.Size(103, 28);
             this.rdCaChieu.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             this.rdCaToi.AutoSize = true;
             this.rdCaToi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdCaToi.Location = new System.Drawing.Point(35, 84);
+            this.rdCaToi.Location = new System.Drawing.Point(41, 97);
             this.rdCaToi.Name = "rdCaToi";
             this.rdCaToi.Size = new System.Drawing.Size(75, 28);
             this.rdCaToi.TabIndex = 0;
@@ -78,9 +78,9 @@
             // btnOK
             // 
             this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(106, 173);
+            this.btnOK.Location = new System.Drawing.Point(124, 200);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(156, 55);
+            this.btnOK.Size = new System.Drawing.Size(182, 63);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "Chọn";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -90,20 +90,20 @@
             this.panel1.Controls.Add(this.rdCaSang);
             this.panel1.Controls.Add(this.rdCaChieu);
             this.panel1.Controls.Add(this.rdCaToi);
-            this.panel1.Location = new System.Drawing.Point(106, 12);
+            this.panel1.Location = new System.Drawing.Point(124, 14);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 117);
+            this.panel1.Size = new System.Drawing.Size(233, 135);
             this.panel1.TabIndex = 2;
             // 
             // FrmChonCa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 262);
+            this.ClientSize = new System.Drawing.Size(556, 302);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOK);
             this.Name = "FrmChonCa";
-            this.Text = "FrmChonCa";
+            this.Text = "Chọn ca";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

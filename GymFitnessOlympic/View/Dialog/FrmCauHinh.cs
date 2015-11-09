@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using GymFitnessOlympic.Controller;
+using GymFitnessOlympic.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmCauHinh : Form
+    public partial class FrmCauHinh : BaseDialog
     {
          string sNgayTruocSinhNhat = "NSN";
          string sNgayHetHan = "NHH";

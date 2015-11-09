@@ -69,6 +69,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rbBtnConfig = new DevExpress.XtraBars.BarButtonItem();
+            this.rbBtnLichSuNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.rbTabManager = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -133,9 +134,10 @@
             this.rbBtnThongKeHoaDon,
             this.barButtonItem2,
             this.barButtonItem3,
-            this.rbBtnConfig});
+            this.rbBtnConfig,
+            this.rbBtnLichSuNhanVien});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 44;
+            this.ribbonControl.MaxItemId = 45;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbTabManager,
@@ -246,7 +248,7 @@
             // 
             // rbBtnQLHoiVien
             // 
-            this.rbBtnQLHoiVien.Caption = "Hội viên";
+            this.rbBtnQLHoiVien.Caption = "Quản lý hội viên";
             this.rbBtnQLHoiVien.Glyph = global::GymFitnessOlympic.Properties.Resources.member;
             this.rbBtnQLHoiVien.Id = 7;
             this.rbBtnQLHoiVien.Name = "rbBtnQLHoiVien";
@@ -282,8 +284,8 @@
             // 
             // barButtonItem7
             // 
-            this.barButtonItem7.Caption = "Hội viên";
-            this.barButtonItem7.Glyph = global::GymFitnessOlympic.Properties.Resources.statistics2;
+            this.barButtonItem7.Caption = "Lịch sử hội viên";
+            this.barButtonItem7.Glyph = global::GymFitnessOlympic.Properties.Resources.Hopstarter_Sleek_Xp_Basic_User_Group;
             this.barButtonItem7.Id = 11;
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -465,6 +467,15 @@
             this.rbBtnConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.rbBtnConfig.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.rbBtnConfig_ItemClick);
             // 
+            // rbBtnLichSuNhanVien
+            // 
+            this.rbBtnLichSuNhanVien.Caption = "Lịch sử nhân viên";
+            this.rbBtnLichSuNhanVien.Glyph = global::GymFitnessOlympic.Properties.Resources.saleman;
+            this.rbBtnLichSuNhanVien.Id = 44;
+            this.rbBtnLichSuNhanVien.Name = "rbBtnLichSuNhanVien";
+            this.rbBtnLichSuNhanVien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.rbBtnLichSuNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.rbBtnLichSuNhanVien_ItemClick);
+            // 
             // rbTabManager
             // 
             this.rbTabManager.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -479,7 +490,6 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLPhongTap);
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLNhanVien);
-            this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLHoiVien);
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLGoiTap);
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnConfig);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
@@ -498,6 +508,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.rbBtnQLPhieuThu);
             this.ribbonPageGroup4.ItemLinks.Add(this.rbBtnThongKeHoaDon);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup4.ItemLinks.Add(this.rbBtnLichSuNhanVien);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Thống kê";
             // 
@@ -530,6 +541,7 @@
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem14);
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem15);
+            this.ribbonPageGroup6.ItemLinks.Add(this.rbBtnQLHoiVien);
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem16);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Hội viên";
@@ -681,5 +693,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem rbBtnConfig;
+        private DevExpress.XtraBars.BarButtonItem rbBtnLichSuNhanVien;
     }
 }

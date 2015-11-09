@@ -42,9 +42,9 @@
             // txtGiaHanSoTien
             // 
             this.txtGiaHanSoTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaHanSoTien.Location = new System.Drawing.Point(124, 41);
+            this.txtGiaHanSoTien.Location = new System.Drawing.Point(145, 47);
             this.txtGiaHanSoTien.Name = "txtGiaHanSoTien";
-            this.txtGiaHanSoTien.Size = new System.Drawing.Size(196, 26);
+            this.txtGiaHanSoTien.Size = new System.Drawing.Size(228, 26);
             this.txtGiaHanSoTien.TabIndex = 12;
             // 
             // cbbGiaHanGoi
@@ -65,27 +65,28 @@
             "10",
             "11",
             "12"});
-            this.cbbGiaHanGoi.Location = new System.Drawing.Point(124, 6);
+            this.cbbGiaHanGoi.Location = new System.Drawing.Point(145, 7);
             this.cbbGiaHanGoi.Name = "cbbGiaHanGoi";
-            this.cbbGiaHanGoi.Size = new System.Drawing.Size(196, 28);
+            this.cbbGiaHanGoi.Size = new System.Drawing.Size(228, 28);
             this.cbbGiaHanGoi.TabIndex = 11;
             this.cbbGiaHanGoi.SelectedIndexChanged += new System.EventHandler(this.cbbGiaHanGoi_SelectedIndexChanged);
             // 
             // lblNgayHetHanDuKien
             // 
             this.lblNgayHetHanDuKien.AutoSize = true;
-            this.lblNgayHetHanDuKien.Location = new System.Drawing.Point(253, 190);
+            this.lblNgayHetHanDuKien.Location = new System.Drawing.Point(295, 219);
             this.lblNgayHetHanDuKien.Name = "lblNgayHetHanDuKien";
-            this.lblNgayHetHanDuKien.Size = new System.Drawing.Size(50, 13);
+            this.lblNgayHetHanDuKien.Size = new System.Drawing.Size(57, 15);
             this.lblNgayHetHanDuKien.TabIndex = 9;
             this.lblNgayHetHanDuKien.Text = "Không rõ";
             this.lblNgayHetHanDuKien.Visible = false;
             // 
             // btnGiaHan
             // 
-            this.btnGiaHan.Location = new System.Drawing.Point(407, 6);
+            this.btnGiaHan.Image = global::GymFitnessOlympic.Properties.Resources.money_icon;
+            this.btnGiaHan.Location = new System.Drawing.Point(475, 7);
             this.btnGiaHan.Name = "btnGiaHan";
-            this.btnGiaHan.Size = new System.Drawing.Size(163, 76);
+            this.btnGiaHan.Size = new System.Drawing.Size(190, 88);
             this.btnGiaHan.TabIndex = 8;
             this.btnGiaHan.Text = "Gia hạn";
             this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
@@ -93,9 +94,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(121, 190);
+            this.label9.Location = new System.Drawing.Point(141, 219);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 13);
+            this.label9.Size = new System.Drawing.Size(123, 15);
             this.label9.TabIndex = 10;
             this.label9.Text = "Ngày hết hạn dự kiến";
             this.label9.Visible = false;
@@ -103,44 +104,44 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.Size = new System.Drawing.Size(26, 15);
             this.label1.TabIndex = 10;
             this.label1.Text = "Gói";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Location = new System.Drawing.Point(14, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(45, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "Số tiền";
             // 
             // txtLyDo
             // 
             this.txtLyDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLyDo.Location = new System.Drawing.Point(124, 78);
+            this.txtLyDo.Location = new System.Drawing.Point(145, 90);
             this.txtLyDo.Multiline = true;
             this.txtLyDo.Name = "txtLyDo";
-            this.txtLyDo.Size = new System.Drawing.Size(196, 87);
+            this.txtLyDo.Size = new System.Drawing.Size(228, 100);
             this.txtLyDo.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 78);
+            this.label3.Location = new System.Drawing.Point(14, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(49, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Chi chú";
             // 
             // FrmGiaHan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 263);
+            this.ClientSize = new System.Drawing.Size(825, 303);
             this.Controls.Add(this.txtLyDo);
             this.Controls.Add(this.txtGiaHanSoTien);
             this.Controls.Add(this.cbbGiaHanGoi);

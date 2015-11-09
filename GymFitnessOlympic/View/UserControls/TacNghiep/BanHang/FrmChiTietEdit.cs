@@ -10,10 +10,11 @@ using DevExpress.XtraEditors;
 using NhaHang;
 using TanHongPhat;
 using GymFitnessOlympic.Models;
+using GymFitnessOlympic.View.Utils;
 
 namespace TapHoaCode.GUI.Form1.BanHang
 {
-    public partial class FrmChiTietEdit : DevExpress.XtraEditors.XtraForm
+    public partial class FrmChiTietEdit : BaseDialog
     {
         ChiTietHoaDon c;
         public FrmChiTietEdit(ChiTietHoaDon c1= null)

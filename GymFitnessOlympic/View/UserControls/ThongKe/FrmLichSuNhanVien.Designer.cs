@@ -59,6 +59,7 @@
             // 
             // btnTim
             // 
+            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
             this.btnTim.Location = new System.Drawing.Point(514, 141);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(167, 51);

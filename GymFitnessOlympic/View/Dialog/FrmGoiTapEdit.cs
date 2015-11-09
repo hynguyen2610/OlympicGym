@@ -11,10 +11,11 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
 using System.IO;
+using GymFitnessOlympic.View.Utils;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmGoiTapEdit : DevExpress.XtraEditors.XtraForm
+    public partial class FrmGoiTapEdit : BaseDialog
     {
         bool isThem = false;
         GoiTap current;

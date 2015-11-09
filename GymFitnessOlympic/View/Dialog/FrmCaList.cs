@@ -1,5 +1,6 @@
 ﻿using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models;
+using GymFitnessOlympic.View.Utils;
 using QldtSdh.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmCaList : Form
+    public partial class FrmCaList : BaseDialog
     {
         public FrmCaList()
         {

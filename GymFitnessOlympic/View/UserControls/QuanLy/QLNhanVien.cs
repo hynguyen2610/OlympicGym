@@ -46,6 +46,10 @@ namespace GymFitnessOlympic.View.UserControls
         {
             if (dgrNhanVien.SelectedRows.Count > 0) {
                 var nv = (NhanVien)dgrNhanVien.SelectedRows[0].DataBoundItem;
+                if (nv.MaNhanVien == Login1.TaiKhoanHienTai.MaNhanVien) {
+                    MessageBox.Show("Tài khoản này hiện đang đăng nhập, không thể xóa");
+                    return;
+                }
                 if (NhanVienController.Delete(nv.MaNhanVien) == CODE_RESULT_RETURN.ThanhCong)
                 {
                     MessageBox.Show("Đã xóa");

@@ -11,10 +11,11 @@ using GymFitnessOlympic.Controller;
 using System.IO;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
+using GymFitnessOlympic.View.Utils;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmNhanVienEdit : DevExpress.XtraEditors.XtraForm
+    public partial class FrmNhanVienEdit : BaseDialog
     {
         NhanVien current;
         bool isThem = false;
