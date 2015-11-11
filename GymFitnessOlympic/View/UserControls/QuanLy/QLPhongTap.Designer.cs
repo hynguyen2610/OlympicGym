@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLPhongTap));
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtTim = new DevExpress.XtraEditors.TextEdit();
             this.dgrHoiVien = new System.Windows.Forms.DataGridView();
+            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
+            this.txtTimKiem = new DevExpress.XtraEditors.TextEdit();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnSeach = new DevExpress.XtraEditors.SimpleButton();
-            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
-            this.txtTimKiem = new DevExpress.XtraEditors.TextEdit();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblKetQua = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtTim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrHoiVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).BeginInit();
@@ -74,68 +76,90 @@
             this.dgrHoiVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrHoiVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgrHoiVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrHoiVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgrHoiVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrHoiVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrHoiVien.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2,
+            this.Column3});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrHoiVien.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgrHoiVien.Location = new System.Drawing.Point(12, 130);
             this.dgrHoiVien.MultiSelect = false;
             this.dgrHoiVien.Name = "dgrHoiVien";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrHoiVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgrHoiVien.RowHeadersVisible = false;
+            this.dgrHoiVien.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrHoiVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgrHoiVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrHoiVien.Size = new System.Drawing.Size(805, 338);
             this.dgrHoiVien.TabIndex = 9;
             // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(227, 95);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 26);
+            this.btnTim.TabIndex = 15;
+            this.btnTim.Text = "Tìm kiếm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(10, 98);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(211, 20);
+            this.txtTimKiem.TabIndex = 16;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
+            // 
             // btnXoa
             // 
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa.Image = global::GymFitnessOlympic.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(521, 64);
+            this.btnXoa.Location = new System.Drawing.Point(718, 95);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(133, 45);
+            this.btnXoa.Size = new System.Drawing.Size(99, 29);
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnSua.Location = new System.Drawing.Point(327, 64);
+            this.btnSua.Location = new System.Drawing.Point(618, 95);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(133, 45);
+            this.btnSua.Size = new System.Drawing.Size(94, 29);
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Image = global::GymFitnessOlympic.Properties.Resources.add;
-            this.btnThem.Location = new System.Drawing.Point(144, 64);
+            this.btnThem.Location = new System.Drawing.Point(521, 95);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(133, 45);
+            this.btnThem.Size = new System.Drawing.Size(91, 29);
             this.btnThem.TabIndex = 12;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -152,41 +176,41 @@
             this.btnSeach.TabIndex = 6;
             this.btnSeach.Text = "Tìm kiếm";
             // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(708, 9);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 26);
-            this.btnTim.TabIndex = 15;
-            this.btnTim.Text = "Tìm kiếm";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Location = new System.Drawing.Point(476, 12);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(211, 20);
-            this.txtTimKiem.TabIndex = 16;
-            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEdit1_KeyPress);
-            // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.DataPropertyName = "TenPhongTap";
             this.Column1.HeaderText = "Tên phòng tập";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
             // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "DiaChi";
             this.Column2.HeaderText = "Địa chỉ";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 300;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "";
+            this.Column3.Name = "Column3";
+            // 
+            // lblKetQua
+            // 
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKetQua.Location = new System.Drawing.Point(5, 0);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(339, 42);
+            this.lblKetQua.TabIndex = 17;
+            this.lblKetQua.Text = "Quản lý phòng tập";
             // 
             // QLPhongTap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblKetQua);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.labelControl7);
@@ -219,6 +243,8 @@
         private DevExpress.XtraEditors.TextEdit txtTimKiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Label lblKetQua;
 
     }
 }

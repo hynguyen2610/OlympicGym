@@ -10,6 +10,7 @@ using GymFitnessOlympic.View.ActForm;
 using TanHongPhat;
 using System.Threading;
 using System.Globalization;
+using RawInput;
 namespace GymFitnessOlympic
 {
     static class Program

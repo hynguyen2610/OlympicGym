@@ -9,5 +9,18 @@ namespace GymFitnessOlympic.Models.entity
     {
         public DateTime ThoiGian { get; set; }
         public int SoTien { get; set; }
+        public NhanVien NhanVien { get; set; }
+        public bool IsGYM { get; set; }
+        
+        public KhachLe()
+        {
+            IsGYM = true;
+        }
+
+        public String LoaiVe {
+            get {
+                return IsGYM ? "GYM" : "Sauna";
+            }
+        }
     }
 }

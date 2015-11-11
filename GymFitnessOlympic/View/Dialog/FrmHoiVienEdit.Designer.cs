@@ -69,8 +69,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.groupControl1.Controls.Add(this.btnChonAnh);
             this.groupControl1.Controls.Add(this.labelControl10);
@@ -92,17 +91,17 @@
             this.groupControl1.Controls.Add(this.btnAdd);
             this.groupControl1.Controls.Add(this.btnCancel);
             this.groupControl1.Controls.Add(this.cbbPhong);
-            this.groupControl1.Location = new System.Drawing.Point(12, 12);
+            this.groupControl1.Location = new System.Drawing.Point(-6, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(431, 488);
+            this.groupControl1.Size = new System.Drawing.Size(451, 439);
             this.groupControl1.TabIndex = 7;
             this.groupControl1.Text = "Thông tin hội viên";
             // 
             // btnChonAnh
             // 
-            this.btnChonAnh.Location = new System.Drawing.Point(317, 323);
+            this.btnChonAnh.Location = new System.Drawing.Point(292, 227);
             this.btnChonAnh.Name = "btnChonAnh";
-            this.btnChonAnh.Size = new System.Drawing.Size(75, 23);
+            this.btnChonAnh.Size = new System.Drawing.Size(87, 27);
             this.btnChonAnh.TabIndex = 15;
             this.btnChonAnh.Text = "Chọn ảnh...";
             this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
@@ -110,7 +109,7 @@
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(67, 323);
+            this.labelControl10.Location = new System.Drawing.Point(41, 227);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(22, 16);
             this.labelControl10.TabIndex = 14;
@@ -118,9 +117,9 @@
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(153, 283);
+            this.pictureEdit1.Location = new System.Drawing.Point(123, 227);
             this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Size = new System.Drawing.Size(140, 136);
+            this.pictureEdit1.Size = new System.Drawing.Size(163, 157);
             this.pictureEdit1.TabIndex = 13;
             this.pictureEdit1.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);
             this.pictureEdit1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureEdit1_MouseClick);
@@ -128,7 +127,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(66, 239);
+            this.labelControl5.Location = new System.Drawing.Point(41, 202);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(57, 16);
             this.labelControl5.TabIndex = 12;
@@ -137,7 +136,7 @@
             // datNgaySinh
             // 
             this.datNgaySinh.EditValue = new System.DateTime(2015, 11, 1, 17, 59, 42, 299);
-            this.datNgaySinh.Location = new System.Drawing.Point(153, 97);
+            this.datNgaySinh.Location = new System.Drawing.Point(123, 79);
             this.datNgaySinh.Name = "datNgaySinh";
             this.datNgaySinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datNgaySinh.Properties.Appearance.Options.UseFont = true;
@@ -145,15 +144,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.datNgaySinh.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.datNgaySinh.Size = new System.Drawing.Size(239, 22);
+            this.datNgaySinh.Size = new System.Drawing.Size(279, 22);
             this.datNgaySinh.TabIndex = 10;
             // 
             // radNu
             // 
             this.radNu.AutoSize = true;
-            this.radNu.Location = new System.Drawing.Point(235, 66);
+            this.radNu.Location = new System.Drawing.Point(194, 53);
             this.radNu.Name = "radNu";
-            this.radNu.Size = new System.Drawing.Size(39, 17);
+            this.radNu.Size = new System.Drawing.Size(42, 19);
             this.radNu.TabIndex = 9;
             this.radNu.Text = "Nữ";
             this.radNu.UseVisualStyleBackColor = true;
@@ -162,9 +161,9 @@
             // 
             this.radNam.AutoSize = true;
             this.radNam.Checked = true;
-            this.radNam.Location = new System.Drawing.Point(163, 66);
+            this.radNam.Location = new System.Drawing.Point(123, 54);
             this.radNam.Name = "radNam";
-            this.radNam.Size = new System.Drawing.Size(46, 17);
+            this.radNam.Size = new System.Drawing.Size(52, 19);
             this.radNam.TabIndex = 8;
             this.radNam.TabStop = true;
             this.radNam.Text = "Nam";
@@ -173,38 +172,38 @@
             // txtMaHoiVien
             // 
             this.txtMaHoiVien.Enabled = false;
-            this.txtMaHoiVien.Location = new System.Drawing.Point(153, 197);
+            this.txtMaHoiVien.Location = new System.Drawing.Point(123, 168);
             this.txtMaHoiVien.Name = "txtMaHoiVien";
             this.txtMaHoiVien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaHoiVien.Properties.Appearance.Options.UseFont = true;
-            this.txtMaHoiVien.Size = new System.Drawing.Size(239, 24);
+            this.txtMaHoiVien.Size = new System.Drawing.Size(279, 24);
             this.txtMaHoiVien.TabIndex = 4;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(153, 163);
+            this.txtDiaChi.Location = new System.Drawing.Point(123, 137);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
-            this.txtDiaChi.Size = new System.Drawing.Size(239, 24);
+            this.txtDiaChi.Size = new System.Drawing.Size(279, 24);
             this.txtDiaChi.TabIndex = 4;
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(153, 129);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(123, 107);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoDienThoai.Properties.Appearance.Options.UseFont = true;
-            this.txtSoDienThoai.Size = new System.Drawing.Size(239, 24);
+            this.txtSoDienThoai.Size = new System.Drawing.Size(279, 24);
             this.txtSoDienThoai.TabIndex = 4;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(153, 31);
+            this.txtHoTen.Location = new System.Drawing.Point(123, 24);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.Properties.Appearance.Options.UseFont = true;
-            this.txtHoTen.Size = new System.Drawing.Size(239, 24);
+            this.txtHoTen.Size = new System.Drawing.Size(279, 24);
             this.txtHoTen.TabIndex = 4;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Họ tên không được rỗng";
@@ -214,7 +213,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(66, 202);
+            this.labelControl4.Location = new System.Drawing.Point(43, 171);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(65, 16);
             this.labelControl4.TabIndex = 3;
@@ -223,7 +222,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(37, 135);
+            this.labelControl3.Location = new System.Drawing.Point(43, 107);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(75, 16);
             this.labelControl3.TabIndex = 3;
@@ -232,7 +231,7 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(66, 69);
+            this.labelControl9.Location = new System.Drawing.Point(43, 54);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(46, 16);
             this.labelControl9.TabIndex = 3;
@@ -241,7 +240,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(73, 168);
+            this.labelControl2.Location = new System.Drawing.Point(43, 142);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(39, 16);
             this.labelControl2.TabIndex = 3;
@@ -250,7 +249,7 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(57, 102);
+            this.labelControl6.Location = new System.Drawing.Point(43, 76);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(55, 16);
             this.labelControl6.TabIndex = 3;
@@ -259,7 +258,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(75, 36);
+            this.labelControl1.Location = new System.Drawing.Point(43, 27);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(37, 16);
             this.labelControl1.TabIndex = 3;
@@ -267,33 +266,33 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.Image = global::GymFitnessOlympic.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(75, 443);
+            this.btnAdd.Location = new System.Drawing.Point(123, 394);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(119, 32);
+            this.btnAdd.Size = new System.Drawing.Size(96, 29);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Image = global::GymFitnessOlympic.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(225, 443);
+            this.btnCancel.Location = new System.Drawing.Point(237, 394);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(139, 32);
+            this.btnCancel.Size = new System.Drawing.Size(86, 29);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // cbbPhong
             // 
-            this.cbbPhong.Location = new System.Drawing.Point(153, 238);
+            this.cbbPhong.Location = new System.Drawing.Point(123, 201);
             this.cbbPhong.Name = "cbbPhong";
             this.cbbPhong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -301,7 +300,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenPhongTap", "Tên phòng tập")});
             this.cbbPhong.Properties.DisplayMember = "TenPhongTap";
             this.cbbPhong.Properties.ValueMember = "MaPhongTap";
-            this.cbbPhong.Size = new System.Drawing.Size(239, 20);
+            this.cbbPhong.Size = new System.Drawing.Size(279, 20);
             this.cbbPhong.TabIndex = 17;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Chưa chọn phòng tập";
@@ -319,9 +318,9 @@
             // 
             // FrmHoiVienEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 525);
+            this.ClientSize = new System.Drawing.Size(455, 455);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmHoiVienEdit";
             this.Text = "Thêm mới hội viên";

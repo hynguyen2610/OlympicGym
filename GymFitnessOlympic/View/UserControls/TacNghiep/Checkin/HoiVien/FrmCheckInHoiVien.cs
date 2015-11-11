@@ -132,6 +132,7 @@ namespace GymFitnessOlympic.View.MainForms
                 lblKetQua.ForeColor = Color.Red;
                 lblKetQua.Text = "Không có tài khoản này";
             }
+            txtMa.Text = "";
         }
 
         private void loadDefault()
@@ -175,6 +176,14 @@ namespace GymFitnessOlympic.View.MainForms
         private void FrmCheckinHoiVien_Load(object sender, EventArgs e)
         {
             lblChucNang.Text = isGYM ? "Checkin GYM" : "Checkin Sauna";
+        }
+
+        private void txtMa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == (char)13) {
+                btnKiemTra.PerformClick();
+            }
         }
     }
 }

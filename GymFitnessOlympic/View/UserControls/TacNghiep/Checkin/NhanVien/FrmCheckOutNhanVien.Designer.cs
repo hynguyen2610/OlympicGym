@@ -49,6 +49,7 @@
             this.txtMa.Properties.Appearance.Options.UseFont = true;
             this.txtMa.Size = new System.Drawing.Size(534, 40);
             this.txtMa.TabIndex = 4;
+            this.txtMa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMa_KeyPress);
             // 
             // lblKetQua
             // 
@@ -62,9 +63,11 @@
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(577, 212);
+            this.btnCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckout.Image = global::GymFitnessOlympic.Properties.Resources.checkout;
+            this.btnCheckout.Location = new System.Drawing.Point(601, 18);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(144, 77);
+            this.btnCheckout.Size = new System.Drawing.Size(98, 52);
             this.btnCheckout.TabIndex = 11;
             this.btnCheckout.Text = "Check Out";
             this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);

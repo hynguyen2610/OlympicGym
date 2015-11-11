@@ -35,11 +35,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::GymFitnessOlympic.Properties.Resources.logo;
+            this.pictureBox1.Image = global::GymFitnessOlympic.Properties.Resources.imgpsh_fullsize;
             this.pictureBox1.InitialImage = global::GymFitnessOlympic.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(520, 345);
+            this.pictureBox1.Location = new System.Drawing.Point(261, 174);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 149);
+            this.pictureBox1.Size = new System.Drawing.Size(539, 320);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

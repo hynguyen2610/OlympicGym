@@ -49,6 +49,7 @@
             this.txtMa.Properties.Appearance.Options.UseFont = true;
             this.txtMa.Size = new System.Drawing.Size(534, 40);
             this.txtMa.TabIndex = 4;
+            this.txtMa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMa_KeyPress);
             // 
             // lblKetQua
             // 

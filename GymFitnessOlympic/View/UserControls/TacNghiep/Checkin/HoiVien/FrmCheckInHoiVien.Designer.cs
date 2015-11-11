@@ -58,6 +58,7 @@
             this.txtMa.Properties.Appearance.Options.UseFont = true;
             this.txtMa.Size = new System.Drawing.Size(622, 40);
             this.txtMa.TabIndex = 4;
+            this.txtMa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMa_KeyPress);
             // 
             // groupControl5
             // 
@@ -199,7 +200,7 @@
             this.btnGiaHan.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
             this.btnGiaHan.Appearance.Options.UseImage = true;
             this.btnGiaHan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGiaHan.Image = global::GymFitnessOlympic.Properties.Resources.money_icon;
+            this.btnGiaHan.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
             this.btnGiaHan.Location = new System.Drawing.Point(574, 345);
             this.btnGiaHan.Name = "btnGiaHan";
             this.btnGiaHan.Size = new System.Drawing.Size(296, 54);

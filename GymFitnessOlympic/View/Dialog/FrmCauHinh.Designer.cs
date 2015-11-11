@@ -47,36 +47,38 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnGioLamViec);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnGioLamViec);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.spnBaoSinhNhat);
             this.groupBox2.Controls.Add(this.spnBaoHetHan);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 24);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(9, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(403, 179);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.Size = new System.Drawing.Size(290, 125);
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thông báo khi sắp đến ngày";
+            this.groupBox2.Text = "Cấu hình hệ thống";
             // 
             // btnGioLamViec
             // 
-            this.btnGioLamViec.Location = new System.Drawing.Point(232, 129);
+            this.btnGioLamViec.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGioLamViec.Appearance.Options.UseFont = true;
+            this.btnGioLamViec.Location = new System.Drawing.Point(188, 80);
             this.btnGioLamViec.Name = "btnGioLamViec";
-            this.btnGioLamViec.Size = new System.Drawing.Size(75, 23);
+            this.btnGioLamViec.Size = new System.Drawing.Size(55, 24);
             this.btnGioLamViec.TabIndex = 2;
-            this.btnGioLamViec.Text = "Chỉnh sửa...";
+            this.btnGioLamViec.Text = "...";
             this.btnGioLamViec.Click += new System.EventHandler(this.btnGioLamViec_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 129);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Giờ làm việc";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -84,10 +86,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 81);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 58);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 20);
+            this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 0;
             this.label8.Text = "Báo sinh nhật";
             this.label8.Click += new System.EventHandler(this.label1_Click);
@@ -95,10 +97,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 31);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(24, 29);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 20);
+            this.label7.Size = new System.Drawing.Size(126, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Báo thẻ sắp hết hạn";
             this.label7.Click += new System.EventHandler(this.label1_Click);
@@ -110,13 +112,13 @@
             0,
             0,
             0});
-            this.spnBaoSinhNhat.Location = new System.Drawing.Point(232, 78);
+            this.spnBaoSinhNhat.Location = new System.Drawing.Point(188, 52);
             this.spnBaoSinhNhat.Name = "spnBaoSinhNhat";
-            this.spnBaoSinhNhat.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spnBaoSinhNhat.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spnBaoSinhNhat.Properties.Appearance.Options.UseFont = true;
             this.spnBaoSinhNhat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.spnBaoSinhNhat.Size = new System.Drawing.Size(47, 26);
+            this.spnBaoSinhNhat.Size = new System.Drawing.Size(55, 22);
             this.spnBaoSinhNhat.TabIndex = 1;
             this.spnBaoSinhNhat.EditValueChanged += new System.EventHandler(this.spnBaoSinhNhat_EditValueChanged);
             // 
@@ -127,32 +129,36 @@
             0,
             0,
             0});
-            this.spnBaoHetHan.Location = new System.Drawing.Point(232, 28);
+            this.spnBaoHetHan.Location = new System.Drawing.Point(188, 24);
             this.spnBaoHetHan.Name = "spnBaoHetHan";
-            this.spnBaoHetHan.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spnBaoHetHan.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spnBaoHetHan.Properties.Appearance.Options.UseFont = true;
             this.spnBaoHetHan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.spnBaoHetHan.Size = new System.Drawing.Size(47, 26);
-            this.spnBaoHetHan.TabIndex = 1;
+            this.spnBaoHetHan.Size = new System.Drawing.Size(55, 22);
+            this.spnBaoHetHan.TabIndex = 0;
             this.spnBaoHetHan.EditValueChanged += new System.EventHandler(this.spnBaoHetHan_EditValueChanged);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(51, 225);
+            this.btnOK.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Appearance.Options.UseFont = true;
+            this.btnOK.Location = new System.Drawing.Point(86, 141);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(124, 45);
-            this.btnOK.TabIndex = 3;
+            this.btnOK.Size = new System.Drawing.Size(62, 33);
+            this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnHuy
             // 
+            this.btnHuy.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Appearance.Options.UseFont = true;
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHuy.Location = new System.Drawing.Point(238, 225);
+            this.btnHuy.Location = new System.Drawing.Point(154, 141);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(124, 45);
-            this.btnHuy.TabIndex = 3;
+            this.btnHuy.Size = new System.Drawing.Size(70, 33);
+            this.btnHuy.TabIndex = 2;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -163,13 +169,15 @@
             // FrmCauHinh
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnHuy;
-            this.ClientSize = new System.Drawing.Size(431, 282);
+            this.ClientSize = new System.Drawing.Size(311, 186);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCauHinh";
             this.Text = "Cấu hình";
             this.groupBox2.ResumeLayout(false);

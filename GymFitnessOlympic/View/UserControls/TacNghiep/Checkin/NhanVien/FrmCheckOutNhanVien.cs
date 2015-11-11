@@ -134,5 +134,12 @@ namespace GymFitnessOlympic.View.MainForms
         {
             wipeCard(false);
         }
+
+        private void txtMa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) {
+                btnCheckout.PerformClick();
+            }
+        }
     }
 }

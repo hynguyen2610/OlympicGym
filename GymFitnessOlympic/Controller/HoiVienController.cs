@@ -162,5 +162,21 @@ namespace GymFitnessOlympic.Controller
                 return null;
             }
         }
+
+        internal static List<HoiVien> GetDangKyNhanhTrongNgay(PhongTap p)
+        {
+            var dauNgay = DateTimeUtil.StartOfDay(DateTime.Now);
+            var cuoiNgay = DateTimeUtil.EndOfDay(DateTime.Now);
+            using (var db = DBContext.GetContext())
+            {
+                var hs =db.HoiVien.Include(h=>h.PhongTap).Where(h=>
+                    h.IsDangKyNhanh
+                    &&
+                    h.PhongTap.MaPhongTap == p.MaPhongTap
+                    &&
+                    h.NgayGioDangKy >= dauNgay && h.NgayGioDangKy <=cuoiNgay).OrderByDescending(d=>d.NgayGioDangKy).ToList();
+                return hs;
+            }
+        }
     }
 }

@@ -56,20 +56,29 @@ namespace GymFitnessOlympic.View.Dialog
                 spnGioBatDau.Focus();
                 return;
             }
-            current.GioBatDau = new TimeSpan(Convert.ToInt32(spnGioBatDau.Text), Convert.ToInt32(spnPhutBatDau.Text), 0);
-            current.GioKetThuc = new TimeSpan(Convert.ToInt32(spnGioKetThuc.Text), Convert.ToInt32(spnPhutKetThuc.Text), 0);
-            var t = CaLamViecController.Update(current);
-            switch (t) { 
-                case CODE_RESULT_RETURN.MaTrung:
-                    MessageBox.Show("Lỗi: Có sự chồng lấp thời gian giữa các ca");
-                    return;
-                case CODE_RESULT_RETURN.ThanhCong:
-                    DialogResult = DialogResult.OK;
-                    MessageBox.Show("Cập nhật thành công");
-                    return;
-                default:
-                    MessageBox.Show("Lỗi khi cập nhật");
-                    return;  
+            try
+            {
+                current.GioBatDau = new TimeSpan(Convert.ToInt32(spnGioBatDau.Text), Convert.ToInt32(spnPhutBatDau.Text), 0);
+                current.GioKetThuc = new TimeSpan(Convert.ToInt32(spnGioKetThuc.Text), Convert.ToInt32(spnPhutKetThuc.Text), 0);
+
+                var t = CaLamViecController.Update(current);
+                switch (t)
+                {
+                    case CODE_RESULT_RETURN.MaTrung:
+                        MessageBox.Show("Lỗi: Có sự chồng lấp thời gian giữa các ca");
+                        return;
+                    case CODE_RESULT_RETURN.ThanhCong:
+                        DialogResult = DialogResult.OK;
+                        MessageBox.Show("Cập nhật thành công");
+                        return;
+                    default:
+                        MessageBox.Show("Lỗi khi cập nhật");
+                        return;
+                }
+            }
+            catch (Exception ex){
+                DialogUtils.ShowError("Lỗi: "+ex.Message);
+            
             }
         }
 
@@ -89,29 +98,17 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void spnPhutBatDau_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            var t = int.Parse(e.NewValue.ToString());
-            if (t < 0)
-            {
-                return;
-            }
+            
         }
 
         private void spnGioKetThuc_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            var t = int.Parse(e.NewValue.ToString());
-            if (t < 0)
-            {
-                return;
-            }
+           
         }
 
         private void spnPhutKetThuc_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            var t = int.Parse(e.NewValue.ToString());
-            if (t < 0)
-            {
-                return;
-            }
+           
         }
     }
 }

@@ -28,5 +28,11 @@ namespace GymFitnessOlympic.Models
         {
             return TenGoiTap;
         }
+
+        public string LoaiVe {
+            get { 
+                return Type == 1? "GYM" :"Sauna";
+            }
+        }
     }
 }

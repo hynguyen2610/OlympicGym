@@ -43,26 +43,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(58, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Số lượng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 61);
+            this.label2.Location = new System.Drawing.Point(15, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.Size = new System.Drawing.Size(26, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Giá";
             // 
             // txtGia
             // 
-            this.txtGia.Location = new System.Drawing.Point(72, 61);
+            this.txtGia.Location = new System.Drawing.Point(84, 47);
             this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(200, 20);
+            this.txtGia.Size = new System.Drawing.Size(233, 21);
             this.txtGia.TabIndex = 1;
             // 
             // spnSoLuong
@@ -72,27 +72,27 @@
             0,
             0,
             0});
-            this.spnSoLuong.Location = new System.Drawing.Point(72, 13);
+            this.spnSoLuong.Location = new System.Drawing.Point(84, 15);
             this.spnSoLuong.Name = "spnSoLuong";
             this.spnSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.spnSoLuong.Size = new System.Drawing.Size(200, 20);
+            this.spnSoLuong.Size = new System.Drawing.Size(233, 20);
             this.spnSoLuong.TabIndex = 2;
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(58, 100);
+            this.btnCapNhat.Location = new System.Drawing.Point(108, 74);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(104, 41);
+            this.btnCapNhat.Size = new System.Drawing.Size(76, 29);
             this.btnCapNhat.TabIndex = 3;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(168, 100);
+            this.simpleButton2.Location = new System.Drawing.Point(190, 74);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(104, 41);
+            this.simpleButton2.Size = new System.Drawing.Size(76, 29);
             this.simpleButton2.TabIndex = 3;
             this.simpleButton2.Text = "Hủy";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -103,9 +103,9 @@
             // 
             // FrmChiTietEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 153);
+            this.ClientSize = new System.Drawing.Size(329, 111);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.spnSoLuong);

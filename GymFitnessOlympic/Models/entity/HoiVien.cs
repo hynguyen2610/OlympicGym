@@ -25,10 +25,14 @@ namespace GymFitnessOlympic.Models
         public byte[] Anh { get; set; }
         public List<PhieuThu> DanhSachPhieuThu { get; set; }
         public List<HistoryHoiVien> LichSu { get; set; }
+        public DateTime NgayGioDangKy { get; set; }
+        public bool IsDangKyNhanh { get; set; }
         public HoiVien()
         {
             MaGYM = Guid.NewGuid().ToString();
             NgayHetHanGYM = NgayHetHanSauNa = GiaHanCuoiGYM = GiaHanCuoiSauna = DateTime.Now;
+            NgayGioDangKy = DateTime.Now;
+            IsDangKyNhanh = false;
         }
 
     }

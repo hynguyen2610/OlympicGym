@@ -191,5 +191,15 @@ namespace GymFitnessOlympic.View.Dialog
             // MessageBox.Show("aaa");
         }
 
+        private void radGYM_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radSauna_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

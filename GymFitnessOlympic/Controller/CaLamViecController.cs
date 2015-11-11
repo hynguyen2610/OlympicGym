@@ -26,9 +26,10 @@ namespace GymFitnessOlympic.Controller
 
         public static CODE_RESULT_RETURN Update(CaLamViec c){
             using (var db = DBContext.GetContext()) {
-                var trung = db.CaLamViec.FirstOrDefault(ca => (ca.GioBatDau > c.GioBatDau && ca.GioBatDau < c.GioKetThuc)
-                    ||
-                    (ca.GioKetThuc > c.GioBatDau && ca.GioKetThuc < c.GioKetThuc));
+                var trung = db.CaLamViec.FirstOrDefault(ca =>(ca.MaCa != c.MaCa)
+                    && 
+                        ((ca.GioBatDau > c.GioBatDau && ca.GioBatDau < c.GioKetThuc) 
+                            || (ca.GioKetThuc > c.GioBatDau && ca.GioKetThuc < c.GioKetThuc)));
                 if (trung != null)
                     return CODE_RESULT_RETURN.MaTrung;
                 var c1 = db.CaLamViec.Find(c.MaCa);

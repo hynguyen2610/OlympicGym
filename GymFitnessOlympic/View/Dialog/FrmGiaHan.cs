@@ -32,34 +32,38 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
-         //   lblKetQuaGiaHan.Visible = true;
-            var r1 = MessageBox.Show("Xác nhận gia hạn không?", "Yêu cầu xác nhận", MessageBoxButtons.OKCancel);
-            if (r1 == DialogResult.OK)
+            try
             {
-                var g = (GoiTap)cbbGiaHanGoi.SelectedItem;
-                var soTien = int.Parse(txtGiaHanSoTien.Text);
-                PhieuThu p = new PhieuThu()
+                var r1 = MessageBox.Show("Xác nhận gia hạn không?", "Yêu cầu xác nhận", MessageBoxButtons.OKCancel);
+                if (r1 == DialogResult.OK)
                 {
-                    GoiTap = g,
-                    HoiVien = hoiVien,
-                    
-                    NgayLap = DateTime.Now,
-                    NhanVien = Login1.GetTaiKhoanHienTai(),
-                    SoTien = soTien,
-                    LyDo = txtLyDo.Text.Trim()
-                };
-                var r = PhieuThuController.Add(p);
-                if (r == CODE_RESULT_RETURN.ThanhCong)
-                {
+                    var g = (GoiTap)cbbGiaHanGoi.SelectedItem;
+                    var soTien = int.Parse(txtGiaHanSoTien.Text);
+                    PhieuThu p = new PhieuThu()
+                    {
+                        GoiTap = g,
+                        HoiVien = hoiVien,
 
-                   //
-                    //lblKetQuaGiaHan.Text = "Gia hạn thành công";
-                    MessageBox.Show("Gia hạn thành công");
-                    DialogResult = DialogResult.OK;
-                    Close();
+                        NgayLap = DateTime.Now,
+                        NhanVien = Login1.GetTaiKhoanHienTai(),
+                        SoTien = soTien,
+                        LyDo = txtLyDo.Text.Trim()
+                    };
+                    var r = PhieuThuController.Add(p);
+                    if (r == CODE_RESULT_RETURN.ThanhCong)
+                    {
+
+                        //
+                        //lblKetQuaGiaHan.Text = "Gia hạn thành công";
+                        MessageBox.Show("Gia hạn thành công");
+                        DialogResult = DialogResult.OK;
+                        Close();
+                    }
                 }
             }
-           
+            catch {
+                DialogUtils.ShowError("Có lỗi khi gia hạn");
+            }
         }
 
         private void cbbGiaHanGoi_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +83,11 @@ namespace GymFitnessOlympic.View.Dialog
                 txtGiaHanSoTien.Text = "0";
                 lblNgayHetHanDuKien.Text = "Không rõ";
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

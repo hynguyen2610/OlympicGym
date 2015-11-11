@@ -23,6 +23,8 @@ using GymFitnessOlympic.View.ActForm.ThongKe;
 using TanHongPhat;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.UserControls.QuanLy;
+using GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien;
+using GymFitnessOlympic.View.UserControls.ThongKe;
 
 namespace GymFitnessOlympic.View
 {
@@ -33,6 +35,7 @@ namespace GymFitnessOlympic.View
         {
             InitializeComponent();
             Logout();
+            rbBtnRole.Visibility = BarItemVisibility.Never;
         }
         #region Private method
         public void LoadUcWelcome()
@@ -55,6 +58,7 @@ namespace GymFitnessOlympic.View
             rbBtnLogin.Enabled = true;
             rbBtnChangePassword.Enabled = false;
             rbBtnRole.Enabled = false;
+            rbBtnLoginQuick.Enabled = true;
             rbTabManager.Visible = rbTabOperator.Visible = rbTabStatistics.Visible = false;
             pnMain.Controls.Clear();
             LoadUcWelcome();
@@ -72,6 +76,7 @@ namespace GymFitnessOlympic.View
             rbBtnChangePassword.Enabled = true;
             rbBtnRole.Enabled = rbTabManager.Visible = isAdmin;
             rbTabOperator.Visible = rbTabStatistics.Visible = true;
+            rbBtnLogout.Enabled = true;
             /*
              * Phần quyền sử dụng hệ thống
              * Khi nào triển khai thì uncomment
@@ -281,6 +286,42 @@ namespace GymFitnessOlympic.View
         private void rbBtnLichSuNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadUC(new FrmLichSuNhanVien());
+        }
+
+        private void rbBtnLogoutQuick_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            rbBtnLogout.PerformClick();
+        }
+
+        private void rbBtnLoginQuick_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            rbBtnLogin.PerformClick();
+        }
+
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormAbout f = new FormAbout();
+            f.ShowDialog();
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new FrmKhachLe());
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new FrmDangKyNhanh());
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new UcThongKeKhachLe());
+        }
+
+        private void barButtonItem21_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new UcThongKeKhachLe(Login1.TaiKhoanHienTai));
         }
     }
 }

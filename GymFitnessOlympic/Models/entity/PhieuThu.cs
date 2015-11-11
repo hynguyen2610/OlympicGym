@@ -16,5 +16,11 @@ namespace GymFitnessOlympic.Models
         public HoiVien HoiVien { get; set; }
         public GoiTap GoiTap { get; set; }
         public string LyDo { get; set; }
+
+        public string TenLoai {
+            get {
+                return GoiTap.LoaiVe;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymFitnessOlympic.Models.entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace GymFitnessOlympic.Models
         public List<PhieuThu> DanhSachPhieuThu { get; set; }
         public List<HoaDon> DanhSachHoaDon { get; set; }
         public List<HistoryNhanVien> LichSu { get; set; }
+        public List<KhachLe> KhachLe { get; set; }
         public NhanVien() {
             MaThe = Guid.NewGuid().ToString();
         }

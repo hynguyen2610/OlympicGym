@@ -131,6 +131,9 @@ namespace QldtSdh.DAL.Models
             //His nhan vien
             modelBuilder.Entity<HistoryNhanVien>().HasRequired(x => x.NhanVien).WithMany(x => x.LichSu)
           .WillCascadeOnDelete();
+            //KhachLE
+            modelBuilder.Entity<KhachLe>().HasRequired(x => x.NhanVien).WithMany(x => x.KhachLe)
+        .WillCascadeOnDelete();
 
             System.Diagnostics.Debug.WriteLine("Kết thúc tạo Model");
         }

@@ -87,11 +87,7 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
                 {
                     loadData();
                 }
-                else
-                {
-                    MessageBox.Show("Có lỗi khi sửa");
-
-                }
+               
             }
             else
             {
@@ -106,10 +102,11 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             updateTable(li);
         }
 
-        private void textEdit1_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13) {
-                btnTim_Click(null, null);
+                btnTim.PerformClick();
             }
         }
     }

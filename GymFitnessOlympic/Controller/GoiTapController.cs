@@ -89,5 +89,13 @@ namespace GymFitnessOlympic.Controller
                 return CODE_RESULT_RETURN.ThatBai;
             }
         }
+
+        internal static List<GoiTap> GetByPhong(PhongTap phongTap, int type)
+        {
+            using (var db = DBContext.GetContext()) {
+                return db.GoiTap.Include(p => p.PhongTap).
+                    Where(p => p.PhongTap.MaPhongTap == phongTap.MaPhongTap && p.Type == type).ToList();
+            }
+        }
     }
 }

@@ -34,16 +34,13 @@ namespace GymFitnessOlympic.View.Dialog
             }
             else {
                 isThem = true;
-                getMa();
+              //  getMa();
             }
             cbbPhong.Properties.NullText = "Chọn một phòng tập";
             DataFiller.fillPhongCombo(cbbPhong);
         }
 
-        void getMa() {
-           // txtMaSauna.Text = Guid.NewGuid().ToString();
-            txtMaHoiVien.Text = Guid.NewGuid().ToString();
-        }
+       
 
         private void loadField()
         {
@@ -83,6 +80,7 @@ namespace GymFitnessOlympic.View.Dialog
                     MaGYM = txtMaHoiVien.Text,
                     NgayHetHanGYM = DateTime.Now,
                     NgayHetHanSauNa = DateTime.Now,
+                    IsDangKyNhanh = false
                 };
                 if (isHaveFile) {
                     String fileName = opd.FileName;

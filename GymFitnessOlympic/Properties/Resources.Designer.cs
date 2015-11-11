@@ -263,9 +263,39 @@ namespace GymFitnessOlympic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flash {
+            get {
+                object obj = ResourceManager.GetObject("flash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap giahan {
+            get {
+                object obj = ResourceManager.GetObject("giahan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hopstarter_Sleek_Xp_Basic_User_Group {
             get {
                 object obj = ResourceManager.GetObject("Hopstarter-Sleek-Xp-Basic-User-Group", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgpsh_fullsize {
+            get {
+                object obj = ResourceManager.GetObject("imgpsh_fullsize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +406,16 @@ namespace GymFitnessOlympic.Properties {
         internal static System.Drawing.Bitmap permission {
             get {
                 object obj = ResourceManager.GetObject("permission", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printerBlue {
+            get {
+                object obj = ResourceManager.GetObject("printerBlue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +556,16 @@ namespace GymFitnessOlympic.Properties {
         internal static System.Drawing.Bitmap update {
             get {
                 object obj = ResourceManager.GetObject("update", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Preppy_Blue_icon {
+            get {
+                object obj = ResourceManager.GetObject("User-Preppy-Blue-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -35,14 +35,18 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\DevExpress\DXperience 12.2\Bin\Framework\DevExpress.Data.v12.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\DevExpress\DXperience 12.2\Bin\Framework\DevExpress.Printing.v12.2.Core.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -56,9 +60,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\DevExpress\DXperience 12.2\Bin\Framework\DevExpress.XtraBars.v12.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.2.Extensions, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework">
@@ -67,6 +75,8 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -105,6 +115,23 @@
     <Compile Include="Controller\PhongTapController.cs" />
     <Compile Include="Controller\QuyenController.cs" />
     <Compile Include="Controller\SanPhamController.cs" />
+    <Compile Include="FrmBarcode.cs" />
+    <Compile Include="Migrations\201511100548505_mg9.cs" />
+    <Compile Include="Migrations\201511100548505_mg9.Designer.cs">
+      <DependentUpon>201511100548505_mg9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511100555439_mg1.cs" />
+    <Compile Include="Migrations\201511100555439_mg1.Designer.cs">
+      <DependentUpon>201511100555439_mg1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511100637511_mg2.cs" />
+    <Compile Include="Migrations\201511100637511_mg2.Designer.cs">
+      <DependentUpon>201511100637511_mg2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511101629471_mg21.cs" />
+    <Compile Include="Migrations\201511101629471_mg21.Designer.cs">
+      <DependentUpon>201511101629471_mg21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\entity\AppUser.cs" />
     <Compile Include="Models\entity\AppUser_Extension.cs" />
@@ -160,11 +187,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConnectionUtils.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="View\Dialog\FrmPhongTapEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Dialog\FrmPhongTapEdit.Designer.cs">
       <DependentUpon>FrmPhongTapEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\FrmViewerKhachLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\FrmViewerKhachLe.Designer.cs">
+      <DependentUpon>FrmViewerKhachLe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\RpKhachLe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Report\RpKhachLe.Designer.cs">
+      <DependentUpon>RpKhachLe.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\QuanLy\QLPhongTap.cs">
       <SubType>UserControl</SubType>
@@ -172,6 +212,13 @@
     <Compile Include="View\UserControls\QuanLy\QLPhongTap.Designer.cs">
       <DependentUpon>QLPhongTap.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\FrmBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\FrmBarcode.Designer.cs">
+      <DependentUpon>FrmBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\InputDevice.cs" />
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -365,11 +412,29 @@
     <Compile Include="View\UserControls\QuanLy\RibbonForm1.Designer.cs">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\ThongKe\FrmThongKeKhachLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\FrmThongKeKhachLe.Designer.cs">
+      <DependentUpon>FrmThongKeKhachLe.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\ThongKe\TKPhieuThu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\UserControls\ThongKe\TKPhieuThu.Designer.cs">
       <DependentUpon>TKPhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\FrmDangKyNhanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\FrmDangKyNhanh.Designer.cs">
+      <DependentUpon>FrmDangKyNhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\UcThongKeKhachLe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\UcThongKeKhachLe.Designer.cs">
+      <DependentUpon>UcThongKeKhachLe.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\Welcome.cs">
       <SubType>UserControl</SubType>
@@ -391,6 +456,18 @@
     </Compile>
     <Compile Include="View\Utils\DialogUtils.cs" />
     <Compile Include="View\Utils\WinFormsUtils.cs" />
+    <EmbeddedResource Include="Migrations\201511100548505_mg9.resx">
+      <DependentUpon>201511100548505_mg9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511100555439_mg1.resx">
+      <DependentUpon>201511100555439_mg1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511100637511_mg2.resx">
+      <DependentUpon>201511100637511_mg2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511101629471_mg21.resx">
+      <DependentUpon>201511101629471_mg21.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -400,8 +477,17 @@
     <EmbeddedResource Include="View\Dialog\FrmPhongTapEdit.resx">
       <DependentUpon>FrmPhongTapEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\FrmViewerKhachLe.resx">
+      <DependentUpon>FrmViewerKhachLe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\RpKhachLe.resx">
+      <DependentUpon>RpKhachLe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\QuanLy\QLPhongTap.resx">
       <DependentUpon>QLPhongTap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\FrmBarcode.resx">
+      <DependentUpon>FrmBarcode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.resx">
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
@@ -499,8 +585,17 @@
     <EmbeddedResource Include="View\UserControls\QuanLy\RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\ThongKe\FrmThongKeKhachLe.resx">
+      <DependentUpon>FrmThongKeKhachLe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\ThongKe\TKPhieuThu.resx">
       <DependentUpon>TKPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\ThongKe\FrmDangKyNhanh.resx">
+      <DependentUpon>FrmDangKyNhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\ThongKe\UcThongKeKhachLe.resx">
+      <DependentUpon>UcThongKeKhachLe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
@@ -541,6 +636,11 @@
     <None Include="Resources\search1.png" />
     <None Include="Resources\Hopstarter-Sleek-Xp-Basic-User-Group.ico" />
     <None Include="Resources\saleman.ico" />
+    <None Include="Resources\imgpsh_fullsize.jpg" />
+    <None Include="Resources\giahan.png" />
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\User-Preppy-Blue-icon.png" />
+    <None Include="Resources\printerBlue.png" />
     <Content Include="res\DB 7-11.sql" />
     <None Include="Resources\add.png" />
     <Content Include="Resources\background.png" />
