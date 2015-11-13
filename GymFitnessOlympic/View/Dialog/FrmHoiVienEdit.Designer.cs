@@ -29,14 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.datNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.btnChonAnh = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.datNgaySinh = new DevExpress.XtraEditors.DateEdit();
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
             this.txtMaHoiVien = new DevExpress.XtraEditors.TextEdit();
@@ -53,29 +51,27 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.cbbPhong = new DevExpress.XtraEditors.LookUpEdit();
             this.opd = new System.Windows.Forms.OpenFileDialog();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgaySinh.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHoiVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbPhong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.groupControl1.Controls.Add(this.datNgaySinh);
             this.groupControl1.Controls.Add(this.btnChonAnh);
             this.groupControl1.Controls.Add(this.labelControl10);
             this.groupControl1.Controls.Add(this.pictureEdit1);
             this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Controls.Add(this.datNgaySinh);
             this.groupControl1.Controls.Add(this.radNu);
             this.groupControl1.Controls.Add(this.radNam);
             this.groupControl1.Controls.Add(this.txtMaHoiVien);
@@ -91,18 +87,27 @@
             this.groupControl1.Controls.Add(this.btnAdd);
             this.groupControl1.Controls.Add(this.btnCancel);
             this.groupControl1.Controls.Add(this.cbbPhong);
-            this.groupControl1.Location = new System.Drawing.Point(-6, 12);
+            this.groupControl1.Location = new System.Drawing.Point(6, 5);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(451, 439);
             this.groupControl1.TabIndex = 7;
             this.groupControl1.Text = "Thông tin hội viên";
+            // 
+            // datNgaySinh
+            // 
+            this.datNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.datNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datNgaySinh.Location = new System.Drawing.Point(123, 80);
+            this.datNgaySinh.Name = "datNgaySinh";
+            this.datNgaySinh.Size = new System.Drawing.Size(279, 21);
+            this.datNgaySinh.TabIndex = 15;
             // 
             // btnChonAnh
             // 
             this.btnChonAnh.Location = new System.Drawing.Point(292, 227);
             this.btnChonAnh.Name = "btnChonAnh";
             this.btnChonAnh.Size = new System.Drawing.Size(87, 27);
-            this.btnChonAnh.TabIndex = 15;
+            this.btnChonAnh.TabIndex = 9;
             this.btnChonAnh.Text = "Chọn ảnh...";
             this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
@@ -120,7 +125,7 @@
             this.pictureEdit1.Location = new System.Drawing.Point(123, 227);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Size = new System.Drawing.Size(163, 157);
-            this.pictureEdit1.TabIndex = 13;
+            this.pictureEdit1.TabIndex = 8;
             this.pictureEdit1.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);
             this.pictureEdit1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureEdit1_MouseClick);
             // 
@@ -133,27 +138,13 @@
             this.labelControl5.TabIndex = 12;
             this.labelControl5.Text = "Phòng tập";
             // 
-            // datNgaySinh
-            // 
-            this.datNgaySinh.EditValue = new System.DateTime(2015, 11, 1, 17, 59, 42, 299);
-            this.datNgaySinh.Location = new System.Drawing.Point(123, 79);
-            this.datNgaySinh.Name = "datNgaySinh";
-            this.datNgaySinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datNgaySinh.Properties.Appearance.Options.UseFont = true;
-            this.datNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datNgaySinh.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.datNgaySinh.Size = new System.Drawing.Size(279, 22);
-            this.datNgaySinh.TabIndex = 10;
-            // 
             // radNu
             // 
             this.radNu.AutoSize = true;
             this.radNu.Location = new System.Drawing.Point(194, 53);
             this.radNu.Name = "radNu";
             this.radNu.Size = new System.Drawing.Size(42, 19);
-            this.radNu.TabIndex = 9;
+            this.radNu.TabIndex = 2;
             this.radNu.Text = "Nữ";
             this.radNu.UseVisualStyleBackColor = true;
             // 
@@ -164,20 +155,19 @@
             this.radNam.Location = new System.Drawing.Point(123, 54);
             this.radNam.Name = "radNam";
             this.radNam.Size = new System.Drawing.Size(52, 19);
-            this.radNam.TabIndex = 8;
+            this.radNam.TabIndex = 1;
             this.radNam.TabStop = true;
             this.radNam.Text = "Nam";
             this.radNam.UseVisualStyleBackColor = true;
             // 
             // txtMaHoiVien
             // 
-            this.txtMaHoiVien.Enabled = false;
             this.txtMaHoiVien.Location = new System.Drawing.Point(123, 168);
             this.txtMaHoiVien.Name = "txtMaHoiVien";
             this.txtMaHoiVien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaHoiVien.Properties.Appearance.Options.UseFont = true;
             this.txtMaHoiVien.Size = new System.Drawing.Size(279, 24);
-            this.txtMaHoiVien.TabIndex = 4;
+            this.txtMaHoiVien.TabIndex = 6;
             // 
             // txtDiaChi
             // 
@@ -186,7 +176,7 @@
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
             this.txtDiaChi.Size = new System.Drawing.Size(279, 24);
-            this.txtDiaChi.TabIndex = 4;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtSoDienThoai
             // 
@@ -204,10 +194,7 @@
             this.txtHoTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.Properties.Appearance.Options.UseFont = true;
             this.txtHoTen.Size = new System.Drawing.Size(279, 24);
-            this.txtHoTen.TabIndex = 4;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Họ tên không được rỗng";
-            this.dxValidationProvider1.SetValidationRule(this.txtHoTen, conditionValidationRule1);
+            this.txtHoTen.TabIndex = 0;
             this.txtHoTen.EditValueChanged += new System.EventHandler(this.txtHoTen_EditValueChanged);
             // 
             // labelControl4
@@ -222,7 +209,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(43, 107);
+            this.labelControl3.Location = new System.Drawing.Point(43, 111);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(75, 16);
             this.labelControl3.TabIndex = 3;
@@ -240,7 +227,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(43, 142);
+            this.labelControl2.Location = new System.Drawing.Point(43, 140);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(39, 16);
             this.labelControl2.TabIndex = 3;
@@ -249,7 +236,7 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(43, 76);
+            this.labelControl6.Location = new System.Drawing.Point(43, 81);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(55, 16);
             this.labelControl6.TabIndex = 3;
@@ -273,7 +260,7 @@
             this.btnAdd.Location = new System.Drawing.Point(123, 394);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 29);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -286,7 +273,7 @@
             this.btnCancel.Location = new System.Drawing.Point(237, 394);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 29);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -301,26 +288,22 @@
             this.cbbPhong.Properties.DisplayMember = "TenPhongTap";
             this.cbbPhong.Properties.ValueMember = "MaPhongTap";
             this.cbbPhong.Size = new System.Drawing.Size(279, 20);
-            this.cbbPhong.TabIndex = 17;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Chưa chọn phòng tập";
-            this.dxValidationProvider1.SetValidationRule(this.cbbPhong, conditionValidationRule2);
+            this.cbbPhong.TabIndex = 7;
             // 
             // opd
             // 
             this.opd.FileName = "openFileDialog1";
             this.opd.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // dxValidationProvider1
+            // errorProvider1
             // 
-            this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
-            this.dxValidationProvider1.ValidationFailed += new DevExpress.XtraEditors.DXErrorProvider.ValidationFailedEventHandler(this.dxValidationProvider1_ValidationFailed);
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmHoiVienEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 455);
+            this.ClientSize = new System.Drawing.Size(459, 455);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmHoiVienEdit";
             this.Text = "Thêm mới hội viên";
@@ -328,14 +311,12 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgaySinh.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHoiVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbPhong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,7 +328,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.DateEdit datNgaySinh;
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
         private DevExpress.XtraEditors.TextEdit txtMaHoiVien;
@@ -364,7 +344,8 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.LookUpEdit cbbPhong;
         private System.Windows.Forms.OpenFileDialog opd;
-        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DateTimePicker datNgaySinh;
 
     }
 }

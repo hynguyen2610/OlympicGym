@@ -35,6 +35,10 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CEMS.Controls, Version=2.2010.8.23, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\CEMS.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -132,6 +136,14 @@
     <Compile Include="Migrations\201511101629471_mg21.Designer.cs">
       <DependentUpon>201511101629471_mg21.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511120416458_mg3.cs" />
+    <Compile Include="Migrations\201511120416458_mg3.Designer.cs">
+      <DependentUpon>201511120416458_mg3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511120434357_mg4.cs" />
+    <Compile Include="Migrations\201511120434357_mg4.Designer.cs">
+      <DependentUpon>201511120434357_mg4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\entity\AppUser.cs" />
     <Compile Include="Models\entity\AppUser_Extension.cs" />
@@ -205,6 +217,12 @@
     </Compile>
     <Compile Include="View\Report\RpKhachLe.Designer.cs">
       <DependentUpon>RpKhachLe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\QuanLy\QLGiamGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\QuanLy\QLGiamGia.Designer.cs">
+      <DependentUpon>QLGiamGia.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\QuanLy\QLPhongTap.cs">
       <SubType>UserControl</SubType>
@@ -455,6 +473,7 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Utils\DialogUtils.cs" />
+    <Compile Include="View\Utils\SortableBindingList.cs" />
     <Compile Include="View\Utils\WinFormsUtils.cs" />
     <EmbeddedResource Include="Migrations\201511100548505_mg9.resx">
       <DependentUpon>201511100548505_mg9.cs</DependentUpon>
@@ -467,6 +486,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511101629471_mg21.resx">
       <DependentUpon>201511101629471_mg21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511120416458_mg3.resx">
+      <DependentUpon>201511120416458_mg3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511120434357_mg4.resx">
+      <DependentUpon>201511120434357_mg4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -482,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Report\RpKhachLe.resx">
       <DependentUpon>RpKhachLe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\QuanLy\QLGiamGia.resx">
+      <DependentUpon>QLGiamGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\QuanLy\QLPhongTap.resx">
       <DependentUpon>QLPhongTap.cs</DependentUpon>
@@ -623,6 +651,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <None Include="Resources\1447078652_Android-Barcode-Reader.png" />
+    <Content Include="Lib\CEMS.Controls.dll" />
     <Content Include="Resources\about.png" />
     <None Include="Resources\Settings-icon.png" />
     <None Include="Resources\money-icon.png" />
@@ -641,6 +670,7 @@
     <None Include="Resources\flash.png" />
     <None Include="Resources\User-Preppy-Blue-icon.png" />
     <None Include="Resources\printerBlue.png" />
+    <None Include="Resources\printer.png" />
     <Content Include="res\DB 7-11.sql" />
     <None Include="Resources\add.png" />
     <Content Include="Resources\background.png" />

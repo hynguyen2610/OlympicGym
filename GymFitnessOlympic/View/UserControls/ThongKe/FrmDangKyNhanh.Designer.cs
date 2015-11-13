@@ -37,11 +37,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMaThe = new DevExpress.XtraEditors.TextEdit();
-            this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.dgrDangKy = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cbbGoiGym = new System.Windows.Forms.ComboBox();
             this.cbbGoiSauna = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,15 +47,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblSoTienThanhToan = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblThanhCong = new System.Windows.Forms.Label();
+            this.btnInGym = new DevExpress.XtraEditors.SimpleButton();
+            this.btnInSauna = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblThanhCong = new System.Windows.Forms.Label();
-            this.btnInSauna = new DevExpress.XtraEditors.SimpleButton();
-            this.btnInGym = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
@@ -109,16 +110,6 @@
             this.txtMaThe.TabIndex = 0;
             this.txtMaThe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaThe_KeyPress);
             // 
-            // btnDangKy
-            // 
-            this.btnDangKy.Image = global::GymFitnessOlympic.Properties.Resources.flash;
-            this.btnDangKy.Location = new System.Drawing.Point(372, 149);
-            this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(95, 41);
-            this.btnDangKy.TabIndex = 4;
-            this.btnDangKy.Text = "Đăng ký";
-            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
-            // 
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
@@ -139,6 +130,7 @@
             this.Column3,
             this.Column4,
             this.Column5,
+            this.Column7,
             this.Column6});
             this.dgrDangKy.Location = new System.Drawing.Point(17, 240);
             this.dgrDangKy.Name = "dgrDangKy";
@@ -150,22 +142,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 192);
+            this.label3.Location = new System.Drawing.Point(14, 221);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Danh sách đăng  ký nhanh trong ngày";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.simpleButton1.Location = new System.Drawing.Point(662, 203);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(112, 31);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Chỉnh sửa";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // cbbGoiGym
             // 
@@ -228,6 +209,60 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // lblThanhCong
+            // 
+            this.lblThanhCong.AutoSize = true;
+            this.lblThanhCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThanhCong.Location = new System.Drawing.Point(473, 160);
+            this.lblThanhCong.Name = "lblThanhCong";
+            this.lblThanhCong.Size = new System.Drawing.Size(169, 20);
+            this.lblThanhCong.TabIndex = 5;
+            this.lblThanhCong.Text = "Đăng ký thành công";
+            this.lblThanhCong.Visible = false;
+            // 
+            // btnInGym
+            // 
+            this.btnInGym.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInGym.Image = global::GymFitnessOlympic.Properties.Resources.printerBlue;
+            this.btnInGym.Location = new System.Drawing.Point(426, 203);
+            this.btnInGym.Name = "btnInGym";
+            this.btnInGym.Size = new System.Drawing.Size(112, 31);
+            this.btnInGym.TabIndex = 6;
+            this.btnInGym.Text = "In vé GYM";
+            this.btnInGym.Click += new System.EventHandler(this.btnInGym_Click);
+            // 
+            // btnInSauna
+            // 
+            this.btnInSauna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInSauna.Image = global::GymFitnessOlympic.Properties.Resources.printer;
+            this.btnInSauna.Location = new System.Drawing.Point(544, 203);
+            this.btnInSauna.Name = "btnInSauna";
+            this.btnInSauna.Size = new System.Drawing.Size(112, 31);
+            this.btnInSauna.TabIndex = 7;
+            this.btnInSauna.Text = "In vé Sauna";
+            this.btnInSauna.Click += new System.EventHandler(this.btnInSauna_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
+            this.simpleButton1.Location = new System.Drawing.Point(662, 203);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(112, 31);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Chỉnh sửa";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // btnDangKy
+            // 
+            this.btnDangKy.Image = global::GymFitnessOlympic.Properties.Resources.flash;
+            this.btnDangKy.Location = new System.Drawing.Point(372, 149);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(95, 41);
+            this.btnDangKy.TabIndex = 4;
+            this.btnDangKy.Text = "Đăng ký";
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MaGYM";
@@ -272,45 +307,19 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "DaCapNhatString";
+            this.Column7.HeaderText = "Đã cập nhật hồ sơ";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.HeaderText = "";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            // 
-            // lblThanhCong
-            // 
-            this.lblThanhCong.AutoSize = true;
-            this.lblThanhCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThanhCong.Location = new System.Drawing.Point(473, 160);
-            this.lblThanhCong.Name = "lblThanhCong";
-            this.lblThanhCong.Size = new System.Drawing.Size(169, 20);
-            this.lblThanhCong.TabIndex = 5;
-            this.lblThanhCong.Text = "Đăng ký thành công";
-            this.lblThanhCong.Visible = false;
-            // 
-            // btnInSauna
-            // 
-            this.btnInSauna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInSauna.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnInSauna.Location = new System.Drawing.Point(544, 203);
-            this.btnInSauna.Name = "btnInSauna";
-            this.btnInSauna.Size = new System.Drawing.Size(112, 31);
-            this.btnInSauna.TabIndex = 7;
-            this.btnInSauna.Text = "In vé Sauna";
-            this.btnInSauna.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // btnInGym
-            // 
-            this.btnInGym.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInGym.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnInGym.Location = new System.Drawing.Point(426, 203);
-            this.btnInGym.Name = "btnInGym";
-            this.btnInGym.Size = new System.Drawing.Size(112, 31);
-            this.btnInGym.TabIndex = 6;
-            this.btnInGym.Text = "In vé GYM";
-            this.btnInGym.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // FrmDangKyNhanh
             // 
@@ -366,14 +375,15 @@
         private System.Windows.Forms.Label lblSoTienThanhToan;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblThanhCong;
+        private DevExpress.XtraEditors.SimpleButton btnInGym;
+        private DevExpress.XtraEditors.SimpleButton btnInSauna;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Label lblThanhCong;
-        private DevExpress.XtraEditors.SimpleButton btnInGym;
-        private DevExpress.XtraEditors.SimpleButton btnInSauna;
     }
 }

@@ -36,13 +36,13 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static HoiVien CheckIn(string manv, bool isGYM)
+        internal static HoiVien GetByMaHoiVien(string mahoivien)
         {
             using (var context = DBContext.GetContext())
             {
                 var nvs = context.HoiVien.Include(h => h.PhongTap);
                 //yif(isGYM)
-                return nvs.FirstOrDefault(h => h.MaGYM == manv);
+                return nvs.FirstOrDefault(h => h.MaThe == mahoivien);
                 // return nvs.FirstOrDefault(h => h.MaSauna == manv);
                 //}
                 // return nvs.FirstOrDefault(n => n.MaVachSauna == manv);
@@ -53,7 +53,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var db = DBContext.GetContext())
             {
-                var hvc = db.HoiVien.FirstOrDefault(h => h.MaGYM == hv.MaGYM);
+                var hvc = db.HoiVien.FirstOrDefault(h => h.MaThe == hv.MaThe);
                 if (hvc != null)
                 {
                     hvc.NgayHetHanGYM = hv.NgayHetHanGYM;
@@ -82,7 +82,7 @@ namespace GymFitnessOlympic.Controller
             using (var context = DBContext.GetContext())
             {
                 var ds = (from e in context.HoiVien
-                          where e.MaGYM == hv.MaGYM
+                          where e.MaThe == hv.MaThe
                           select e).SingleOrDefault();
                 if (ds != null)
                     return CODE_RESULT_RETURN.MaTrung;
@@ -128,7 +128,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var pt = context.HoiVien.FirstOrDefault(p => p.MaGYM == hoiVien.MaGYM);
+                var pt = context.HoiVien.FirstOrDefault(p => p.MaThe == hoiVien.MaThe);
                 if (pt != null)
                 {
                     pt.NgayHetHanGYM = hoiVien.NgayHetHanGYM;
@@ -170,8 +170,8 @@ namespace GymFitnessOlympic.Controller
             using (var db = DBContext.GetContext())
             {
                 var hs =db.HoiVien.Include(h=>h.PhongTap).Where(h=>
-                    h.IsDangKyNhanh
-                    &&
+                    //h.IsDangKyNhanh
+                    //&&
                     h.PhongTap.MaPhongTap == p.MaPhongTap
                     &&
                     h.NgayGioDangKy >= dauNgay && h.NgayGioDangKy <=cuoiNgay).OrderByDescending(d=>d.NgayGioDangKy).ToList();

@@ -13,16 +13,62 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.Dialog
 {
-    public partial class FrmViewerKhachLe : Form
+    public partial class FrmInPhieu : Form
     {
-        public FrmViewerKhachLe(KhachLe kl)
+        private Models.HoiVien hv;
+        private bool p;
+        XtraReport rp;
+        private Models.HistoryHoiVien hs;
+
+        public FrmInPhieu() {
+            InitializeComponent();
+        }
+
+        public FrmInPhieu(KhachLe kl):base()
         {
             InitializeComponent();
-            RpKhachLe rp = new RpKhachLe();
+            rp = new RpKhachLe();
             printControl1.PrintingSystem = rp.PrintingSystem;
             rp.Parameters["LoaiVe"].Value = kl.LoaiVe;
             rp.Parameters["ToDay"].Value =DateTimeUtil.dateToString( DateTime.Now);
-            rp.CreateDocument();
+            rp.Parameters["TenHoiVien"].Value = "Khách lẻ";
+            rp.Parameters["MaGYM"].Value = "Không có";
+           // rp.CreateDocument();
+            inPhieu();
+        }
+
+        void inPhieu() {
+            rp.Print();
+            //Close();
+        }
+
+        public FrmInPhieu(Models.HoiVien hv, bool IsGYM) : base()
+        {
+            InitializeComponent();
+            this.hv = hv;
+            this.p = IsGYM;
+            rp = new RpKhachLe();
+            printControl1.PrintingSystem = rp.PrintingSystem;
+            rp.Parameters["LoaiVe"].Value = IsGYM ? "GYM" : "Sauna";
+            rp.Parameters["ToDay"].Value = DateTimeUtil.dateToString(DateTime.Now);
+            rp.Parameters["TenHoiVien"].Value = hv.TenHoiVien;
+            rp.Parameters["MaGYM"].Value = hv.MaThe;
+            //rp.CreateDocument();
+            inPhieu();
+        }
+
+        public FrmInPhieu(Models.HistoryHoiVien hs)
+        {
+            InitializeComponent();
+            var hv = hs.HoiVien;
+            rp = new RpKhachLe();
+            printControl1.PrintingSystem = rp.PrintingSystem;
+            //rp.Parameters["LoaiVe"].Value = !hs.IsSauna ? "GYM" : "Sauna";
+            rp.Parameters["ToDay"].Value = DateTimeUtil.dateToString(DateTime.Now);
+            rp.Parameters["TenHoiVien"].Value = hv.TenHoiVien;
+            rp.Parameters["MaGYM"].Value = hv.MaThe;
+            //rp.CreateDocument();
+            inPhieu();
         }
 
       

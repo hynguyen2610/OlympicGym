@@ -30,6 +30,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             InitializeComponent();
             loadCombo();
             loadData();
+            dataGridView1.AutoGenerateColumns = false;
         }
 
         void loadCombo()
@@ -138,7 +139,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             btnNhap.PerformClick();
             if (isValid)
             {
-                FrmViewerKhachLe f = new FrmViewerKhachLe(kl);
+                FrmInPhieu f = new FrmInPhieu(kl);
                 f.ShowDialog();
             }
         }

@@ -43,7 +43,7 @@ namespace GymFitnessOlympic.View.Dialog
                     {
                         GoiTap = g,
                         HoiVien = hoiVien,
-
+                        
                         NgayLap = DateTime.Now,
                         NhanVien = Login1.GetTaiKhoanHienTai(),
                         SoTien = soTien,

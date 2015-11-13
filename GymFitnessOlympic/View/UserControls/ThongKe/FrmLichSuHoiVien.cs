@@ -75,10 +75,10 @@ namespace GymFitnessOlympic.View.MainForms
                 switch (cbbMode.SelectedIndex)
                 {
                     case 0:
-                        li = danhSachLichSu.Where(h => h.HoiVien.MaGYM.ToUpper().Contains(st) || h.HoiVien.TenHoiVien.ToUpper().Contains(st)).ToList();
+                        li = danhSachLichSu.Where(h => h.HoiVien.MaThe.ToUpper().Contains(st) || h.HoiVien.TenHoiVien.ToUpper().Contains(st)).ToList();
                         break;
                     case 1:
-                        li = danhSachLichSu.Where(h => h.HoiVien.MaGYM.ToUpper().Contains(st));
+                        li = danhSachLichSu.Where(h => h.HoiVien.MaThe.ToUpper().Contains(st));
                         break;
                     case 2:
                         li = danhSachLichSu.Where(h => h.HoiVien.TenHoiVien.ToUpper().Contains(st));
@@ -112,7 +112,7 @@ namespace GymFitnessOlympic.View.MainForms
             var hvh = (HistoryHoiVien)dataGridView1.Rows[e.RowIndex].DataBoundItem;
             if (e.ColumnIndex == 0)
             {
-                e.Value = hvh.HoiVien.MaGYM;
+                e.Value = hvh.HoiVien.MaThe;
             }
             if (e.ColumnIndex == 1)
             {

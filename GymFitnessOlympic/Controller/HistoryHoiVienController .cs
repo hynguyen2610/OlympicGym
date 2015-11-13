@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using GymFitnessOlympic.View.Dialog;
+using DevExpress.Charts.Native;
+using GymFitnessOlympic.Models.Util;
 
 namespace GymFitnessOlympic.Controller
 {
@@ -14,7 +17,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nvs = context.HistoryHoiVien.Include(d=>d.HoiVien.PhongTap).Where(d=> d.IsSauna == isSauna );
+                var nvs = context.HistoryHoiVien.Include(d=>d.HoiVien.PhongTap);
                 if (phongID != -1) {
                     nvs = nvs.Where(d=>d.HoiVien.PhongTap.MaPhongTap == phongID);
                 }
@@ -26,7 +29,7 @@ namespace GymFitnessOlympic.Controller
 
         public DateTime GetExpireDay(string code, bool isSauna) {
             using (var db = DBContext.GetContext()) {
-                var h =  db.HoiVien.FirstOrDefault(p => p.MaGYM == code);
+                var h =  db.HoiVien.FirstOrDefault(p => p.MaThe == code);
                 if (!isSauna){
                     return h.NgayHetHanGYM;
                 }
@@ -45,7 +48,7 @@ namespace GymFitnessOlympic.Controller
         }
 
 
-        internal static CODE_RESULT_RETURN Add(HistoryHoiVien sp)
+        internal static CODE_RESULT_RETURN Add(HistoryHoiVien sp )
         {
             using (var context = DBContext.GetContext())
             {
@@ -56,6 +59,8 @@ namespace GymFitnessOlympic.Controller
                     {
                         var hv = context.HoiVien.Find(sp.HoiVien.MaHoiVien);
                         sp.HoiVien = hv;
+                        sp.IsDaInGYM = false;
+                        sp.IsDaInSauna = false;
                         context.HistoryHoiVien.Add(sp);
                         context.SaveChanges();
                         return CODE_RESULT_RETURN.ThanhCong;
@@ -85,6 +90,58 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-   
+        public static CODE_RESULT_RETURN InPhieuCoCapNhat(HistoryHoiVien hs, bool isGYM) {
+            try
+            {
+                FrmInPhieu f = new FrmInPhieu(hs);
+                using (var db = DBContext.GetContext()) {
+                    var oldHS = db.HistoryHoiVien.Find(hs.ThoiGian);
+                    if (isGYM)
+                    {
+                        hs.IsDaInGYM = true;
+                    }
+                    else {
+                        hs.IsDaInSauna = true;
+                    }
+                    db.SaveChanges();
+                    return CODE_RESULT_RETURN.ThanhCong;
+                }
+            }
+            catch (Exception ex) {
+                return CODE_RESULT_RETURN.ThatBai;
+            }
+        }
+
+
+
+        internal static HistoryHoiVien IsCheckedToDay(string ma)
+        {
+            using (var context = DBContext.GetContext())
+            {
+                var start = DateTimeUtil.StartOfDay(DateTime.Now);
+                var end = DateTimeUtil.EndOfDay(DateTime.Now);
+                var pt = context.HistoryHoiVien.Include(h=>h.HoiVien).FirstOrDefault(p => p.ThoiGian >=  start &&
+                    p.ThoiGian <= end 
+                    && p.HoiVien.MaThe == ma);
+                if (pt != null)
+                {
+                    return pt;
+                }
+                return null;
+            }
+        }
+
+        internal static List<HistoryHoiVien> GetToDay()
+        {
+            using (var db = DBContext.GetContext()) { 
+                var start = DateTimeUtil.StartOfDay(DateTime.Now);
+                var end = DateTimeUtil.EndOfDay(DateTime.Now);
+                return db.HistoryHoiVien.Include(h => h.HoiVien).Where(h => h.ThoiGian >= start
+                    && h.ThoiGian <= end).ToList();
+            }
+        }
+
+
+
     }
 }

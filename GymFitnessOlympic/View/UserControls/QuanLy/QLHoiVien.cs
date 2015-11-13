@@ -163,7 +163,7 @@ namespace GymFitnessOlympic.View.UserControls
         List<HoiVien> Search(string s)
         {
             var li = all.Where(h => h.TenHoiVien.ToUpper().Contains(s.ToUpper())
-                || h.MaGYM.ToUpper().Contains(s.ToUpper())).ToList();
+                || h.MaThe.ToUpper().Contains(s.ToUpper())).ToList();
             return li;
         }
 

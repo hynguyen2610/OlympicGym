@@ -27,7 +27,9 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
+
             lblThanhCong.Visible = false;
+            #region validate
             dxErrorProvider1.ClearErrors();
 
             if (txtMaThe.Text == "")
@@ -62,21 +64,22 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                 txtHoTen.Focus();
                 return;
             }
+            #endregion validate
             var hv = new HoiVien()
             {
                 TenHoiVien = txtHoTen.Text.Trim(),
-                MaGYM = txtMaThe.Text.Trim(),
+                MaThe = txtMaThe.Text.Trim(),
                 PhongTap = Login1.GetPhongHienTai(),
-                NgayGioDangKy = DateTime.Now,
-                NgaySinh = DateTime.Now,
+                NgayGioDangKy =DateTime.Now,
+                NgaySinh = new DateTime(1900, 1, 1),
                 IsDangKyNhanh = true,
 
             };
             var r = HoiVienController.Add(hv);
             if (r != CODE_RESULT_RETURN.ThanhCong)
             {
-                txtMaThe.Focus();
-                lblThanhCong.Text = "";
+                DialogUtils.ShowError("Có lỗi khi tạo hội viên");
+                return;
             }
             if (g1.MaGoiTap != -1)
             {
@@ -167,7 +170,8 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
         {
             if (dgrDangKy.SelectedRows.Count > 0)
             {
-                FrmHoiVienEdit f = new FrmHoiVienEdit();
+                var hv = (HoiVien)dgrDangKy.SelectedRows[0].DataBoundItem;
+                FrmHoiVienEdit f = new FrmHoiVienEdit(hv);
                 if (f.ShowDialog() == DialogResult.OK)
                 {
                     loadData();
@@ -213,6 +217,25 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
         private void cbbGoiSauna_SelectedIndexChanged(object sender, EventArgs e)
         {
             tinhTien();
+        }
+
+        private void btnInGym_Click(object sender, EventArgs e)
+        {
+            inPhieu(true);
+        }
+
+        void inPhieu(bool isGYM) {
+            if (dgrDangKy.SelectedRows.Count > 0)
+            {
+                var hv = (HoiVien)dgrDangKy.SelectedRows[0].DataBoundItem;
+                FrmInPhieu f = new FrmInPhieu(hv, isGYM);
+                f.ShowDialog();
+            }
+        }
+
+        private void btnInSauna_Click(object sender, EventArgs e)
+        {
+            inPhieu(false);
         }
     }
 }

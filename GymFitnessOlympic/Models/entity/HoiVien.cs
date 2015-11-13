@@ -9,7 +9,7 @@ namespace GymFitnessOlympic.Models
     public partial class HoiVien
     {
         public int MaHoiVien { get; set; }
-        public string MaGYM { get; set; }
+        public string MaThe { get; set; }
         public string TenHoiVien { get; set; }
         //public string MaSauna { get; set; }
         public bool GioiTinh { get; set; }
@@ -29,11 +29,16 @@ namespace GymFitnessOlympic.Models
         public bool IsDangKyNhanh { get; set; }
         public HoiVien()
         {
-            MaGYM = Guid.NewGuid().ToString();
+            MaThe = Guid.NewGuid().ToString();
             NgayHetHanGYM = NgayHetHanSauNa = GiaHanCuoiGYM = GiaHanCuoiSauna = DateTime.Now;
             NgayGioDangKy = DateTime.Now;
             IsDangKyNhanh = false;
         }
 
+        public String DaCapNhatString {
+            get {
+                return IsDangKyNhanh ? "Chưa cập nhật" : "Đã cập nhật";
+            }
+        }
     }
 }

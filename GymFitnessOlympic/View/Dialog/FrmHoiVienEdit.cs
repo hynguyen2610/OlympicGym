@@ -31,27 +31,30 @@ namespace GymFitnessOlympic.View.Dialog
                 loadField();
                 isThem = false;
                 cbbPhong.Enabled = false;
+                btnAdd.Text = "Cập nhật";
             }
-            else {
+            else
+            {
                 isThem = true;
-              //  getMa();
+                //  getMa();
             }
             cbbPhong.Properties.NullText = "Chọn một phòng tập";
             DataFiller.fillPhongCombo(cbbPhong);
         }
 
-       
+
 
         private void loadField()
         {
 
             txtDiaChi.Text = current.DiaChi;
             txtHoTen.Text = current.TenHoiVien;
-            txtMaHoiVien.Text = current.MaGYM;
+            txtMaHoiVien.Text = current.MaThe;
             //txtMaSauna.Text = current.MaSauna;
             txtSoDienThoai.Text = current.SoDienThoai;
-            datNgaySinh.DateTime = current.NgaySinh;
-            if (current.Anh != null) {
+            datNgaySinh.Value = current.NgaySinh;
+            if (current.Anh != null)
+            {
                 pictureEdit1.Image = StreamUtilities.byteArrayToImage(current.Anh);
             }
             cbbPhong.EditValue = current.PhongTap.MaPhongTap;
@@ -59,9 +62,10 @@ namespace GymFitnessOlympic.View.Dialog
             Text = "Chỉnh sửa hội viên";
             if (current.GioiTinh)
             {
-                radNam.Checked =true;
+                radNam.Checked = true;
             }
-            else {
+            else
+            {
                 radNu.Checked = true;
             }
         }
@@ -69,77 +73,106 @@ namespace GymFitnessOlympic.View.Dialog
 
         HoiVien prepareHoiVien()
         {
-          
-                HoiVien hv = new HoiVien()
-                {
-                    TenHoiVien = txtHoTen.Text.Trim(),
-                    GioiTinh = radNam.Checked,
-                    NgaySinh = datNgaySinh.DateTime,
-                    SoDienThoai = txtSoDienThoai.Text.Trim(),
-                    DiaChi = txtDiaChi.Text,
-                    MaGYM = txtMaHoiVien.Text,
-                    NgayHetHanGYM = DateTime.Now,
-                    NgayHetHanSauNa = DateTime.Now,
-                    IsDangKyNhanh = false
-                };
-                if (isHaveFile) {
-                    String fileName = opd.FileName;
-                    Bitmap bmp = new Bitmap(fileName);
-                    FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-                    byte[] bimage = new byte[fs.Length];
-                    fs.Read(bimage, 0, Convert.ToInt32(fs.Length));
-                    fs.Close();
 
-                    byte[] Photo = bimage;
-                    hv.Anh = Photo;
-                }
-                var phong = (PhongTap)cbbPhong.GetSelectedDataRow();
-                hv.PhongTap = phong;
-                return hv;
-            
-            
+            HoiVien hv = new HoiVien()
+            {
+                TenHoiVien = txtHoTen.Text.Trim(),
+                GioiTinh = radNam.Checked,
+                NgaySinh = datNgaySinh.Value,
+                SoDienThoai = txtSoDienThoai.Text.Trim(),
+                DiaChi = txtDiaChi.Text,
+                MaThe = txtMaHoiVien.Text,
+                NgayHetHanGYM = DateTime.Now,
+                NgayHetHanSauNa = DateTime.Now,
+                IsDangKyNhanh = false
+            };
+            if (isHaveFile)
+            {
+                String fileName = opd.FileName;
+                Bitmap bmp = new Bitmap(fileName);
+                FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                byte[] bimage = new byte[fs.Length];
+                fs.Read(bimage, 0, Convert.ToInt32(fs.Length));
+                fs.Close();
+
+                byte[] Photo = bimage;
+                hv.Anh = Photo;
+            }
+            var phong = (PhongTap)cbbPhong.GetSelectedDataRow();
+            hv.PhongTap = phong;
+            return hv;
+
+
         }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           //txtSoDienThoai.rul
-            if (dxValidationProvider1.Validate())
+            errorProvider1.Clear();
+            if (txtHoTen.Text == "")
             {
-                current = prepareHoiVien();
-                if (isThem)
+                errorProvider1.SetError(txtHoTen, "Họ tên không được rỗng");
+                txtHoTen.Focus();
+                return;
+            }
+
+            if (datNgaySinh.Value.Year == 1900)
+            {
+                errorProvider1.SetError(datNgaySinh, "Chưa chọn ngày sinh");
+                datNgaySinh.Focus();
+                return;
+            }
+            int so;
+            if (txtSoDienThoai.Text == "" || !int.TryParse(txtSoDienThoai.Text, out so))
+            {
+                errorProvider1.SetError(txtSoDienThoai, "Số điện thoại không hợp lệ");
+                txtSoDienThoai.Focus();
+                return;
+            }
+            if (txtMaHoiVien.Text == "")
+            {
+                errorProvider1.SetError(txtHoTen, "Mã hội viên không được trống");
+                txtMaHoiVien.Focus();
+                return;
+            }
+
+
+            current = prepareHoiVien();
+            if (isThem)
+            {
+                if (HoiVienController.Add(current) == CODE_RESULT_RETURN.ThanhCong)
                 {
-                    if (HoiVienController.Add(current) == CODE_RESULT_RETURN.ThanhCong)
-                    {
-                        DialogResult = DialogResult.OK;
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Có lỗi khi thêm");
-                    }
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
                 else
                 {
-                    if (HoiVienController.Update(current) == CODE_RESULT_RETURN.ThanhCong)
-                    {
-                        DialogResult = DialogResult.OK;
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Có lỗi khi cập nhật");
-                    }
+                    MessageBox.Show("Có lỗi khi thêm");
                 }
             }
+            else
+            {
+                if (HoiVienController.Update(current) == CODE_RESULT_RETURN.ThanhCong)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi cập nhật");
+                }
+            }
+
         }
+
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-     
+
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
@@ -176,7 +209,7 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void dxValidationProvider1_ValidationFailed(object sender, DevExpress.XtraEditors.DXErrorProvider.ValidationFailedEventArgs e)
         {
-           // MessageBox.Show("aaa");
+            // MessageBox.Show("aaa");
         }
 
     }
