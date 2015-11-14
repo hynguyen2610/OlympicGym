@@ -57,13 +57,13 @@ namespace GymFitnessOlympic.View.Dialog
             inPhieu();
         }
 
-        public FrmInPhieu(Models.HistoryHoiVien hs)
+        public FrmInPhieu(Models.HistoryHoiVien hs, bool isGYM)
         {
             InitializeComponent();
             var hv = hs.HoiVien;
             rp = new RpKhachLe();
             printControl1.PrintingSystem = rp.PrintingSystem;
-            //rp.Parameters["LoaiVe"].Value = !hs.IsSauna ? "GYM" : "Sauna";
+            rp.Parameters["LoaiVe"].Value = isGYM ? "GYM" : "Sauna";
             rp.Parameters["ToDay"].Value = DateTimeUtil.dateToString(DateTime.Now);
             rp.Parameters["TenHoiVien"].Value = hv.TenHoiVien;
             rp.Parameters["MaGYM"].Value = hv.MaThe;

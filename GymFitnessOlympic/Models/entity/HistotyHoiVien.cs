@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymFitnessOlympic.Models.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,41 @@ namespace GymFitnessOlympic.Models
         public String TenHoiVien {
             get {
                 return HoiVien.TenHoiVien;
+            }
+        }
+
+        public string DaInGYM {
+            get {
+                return IsDaInGYM ? "Đã in" : "Chưa in"; 
+            }
+        }
+
+        public string DaInSauna
+        {
+            get
+            {
+                return IsDaInSauna ? "Đã in" : "Chưa in";
+            }
+        }
+
+        public string NgayHetHanGYM
+        {
+            get {
+                return DateTimeUtil.dateToString(HoiVien.NgayHetHanGYM);
+            }
+        }
+
+        public string NgayHetHanSauna
+        {
+            get
+            {
+                return DateTimeUtil.dateToString(HoiVien.NgayHetHanSauNa);
+            }
+        }
+
+        public string MaThe{
+            get {
+                return HoiVien.MaThe;
             }
         }
 

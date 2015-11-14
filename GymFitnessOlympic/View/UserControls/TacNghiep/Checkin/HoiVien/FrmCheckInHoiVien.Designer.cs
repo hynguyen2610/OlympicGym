@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.lblTen = new System.Windows.Forms.Label();
@@ -45,6 +45,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.lblKetQuaGYM = new System.Windows.Forms.Label();
             this.btnGiaHanGYM = new DevExpress.XtraEditors.SimpleButton();
+            this.btnInGYMHienTai = new DevExpress.XtraEditors.SimpleButton();
             this.lblChucNang = new System.Windows.Forms.Label();
             this.btnCheckin = new System.Windows.Forms.Button();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -57,16 +58,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblSauGiaHanCuoi = new System.Windows.Forms.Label();
             this.btnGiaHanSauna = new DevExpress.XtraEditors.SimpleButton();
-            this.dataGridView1 = new CEMS.Controls.Commons.DataGridView();
+            this.btnInSaunaHienTai = new DevExpress.XtraEditors.SimpleButton();
+            this.dataGridView1 = new CEMS.Controls.Commons.DataGridViewEx();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInGYM = new DevExpress.XtraEditors.SimpleButton();
             this.btnInSauna = new DevExpress.XtraEditors.SimpleButton();
             this.lblThongBao = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
@@ -100,7 +105,7 @@
             this.groupControl5.Controls.Add(this.lblPT_GiaHanCuoi);
             this.groupControl5.Location = new System.Drawing.Point(5, 66);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(351, 145);
+            this.groupControl5.Size = new System.Drawing.Size(413, 145);
             this.groupControl5.TabIndex = 4;
             this.groupControl5.Text = "Thông tin chi tiết";
             // 
@@ -189,9 +194,10 @@
             this.groupControl1.Controls.Add(this.lblKetQuaGYM);
             this.groupControl1.Controls.Add(this.groupControl5);
             this.groupControl1.Controls.Add(this.btnGiaHanGYM);
+            this.groupControl1.Controls.Add(this.btnInGYMHienTai);
             this.groupControl1.Location = new System.Drawing.Point(13, 107);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(361, 273);
+            this.groupControl1.Size = new System.Drawing.Size(436, 273);
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "GYM";
             // 
@@ -201,9 +207,9 @@
             this.lblKetQuaGYM.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKetQuaGYM.Location = new System.Drawing.Point(2, 21);
             this.lblKetQuaGYM.Name = "lblKetQuaGYM";
-            this.lblKetQuaGYM.Size = new System.Drawing.Size(229, 42);
+            this.lblKetQuaGYM.Size = new System.Drawing.Size(267, 42);
             this.lblKetQuaGYM.TabIndex = 0;
-            this.lblKetQuaGYM.Text = "Thẻ còn hạn";
+            this.lblKetQuaGYM.Text = "Chưa Check in";
             // 
             // btnGiaHanGYM
             // 
@@ -213,12 +219,27 @@
             this.btnGiaHanGYM.Appearance.Options.UseImage = true;
             this.btnGiaHanGYM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnGiaHanGYM.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
-            this.btnGiaHanGYM.Location = new System.Drawing.Point(255, 217);
+            this.btnGiaHanGYM.Location = new System.Drawing.Point(317, 217);
             this.btnGiaHanGYM.Name = "btnGiaHanGYM";
             this.btnGiaHanGYM.Size = new System.Drawing.Size(101, 44);
             this.btnGiaHanGYM.TabIndex = 5;
             this.btnGiaHanGYM.Text = "Gia hạn";
             this.btnGiaHanGYM.Click += new System.EventHandler(this.btnGiaHanGYM_Click);
+            // 
+            // btnInGYMHienTai
+            // 
+            this.btnInGYMHienTai.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnInGYMHienTai.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnInGYMHienTai.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnInGYMHienTai.Appearance.Options.UseImage = true;
+            this.btnInGYMHienTai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnInGYMHienTai.Image = global::GymFitnessOlympic.Properties.Resources.printerBlue;
+            this.btnInGYMHienTai.Location = new System.Drawing.Point(216, 217);
+            this.btnInGYMHienTai.Name = "btnInGYMHienTai";
+            this.btnInGYMHienTai.Size = new System.Drawing.Size(95, 44);
+            this.btnInGYMHienTai.TabIndex = 5;
+            this.btnInGYMHienTai.Text = "In phiếu";
+            this.btnInGYMHienTai.Click += new System.EventHandler(this.btnInGYMHienTai_Click);
             // 
             // lblChucNang
             // 
@@ -246,9 +267,10 @@
             this.groupControl2.Controls.Add(this.lblKetQuaSauna);
             this.groupControl2.Controls.Add(this.groupControl3);
             this.groupControl2.Controls.Add(this.btnGiaHanSauna);
-            this.groupControl2.Location = new System.Drawing.Point(379, 107);
+            this.groupControl2.Controls.Add(this.btnInSaunaHienTai);
+            this.groupControl2.Location = new System.Drawing.Point(467, 107);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(361, 273);
+            this.groupControl2.Size = new System.Drawing.Size(480, 273);
             this.groupControl2.TabIndex = 8;
             this.groupControl2.Text = "Sauna";
             // 
@@ -258,9 +280,9 @@
             this.lblKetQuaSauna.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKetQuaSauna.Location = new System.Drawing.Point(2, 21);
             this.lblKetQuaSauna.Name = "lblKetQuaSauna";
-            this.lblKetQuaSauna.Size = new System.Drawing.Size(229, 42);
+            this.lblKetQuaSauna.Size = new System.Drawing.Size(267, 42);
             this.lblKetQuaSauna.TabIndex = 0;
-            this.lblKetQuaSauna.Text = "Thẻ còn hạn";
+            this.lblKetQuaSauna.Text = "Chưa Check in";
             // 
             // groupControl3
             // 
@@ -272,7 +294,7 @@
             this.groupControl3.Controls.Add(this.lblSauGiaHanCuoi);
             this.groupControl3.Location = new System.Drawing.Point(5, 66);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(351, 145);
+            this.groupControl3.Size = new System.Drawing.Size(462, 145);
             this.groupControl3.TabIndex = 4;
             this.groupControl3.Text = "Thông tin chi tiết";
             // 
@@ -353,12 +375,27 @@
             this.btnGiaHanSauna.Appearance.Options.UseImage = true;
             this.btnGiaHanSauna.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnGiaHanSauna.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
-            this.btnGiaHanSauna.Location = new System.Drawing.Point(255, 217);
+            this.btnGiaHanSauna.Location = new System.Drawing.Point(366, 217);
             this.btnGiaHanSauna.Name = "btnGiaHanSauna";
             this.btnGiaHanSauna.Size = new System.Drawing.Size(101, 44);
             this.btnGiaHanSauna.TabIndex = 5;
             this.btnGiaHanSauna.Text = "Gia hạn";
             this.btnGiaHanSauna.Click += new System.EventHandler(this.btnGiaHanSauna_Click);
+            // 
+            // btnInSaunaHienTai
+            // 
+            this.btnInSaunaHienTai.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnInSaunaHienTai.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnInSaunaHienTai.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnInSaunaHienTai.Appearance.Options.UseImage = true;
+            this.btnInSaunaHienTai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnInSaunaHienTai.Image = global::GymFitnessOlympic.Properties.Resources.printer;
+            this.btnInSaunaHienTai.Location = new System.Drawing.Point(266, 217);
+            this.btnInSaunaHienTai.Name = "btnInSaunaHienTai";
+            this.btnInSaunaHienTai.Size = new System.Drawing.Size(94, 44);
+            this.btnInSaunaHienTai.TabIndex = 5;
+            this.btnInSaunaHienTai.Text = "In phiếu";
+            this.btnInSaunaHienTai.Click += new System.EventHandler(this.btnInSaunaHienTai_Click);
             // 
             // dataGridView1
             // 
@@ -366,57 +403,64 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(253)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(253)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column7,
             this.Column3,
+            this.Column8,
             this.Column4,
             this.Column6,
             this.Column5});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(221)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(221)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.ExportFilePath = null;
             this.dataGridView1.GridColor = System.Drawing.Color.LightSteelBlue;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 438);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 465);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(731, 133);
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.Size = new System.Drawing.Size(934, 106);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.UseAsListBox = false;
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MaHoiVien";
-            this.Column1.HeaderText = "Mã hội viên";
+            this.Column1.DataPropertyName = "MaThe";
+            this.Column1.HeaderText = "Mã thẻ";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 150;
@@ -429,18 +473,34 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 150;
             // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "NgayHetHanGYM";
+            this.Column7.HeaderText = "Ngày hết hạn GYM";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 150;
+            // 
             // Column3
             // 
             this.Column3.DataPropertyName = "DaInGYM";
-            this.Column3.HeaderText = "Đã in phiếu GYM";
+            this.Column3.HeaderText = "GYM";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 120;
             // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "NgayHetHanSauna";
+            this.Column8.HeaderText = "Ngày hết hạn Sauna";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 150;
+            // 
             // Column4
             // 
             this.Column4.DataPropertyName = "DaInSauna";
-            this.Column4.HeaderText = "Đã in phiếu Sauna";
+            this.Column4.HeaderText = "Sauna";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 120;
@@ -448,11 +508,12 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "ThoiGian";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column6.HeaderText = "Thời gian đăng nhập";
+            dataGridViewCellStyle13.Format = "hh:mm";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column6.HeaderText = "Thời gian checkin";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
             // 
             // Column5
             // 
@@ -463,30 +524,32 @@
             // 
             // btnInGYM
             // 
+            this.btnInGYM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInGYM.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnInGYM.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnInGYM.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
             this.btnInGYM.Appearance.Options.UseImage = true;
             this.btnInGYM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnInGYM.Image = global::GymFitnessOlympic.Properties.Resources.printerBlue;
-            this.btnInGYM.Location = new System.Drawing.Point(480, 388);
+            this.btnInGYM.Location = new System.Drawing.Point(717, 415);
             this.btnInGYM.Name = "btnInGYM";
-            this.btnInGYM.Size = new System.Drawing.Size(129, 44);
+            this.btnInGYM.Size = new System.Drawing.Size(110, 44);
             this.btnInGYM.TabIndex = 5;
             this.btnInGYM.Text = "In phiếu GYM";
             this.btnInGYM.Click += new System.EventHandler(this.btnInGYM_Click);
             // 
             // btnInSauna
             // 
+            this.btnInSauna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInSauna.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnInSauna.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnInSauna.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
             this.btnInSauna.Appearance.Options.UseImage = true;
             this.btnInSauna.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnInSauna.Image = global::GymFitnessOlympic.Properties.Resources.printer;
-            this.btnInSauna.Location = new System.Drawing.Point(615, 388);
+            this.btnInSauna.Location = new System.Drawing.Point(833, 415);
             this.btnInSauna.Name = "btnInSauna";
-            this.btnInSauna.Size = new System.Drawing.Size(129, 44);
+            this.btnInSauna.Size = new System.Drawing.Size(114, 44);
             this.btnInSauna.TabIndex = 5;
             this.btnInSauna.Text = "In phiếu Sauna";
             this.btnInSauna.Click += new System.EventHandler(this.btnInSauna_Click);
@@ -495,16 +558,27 @@
             // 
             this.lblThongBao.AutoSize = true;
             this.lblThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongBao.Location = new System.Drawing.Point(15, 398);
+            this.lblThongBao.Location = new System.Drawing.Point(653, 61);
             this.lblThongBao.Name = "lblThongBao";
             this.lblThongBao.Size = new System.Drawing.Size(281, 37);
             this.lblThongBao.TabIndex = 12;
             this.lblThongBao.Text = "Thẻ không hợp lệ";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 435);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(421, 25);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Danh sách hội viên checkin trong ngày";
+            // 
             // FrmCheckinHoiVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblThongBao);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnCheckin);
@@ -515,7 +589,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.txtMa);
             this.Name = "FrmCheckinHoiVien";
-            this.Size = new System.Drawing.Size(758, 583);
+            this.Size = new System.Drawing.Size(962, 583);
             this.Load += new System.EventHandler(this.FrmCheckinHoiVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
@@ -547,7 +621,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblPT_GiaHanCuoi;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.Label lblKetQuaGYM;
         private DevExpress.XtraEditors.SimpleButton btnGiaHanGYM;
         private System.Windows.Forms.Label lblChucNang;
         private System.Windows.Forms.Label lblTen;
@@ -564,14 +637,20 @@
         private DevExpress.XtraEditors.SimpleButton btnGiaHanSauna;
         private DevExpress.XtraEditors.SimpleButton btnInGYM;
         private DevExpress.XtraEditors.SimpleButton btnInSauna;
+        private CEMS.Controls.Commons.DataGridViewEx dataGridView1;
+        private System.Windows.Forms.Label lblThongBao;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton btnInGYMHienTai;
+        private DevExpress.XtraEditors.SimpleButton btnInSaunaHienTai;
+        private System.Windows.Forms.Label lblKetQuaGYM;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private CEMS.Controls.Commons.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lblThongBao;
 
     }
 }

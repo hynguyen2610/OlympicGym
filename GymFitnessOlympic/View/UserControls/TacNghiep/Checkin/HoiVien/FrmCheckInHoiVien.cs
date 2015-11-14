@@ -42,7 +42,7 @@ namespace GymFitnessOlympic.View.MainForms
 
             loadDefault();
             var st = txtMa.Text;
-            var his = HistoryHoiVienController.IsCheckedToDay(txtMa.Text.Trim());
+            var his = HistoryHoiVienController.GetHisToDay(txtMa.Text.Trim());
             if (his != null)
             {
                 DialogUtils.ShowMessage("Thẻ này đã được checkin trong ngày hôm nay!");
@@ -74,6 +74,7 @@ namespace GymFitnessOlympic.View.MainForms
                 {
                     if (HistoryHoiVienController.Add(hs) == CODE_RESULT_RETURN.ThanhCong)
                     {
+
                     }
                     loadData();
                 }
@@ -101,50 +102,38 @@ namespace GymFitnessOlympic.View.MainForms
             lblThongBao.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtMa.Text = "63fe8695-4f55-4483-a803-960788f860fa";
-            //MessageBox.Show(lblChucNang.Text);
-        }
-
+        
         void loadData()
         {
+            loadGrid();
             if (hv != null)
             {
-                //Nap lai bang
-                loadGrid();
+              
                 //Cập nhật text gymn
                 lblPT_GiaHanCuoi.Text = DateTimeUtil.dateToString(hv.GiaHanCuoiGYM);
                 lblPT_NgayHetHan.Text = DateTimeUtil.dateToString(hv.NgayHetHanGYM);
                 var delta = Convert.ToInt32(Math.Ceiling((hv.NgayHetHanGYM - DateTime.Now).TotalDays));
-
-                lblPT_SoNgayConLai.Text = (DateTime.Now.CompareTo(hv.NgayHetHanGYM) < 0) ?
-                    delta.ToString() : "Đã hết hạn";
-
-                if (validCardGYM == KetQuaCheckin.TheHopLe)
+                lblPT_SoNgayConLai.Text = delta.ToString();
+                if (delta >= 0)
                 {
                     lblKetQuaGYM.ForeColor = Color.Green;
                     lblKetQuaGYM.Text = "Thẻ hợp lệ";
-
                 }
                 else
                 {
                     lblKetQuaGYM.ForeColor = Color.Red;
                     lblKetQuaGYM.Text = "Đã hết hạn";
                 }
+
                 //Cập nhật sauna
                 lblSauGiaHanCuoi.Text = DateTimeUtil.dateToString(hv.GiaHanCuoiSauna);
-                lblPT_NgayHetHan.Text = DateTimeUtil.dateToString(hv.NgayHetHanGYM);
+                lblSauNgayHetHan.Text = DateTimeUtil.dateToString(hv.NgayHetHanSauNa);
                 var deltaSauNa = Convert.ToInt32(Math.Ceiling((hv.NgayHetHanSauNa - DateTime.Now).TotalDays));
-
-                lblSauSoNgayConLai.Text = (DateTime.Now.CompareTo(hv.NgayHetHanSauNa) < 0) ?
-                    delta.ToString() : "Đã hết hạn";
-
-                if (validCardSauna == KetQuaCheckin.TheHopLe)
+                lblSauSoNgayConLai.Text = deltaSauNa.ToString();
+                if (deltaSauNa >= 0)
                 {
                     lblKetQuaSauna.ForeColor = Color.Green;
                     lblKetQuaSauna.Text = "Thẻ hợp lệ";
-
                 }
                 else
                 {
@@ -170,6 +159,7 @@ namespace GymFitnessOlympic.View.MainForms
                 if (gh.ShowDialog() == DialogResult.OK)
                 {
                     wipeCard();
+                    loadData();
                 }
             }
             else
@@ -196,35 +186,61 @@ namespace GymFitnessOlympic.View.MainForms
             yeuCauInPhieu(true);
         }
 
-        void yeuCauInPhieu(bool isGYM)
+        void yeuCauInPhieu(bool isGYM, HoiVien hoiVien = null)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            var tenPhieu = isGYM ? "GYM" : "Sauna";
+            HistoryHoiVien hs = null;
+            //Truong hop in tren Grid
+            if (hoiVien == null)
             {
-                var tenPhieu = isGYM ? "GYM" : "Sauna";
-                var hs = (HistoryHoiVien)dataGridView1.SelectedRows[0].DataBoundItem;
-                var hv = hs.HoiVien;
-                if (hv.NgayHetHanGYM < DateTime.Now)
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    DialogUtils.ShowMessage("Thẻ này đã hết hạn " + tenPhieu);
+                    hs = (HistoryHoiVien)dataGridView1.SelectedRows[0].DataBoundItem;
+                    hoiVien = hs.HoiVien;
+                }
+                else
+                {
+                    DialogUtils.ShowMessage("Vui lòng chọn bản ghi muốn in phiếu");
                     return;
                 }
-
-                if ((isGYM && hs.IsDaInGYM) || (!isGYM && hs.IsDaInSauna))
-                {
-                    DialogUtils.ShowMessage("Đã in phiếu " + tenPhieu + " cho thẻ này trong ngày hôm nay");
-                    return ;
-                }
-                var r  =HistoryHoiVienController.InPhieuCoCapNhat(hs, isGYM);
-                if (r == CODE_RESULT_RETURN.ThatBai) {
-                    DialogUtils.ShowMessage("Có lỗi khi ghi dữ liệu");
-                }
             }
+            //Truong hop in hoi vien hien tai
             else
             {
-                DialogUtils.ShowMessage("Vui lòng chọn bản ghi muốn in phiếu");
-                return ;
+                hs = HistoryHoiVienController.GetHisToDay(hoiVien.MaThe);
+                if (hs == null)
+                {
+                    DialogUtils.ShowError("Vui lòng check in trước khi in");
+                    return;
+                }
             }
-
+            if ((hoiVien.NgayHetHanGYM < DateTime.Now && isGYM) || (hoiVien.NgayHetHanSauNa < DateTime.Now && !isGYM))
+            {
+                DialogUtils.ShowMessage("Thẻ này đã hết hạn " + tenPhieu);
+                return;
+            }
+            try
+            {
+                if ((isGYM && hs.IsDaInGYM)
+                    || (!isGYM && hs.IsDaInSauna))
+                {
+                    DialogUtils.ShowMessage("Đã in phiếu " + tenPhieu + " cho thẻ này trong ngày hôm nay");
+                    return;
+                }
+                var r = HistoryHoiVienController.InPhieuCoCapNhat(hs, isGYM);
+                if (r == CODE_RESULT_RETURN.ThatBai)
+                {
+                    DialogUtils.ShowMessage("Có lỗi khi ghi dữ liệu");
+                }
+                else
+                {
+                    loadGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogUtils.ShowError("Lỗi. Chi tiết: " + ex.Message);
+            }
         }
 
         private void btnCheckin_Click_1(object sender, EventArgs e)
@@ -251,6 +267,26 @@ namespace GymFitnessOlympic.View.MainForms
         private void btnInSauna_Click(object sender, EventArgs e)
         {
             yeuCauInPhieu(false);
+        }
+
+        private void btnInGYMHienTai_Click(object sender, EventArgs e)
+        {
+            if (hv != null)
+            {
+                yeuCauInPhieu(true, hv);
+            }
+            else
+                DialogUtils.ShowError("Vui lòng check in trước");
+        }
+
+        private void btnInSaunaHienTai_Click(object sender, EventArgs e)
+        {
+            if (hv != null)
+            {
+                yeuCauInPhieu(false, hv);
+            }
+            else
+                DialogUtils.ShowError("Vui lòng check in trước");
         }
     }
 }

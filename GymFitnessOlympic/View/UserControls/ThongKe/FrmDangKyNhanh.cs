@@ -76,9 +76,14 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
 
             };
             var r = HoiVienController.Add(hv);
-            if (r != CODE_RESULT_RETURN.ThanhCong)
+            if (r == CODE_RESULT_RETURN.ThatBai)
             {
                 DialogUtils.ShowError("Có lỗi khi tạo hội viên");
+                return;
+            }
+            if(r == CODE_RESULT_RETURN.MaTrung){
+                errorProvider1.SetError(txtMaThe, "Mã thẻ này đã tồn tại trong hệ thống");
+                txtMaThe.Focus();
                 return;
             }
             if (g1.MaGoiTap != -1)

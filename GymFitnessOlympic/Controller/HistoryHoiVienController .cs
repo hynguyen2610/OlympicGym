@@ -93,15 +93,15 @@ namespace GymFitnessOlympic.Controller
         public static CODE_RESULT_RETURN InPhieuCoCapNhat(HistoryHoiVien hs, bool isGYM) {
             try
             {
-                FrmInPhieu f = new FrmInPhieu(hs);
+                FrmInPhieu f = new FrmInPhieu(hs, isGYM);
                 using (var db = DBContext.GetContext()) {
                     var oldHS = db.HistoryHoiVien.Find(hs.ThoiGian);
                     if (isGYM)
                     {
-                        hs.IsDaInGYM = true;
+                        oldHS.IsDaInGYM = true;
                     }
                     else {
-                        hs.IsDaInSauna = true;
+                        oldHS.IsDaInSauna = true;
                     }
                     db.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;
@@ -114,7 +114,7 @@ namespace GymFitnessOlympic.Controller
 
 
 
-        internal static HistoryHoiVien IsCheckedToDay(string ma)
+        internal static HistoryHoiVien GetHisToDay(string ma)
         {
             using (var context = DBContext.GetContext())
             {
