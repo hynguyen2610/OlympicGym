@@ -154,5 +154,18 @@ namespace GymFitnessOlympic.Controller
                 return li;
             }
         }
+
+
+        public static bool IsKhongRangBuoc(SanPham g)
+        {
+            using (var db = DBContext.GetContext())
+            {
+                var ct = db.ChiTietHoaDon.Include(p => p.SanPham).FirstOrDefault(p => p.SanPham.MaPhongTap == g.MaSanPham);
+                if (ct != null)
+                    return false;
+                
+                return true;
+            }
+        }
     }
 }

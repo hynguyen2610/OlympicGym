@@ -22,6 +22,7 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             InitializeComponent();
             DataFiller.fillPhongCombo(cbbPhong);
             dgrHoiVien.AutoGenerateColumns = false;
+            DataFiller.fillPhongCombo(cbbPhong);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -49,16 +50,18 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             dgrHoiVien.DataSource = li;
         }
 
-        private void cbbPhong_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadData();
-        }
+      
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgrHoiVien.SelectedRows.Count > 0)
             {
                 var h = (SanPham)dgrHoiVien.SelectedRows[0].DataBoundItem;
+                if (!SanPhamController.IsKhongRangBuoc(h))
+                {
+                    MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
                 if (SanPhamController.Delete(h.MaSanPham) == CODE_RESULT_RETURN.ThanhCong)
                 {
                     loadData();
@@ -97,18 +100,11 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             }
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
+        private void cbbPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var st = txtTimKiem.Text.Trim().ToUpper();
-            var li = all.Where(s=>s.TenSanPham.ToUpper().Contains(st)).ToList();
-            updateTable(li);
+            loadData();
         }
 
-        private void textEdit1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13) {
-                btnTim_Click(null, null);
-            }
-        }
+     
     }
 }

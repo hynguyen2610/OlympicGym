@@ -13,8 +13,8 @@ namespace GymFitnessOlympic.Models.Util
             
             var output = File.Open(dest, FileMode.OpenOrCreate);
             Stream outputStream = new FileStream(dest, FileMode.Create);
-            StreamUtilities.CopyFromFile(fileName, outputStream);
-            StreamUtilities.CopyToFile(outputStream, output.Name);
+            StreamUtil.CopyFromFile(fileName, outputStream);
+            StreamUtil.CopyToFile(outputStream, output.Name);
             
             return dest;
         }

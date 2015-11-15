@@ -53,7 +53,9 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.groupControl1.Controls.Add(this.cbbPhong);
             this.groupControl1.Controls.Add(this.txtGia);
@@ -63,38 +65,38 @@
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.btnAdd);
             this.groupControl1.Controls.Add(this.btnCancel);
-            this.groupControl1.Location = new System.Drawing.Point(12, 32);
+            this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(431, 197);
+            this.groupControl1.Size = new System.Drawing.Size(437, 160);
             this.groupControl1.TabIndex = 7;
             this.groupControl1.Text = "Thông tin sản phẩm";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // cbbPhong
             // 
-            this.cbbPhong.Location = new System.Drawing.Point(153, 105);
+            this.cbbPhong.Location = new System.Drawing.Point(149, 89);
             this.cbbPhong.Name = "cbbPhong";
             this.cbbPhong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbbPhong.Size = new System.Drawing.Size(164, 20);
+            this.cbbPhong.Size = new System.Drawing.Size(279, 20);
             this.cbbPhong.TabIndex = 6;
             // 
             // txtGia
             // 
-            this.txtGia.Location = new System.Drawing.Point(153, 64);
+            this.txtGia.Location = new System.Drawing.Point(149, 54);
             this.txtGia.Name = "txtGia";
             this.txtGia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGia.Properties.Appearance.Options.UseFont = true;
-            this.txtGia.Size = new System.Drawing.Size(239, 24);
+            this.txtGia.Size = new System.Drawing.Size(279, 24);
             this.txtGia.TabIndex = 4;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(153, 31);
+            this.txtTen.Location = new System.Drawing.Point(149, 24);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
-            this.txtTen.Size = new System.Drawing.Size(239, 24);
+            this.txtTen.Size = new System.Drawing.Size(279, 24);
             this.txtTen.TabIndex = 4;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Họ tên không được rỗng";
@@ -104,7 +106,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(65, 106);
+            this.labelControl2.Location = new System.Drawing.Point(40, 90);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(35, 16);
             this.labelControl2.TabIndex = 3;
@@ -113,7 +115,7 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(66, 69);
+            this.labelControl9.Location = new System.Drawing.Point(40, 57);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(18, 16);
             this.labelControl9.TabIndex = 3;
@@ -122,7 +124,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(65, 36);
+            this.labelControl1.Location = new System.Drawing.Point(40, 24);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(82, 16);
             this.labelControl1.TabIndex = 3;
@@ -130,26 +132,26 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.Image = global::GymFitnessOlympic.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(83, 147);
+            this.btnAdd.Location = new System.Drawing.Point(147, 122);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(119, 32);
+            this.btnAdd.Size = new System.Drawing.Size(92, 29);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Image = global::GymFitnessOlympic.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(228, 147);
+            this.btnCancel.Location = new System.Drawing.Point(245, 122);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(139, 32);
+            this.btnCancel.Size = new System.Drawing.Size(100, 29);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Visible = false;
@@ -171,9 +173,9 @@
             // 
             // FrmSanPhamEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 241);
+            this.ClientSize = new System.Drawing.Size(461, 184);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmSanPhamEdit";
             this.Text = "Thêm mới sản phẩm";

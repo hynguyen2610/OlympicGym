@@ -35,6 +35,21 @@ namespace GymFitnessOlympic.Models.DataFiller
             }
         }
 
+        public static void fillPhongCombo(System.Windows.Forms.ComboBox cbb, List<PhongTap> l = null)
+        {
+            if (l == null)
+            {
+                l = PhongTapController.GetList();
+            }
+            cbb.DataSource = l;
+            cbb.DisplayMember = "TenPhongTap";
+            cbb.ValueMember = "MaPhongTap";
+            if (cbb.Items.Count > 0)
+            {
+                cbb.SelectedIndex = 0;
+            }
+        }
+
         public static void fillGoiCombo(System.Windows.Forms.ComboBox cbb, int typeID, int phongID, List<GoiTap> gois = null ) {
             if(gois == null){
                 gois = GoiTapController.GetList(typeID,phongID);

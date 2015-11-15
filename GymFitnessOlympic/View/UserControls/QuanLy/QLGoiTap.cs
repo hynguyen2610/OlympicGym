@@ -23,11 +23,12 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             dgrGoiTap.AutoGenerateColumns = false;
             loadData();
             DataFiller.fillPhongCombo(cbbPhong1);
-            if (cbbPhong1.Properties.Items.Count > 0)
+            if (cbbPhong1.Items.Count > 0)
             {
                 cbbPhong1.SelectedIndex = 0;
             }
-            else {
+            else
+            {
                 cbbPhong1.Enabled = false;
             }
             cbbGYM.SelectedIndex = 0;
@@ -39,18 +40,29 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             if (dgrGoiTap.SelectedRows.Count > 0)
             {
                 var g = (GoiTap)dgrGoiTap.SelectedRows[0].DataBoundItem;
+                if (!GoiTapController.IsKhongRangBuoc(g))
+                {
+                    MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
                 if (GoiTapController.Delete(g.MaGoiTap) == CODE_RESULT_RETURN.ThanhCong)
                 {
                     loadData();
                 }
+
+
+
+
             }
-            else {
+            else
+            {
                 MessageBox.Show("Chọn một gói");
 
             }
         }
 
-        void updateTable(List<GoiTap> li) {
+        void updateTable(List<GoiTap> li)
+        {
             dgrGoiTap.DataSource = li;
         }
 
@@ -69,7 +81,8 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
         private void btnThem_Click(object sender, EventArgs e)
         {
             FrmGoiTapEdit f = new FrmGoiTapEdit();
-            if (f.ShowDialog() == DialogResult.OK) {
+            if (f.ShowDialog() == DialogResult.OK)
+            {
                 loadData();
             }
         }
@@ -83,7 +96,7 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
                 {
                     loadData();
                 }
-                
+
             }
             else
             {

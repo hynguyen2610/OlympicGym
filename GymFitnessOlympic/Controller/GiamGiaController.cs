@@ -58,8 +58,8 @@ namespace GymFitnessOlympic.Controller
                 var hvc = db.GiamGia.FirstOrDefault(h => h.MaGiamGia  == hv.MaGiamGia);
                 if (hvc != null)
                 {
-                    hvc.NgayCuoi = hv.NgayCuoi;
-                    hvc.NgayDau = hv.NgayDau;
+                    hvc.NgayKetThuc = hv.NgayKetThuc;
+                    hvc.NgayBatDau = hv.NgayBatDau;
                     hvc.PhanTramGiam = hv.PhanTramGiam;
                     hvc.TenGiamGia = hv.TenGiamGia;
                     db.SaveChanges();

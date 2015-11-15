@@ -13,15 +13,15 @@ namespace GymFitnessOlympic.Models.Mapping
             // Khoá chính
             this.HasKey(t => t.MaGiamGia);
             //Các cột
-            this.Property(t => t.NgayDau).IsRequired();
-            this.Property(t => t.NgayCuoi).IsRequired();
+            this.Property(t => t.NgayBatDau).IsRequired();
+            this.Property(t => t.NgayKetThuc).IsRequired();
             this.Property(t => t.TenGiamGia).HasMaxLength(255);
 
             this.ToTable("GiamGia");
             this.Property(t => t.MaGiamGia).HasColumnName("MaGiamGia");
             this.Property(t => t.TenGiamGia).HasColumnName("TenGiamGia");
-            this.Property(t => t.NgayDau).HasColumnName("NgayDau");
-            this.Property(t => t.NgayCuoi).HasColumnName("NgayCuoi");
+            this.Property(t => t.NgayBatDau).HasColumnName("NgayDau");
+            this.Property(t => t.NgayKetThuc).HasColumnName("NgayCuoi");
 
 
         }

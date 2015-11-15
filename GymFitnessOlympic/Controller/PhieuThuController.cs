@@ -14,8 +14,8 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nvs = context.PhieuThu.Include(n => n.HoiVien).Include(n=>n.NhanVien.PhongTap)
-                    .Where(p=>p.NhanVien.PhongTap.MaPhongTap == maPhong);
+                var nvs = context.PhieuThu.Include(n => n.HoiVien).Include(n => n.NhanVien.PhongTap)
+                    .Where(p => p.NhanVien.PhongTap.MaPhongTap == maPhong);
                 if (nv != null)
                 {
                     nvs = nvs.Where(n => n.NhanVien.MaNhanVien == nv.MaNhanVien);
@@ -81,11 +81,18 @@ namespace GymFitnessOlympic.Controller
                     context.SaveChanges();
                     if (pt.GoiTap.Type == 1)
                     {
-                       pt.HoiVien.NgayHetHanGYM = pt.HoiVien.NgayHetHanGYM.AddDays(pt.GoiTap.SoThang * 30);
-                       pt.HoiVien.GiaHanCuoiGYM = DateTime.Now;
+                        if (pt.HoiVien.NgayHetHanGYM > DateTime.Now)
+                            pt.HoiVien.NgayHetHanGYM = pt.HoiVien.NgayHetHanGYM.AddMonths(pt.GoiTap.SoThang);
+                        else
+                            pt.HoiVien.NgayHetHanGYM = DateTime.Now.AddMonths(pt.GoiTap.SoThang);
+                        pt.HoiVien.GiaHanCuoiGYM = DateTime.Now;
                     }
-                    else {
-                        pt.HoiVien.NgayHetHanSauNa = pt.HoiVien.NgayHetHanSauNa.AddDays(pt.GoiTap.SoThang * 30);
+                    else
+                    {
+                        if (pt.HoiVien.NgayHetHanSauNa > DateTime.Now)
+                            pt.HoiVien.NgayHetHanSauNa = pt.HoiVien.NgayHetHanSauNa.AddMonths(pt.GoiTap.SoThang);
+                        else
+                            pt.HoiVien.NgayHetHanSauNa = DateTime.Now.AddMonths(pt.GoiTap.SoThang);
                         pt.HoiVien.GiaHanCuoiSauna = DateTime.Now;
                     }
                     var r = HoiVienController.updateNgayHetHan(pt.HoiVien);
@@ -98,15 +105,15 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        
 
-        
+
+
 
         internal static CODE_RESULT_RETURN Delete(int id)
         {
             using (var context = DBContext.GetContext())
             {
-                var pt =context.PhieuThu.FirstOrDefault(p => p.MaPhieuThu == id);
+                var pt = context.PhieuThu.FirstOrDefault(p => p.MaPhieuThu == id);
                 if (pt != null)
                 {
                     context.PhieuThu.Remove(pt);

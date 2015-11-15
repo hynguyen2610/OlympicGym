@@ -73,6 +73,16 @@ namespace GymFitnessOlympic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1447576907_ok {
+            get {
+                object obj = ResourceManager.GetObject("1447576907_ok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap about {
             get {
                 object obj = ResourceManager.GetObject("about", resourceCulture);
@@ -226,6 +236,16 @@ namespace GymFitnessOlympic.Properties {
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_avatar {
+            get {
+                object obj = ResourceManager.GetObject("empty_avatar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

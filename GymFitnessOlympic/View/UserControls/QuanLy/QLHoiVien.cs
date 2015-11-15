@@ -18,12 +18,11 @@ namespace GymFitnessOlympic.View.UserControls
 {
     public partial class QLHoiVien : UserControl
     {
-        bool isThem = true;
         List<HoiVien> all;
         public QLHoiVien()
         {
             InitializeComponent();
-            //DataFiller.fillPhongCombo(cbbPhong);
+            DataFiller.fillPhongCombo(cbbPhong1);
 
             dgrHoiVien.AutoGenerateColumns = false;
             dgrHoiVien.RowHeadersVisible = false;
@@ -31,18 +30,13 @@ namespace GymFitnessOlympic.View.UserControls
         }
 
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            isThem = true;
-
-        }
+     
 
         void loadData()
         {
             all = HoiVienController.GetList();
             updateTable(all);
             //gridControl1.DataSource = all;
-            txtTim.Text = "";
         }
 
         void updateTable(List<HoiVien> li)
@@ -153,12 +147,7 @@ namespace GymFitnessOlympic.View.UserControls
 
         }
 
-        private void btnSeach_Click(object sender, EventArgs e)
-        {
-            String st = txtTim.Text;
-            List<HoiVien> l = Search(st);
-            updateTable(l);
-        }
+        
 
         List<HoiVien> Search(string s)
         {
@@ -167,13 +156,6 @@ namespace GymFitnessOlympic.View.UserControls
             return li;
         }
 
-        private void txtTim_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                btnSeach_Click(null, null);
-            }
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -207,6 +189,11 @@ namespace GymFitnessOlympic.View.UserControls
             if (dgrHoiVien.SelectedRows.Count > 0)
             {
                 var h = (HoiVien)dgrHoiVien.SelectedRows[0].DataBoundItem;
+                if (!HoiVienController.IsKhongRangBuoc(h))
+                {
+                    MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
                 if (HoiVienController.Delete(h.MaHoiVien) == CODE_RESULT_RETURN.ThanhCong)
                 {
                     loadData();
@@ -220,6 +207,20 @@ namespace GymFitnessOlympic.View.UserControls
             else
             {
                 MessageBox.Show("Chọn một hội viên để xóa");
+            }
+        }
+
+        private void lblChucNang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbPhong1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var p = (PhongTap)cbbPhong1.SelectedItem;
+            if (p != null) {
+                var hvs = HoiVienController.GetList(p.MaPhongTap);
+                dgrHoiVien.DataSource = hvs;
             }
         }
 

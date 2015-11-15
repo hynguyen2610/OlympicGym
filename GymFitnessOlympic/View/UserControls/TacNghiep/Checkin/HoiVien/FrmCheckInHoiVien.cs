@@ -12,6 +12,7 @@ using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.Dialog;
 using GymFitnessOlympic.View.Utils;
 using GymFitnessOlympic.Utils;
+using GymFitnessOlympic.Properties;
 
 namespace GymFitnessOlympic.View.MainForms
 {
@@ -38,20 +39,24 @@ namespace GymFitnessOlympic.View.MainForms
 
         void wipeCard()
         {
-
-
             loadDefault();
-            var st = txtMa.Text;
-            var his = HistoryHoiVienController.GetHisToDay(txtMa.Text.Trim());
+            var st = "";
+            if (!string.IsNullOrEmpty(txtMa.Text))
+                st = txtMa.Text.Trim();
+            else
+                if (hv != null)
+                    st = hv.MaThe;
+            var his = HistoryHoiVienController.GetHisToDay(st);
+            bool checkedIn = false;
             if (his != null)
             {
-                DialogUtils.ShowMessage("Thẻ này đã được checkin trong ngày hôm nay!");
-                return;
+                checkedIn = true;
             }
 
-            hv = HoiVienController.GetByMaHoiVien(txtMa.Text);
+            hv = HoiVienController.GetByMaHoiVien(st);
             if (hv != null)
             {
+                lblThongBao.Text = "";
                 //kiem tra gym
                 if (hv.NgayHetHanGYM > DateTime.Now)
                 {
@@ -70,23 +75,29 @@ namespace GymFitnessOlympic.View.MainForms
                     IsDaInGYM = false,
                     IsDaInSauna = false
                 };
-                try
+                txtMa.Text = "";
+                if (!checkedIn)
                 {
                     if (HistoryHoiVienController.Add(hs) == CODE_RESULT_RETURN.ThanhCong)
                     {
-
+                        lblThongBao.Text = "Checkin thành công";
                     }
-                    loadData();
+                    else
+                    {
+                        DialogUtils.ShowError("Có lỗi khi checkin");
+                    }
                 }
-                catch
+                else
                 {
-                    DialogUtils.ShowError("Có lỗi khi checkin");
+                    lblThongBao.Text = "Hội viên này đã checkin";
                 }
+                loadData();
 
             }
             else
             {
                 lblThongBao.Text = "Không tồn tại mã thẻ này";
+                loadDefault();
             }
         }
 
@@ -99,16 +110,28 @@ namespace GymFitnessOlympic.View.MainForms
 
         private void loadDefault()
         {
-            lblThongBao.Text = "";
+            lblKetQuaGYM.ForeColor = lblKetQuaSauna.ForeColor = Color.Red;
+            lblThongBao.Text = "Mã thẻ không hợp lệ";
+            lblKetQuaGYM.Text = lblKetQuaSauna.Text
+                = lblPT_GiaHanCuoi.Text = lblPT_NgayHetHan.Text
+                = lblPT_SoNgayConLai.Text = lblSauGiaHanCuoi.Text
+                = lblSauNgayHetHan.Text = lblSauSoNgayConLai.Text
+                = lblTen.Text = "Không rõ";
         }
 
-        
+
         void loadData()
         {
+            lblTen.Text = "";
+            picAva.Image = Resources.empty_avatar;
             loadGrid();
             if (hv != null)
             {
-              
+                lblTen.Text = hv.TenHoiVien;
+                lblNgaySinh.Text = DateTimeUtil.dateToString(hv.NgaySinh);
+                if (hv.Anh != null)
+                    picAva.Image = StreamUtil.byteArrayToImage(hv.Anh);
+                lblMaThe.Text = hv.MaThe;
                 //Cập nhật text gymn
                 lblPT_GiaHanCuoi.Text = DateTimeUtil.dateToString(hv.GiaHanCuoiGYM);
                 lblPT_NgayHetHan.Text = DateTimeUtil.dateToString(hv.NgayHetHanGYM);
@@ -166,6 +189,7 @@ namespace GymFitnessOlympic.View.MainForms
             {
                 MessageBox.Show("Chưa có hội viên checkin hiện tại để gia hạn");
             }
+            txtMa.Focus();
         }
 
         private void FrmCheckinHoiVien_Load(object sender, EventArgs e)
@@ -184,6 +208,7 @@ namespace GymFitnessOlympic.View.MainForms
         private void btnInGYM_Click(object sender, EventArgs e)
         {
             yeuCauInPhieu(true);
+            txtMa.Focus();
         }
 
         void yeuCauInPhieu(bool isGYM, HoiVien hoiVien = null)
@@ -217,6 +242,7 @@ namespace GymFitnessOlympic.View.MainForms
             if ((hoiVien.NgayHetHanGYM < DateTime.Now && isGYM) || (hoiVien.NgayHetHanSauNa < DateTime.Now && !isGYM))
             {
                 DialogUtils.ShowMessage("Thẻ này đã hết hạn " + tenPhieu);
+                //NTHNV022loadData();
                 return;
             }
             try
@@ -246,6 +272,7 @@ namespace GymFitnessOlympic.View.MainForms
         private void btnCheckin_Click_1(object sender, EventArgs e)
         {
             wipeCard();
+            txtMa.Focus();
         }
 
         private void btnGiaHanSauna_Click(object sender, EventArgs e)
@@ -262,11 +289,13 @@ namespace GymFitnessOlympic.View.MainForms
             {
                 MessageBox.Show("Chưa có hội viên checkin hiện tại để gia hạn");
             }
+            txtMa.Focus();
         }
 
         private void btnInSauna_Click(object sender, EventArgs e)
         {
             yeuCauInPhieu(false);
+            txtMa.Focus();
         }
 
         private void btnInGYMHienTai_Click(object sender, EventArgs e)
@@ -277,6 +306,7 @@ namespace GymFitnessOlympic.View.MainForms
             }
             else
                 DialogUtils.ShowError("Vui lòng check in trước");
+            txtMa.Focus();
         }
 
         private void btnInSaunaHienTai_Click(object sender, EventArgs e)
@@ -287,6 +317,7 @@ namespace GymFitnessOlympic.View.MainForms
             }
             else
                 DialogUtils.ShowError("Vui lòng check in trước");
+            txtMa.Focus();
         }
     }
 }

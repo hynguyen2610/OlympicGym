@@ -189,7 +189,7 @@
     <Compile Include="Models\Util\DateTimeUtil.cs" />
     <Compile Include="Models\Util\FileUpload.cs" />
     <Compile Include="Models\Util\Login.cs" />
-    <Compile Include="Models\Util\StreamUtilities.cs" />
+    <Compile Include="Models\Util\StreamUtil.cs" />
     <Compile Include="Models\Util\Validation\SoDienThoaiVL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,7 +199,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConnectionUtils.cs" />
+    <Compile Include="Utils\ImageUtil.cs" />
     <Compile Include="Utils\StringUtils.cs" />
+    <Compile Include="View\Dialog\FrmGiamGiaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\FrmGiamGiaEdit.Designer.cs">
+      <DependentUpon>FrmGiamGiaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialog\FrmPhongTapEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,13 +237,6 @@
     <Compile Include="View\UserControls\QuanLy\QLPhongTap.Designer.cs">
       <DependentUpon>QLPhongTap.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\FrmBarcode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\FrmBarcode.Designer.cs">
-      <DependentUpon>FrmBarcode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\InputDevice.cs" />
     <Compile Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,10 +267,10 @@
     <Compile Include="View\UserControls\ThongKe\FrmKiemKho.Designer.cs">
       <DependentUpon>FrmKiemKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\TacNghiep\FrmSinhNhat.cs">
+    <Compile Include="View\UserControls\ThongKe\FrmSinhNhat.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserControls\TacNghiep\FrmSinhNhat.Designer.cs">
+    <Compile Include="View\UserControls\ThongKe\FrmSinhNhat.Designer.cs">
       <DependentUpon>FrmSinhNhat.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\ThongKe\FrmLichSuHoaDon.cs">
@@ -424,18 +424,6 @@
     <Compile Include="View\UserControls\QuanLy\QLSanPham.Designer.cs">
       <DependentUpon>QLSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\QuanLy\RibbonForm1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UserControls\QuanLy\RibbonForm1.Designer.cs">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\ThongKe\FrmThongKeKhachLe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UserControls\ThongKe\FrmThongKeKhachLe.Designer.cs">
-      <DependentUpon>FrmThongKeKhachLe.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\UserControls\ThongKe\TKPhieuThu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -499,6 +487,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\FrmGiamGiaEdit.resx">
+      <DependentUpon>FrmGiamGiaEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\FrmPhongTapEdit.resx">
       <DependentUpon>FrmPhongTapEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,9 +504,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\QuanLy\QLPhongTap.resx">
       <DependentUpon>QLPhongTap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\Barcode\RawInput\FrmBarcode.resx">
-      <DependentUpon>FrmBarcode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\Checkin\HoiVien\FrmCheckInHoiVien.resx">
       <DependentUpon>FrmCheckInHoiVien.cs</DependentUpon>
@@ -532,7 +520,7 @@
     <EmbeddedResource Include="View\UserControls\ThongKe\FrmKiemKho.resx">
       <DependentUpon>FrmKiemKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\TacNghiep\FrmSinhNhat.resx">
+    <EmbeddedResource Include="View\UserControls\ThongKe\FrmSinhNhat.resx">
       <DependentUpon>FrmSinhNhat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\ThongKe\FrmLichSuHoaDon.resx">
@@ -610,12 +598,6 @@
     <EmbeddedResource Include="View\UserControls\QuanLy\QLSanPham.resx">
       <DependentUpon>QLSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\QuanLy\RibbonForm1.resx">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\ThongKe\FrmThongKeKhachLe.resx">
-      <DependentUpon>FrmThongKeKhachLe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\ThongKe\TKPhieuThu.resx">
       <DependentUpon>TKPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
@@ -650,6 +632,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\1447576907_ok.png" />
+    <Content Include="Resources\empty_avatar.png" />
+    <Content Include="View\empty_avatar.png" />
     <None Include="Resources\1447078652_Android-Barcode-Reader.png" />
     <Content Include="Lib\CEMS.Controls.dll" />
     <Content Include="Resources\about.png" />

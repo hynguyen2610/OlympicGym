@@ -57,7 +57,7 @@ namespace GymFitnessOlympic.View.Dialog
             radNam.Checked = current.GioiTinh;
             if (current.Anh != null)
             {
-                imgAnh.Image = StreamUtilities.byteArrayToImage(current.Anh);
+                imgAnh.Image = StreamUtil.byteArrayToImage(current.Anh);
             }
             cbbPhong.EditValue = current.PhongTap.MaPhongTap;
             cbbChucVu.SelectedValue = current.Quyen.MaQuyen;

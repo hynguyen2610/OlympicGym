@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-
+using GymFitnessOlympic.Models.Util;
 namespace GymFitnessOlympic.Models
 {
    public  partial class HoiVien
@@ -21,6 +22,13 @@ namespace GymFitnessOlympic.Models
        public override string ToString()
        {
            return TenHoiVien;
+       }
+
+       public Image GetAnh {
+           get
+           {
+               return StreamUtil.byteArrayToImage(Anh);
+           }
        }
     }
 }

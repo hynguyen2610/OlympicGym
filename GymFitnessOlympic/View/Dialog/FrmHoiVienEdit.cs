@@ -55,7 +55,7 @@ namespace GymFitnessOlympic.View.Dialog
             datNgaySinh.Value = current.NgaySinh;
             if (current.Anh != null)
             {
-                pictureEdit1.Image = StreamUtilities.byteArrayToImage(current.Anh);
+                pictureEdit1.Image = StreamUtil.byteArrayToImage(current.Anh);
             }
             cbbPhong.EditValue = current.PhongTap.MaPhongTap;
             btnAdd.Text = "Cập nhật";

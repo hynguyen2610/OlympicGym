@@ -91,5 +91,25 @@ namespace GymFitnessOlympic.Controller
                 return db.PhongTap.ToList();
             }
         }
+
+        public static bool IsKhongRangBuoc(PhongTap g)
+        {
+            using (var db = DBContext.GetContext())
+            {
+                var goiTap = db.GoiTap.Include(p => p.PhongTap).FirstOrDefault(p => p.PhongTap.MaPhongTap == g.MaPhongTap);
+                if (goiTap != null)
+                    return false;
+                var nhanVien = db.NhanVien.Include(p => p.PhongTap).FirstOrDefault(p => p.PhongTap.MaPhongTap == g.MaPhongTap);
+                if (nhanVien != null)
+                    return false;
+                var hoiVien = db.HoiVien.Include(p => p.PhongTap).FirstOrDefault(p => p.PhongTap.MaPhongTap == g.MaPhongTap);
+                if (hoiVien != null)
+                    return false;
+                var sp = db.SanPham.Include(p => p.PhongTap).FirstOrDefault(p => p.PhongTap.MaPhongTap == g.MaPhongTap);
+                if (sp != null)
+                    return false;
+                return true;
+            }
+        }
     }
 }

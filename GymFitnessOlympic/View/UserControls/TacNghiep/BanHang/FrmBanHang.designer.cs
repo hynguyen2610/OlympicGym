@@ -107,6 +107,7 @@
             // 
             // lblTongTien
             // 
+            this.lblTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTongTien.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTongTien.Enabled = false;
             this.lblTongTien.Location = new System.Drawing.Point(767, 288);
@@ -117,6 +118,7 @@
             // 
             // labelControl8
             // 
+            this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Enabled = false;
             this.labelControl8.Location = new System.Drawing.Point(712, 293);
             this.labelControl8.Name = "labelControl8";
@@ -175,7 +177,7 @@
             // 
             this.groupControl1.Controls.Add(this.dtpThoiGian);
             this.groupControl1.Controls.Add(this.labelControl10);
-            this.groupControl1.Location = new System.Drawing.Point(231, 3);
+            this.groupControl1.Location = new System.Drawing.Point(236, 36);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(223, 66);
             this.groupControl1.TabIndex = 68;
@@ -183,6 +185,8 @@
             // 
             // dtpThoiGian
             // 
+            this.dtpThoiGian.CustomFormat = "dd/MM/yyyy";
+            this.dtpThoiGian.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpThoiGian.Location = new System.Drawing.Point(63, 27);
             this.dtpThoiGian.Name = "dtpThoiGian";
             this.dtpThoiGian.Size = new System.Drawing.Size(153, 20);
@@ -210,7 +214,7 @@
             this.lbSanPham.DisplayMember = "TenHang";
             this.lbSanPham.Location = new System.Drawing.Point(21, 102);
             this.lbSanPham.Name = "lbSanPham";
-            this.lbSanPham.Size = new System.Drawing.Size(170, 240);
+            this.lbSanPham.Size = new System.Drawing.Size(191, 240);
             this.lbSanPham.TabIndex = 57;
             this.lbSanPham.SelectedIndexChanged += new System.EventHandler(this.lbHang_SelectedIndexChanged);
             this.lbSanPham.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lbSanPham_MeasureItem);
@@ -234,6 +238,9 @@
             // 
             // lvHangNhap
             // 
+            this.lvHangNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvHangNhap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             columnHeader5,
             this.columnHeader1,
@@ -241,9 +248,9 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvHangNhap.FullRowSelect = true;
-            this.lvHangNhap.Location = new System.Drawing.Point(476, 51);
+            this.lvHangNhap.Location = new System.Drawing.Point(476, 36);
             this.lvHangNhap.Name = "lvHangNhap";
-            this.lvHangNhap.Size = new System.Drawing.Size(429, 215);
+            this.lvHangNhap.Size = new System.Drawing.Size(429, 230);
             this.lvHangNhap.TabIndex = 56;
             this.lvHangNhap.UseCompatibleStateImageBehavior = false;
             this.lvHangNhap.View = System.Windows.Forms.View.Details;
@@ -337,26 +344,29 @@
             // 
             // btnChiTietXoa
             // 
+            this.btnChiTietXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChiTietXoa.Image = global::GymFitnessOlympic.Properties.Resources.delete;
-            this.btnChiTietXoa.Location = new System.Drawing.Point(577, 6);
+            this.btnChiTietXoa.Location = new System.Drawing.Point(805, 6);
             this.btnChiTietXoa.Name = "btnChiTietXoa";
-            this.btnChiTietXoa.Size = new System.Drawing.Size(100, 39);
+            this.btnChiTietXoa.Size = new System.Drawing.Size(100, 24);
             this.btnChiTietXoa.TabIndex = 63;
             this.btnChiTietXoa.Text = "Xóa";
             this.btnChiTietXoa.Click += new System.EventHandler(this.btnChiTietXoa_Click);
             // 
             // btnChiTietSua
             // 
+            this.btnChiTietSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChiTietSua.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnChiTietSua.Location = new System.Drawing.Point(476, 6);
+            this.btnChiTietSua.Location = new System.Drawing.Point(704, 6);
             this.btnChiTietSua.Name = "btnChiTietSua";
-            this.btnChiTietSua.Size = new System.Drawing.Size(95, 39);
+            this.btnChiTietSua.Size = new System.Drawing.Size(95, 24);
             this.btnChiTietSua.TabIndex = 62;
             this.btnChiTietSua.Text = "Sửa";
             this.btnChiTietSua.Click += new System.EventHandler(this.btnChiTietSua_Click);
             // 
             // btnReset
             // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReset.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnReset.Appearance.Options.UseFont = true;
             this.btnReset.Image = global::GymFitnessOlympic.Properties.Resources.update;
@@ -369,9 +379,10 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Image = global::GymFitnessOlympic.Properties.Resources.statistics1;
+            this.btnSave.Image = global::GymFitnessOlympic.Properties.Resources._1447576907_ok;
             this.btnSave.Location = new System.Drawing.Point(712, 332);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(193, 52);
@@ -381,8 +392,10 @@
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnThem.Appearance.Options.UseFont = true;
+            this.btnThem.Image = global::GymFitnessOlympic.Properties.Resources.add;
             this.btnThem.Location = new System.Drawing.Point(236, 332);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(223, 52);

@@ -46,7 +46,7 @@
             this.txtGiaHanSoTien.Location = new System.Drawing.Point(68, 43);
             this.txtGiaHanSoTien.Name = "txtGiaHanSoTien";
             this.txtGiaHanSoTien.Size = new System.Drawing.Size(228, 22);
-            this.txtGiaHanSoTien.TabIndex = 12;
+            this.txtGiaHanSoTien.TabIndex = 1;
             // 
             // cbbGiaHanGoi
             // 
@@ -69,7 +69,7 @@
             this.cbbGiaHanGoi.Location = new System.Drawing.Point(68, 10);
             this.cbbGiaHanGoi.Name = "cbbGiaHanGoi";
             this.cbbGiaHanGoi.Size = new System.Drawing.Size(228, 24);
-            this.cbbGiaHanGoi.TabIndex = 11;
+            this.cbbGiaHanGoi.TabIndex = 0;
             this.cbbGiaHanGoi.SelectedIndexChanged += new System.EventHandler(this.cbbGiaHanGoi_SelectedIndexChanged);
             // 
             // lblNgayHetHanDuKien
@@ -88,7 +88,7 @@
             this.btnGiaHan.Location = new System.Drawing.Point(67, 214);
             this.btnGiaHan.Name = "btnGiaHan";
             this.btnGiaHan.Size = new System.Drawing.Size(88, 44);
-            this.btnGiaHan.TabIndex = 8;
+            this.btnGiaHan.TabIndex = 3;
             this.btnGiaHan.Text = "Gia hạn";
             this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
             // 
@@ -127,7 +127,7 @@
             this.txtLyDo.Multiline = true;
             this.txtLyDo.Name = "txtLyDo";
             this.txtLyDo.Size = new System.Drawing.Size(228, 91);
-            this.txtLyDo.TabIndex = 12;
+            this.txtLyDo.TabIndex = 2;
             // 
             // label3
             // 
@@ -140,10 +140,10 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(176, 214);
+            this.simpleButton1.Location = new System.Drawing.Point(161, 214);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(77, 44);
-            this.simpleButton1.TabIndex = 13;
+            this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Hủy";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 

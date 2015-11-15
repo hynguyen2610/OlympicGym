@@ -57,6 +57,11 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             if (dgrHoiVien.SelectedRows.Count > 0)
             {
                 var h = (PhongTap)dgrHoiVien.SelectedRows[0].DataBoundItem;
+                if (!PhongTapController.IsKhongRangBuoc(h))
+                {
+                    MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
                 if (h.MaPhongTap == Login1.GetPhongHienTai().MaPhongTap) {
                     MessageBox.Show("Không thể xóa phòng đang đăng nhập");
                     return;
@@ -95,19 +100,6 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
             }
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            var st = txtTimKiem.Text.Trim().ToUpper();
-            var li = all.Where(s=>s.TenPhongTap.ToUpper().Contains(st)).ToList();
-            updateTable(li);
-        }
-
-
-        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13) {
-                btnTim.PerformClick();
-            }
-        }
+ 
     }
 }

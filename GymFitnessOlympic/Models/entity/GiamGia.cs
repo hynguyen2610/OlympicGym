@@ -11,8 +11,8 @@ namespace GymFitnessOlympic.Models
    
         public int MaGiamGia { get; set; }
         public string TenGiamGia { get; set; }
-        public DateTime NgayDau { get; set; }
-        public DateTime NgayCuoi { get; set; }
+        public DateTime NgayBatDau { get; set; }
+        public DateTime NgayKetThuc { get; set; }
         public decimal PhanTramGiam { get; set; }
     }
 }

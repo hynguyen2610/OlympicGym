@@ -178,5 +178,20 @@ namespace GymFitnessOlympic.Controller
                 return hs;
             }
         }
+
+        public static bool IsKhongRangBuoc(HoiVien g)
+        {
+            using (var db = DBContext.GetContext())
+            {
+                var phieuThus = db.PhieuThu.Include(p => p.HoiVien).FirstOrDefault(p => p.HoiVien.MaHoiVien == g.MaHoiVien);
+                if (phieuThus != null)
+                    return false;
+                var his = db.HistoryHoiVien.Include(p => p.HoiVien).FirstOrDefault(p => p.HoiVien.MaHoiVien == g.MaHoiVien);
+                if (his != null)
+                    return false;
+                return true;
+            }
+        }
+
     }
 }

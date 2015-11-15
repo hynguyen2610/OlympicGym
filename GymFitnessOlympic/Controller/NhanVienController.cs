@@ -202,5 +202,28 @@ namespace GymFitnessOlympic.Controller
                 return db.NhanVien.FirstOrDefault();
             }
         }
+
+        public static bool IsKhongRangBuoc(NhanVien g)
+        {
+            using (var db = DBContext.GetContext())
+            {
+                var phieuThus = db.PhieuThu.Include(p => p.NhanVien).FirstOrDefault(p => p.NhanVien.MaNhanVien == g.MaNhanVien);
+                if (phieuThus != null)
+                    return false;
+                var his = db.HistoryNhanVien.Include(p => p.NhanVien).FirstOrDefault(p => p.NhanVien.MaNhanVien == g.MaNhanVien);
+                if (his != null)
+                    return false;
+                var khachLe = db.KhachLe.Include(p => p.NhanVien).FirstOrDefault(p => p.NhanVien.MaNhanVien == g.MaNhanVien);
+                if (his != null)
+                    return false;
+                var hoaDon = db.HoaDon.Include(p => p.NhanVien).FirstOrDefault(p => p.NhanVien.MaNhanVien == g.MaNhanVien);
+                if (hoaDon != null)
+                    return false;
+                if (g.MaNhanVien == Login1.TaiKhoanHienTai.MaNhanVien)
+                    return false;
+                return true;
+            }
+        }
+
     }
 }

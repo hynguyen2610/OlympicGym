@@ -38,7 +38,7 @@
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMaThe = new DevExpress.XtraEditors.TextEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.dgrDangKy = new System.Windows.Forms.DataGridView();
+            this.dgrDangKy = new CEMS.Controls.Commons.DataGridViewEx();
             this.label3 = new System.Windows.Forms.Label();
             this.cbbGoiGym = new System.Windows.Forms.ComboBox();
             this.cbbGoiSauna = new System.Windows.Forms.ComboBox();
@@ -365,7 +365,7 @@
         private DevExpress.XtraEditors.TextEdit txtMaThe;
         private DevExpress.XtraEditors.SimpleButton btnDangKy;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
-        private System.Windows.Forms.DataGridView dgrDangKy;
+        private CEMS.Controls.Commons.DataGridViewEx dgrDangKy;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.ComboBox cbbGoiSauna;

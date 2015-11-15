@@ -46,6 +46,11 @@ namespace GymFitnessOlympic.View.UserControls
         {
             if (dgrNhanVien.SelectedRows.Count > 0) {
                 var nv = (NhanVien)dgrNhanVien.SelectedRows[0].DataBoundItem;
+                if (!NhanVienController.IsKhongRangBuoc(nv))
+                {
+                    MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
                 if (nv.MaNhanVien == Login1.TaiKhoanHienTai.MaNhanVien) {
                     MessageBox.Show("Tài khoản này hiện đang đăng nhập, không thể xóa");
                     return;
@@ -85,7 +90,6 @@ namespace GymFitnessOlympic.View.UserControls
             all = NhanVienController.GetList();
             updateTable(all);
             //gridControl1.DataSource = all;
-            txtTim.Text = "";
         }
 
         void updateTable(List<NhanVien> li) {
@@ -100,12 +104,7 @@ namespace GymFitnessOlympic.View.UserControls
             }
         }
 
-        private void btnSeach_Click(object sender, EventArgs e)
-        {
-            string s = txtTim.Text;
-            var l = all.Where(n=>n.TenNhanVien.ToUpper().Contains(s.ToUpper())).ToList();
-            updateTable(l);
-        }
+     
 
         private void dgrNhanVien_SelectionChanged(object sender, EventArgs e)
         {
@@ -114,7 +113,7 @@ namespace GymFitnessOlympic.View.UserControls
                 var a = (NhanVien)dgrNhanVien.SelectedRows[0].DataBoundItem;
                 if (a.Anh != null)
                 {
-                    imgAnh.Image = StreamUtilities.byteArrayToImage(a.Anh);
+                    imgAnh.Image = StreamUtil.byteArrayToImage(a.Anh);
 
                 }
                 else
@@ -124,12 +123,6 @@ namespace GymFitnessOlympic.View.UserControls
             }
         }
 
-        private void txtTim_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13) {
-                btnSeach_Click(null, null);
-            }
-        }
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {

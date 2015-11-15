@@ -42,5 +42,7 @@ namespace GymFitnessOlympic.Controller
                 return CODE_RESULT_RETURN.ThatBai;
             }
         }
+
+       
     }
 }

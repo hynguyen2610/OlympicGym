@@ -14,7 +14,7 @@ namespace GymFitnessOlympic.Models.Util
     // It is available from http://www.codeplex.com/hyperAddin 
     // 
 
-    static class StreamUtilities
+    static class StreamUtil
     {
         public static void CopyFromFile(string fromFilePath, Stream toStream)
         {

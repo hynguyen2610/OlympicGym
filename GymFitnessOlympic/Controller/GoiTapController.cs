@@ -97,5 +97,16 @@ namespace GymFitnessOlympic.Controller
                     Where(p => p.PhongTap.MaPhongTap == phongTap.MaPhongTap && p.Type == type).ToList();
             }
         }
+
+        public static bool IsKhongRangBuoc(GoiTap g) {
+            using (var db = DBContext.GetContext()) {
+                var phieuThus = db.PhieuThu.Include(p=>p.GoiTap).FirstOrDefault(p=>p.GoiTap.MaGoiTap ==  g.MaGoiTap);
+                if (phieuThus != null)
+                    return false;
+                return true;
+            }
+        }
+
+        
     }
 }

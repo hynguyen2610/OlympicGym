@@ -10,7 +10,8 @@ namespace GymFitnessOlympic.Controller
         ThanhCong,
         MaTrung,
         TenTrung,
-        ThatBai
+        ThatBai,
+        KhongDuocPhep
     }
 
     public enum VAITRO
