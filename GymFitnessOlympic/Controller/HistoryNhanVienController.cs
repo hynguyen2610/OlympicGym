@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using GymFitnessOlympic.Models.Util;
 
 namespace GymFitnessOlympic.Controller
 {
@@ -19,6 +20,16 @@ namespace GymFitnessOlympic.Controller
                     bool isIn = checkMode == 1 ? true : false;
                     nvs = nvs.Where(d => d.IsCheckin == isIn);
                 }
+                return nvs.ToList();
+            }
+        }
+
+        internal static List<HistoryNhanVien> GetList(DateTime start, DateTime end)
+        {
+            using (var context = DBContext.GetContext())
+            {
+                var nvs = context.HistoryNhanVien.Include(h => h.Ca).Include(h => h.NhanVien).Include(h=>h.NhanVien.PhongTap).AsEnumerable();
+                nvs = nvs.Where(h => h.ThoiGian >= start && h.ThoiGian <= end);
                 return nvs.ToList();
             }
         }
@@ -72,6 +83,24 @@ namespace GymFitnessOlympic.Controller
                     return CODE_RESULT_RETURN.ThanhCong;
                 }
                 return CODE_RESULT_RETURN.ThatBai;
+            }
+        }
+
+        internal static List<HistoryNhanVien> GetToDay(int maPhong = -1, bool isCheckin = true, CaLamViec caHienTai = null)
+        {
+            using (var db = DBContext.GetContext())
+            {
+                var start = DateTimeUtil.StartOfDay(DateTime.Now);
+                var end = DateTimeUtil.EndOfDay(DateTime.Now);
+                var data = db.HistoryNhanVien.Include(h => h.NhanVien.PhongTap).Include(h=>h.Ca).Where(h => h.ThoiGian >= start
+                    && h.ThoiGian <= end
+                    && h.IsCheckin == isCheckin
+                    );
+                if (maPhong != -1)
+                {
+                    data = data.Where(d => d.NhanVien.PhongTap.MaPhongTap == maPhong);
+                }
+                return data.ToList();
             }
         }
     }

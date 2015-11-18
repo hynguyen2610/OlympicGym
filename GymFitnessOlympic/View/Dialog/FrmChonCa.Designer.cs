@@ -57,7 +57,7 @@
             this.rdCaChieu.Location = new System.Drawing.Point(24, 46);
             this.rdCaChieu.Name = "rdCaChieu";
             this.rdCaChieu.Size = new System.Drawing.Size(78, 20);
-            this.rdCaChieu.TabIndex = 0;
+            this.rdCaChieu.TabIndex = 1;
             this.rdCaChieu.Text = "Ca chiều";
             this.rdCaChieu.UseVisualStyleBackColor = true;
             this.rdCaChieu.CheckedChanged += new System.EventHandler(this.rdCaChieu_CheckedChanged);
@@ -69,7 +69,7 @@
             this.rdCaToi.Location = new System.Drawing.Point(24, 72);
             this.rdCaToi.Name = "rdCaToi";
             this.rdCaToi.Size = new System.Drawing.Size(60, 20);
-            this.rdCaToi.TabIndex = 0;
+            this.rdCaToi.TabIndex = 2;
             this.rdCaToi.Text = "Ca tối";
             this.rdCaToi.UseVisualStyleBackColor = true;
             this.rdCaToi.CheckedChanged += new System.EventHandler(this.rdCaToi_CheckedChanged);
@@ -79,7 +79,7 @@
             this.btnOK.Location = new System.Drawing.Point(101, 122);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(101, 35);
-            this.btnOK.TabIndex = 1;
+            this.btnOK.TabIndex = 0;
             this.btnOK.Text = "Chọn";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 

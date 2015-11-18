@@ -10,6 +10,7 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.View.Dialog;
+using GymFitnessOlympic.View.Utils;
 
 namespace GymFitnessOlympic.View.UserControls.QuanLy
 {
@@ -43,6 +44,10 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
                 if (!GoiTapController.IsKhongRangBuoc(g))
                 {
                     MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
+                if (DialogUtils.Confirmed("Bạn có thực sự muốn xóa") != true)
+                {
                     return;
                 }
                 if (GoiTapController.Delete(g.MaGoiTap) == CODE_RESULT_RETURN.ThanhCong)
@@ -111,6 +116,11 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
         }
 
         private void cbbPhong1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void cbbPhong1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             loadData();
         }

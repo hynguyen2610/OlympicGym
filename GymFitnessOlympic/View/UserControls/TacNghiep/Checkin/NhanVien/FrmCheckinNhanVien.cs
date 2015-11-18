@@ -10,17 +10,45 @@ using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.Dialog;
+using GymFitnessOlympic.Properties;
+using GymFitnessOlympic.Utils;
 
 namespace GymFitnessOlympic.View.MainForms
 {
     public partial class FrmCheckinNhanVien :UserControl
     {
         NhanVien nv;
-
-        public FrmCheckinNhanVien()
+        List<HistoryNhanVien> listTrongNgay = new List<HistoryNhanVien>();
+        bool isCheckin = true;
+        public FrmCheckinNhanVien(bool isCheckin = true)
         {
             InitializeComponent();
+            this.isCheckin = isCheckin;
+            dataGridViewEx1.AutoGenerateColumns = false;
+            dataGridViewEx1.Columns[2].HeaderText = isCheckin ?
+                "Thời gian checkin" : "Thời gian checkout";
+            dataGridViewEx1.Columns[3].HeaderText = isCheckin ?
+                "Số phút trễ" : "Số phút sớm";
+            lblTenDanhSach.Text += isCheckin ? " checkin trong ngày" : " checkout trong ngày";
+            if (!isCheckin) {
+                lblHeader.Text = "Checkout nhân viên";
+            }
             loadDefault();
+            loadGrid();
+        }
+
+        private void loadGrid()
+        {
+            listTrongNgay = HistotyNhanVienController.GetToDay(Login1.GetPhongHienTai().MaPhongTap, isCheckin, Login1.CaHienTai);
+            dataGridViewEx1.DataSource = listTrongNgay;
+        }
+
+        string getTenHanhDong(int n = -1) {
+             if(n!= -1){
+                 return n == 0 ? "checkin":"checkout";
+            }
+            return isCheckin ? "checkin" : "checkout";
+           
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -32,10 +60,16 @@ namespace GymFitnessOlympic.View.MainForms
         void loadData() {
             lblTenNhanVien.Text = nv.TenNhanVien;
             lblPhongTap.Text = (nv.PhongTap.TenPhongTap);
+            lblNgaySinh.Text = nv.NgaySinh.ToString().DateToText();            
+            if(nv.Anh !=null){
+                pictureBox1.Image = StreamUtil.byteArrayToImage(nv.Anh);
+            }
+            loadGrid();
         }
 
-        void wipeCard(bool checkin = true) {
+        void wipeCard() {
             loadDefault();
+            var checkin = isCheckin;
             nv = NhanVienController.GetByMaThe(txtMa.Text.Trim());
             if (nv != null)
             {
@@ -54,20 +88,18 @@ namespace GymFitnessOlympic.View.MainForms
                         if (r == CODE_RESULT_RETURN.ThanhCong)
                         {
                             loadData();
-                            lblKetQua.Text = "Đã checkin";
+                            lblKetQua.Text = "Đã "+getTenHanhDong();
                             lblKetQua.ForeColor = Color.Green;
                         }
                         else
                         {
-                            lblKetQua.Text = "Có lỗi khi checkin";
+                            lblKetQua.Text = "Có lỗi khi "+getTenHanhDong();
                             lblKetQua.ForeColor = Color.Red;
                         }
                     }
                     else
                     {
-                        lblKetQua.ForeColor = Color.Purple;
-                        lblKetQua.Text = "Nhân viên này đã checkin, chưa checkout";
-                        loadData();
+                        thongBaoDaLam();
                     }
                 }
                 else { 
@@ -97,9 +129,10 @@ namespace GymFitnessOlympic.View.MainForms
                     }
                     else
                     {
-                        lblKetQua.ForeColor = Color.Purple;
-                        lblKetQua.Text = "Nhân viên này đã checkout, chưa checkin";
-                        loadData();
+                        //lblKetQua.ForeColor = Color.Purple;
+                        //lblKetQua.Text = "Nhân viên này đã checkout, chưa checkin";
+                        //loadData();
+                        thongBaoDaLam();
                     }
                 }
             }
@@ -111,10 +144,20 @@ namespace GymFitnessOlympic.View.MainForms
             
         }
 
+        private void thongBaoDaLam()
+        {
+            lblKetQua.ForeColor = Color.Purple;
+            int n = isCheckin ? 0 : 1;
+            lblKetQua.Text = "Nhân viên này đã " + getTenHanhDong(n) + ", chưa " + getTenHanhDong(Math.Abs(1 - n));
+            loadData();
+        }
+
         private void loadDefault()
         {
             lblKetQua.Text = "";
-            lblPhongTap.Text = lblTenNhanVien.Text = "";
+            lblPhongTap.Text = lblTenNhanVien.Text = lblNgaySinh.Text = "Không rõ";
+            pictureBox1.Image = Resources.empty_avatar;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,12 +171,17 @@ namespace GymFitnessOlympic.View.MainForms
 
         private void btnCheckin_Click_1(object sender, EventArgs e)
         {
+            if (txtMa.Text.Length > 100) {
+                errorProvider1.SetError(txtMa, "Độ dài dữ liệu nhập vào quá lớn");
+                txtMa.Focus();
+                return;
+            }
             wipeCard();
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            wipeCard(false);
+            wipeCard();
         }
 
         private void txtMa_KeyPress(object sender, KeyPressEventArgs e)
@@ -141,8 +189,9 @@ namespace GymFitnessOlympic.View.MainForms
             if (e.KeyChar == (char)13)
             {
                 btnCheckin.PerformClick();
+                txtMa.Text = "";
+
             }
-            txtMa.Text = "";
         }
     }
 }

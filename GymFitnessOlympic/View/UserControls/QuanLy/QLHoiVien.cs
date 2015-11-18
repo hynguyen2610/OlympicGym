@@ -13,6 +13,7 @@ using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.Dialog;
+using GymFitnessOlympic.View.Utils;
 
 namespace GymFitnessOlympic.View.UserControls
 {
@@ -22,10 +23,8 @@ namespace GymFitnessOlympic.View.UserControls
         public QLHoiVien()
         {
             InitializeComponent();
-            DataFiller.fillPhongCombo(cbbPhong1);
-
             dgrHoiVien.AutoGenerateColumns = false;
-            dgrHoiVien.RowHeadersVisible = false;
+            DataFiller.fillPhongCombo(cbbPhong1);
             //gridView1.CustomColumnDisplayText += gridView1_CustomColumnDisplayText;
         }
 
@@ -192,6 +191,10 @@ namespace GymFitnessOlympic.View.UserControls
                 if (!HoiVienController.IsKhongRangBuoc(h))
                 {
                     MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
+                if (DialogUtils.Confirmed("Bạn có thực sự muốn xóa") != true)
+                {
                     return;
                 }
                 if (HoiVienController.Delete(h.MaHoiVien) == CODE_RESULT_RETURN.ThanhCong)

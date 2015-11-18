@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models.Util;
+using GymFitnessOlympic.Models.DataFiller;
+using GymFitnessOlympic.Utils;
 
 namespace GymFitnessOlympic.View.ActForm.ThongKe
 {
@@ -30,9 +32,10 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 cbbTheoThangNam.Items.Add(i);
 
             }
-            cbbCheDoLoc.SelectedIndex = cbbInOut.SelectedIndex = cbbTheoThangNam.SelectedIndex = cbbTheoThangThang.SelectedIndex = 0;
+            cbbTheoThangNam.SelectedIndex = cbbTheoThangThang.SelectedIndex = 0;
             cbbTheoThangThang.SelectedValue = DateTime.Now.Month;
-  
+            DataFiller.fillPhongCombo(cbbPhong, append:true);
+            loadNhanVien();
         }
 
         private void FrmLichSuNhanVien_Load(object sender, EventArgs e)
@@ -53,6 +56,8 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
         {
             try
             {
+                var phong = (PhongTap)cbbPhong.SelectedItem;
+                var nhanVien = (NhanVien)cbbNhanVien.SelectedItem;
                 DateTime start = new DateTime(), end = new DateTime();
                 if (rdTheoThang.Checked)
                 {
@@ -70,20 +75,8 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 start = DateTimeUtil.StartOfDay(start);
                 end = DateTimeUtil.EndOfDay(end);
                 //finish day select
-                IEnumerable<HistoryNhanVien> li = new List<HistoryNhanVien>();
-                var st = txtTim.Text.ToUpper();
-                switch (cbbCheDoLoc.SelectedIndex)
-                {
-                    case 0:
-                        li = danhSachLichSu.Where(h => h.NhanVien.MaThe.ToUpper().Contains(st) || h.NhanVien.TenNhanVien.ToUpper().Contains(st)).ToList();
-                        break;
-                    case 1:
-                        li = danhSachLichSu.Where(h => h.NhanVien.MaThe.ToUpper().Contains(st));
-                        break;
-                    case 2:
-                        li = danhSachLichSu.Where(h => h.NhanVien.TenNhanVien.ToUpper().Contains(st));
-                        break;
-                }
+                IEnumerable<HistoryNhanVien> li = HistotyNhanVienController.GetList(start, end);
+                
 
                 li = li.Where(h => h.ThoiGian.CompareTo(start) >= 0 && h.ThoiGian.CompareTo(end) <= 0
                     );
@@ -95,6 +88,12 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                     case 2:
                         li = li.Where(h => h.IsCheckin = false);
                         break;
+                }
+                if (phong.MaPhongTap != -1) {
+                    li = li.Where(l=>l.NhanVien.PhongTap.MaPhongTap == phong.MaPhongTap);
+                }
+                if (nhanVien.MaNhanVien != -1) {
+                    li = li.Where(l => l.NhanVien.MaNhanVien == nhanVien.MaNhanVien);
                 }
                 updateTable(li.ToList());
 
@@ -128,30 +127,26 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            var hvh = (HistoryNhanVien)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-            if (e.ColumnIndex == 0)
-            {
-                e.Value = hvh.NhanVien.MaThe;
-            }
-            if (e.ColumnIndex == 1)
-            {
-                e.Value = hvh.NhanVien.TenNhanVien;
-            }
-            if (e.ColumnIndex == 2) {
-                e.Value = hvh.IsCheckin ? "Checkin" : "Checkout";
-            }
-            if (e.ColumnIndex == 4) {
-                e.Value = (hvh.IsCheckin) ? DateTimeUtil.timeToString(hvh.Ca.GioBatDau) : DateTimeUtil.timeToString(hvh.Ca.GioKetThuc);
-            }
-            if (e.ColumnIndex == 5)
-            {
-                e.Value = DateTimeUtil.timeToString( hvh.ThoiGian.TimeOfDay);
-            }
-            if (e.ColumnIndex == 7)
-            {
-               // e.Value = DateTimeUtil.timeToString(hvh.ChenhLech);
-                e.Value = hvh.ChenhLech;
-            }
+            //var hvh = (HistoryNhanVien)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+            //if (e.ColumnIndex == 0)
+            //{
+            //    e.Value = hvh.NhanVien.MaThe;
+            //}
+            //if (e.ColumnIndex == 1)
+            //{
+            //    e.Value = hvh.NhanVien.TenNhanVien;
+            //}
+            //if (e.ColumnIndex == 2) {
+            //    e.Value = hvh.IsCheckin ? "Checkin" : "Checkout";
+            //}
+            //if (e.ColumnIndex == 4) {
+            //    e.Value = (hvh.IsCheckin) ? DateTimeUtil.timeToString(hvh.Ca.GioBatDau) : DateTimeUtil.timeToString(hvh.Ca.GioKetThuc);
+            //}
+            //if (e.ColumnIndex == 5)
+            //{
+            //    e.Value = DateTimeUtil.timeToString( hvh.ThoiGian.TimeOfDay);
+            //}
+           
         }
 
         private void cbbTheoThangThang_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,7 +169,27 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
         private void cbbMode_SelectedIndexChanged(object sender, EventArgs e)
         {
+            loadNhanVien();
             loc();
+        }
+
+        private void loadNhanVien()
+        {
+            if (cbbPhong.SelectedItem != null)
+            {
+                var phong = (PhongTap)cbbPhong.SelectedItem;
+                DataFiller.fillNhanVienCombo(cbbNhanVien, phong.MaPhongTap, true);
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count >0){
+                var r = (HistoryNhanVien)dataGridView1.SelectedRows[0].DataBoundItem;
+                int tongPhut = danhSachLichSu.Where(d => d.NhanVien.MaNhanVien == r.NhanVien.MaNhanVien).
+                    Sum(d => d.ChenhLech);
+                lblTongChenhLech.Text = tongPhut.ToString().FormatCurrency();
+            }
         }
     }
 }

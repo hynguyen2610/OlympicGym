@@ -11,7 +11,7 @@ namespace GymFitnessOlympic.Models.entity
         public int SoTien { get; set; }
         public NhanVien NhanVien { get; set; }
         public bool IsGYM { get; set; }
-        
+        public GiamGia GiamGia { get; set; }
         public KhachLe()
         {
             IsGYM = true;

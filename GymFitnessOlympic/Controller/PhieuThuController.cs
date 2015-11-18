@@ -14,8 +14,13 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nvs = context.PhieuThu.Include(n => n.HoiVien).Include(n => n.NhanVien.PhongTap)
-                    .Where(p => p.NhanVien.PhongTap.MaPhongTap == maPhong);
+                var nvs = context.PhieuThu.Include(n => n.HoiVien)
+                    .Include(n => n.NhanVien).Include(p=>p.NhanVien.PhongTap)
+                    .Include(p=>p.GoiTap)
+                    ;
+                if (maPhong != -1) {
+                    nvs = nvs.Where(n => n.NhanVien.PhongTap.MaPhongTap == maPhong);
+                }
                 if (nv != null)
                 {
                     nvs = nvs.Where(n => n.NhanVien.MaNhanVien == nv.MaNhanVien);
@@ -94,6 +99,9 @@ namespace GymFitnessOlympic.Controller
                         else
                             pt.HoiVien.NgayHetHanSauNa = DateTime.Now.AddMonths(pt.GoiTap.SoThang);
                         pt.HoiVien.GiaHanCuoiSauna = DateTime.Now;
+                    }
+                    if (pt.GiamGia != null) {
+                        pt.GiamGia = context.GiamGia.Find(pt.GiamGia.MaGiamGia);
                     }
                     var r = HoiVienController.updateNgayHetHan(pt.HoiVien);
                     if (r == CODE_RESULT_RETURN.ThanhCong)

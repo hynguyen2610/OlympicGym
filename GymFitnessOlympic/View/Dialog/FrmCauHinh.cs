@@ -27,7 +27,6 @@ namespace GymFitnessOlympic.View.Dialog
           
             InitializeComponent();
             initValueDefault();
-            spnBaoHetHan.Properties.MinValue = 0;
         }
 
         void initValueDefault() {

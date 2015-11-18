@@ -36,9 +36,6 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtTim = new DevExpress.XtraEditors.TextEdit();
             this.dgrHoiVien = new CEMS.Controls.Commons.DataGridViewEx();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblChucNang = new System.Windows.Forms.Label();
             this.cbbPhong = new System.Windows.Forms.ComboBox();
@@ -46,6 +43,10 @@
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnSeach = new DevExpress.XtraEditors.SimpleButton();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtTim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrHoiVien)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +94,7 @@
             this.dgrHoiVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgrHoiVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrHoiVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
             this.Column1,
             this.Column2,
             this.Column3});
@@ -125,6 +127,88 @@
             this.dgrHoiVien.TabIndex = 9;
             this.dgrHoiVien.UseAsListBox = false;
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(12, 101);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(35, 16);
+            this.labelControl2.TabIndex = 13;
+            this.labelControl2.Text = "Phòng";
+            // 
+            // lblChucNang
+            // 
+            this.lblChucNang.AutoSize = true;
+            this.lblChucNang.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucNang.Location = new System.Drawing.Point(2, 0);
+            this.lblChucNang.Name = "lblChucNang";
+            this.lblChucNang.Size = new System.Drawing.Size(458, 58);
+            this.lblChucNang.TabIndex = 15;
+            this.lblChucNang.Text = "Quản lý sản phẩm";
+            // 
+            // cbbPhong
+            // 
+            this.cbbPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPhong.FormattingEnabled = true;
+            this.cbbPhong.Location = new System.Drawing.Point(53, 100);
+            this.cbbPhong.Name = "cbbPhong";
+            this.cbbPhong.Size = new System.Drawing.Size(121, 21);
+            this.cbbPhong.TabIndex = 16;
+            this.cbbPhong.SelectedIndexChanged += new System.EventHandler(this.cbbPhong_SelectedIndexChanged);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoa.Image = global::GymFitnessOlympic.Properties.Resources.delete;
+            this.btnXoa.Location = new System.Drawing.Point(728, 99);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(89, 25);
+            this.btnXoa.TabIndex = 10;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
+            this.btnSua.Location = new System.Drawing.Point(633, 99);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(89, 25);
+            this.btnSua.TabIndex = 11;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThem.Image = global::GymFitnessOlympic.Properties.Resources.add;
+            this.btnThem.Location = new System.Drawing.Point(538, 99);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(89, 25);
+            this.btnThem.TabIndex = 12;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnSeach
+            // 
+            this.btnSeach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSeach.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeach.Appearance.Options.UseFont = true;
+            this.btnSeach.Image = ((System.Drawing.Image)(resources.GetObject("btnSeach.Image")));
+            this.btnSeach.Location = new System.Drawing.Point(876, -58);
+            this.btnSeach.Name = "btnSeach";
+            this.btnSeach.Size = new System.Drawing.Size(93, 24);
+            this.btnSeach.TabIndex = 6;
+            this.btnSeach.Text = "Tìm kiếm";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "MaVachSanPham";
+            this.Column4.HeaderText = "Mã sản phẩm";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 150;
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "TenSanPham";
@@ -150,77 +234,6 @@
             this.Column3.HeaderText = "";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(12, 105);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(35, 16);
-            this.labelControl2.TabIndex = 13;
-            this.labelControl2.Text = "Phòng";
-            // 
-            // lblChucNang
-            // 
-            this.lblChucNang.AutoSize = true;
-            this.lblChucNang.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChucNang.Location = new System.Drawing.Point(2, 0);
-            this.lblChucNang.Name = "lblChucNang";
-            this.lblChucNang.Size = new System.Drawing.Size(458, 58);
-            this.lblChucNang.TabIndex = 15;
-            this.lblChucNang.Text = "Quản lý sản phẩm";
-            // 
-            // cbbPhong
-            // 
-            this.cbbPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPhong.FormattingEnabled = true;
-            this.cbbPhong.Location = new System.Drawing.Point(63, 105);
-            this.cbbPhong.Name = "cbbPhong";
-            this.cbbPhong.Size = new System.Drawing.Size(121, 21);
-            this.cbbPhong.TabIndex = 16;
-            this.cbbPhong.SelectedIndexChanged += new System.EventHandler(this.cbbPhong_SelectedIndexChanged);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Image = global::GymFitnessOlympic.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(728, 99);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(89, 25);
-            this.btnXoa.TabIndex = 10;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnSua.Location = new System.Drawing.Point(633, 99);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(89, 25);
-            this.btnSua.TabIndex = 11;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Image = global::GymFitnessOlympic.Properties.Resources.add;
-            this.btnThem.Location = new System.Drawing.Point(538, 99);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 25);
-            this.btnThem.TabIndex = 12;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnSeach
-            // 
-            this.btnSeach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSeach.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeach.Appearance.Options.UseFont = true;
-            this.btnSeach.Image = ((System.Drawing.Image)(resources.GetObject("btnSeach.Image")));
-            this.btnSeach.Location = new System.Drawing.Point(876, -58);
-            this.btnSeach.Name = "btnSeach";
-            this.btnSeach.Size = new System.Drawing.Size(93, 24);
-            this.btnSeach.TabIndex = 6;
-            this.btnSeach.Text = "Tìm kiếm";
             // 
             // QLSanPham
             // 
@@ -255,11 +268,12 @@
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnSeach;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private System.Windows.Forms.Label lblChucNang;
+        private System.Windows.Forms.ComboBox cbbPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Label lblChucNang;
-        private System.Windows.Forms.ComboBox cbbPhong;
 
     }
 }

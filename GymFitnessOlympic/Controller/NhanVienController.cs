@@ -8,21 +8,45 @@ using System.Data.Entity;
 using GymFitnessOlympic.Models.Util;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using GymFitnessOlympic.View.UserControls;
 
 namespace GymFitnessOlympic.Controller
 {
     class NhanVienController
     {
-        internal static List<NhanVien> GetList(int phongID = -1)
+        internal static List<NhanVien> GetList(int khoa = -1, 
+            int conLamViec = -1, int phongID = -1)
         {
             using (var context = DBContext.GetContext())
             {
                 var nvs = context.NhanVien.Include(n => n.PhongTap).Include(n=>n.Quyen);
+                var la = nvs.ToList();
+                if (khoa != -1) {
+                    if (khoa == 0)
+                    {
+                        nvs = nvs.Where(n => !n.IsKhoa);
+                    }
+                    else {
+                        nvs = nvs.Where(n => n.IsKhoa);
+                    }
+                }
+                if (conLamViec != -1)
+                {
+                    if (conLamViec == 0)
+                    {
+                        nvs = nvs.Where(n => n.IsConLamViec);
+                    }
+                    else
+                    {
+                        nvs = nvs.Where(n => !n.IsConLamViec);
+                    }
+                }
                 if (phongID != -1)
                 {
                     nvs = nvs.Where(n => n.PhongTap.MaPhongTap == phongID);
                 }
-                return nvs.ToList();
+                var li =  nvs.ToList();
+                return li;
             }
         }
 
@@ -131,10 +155,13 @@ namespace GymFitnessOlympic.Controller
                         hvc.PhongTap = phongMoi;
                     }
                     var quyen = db.Quyen.Find(hv.Quyen.MaQuyen);
+                    hvc.NgaySinh = hv.NgaySinh;
                     hvc.Quyen = quyen;
                     hvc.SoDienThoai = hv.SoDienThoai;
                     hvc.DiaChi = hv.DiaChi;
                     hvc.Password = hvc.Password;
+                    hvc.IsKhoa = hv.IsKhoa;
+                    hvc.IsConLamViec = hv.IsConLamViec;
                     hvc.Anh = hv.Anh;
                     db.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;

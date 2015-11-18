@@ -15,6 +15,7 @@ namespace GymFitnessOlympic.Models.Mapping
                 //Các cột
                 this.Property(t => t.TenSanPham).IsRequired();
                 this.Property(t => t.Gia).IsRequired();
+                this.Property(t => t.MaVachSanPham).IsRequired();
                 this.ToTable("SanPham");
             }
     }

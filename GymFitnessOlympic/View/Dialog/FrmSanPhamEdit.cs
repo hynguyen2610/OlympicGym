@@ -47,7 +47,7 @@ namespace GymFitnessOlympic.View.Dialog
             txtTen.Text = current.TenSanPham;
             //txtMaSauna.Text = current.MaSauna;
             txtGia.Text = current.Gia.ToString();
-
+            txtMaVach.Text = current.MaVachSanPham;
         }
 
 
@@ -61,6 +61,7 @@ namespace GymFitnessOlympic.View.Dialog
             current.Gia = int.Parse(txtGia.Text);
             current.PhongTap = Login1.GetPhongHienTai();
             current.TenSanPham = txtTen.Text;
+            current.MaVachSanPham = txtMaVach.Text.Trim();
             if (isHaveFile)
             {
                 String fileName = opd.FileName;
@@ -83,6 +84,11 @@ namespace GymFitnessOlympic.View.Dialog
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int gia;
+            if (txtMaVach.Text == "") {
+                dxErrorProvider1.SetError(txtMaVach, "Chưa nhập mã vạch");
+                txtMaVach.Focus();
+                return;
+            }
             if (txtTen.Text == "")
             {
                 dxErrorProvider1.SetError(txtTen, "Chưa nhập tên");

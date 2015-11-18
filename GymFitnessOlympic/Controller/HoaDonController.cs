@@ -14,7 +14,8 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nvs = context.HoaDon.Include(n => n.DanhSachChiTiet).Include(h=>h.NhanVien.PhongTap);
+                var nvs = context.HoaDon.Include(n => n.DanhSachChiTiet).Include(h=>h.NhanVien)
+                    .Include(h=>h.NhanVien.PhongTap);
                 if (maPhong != -1) {
                     nvs = nvs.Where(n => n.NhanVien.PhongTap.MaPhongTap == maPhong);
                 }

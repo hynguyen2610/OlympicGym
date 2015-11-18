@@ -19,7 +19,7 @@ namespace GymFitnessOlympic.Controller
                 var nvs = context.SanPham.Include(n => n.PhongTap);
                 if (phongID != -1)
                 {
-                    nvs = nvs.Where(n => n.PhongTap.MaPhongTap == phongID);
+                    nvs = nvs.Where(n => n.PhongTap.MaPhongTap == phongID).OrderBy(s=>s.TenSanPham);
                 }
                 return nvs.ToList();
             }
@@ -29,7 +29,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nv = context.SanPham.FirstOrDefault(n => n.MaSanPham == maSP );
+                var nv = context.SanPham.FirstOrDefault(n => n.MaSanPham == maSP);
                 return nv;
             }
         }
@@ -62,13 +62,13 @@ namespace GymFitnessOlympic.Controller
         {
             using (var db = DBContext.GetContext())
             {
-                var hvc = db.SanPham.FirstOrDefault(h => h.MaSanPham  == hv.MaSanPham);
+                var hvc = db.SanPham.FirstOrDefault(h => h.MaSanPham == hv.MaSanPham);
                 if (hvc != null)
                 {
                     hv.PhongTap = db.PhongTap.Find(hv.PhongTap.MaPhongTap);
                     hvc.TenSanPham = hv.TenSanPham;
                     hvc.Gia = hv.Gia;
-                  
+
                     db.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;
                 }
@@ -91,17 +91,18 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        public static int ThongKeSoLuong(SanPham sp) {
+        public static int ThongKeSoLuong(SanPham sp)
+        {
             using (var db = DBContext.GetContext())
             {
-                var cc = db.ChiTietHoaDon.Include(c => c.HoaDon).Include(c=>c.SanPham).
+                var cc = db.ChiTietHoaDon.Include(c => c.HoaDon).Include(c => c.SanPham).
                     Where(c => c.SanPham.MaSanPham == sp.MaSanPham);
-                int nhap = cc.Where(c => c.HoaDon.IsNhap).ToList().Sum(c=>c.SoLuong);
-                int ban = cc.Where(c =>!c.HoaDon.IsNhap).ToList().Sum(c => c.SoLuong);
+                int nhap = cc.Where(c => c.HoaDon.IsNhap).ToList().Sum(c => c.SoLuong);
+                int ban = cc.Where(c => !c.HoaDon.IsNhap).ToList().Sum(c => c.SoLuong);
                 int soLuong = nhap - ban;
                 return soLuong;
             }
-            
+
         }
 
         internal static List<ThongKeSanPhamModel> ThongKeMuaVaoBanRa(DateTime start, DateTime end, int maPhong = -1, NhanVien nhanVienHienTai = null)
@@ -109,40 +110,91 @@ namespace GymFitnessOlympic.Controller
             List<ThongKeSanPhamModel> li = new List<ThongKeSanPhamModel>();
             using (var db = DBContext.GetContext())
             {
-                var hoaDonTrongKhoang = db.HoaDon.Include(h=>h.NhanVien.PhongTap).Where(h=>h.NgayLap >= start && h.NgayLap <=end).SelectMany(h=>h.DanhSachChiTiet);
-                if (maPhong != -1) {
-                    hoaDonTrongKhoang = hoaDonTrongKhoang.Where(c => c.HoaDon.NhanVien.PhongTap.MaPhongTap == maPhong);
+                //var chiTietHoaDonTrongKhoang = db.HoaDon.
+                //    Include(h => h.NhanVien.PhongTap).Include(h => h.NhanVien).Include(h => h.DanhSachChiTiet)
+                //    .Where(h => h.NgayLap >= start 
+                //        &&
+                //        h.NgayLap <= end).SelectMany(h => h.DanhSachChiTiet);
+                var chiTietHoaDonTrongKhoang = db.ChiTietHoaDon.Include(c => c.HoaDon)
+                    .Include(c => c.HoaDon.NhanVien)
+                    .Include(c=>c.HoaDon.NhanVien.PhongTap).Include(c=>c.SanPham)
+                    .Where(c=>c.HoaDon.NgayLap >= start && c.HoaDon.NgayLap <= end)
+                    
+                    ;
+                if (maPhong != -1)
+                {
+                    chiTietHoaDonTrongKhoang = chiTietHoaDonTrongKhoang
+                        .Where(c => c.HoaDon.NhanVien.PhongTap.MaPhongTap == maPhong);
                 }
-                if (nhanVienHienTai != null) {
-                    hoaDonTrongKhoang = hoaDonTrongKhoang.Where(c => c.HoaDon.NhanVien.MaNhanVien == nhanVienHienTai.MaNhanVien);
+              
+                var tatCaHang = db.SanPham.ToList();
+                var tatCaNhanVien = new List<NhanVien>();
+                if (nhanVienHienTai != null)
+                {
+                    tatCaNhanVien.Add(nhanVienHienTai);
                 }
-                var hh = db.SanPham.ToList();
-                foreach(var sp in hh){
-                    ThongKeSanPhamModel tk = new ThongKeSanPhamModel() { 
-                    SanPham = sp                    
-                    };
+                else
+                  tatCaNhanVien =  db.NhanVien.ToList();
 
-                    tk.SoLuong = hoaDonTrongKhoang.ToList().Where(c=>c.SanPham.MaSanPham == sp.MaSanPham).Sum(c => c.SoLuong);
-                    tk.TongTien = hoaDonTrongKhoang.ToList().Where(c => c.SanPham.MaSanPham == sp.MaSanPham).Sum(c => c.SoLuong * c.Gia);
-                    if (tk.SoLuong > 0)
+                foreach (var sp in tatCaHang)
+                {
+                    foreach (var nv in tatCaNhanVien)
                     {
-                        li.Add(tk);
+                        ThongKeSanPhamModel tk = new ThongKeSanPhamModel()
+                        {
+                            SanPham = sp,
+                            NhanVien = nv,
+                            PhongTap = nv.PhongTap
+                        };
+
+                        tk.SoLuong = chiTietHoaDonTrongKhoang.ToList().Where(c => c.SanPham.MaSanPham == sp.MaSanPham
+                            && c.HoaDon.NhanVien.MaNhanVien == nv.MaNhanVien).ToList().Sum(c => c.SoLuong);
+                        tk.TongTien = chiTietHoaDonTrongKhoang.ToList()
+                            .Where(c => c.SanPham.MaSanPham == sp.MaSanPham
+                            && c.HoaDon.NhanVien.MaNhanVien == nv.MaNhanVien
+                            ).ToList().Sum(c => c.SoLuong * c.Gia);
+                        if (tk.SoLuong > 0)
+                        {
+                            li.Add(tk);
+                        }
                     }
                 }
-                return li;
+                return li.OrderBy(l=>l.NhanVien.MaNhanVien).ToList();
             }
         }
 
-        internal static List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel> 
-            ThongKeSoLuong(DateTime start, DateTime end, PhongTap phong )
+        //internal static List<ThongKeSanPhamModel> ThongKeMuaVaoBanRa(DateTime start, DateTime end, int maPhong = -1, NhanVien nhanVienHienTai = null) {
+        //        List<ThongKeSanPhamModel> li = new List<ThongKeSanPhamModel>();
+        //        using (var db = DBContext.GetContext())
+        //        {
+        //            var tatCaNhanVien = db.NhanVien;
+        //          //  foreach (var nv in tatCaNhanVien) {
+        //                var kq = from nv in db.NhanVien
+        //                         group nv by nv.MaNhanVien  into groupNV
+        //                         select new {
+        //            groupNV.ToList()
+        //        };
+
+        //          //  }
+        //                foreach (var t in kq) {
+        //                    ThongKeSanPhamModel model = new ThongKeSanPhamModel() { 
+        //                    NhanVien = t.
+        //                    };
+        //                }
+        //        }
+        //}
+
+        internal static List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel>
+            ThongKeSoLuong(PhongTap phong)
         {
             List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel> li = new List<GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel>();
-            
+
             using (var db = DBContext.GetContext())
             {
                 var hh = db.SanPham.ToList();
                 var allChiTiet = db.ChiTietHoaDon.Include(c => c.HoaDon).Select(c => c.SanPham);
-                foreach (var sp in hh) {
+                foreach (var sp in hh)
+                {
                     GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel model = new GymFitnessOlympic.View.ActForm.FrmKiemKho.ThongKeSoLuongModel();
                     model.SanPham = sp;
                     model.SoBan = db.ChiTietHoaDon.Where(c => !c.HoaDon.IsNhap && c.SanPham.MaSanPham == sp.MaSanPham).ToList().Sum(c => c.SoLuong);
@@ -163,8 +215,18 @@ namespace GymFitnessOlympic.Controller
                 var ct = db.ChiTietHoaDon.Include(p => p.SanPham).FirstOrDefault(p => p.SanPham.MaPhongTap == g.MaSanPham);
                 if (ct != null)
                     return false;
-                
+
                 return true;
+            }
+        }
+
+        internal static SanPham GetByMa(string ma)
+        {
+            using (var context = DBContext.GetContext())
+            {
+                var nv = context.SanPham.FirstOrDefault(n => n.MaVachSanPham
+                    == ma);
+                return nv;
             }
         }
     }

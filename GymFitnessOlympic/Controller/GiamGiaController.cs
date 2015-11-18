@@ -10,16 +10,21 @@ namespace GymFitnessOlympic.Controller
 {
     class GiamGiaController
     {
-        internal static List<GiamGia> GetList()
+        internal static List<GiamGia> GetList(bool chuaNgayHienTai = false)
         {
             using (var context = DBContext.GetContext())
             {
                 var nvs = context.GiamGia;
+                if (chuaNgayHienTai)
+                {
+                    return nvs.Where(g => g.NgayBatDau < DateTime.Now && g.NgayKetThuc > DateTime.Now)
+                       .OrderByDescending(c=>c.NgayKetThuc) .ToList();
+                }
                 return nvs.ToList();
             }
         }
 
-        internal static GiamGia GetByID(int maSP)
+        internal static GiamGia GetByID(string maSP)
         {
             using (var context = DBContext.GetContext())
             {
@@ -35,6 +40,14 @@ namespace GymFitnessOlympic.Controller
             {
                 try
                 {
+                    //var trung = context.GiamGia.FirstOrDefault(ca => (ca.MaGiamGia != sp.MaGiamGia)
+                    //&&
+                    //    ((ca.NgayBatDau <= sp.NgayBatDau && ca.NgayKetThuc >= sp.NgayBatDau)
+                    //        || (ca.NgayBatDau <= sp.NgayKetThuc && ca.NgayKetThuc >= sp.NgayKetThuc)));
+                    //if (trung != null)
+                    //{
+                    //    return CODE_RESULT_RETURN.MaTrung;
+                    //}
                     var n1 = context.GiamGia.FirstOrDefault(n => n.MaGiamGia == sp.MaGiamGia);
                     if (n1 == null)
                     {
@@ -55,7 +68,15 @@ namespace GymFitnessOlympic.Controller
         {
             using (var db = DBContext.GetContext())
             {
-                var hvc = db.GiamGia.FirstOrDefault(h => h.MaGiamGia  == hv.MaGiamGia);
+                //var trung = db.GiamGia.FirstOrDefault(ca => (ca.MaGiamGia != sp.MaGiamGia)
+                //  &&
+                //      ((ca.NgayBatDau <= sp.NgayBatDau && ca.NgayKetThuc >= sp.NgayBatDau)
+                //          || (ca.NgayBatDau <= sp.NgayKetThuc && ca.NgayKetThuc >= sp.NgayKetThuc)));
+                //if (trung != null)
+                //{
+                //    return CODE_RESULT_RETURN.MaTrung;
+                //}
+                var hvc = db.GiamGia.FirstOrDefault(h => h.MaGiamGia == hv.MaGiamGia);
                 if (hvc != null)
                 {
                     hvc.NgayKetThuc = hv.NgayKetThuc;
@@ -69,7 +90,7 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static CODE_RESULT_RETURN Delete(int id)
+        internal static CODE_RESULT_RETURN Delete(string id)
         {
             using (var context = DBContext.GetContext())
             {
@@ -81,6 +102,20 @@ namespace GymFitnessOlympic.Controller
                     return CODE_RESULT_RETURN.ThanhCong;
                 }
                 return CODE_RESULT_RETURN.ThatBai;
+            }
+        }
+
+        public static bool IsKhongRangBuoc(GiamGia g)
+        {
+            using (var db = DBContext.GetContext())
+            {
+                var phieuThus = db.PhieuThu.Include(p => p.GiamGia).FirstOrDefault(p => p.GiamGia.MaGiamGia == g.MaGiamGia);
+                if (phieuThus != null)
+                    return false;
+                var khachLe = db.KhachLe.Include(p => p.GiamGia).FirstOrDefault(p => p.GiamGia.MaGiamGia == g.MaGiamGia);
+                if (khachLe != null)
+                    return false;
+                return true;
             }
         }
     }

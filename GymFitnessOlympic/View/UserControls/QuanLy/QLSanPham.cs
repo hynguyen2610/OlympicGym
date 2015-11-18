@@ -2,6 +2,7 @@
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.View.Dialog;
+using GymFitnessOlympic.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +21,9 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
         public QLSanPham()
         {
             InitializeComponent();
-            DataFiller.fillPhongCombo(cbbPhong);
             dgrHoiVien.AutoGenerateColumns = false;
             DataFiller.fillPhongCombo(cbbPhong);
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -60,6 +61,10 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
                 if (!SanPhamController.IsKhongRangBuoc(h))
                 {
                     MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
+                if (DialogUtils.Confirmed("Bạn có thực sự muốn xóa") != true)
+                {
                     return;
                 }
                 if (SanPhamController.Delete(h.MaSanPham) == CODE_RESULT_RETURN.ThanhCong)

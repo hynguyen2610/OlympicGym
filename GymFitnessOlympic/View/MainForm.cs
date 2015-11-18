@@ -25,6 +25,7 @@ using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.UserControls.QuanLy;
 using GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien;
 using GymFitnessOlympic.View.UserControls.ThongKe;
+using System.Diagnostics;
 
 namespace GymFitnessOlympic.View
 {
@@ -202,7 +203,7 @@ namespace GymFitnessOlympic.View
 
         private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
         {
-            LoadUC(new FrmCheckOutNhanVien());
+            LoadUC(new FrmCheckinNhanVien(false));
         }
 
         private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
@@ -322,6 +323,23 @@ namespace GymFitnessOlympic.View
         private void barButtonItem21_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadUC(new UcThongKeKhachLe(Login1.TaiKhoanHienTai));
+        }
+
+        private void barButtonItem24_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new QLGiamGia());
+        }
+
+        private void barButtonItem25_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadUC(new FrmLichSuHoaDon(isNhap:true));
+        }
+
+        private void barButtonItem20_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var assem = System.Reflection.Assembly.GetExecutingAssembly();
+            Process.Start("AutoUpdate\\AutoUpdate.exe", assem.ManifestModule.Name);
+            Application.Exit();
         }
     }
 }

@@ -59,6 +59,16 @@ namespace GymFitnessOlympic.Models
             }
         }
 
+        public string TenPhong
+        {
+            get {
+                return HoiVien.PhongTap.TenPhongTap;
+            }
+        }
+
+     
+
+
 
     }
 

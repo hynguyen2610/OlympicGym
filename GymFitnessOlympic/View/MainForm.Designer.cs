@@ -73,6 +73,9 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
             this.rbTabManager = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -89,7 +92,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblLoginStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
@@ -144,9 +146,11 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem21});
+            this.barButtonItem21,
+            this.barButtonItem24,
+            this.barButtonItem25});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 50;
+            this.ribbonControl.MaxItemId = 52;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbTabManager,
@@ -406,6 +410,7 @@
             this.barButtonItem20.Id = 24;
             this.barButtonItem20.Name = "barButtonItem20";
             this.barButtonItem20.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
             // 
             // rbBtnLoginQuick
             // 
@@ -447,7 +452,7 @@
             // rbBtnThongKeHoaDon
             // 
             this.rbBtnThongKeHoaDon.Caption = "Sản phẩm bán được";
-            this.rbBtnThongKeHoaDon.Glyph = global::GymFitnessOlympic.Properties.Resources.statistics2;
+            this.rbBtnThongKeHoaDon.Glyph = global::GymFitnessOlympic.Properties.Resources.dollar;
             this.rbBtnThongKeHoaDon.Id = 40;
             this.rbBtnThongKeHoaDon.Name = "rbBtnThongKeHoaDon";
             this.rbBtnThongKeHoaDon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -516,6 +521,33 @@
             this.barButtonItem6.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
+            // barButtonItem21
+            // 
+            this.barButtonItem21.Caption = "Khách lẻ";
+            this.barButtonItem21.Glyph = global::GymFitnessOlympic.Properties.Resources.User_Preppy_Blue_icon;
+            this.barButtonItem21.Id = 48;
+            this.barButtonItem21.Name = "barButtonItem21";
+            this.barButtonItem21.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem21.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem21_ItemClick);
+            // 
+            // barButtonItem24
+            // 
+            this.barButtonItem24.Caption = "Giảm giá";
+            this.barButtonItem24.Glyph = global::GymFitnessOlympic.Properties.Resources.down;
+            this.barButtonItem24.Id = 50;
+            this.barButtonItem24.Name = "barButtonItem24";
+            this.barButtonItem24.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem24.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem24_ItemClick);
+            // 
+            // barButtonItem25
+            // 
+            this.barButtonItem25.Caption = "Nhập hàng";
+            this.barButtonItem25.Glyph = global::GymFitnessOlympic.Properties.Resources.product_import;
+            this.barButtonItem25.Id = 51;
+            this.barButtonItem25.Name = "barButtonItem25";
+            this.barButtonItem25.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem25.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem25_ItemClick);
+            // 
             // rbTabManager
             // 
             this.rbTabManager.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -531,6 +563,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLPhongTap);
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLNhanVien);
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnQLGoiTap);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem24);
             this.ribbonPageGroup1.ItemLinks.Add(this.rbBtnConfig);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Danh mục";
@@ -550,6 +583,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup4.ItemLinks.Add(this.rbBtnLichSuNhanVien);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem25);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Thống kê";
             // 
@@ -654,15 +688,6 @@
             this.barButtonItem12.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem12.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem12_ItemClick);
             // 
-            // barButtonItem21
-            // 
-            this.barButtonItem21.Caption = "Khách lẻ";
-            this.barButtonItem21.Glyph = global::GymFitnessOlympic.Properties.Resources.User_Preppy_Blue_icon;
-            this.barButtonItem21.Id = 48;
-            this.barButtonItem21.Name = "barButtonItem21";
-            this.barButtonItem21.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem21.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem21_ItemClick);
-            // 
             // barButtonItem22
             // 
             this.barButtonItem22.Caption = "Khách lẻ";
@@ -760,5 +785,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem21;
         private DevExpress.XtraBars.BarButtonItem barButtonItem22;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
     }
 }

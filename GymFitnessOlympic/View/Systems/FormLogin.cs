@@ -38,7 +38,7 @@ namespace GymFitnessOlympic.View.Systems
                 this.ActiveControl = txtTenDangNhap;
             //test
             txtMatKhau.Text = txtTenDangNhap.Text = "admin";
-            btnDongY_Click(null, null);
+           // btnDongY_Click(null, null);
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
@@ -71,7 +71,17 @@ namespace GymFitnessOlympic.View.Systems
                     }
                     else //if (this.NguoiSuDung != null)
                     {
-                        this.User = oE.Result as NhanVien;
+                        var loginResult = oE.Result as NhanVien;
+                        if (!loginResult.IsConLamViec)
+                        {
+                            MessageBox.Show("Tài khoản này không còn làm việc");
+                            return;
+                        }
+                        if (loginResult.IsKhoa) {
+                            MessageBox.Show("Tài khoản này đã bị khóa, vui lòng liên hệ admin");
+                            return;
+                        }
+                        this.User = loginResult;
                         Login1.TaiKhoanHienTai = User;
                         //Kiểm tra người sử dụng còn có quyến sử dụng hệ thống hay không
                         //if (this.User.IsActive == false)

@@ -29,7 +29,6 @@ namespace GymFitnessOlympic.Models
         public bool IsDangKyNhanh { get; set; }
         public HoiVien()
         {
-            MaThe = Guid.NewGuid().ToString();
             NgayHetHanGYM = NgayHetHanSauNa = GiaHanCuoiGYM = GiaHanCuoiSauna = DateTime.Now;
             NgayGioDangKy = DateTime.Now;
             IsDangKyNhanh = false;

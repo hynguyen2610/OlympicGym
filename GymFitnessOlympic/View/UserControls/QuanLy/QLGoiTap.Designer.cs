@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrGoiTap = new CEMS.Controls.Commons.DataGridViewEx();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbGYM = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,10 +45,6 @@
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrGoiTap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,6 +107,38 @@
             this.dgrGoiTap.TabIndex = 0;
             this.dgrGoiTap.UseAsListBox = false;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "TenGoiTap";
+            this.Column1.FillWeight = 63.94557F;
+            this.Column1.HeaderText = "Tên gói tập";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SoThang";
+            this.Column3.HeaderText = "Số tháng";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Gia";
+            this.Column4.FillWeight = 136.0544F;
+            this.Column4.HeaderText = "Giá";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 200;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // cbbGYM
             // 
             this.cbbGYM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -146,6 +178,7 @@
             this.cbbPhong1.Name = "cbbPhong1";
             this.cbbPhong1.Size = new System.Drawing.Size(121, 21);
             this.cbbPhong1.TabIndex = 5;
+            this.cbbPhong1.SelectedIndexChanged += new System.EventHandler(this.cbbPhong1_SelectedIndexChanged_1);
             // 
             // lblChucNang
             // 
@@ -189,38 +222,6 @@
             this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "TenGoiTap";
-            this.Column1.FillWeight = 63.94557F;
-            this.Column1.HeaderText = "Tên gói tập";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SoThang";
-            this.Column3.HeaderText = "Số tháng";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Gia";
-            this.Column4.FillWeight = 136.0544F;
-            this.Column4.HeaderText = "Giá";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 200;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // QLGoiTap
             // 

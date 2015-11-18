@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace GymFitnessOlympic.Models
 {
@@ -19,13 +20,16 @@ namespace GymFitnessOlympic.Models
             get
             {
                 var minThoiGian = ThoiGian.Hour * 60 + ThoiGian.Minute;
-                var minBatDau = Ca.GioBatDau.Hours * 60 + Ca.GioBatDau.Minutes;
+                var phutBatDau = Ca.GioBatDau.Hours * 60 + Ca.GioBatDau.Minutes;
                 var minKetThuc = Ca.GioKetThuc.Hours * 60 + Ca.GioKetThuc.Minutes;
 
-                if (IsCheckin) {
-                    return minBatDau - minThoiGian;
+                if (IsCheckin)
+                {
+                    var d = phutBatDau - minThoiGian;
+                    return d > 0 ? 0 : Math.Abs(d);
                 }
-                return minKetThuc - minThoiGian;
+                var d1 = minKetThuc - minThoiGian;
+                return d1 > 0 ? d1 : Math.Abs(d1);
             }
         }
         [NotMapped]
@@ -33,11 +37,66 @@ namespace GymFitnessOlympic.Models
         {
             get
             {
-                
-                return ChenhLech > 0 ? "Sớm" : "Trễ";
-                
+                if (IsCheckin)
+                {
+                    return ChenhLech >= 0 ? "Trễ" : "Đúng giờ";
+                }
+                else {
+                    return ChenhLech >= 0 ? "Sớm" : "Đúng giờ";
+                }
             }
         }
+
+        public string MaTheNhanVien
+        {
+            get { return NhanVien.MaThe; }
+        }
+
+        public string TenNhanVien
+        {
+            get { return NhanVien.TenNhanVien; }
+        }
+
+        public static int TongSoPhutSomTre(List<HistoryNhanVien> danhSachCheckouot, bool isCkeckin)
+        {
+            if (isCkeckin)
+            {
+                return danhSachCheckouot.Where(c => c.IsCheckin).Sum(c => c.ChenhLech);
+            }
+            else
+            {
+                return danhSachCheckouot.Where(c => !c.IsCheckin
+                    ).Sum(c => c.ChenhLech);
+            }
+        }
+
+        public string TenPhong
+        {
+            get { return NhanVien.PhongTap.TenPhongTap; }
+        }
+
+        public string TenHanhDong
+        {
+            get { return IsCheckin ? "Checkin" : "Checkout"; }
+        }
+
+        public string TenCa
+        {
+            get { 
+                return Ca.TenCa; 
+            }
+        }
+
+        public string MaThe
+        {
+            get { 
+                return NhanVien.MaThe;
+            
+            }
+        }
+
+       
+
 
 
     }

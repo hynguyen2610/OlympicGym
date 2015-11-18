@@ -2,6 +2,7 @@
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
+using GymFitnessOlympic.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,11 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
     {
         NhanVien nhanVienHienTai;
         PhongTap phongHienTai;
-        List<HoaDon> allPhieuThu;
+        List<HoaDon> allHoaDon;
         List<ThongKeSanPhamModel> allThongKe;
+        bool IsNhap;
 
-
-        public FrmLichSuHoaDon(NhanVien _maNV = null)
+        public FrmLichSuHoaDon(NhanVien _maNV = null, bool isNhap = false)
         {
             InitializeComponent();
             nhanVienHienTai = _maNV;
@@ -31,17 +32,23 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 cbbTheoThangNam.Items.Add(i);
 
             }
+            IsNhap = isNhap;
             cbbTheoThangNam.SelectedIndex
                 = cbbTheoThangThang.SelectedIndex = 0;
-            
+
             phongHienTai = Login1.GetPhongHienTai();
-            cbbPhong.Properties.NullText = "Chọn một phòng";
-            DataFiller.fillPhongCombo(cbbPhong);
-            cbbPhong.EditValue = phongHienTai.MaPhongTap;
+            // cbbPhong.Properties.NullText = "Chọn một phòng";
+            DataFiller.fillPhongCombo(cbbPhong, append:true);
+            cbbPhong.SelectedValue = phongHienTai.MaPhongTap;
 
             //loadData();
             loc();
             loadEnable();
+            if (IsNhap)
+            {
+                lblTitle.Text = "Thống kê nhập hàng";
+                pnTongTien.Visible = false;
+            }
         }
 
         void loadEnable()
@@ -67,10 +74,11 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
             {
                 phongHienTai = (PhongTap)cbbPhong.SelectedItem;
             }
-            catch { 
+            catch
+            {
             }
             var maPhong = phongHienTai != null ? phongHienTai.MaPhongTap : -1;
-            allPhieuThu = HoaDonController.GetList(phongHienTai.MaPhongTap, nhanVienHienTai);
+            //allHoaDon = HoaDonController.GetList(phongHienTai.MaPhongTap, nhanVienHienTai);
             try
             {
                 DateTime start = new DateTime(), end = new DateTime();
@@ -81,27 +89,47 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                     start = new DateTime(year, month, 1);
                     end = start.AddMonths(1).AddDays(-1);
                 }
-                
+
                 else if (rdTheoKhoangNgay.Checked)
                 {
-                    start = dtpFrom.Value;
-                    end = dtpTo.Value;
+                    start =DateTimeUtil.StartOfDay( dtpFrom.Value);
+                    end = DateTimeUtil.StartOfDay( dtpTo.Value);
                 }
-                List<HoaDon> li = new List<HoaDon>();
+                //List<HoaDon> li = new List<HoaDon>();
 
 
                 //li = allPhieuThu.Where(h => h.NgayLap.CompareTo(start) >= 0 && h.NgayLap.CompareTo(end) <= 0).ToList();
-                allThongKe = SanPhamController.ThongKeMuaVaoBanRa(start, end,  maPhong, nhanVienHienTai);
+                allThongKe = SanPhamController.ThongKeMuaVaoBanRa(start, end, maPhong, nhanVienHienTai);
                 dataGridView1.DataSource = allThongKe;
-                lblTongTien.Text = allThongKe.Sum(c => c.TongTien).ToString();
+                lblTongTien.Text = allThongKe.Sum(c => c.TongTien).ToString().FormatCurrency();
+                dataGridView1.Columns[3].Visible = !IsNhap;
             }
             catch { }
         }
     }
 
-    class ThongKeSanPhamModel {
+    class ThongKeSanPhamModel
+    {
         public SanPham SanPham { get; set; }
+        public NhanVien NhanVien { get; set; }
+        public PhongTap PhongTap { get; set; } 
         public int SoLuong { get; set; }
         public int TongTien { get; set; }
+
+        public string TenNhanVien
+        {
+            get
+            {
+                if (NhanVien != null)
+                    return NhanVien.TenNhanVien;
+                return "Không rõ";
+            }
+        }
+
+        public string TenPhong {
+            get {
+                return NhanVien.PhongTap.TenPhongTap;
+            }
+        }
     }
 }

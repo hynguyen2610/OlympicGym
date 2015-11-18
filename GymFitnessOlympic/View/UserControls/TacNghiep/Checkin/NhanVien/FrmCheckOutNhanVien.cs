@@ -48,7 +48,8 @@ namespace GymFitnessOlympic.View.MainForms
                         {
                             IsCheckin = true,
                             NhanVien = nv,
-                            ThoiGian = DateTime.Now
+                            ThoiGian = DateTime.Now,
+                            Ca = Login1.CaHienTai
                         };
                         var r = HistotyNhanVienController.Add(hh);
                         if (r == CODE_RESULT_RETURN.ThanhCong)

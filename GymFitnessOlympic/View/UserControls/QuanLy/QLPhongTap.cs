@@ -3,6 +3,7 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.Dialog;
+using GymFitnessOlympic.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,6 +61,10 @@ namespace GymFitnessOlympic.View.UserControls.QuanLy
                 if (!PhongTapController.IsKhongRangBuoc(h))
                 {
                     MessageBox.Show("Không thể xóa do còn dữ liệu liên quan");
+                    return;
+                }
+                if (DialogUtils.Confirmed("Bạn có thực sự muốn xóa") != true)
+                {
                     return;
                 }
                 if (h.MaPhongTap == Login1.GetPhongHienTai().MaPhongTap) {

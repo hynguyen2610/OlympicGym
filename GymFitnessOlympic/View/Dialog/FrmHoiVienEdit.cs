@@ -12,6 +12,7 @@ using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
 using System.IO;
 using GymFitnessOlympic.View.Utils;
+using DevExpress.XtraEditors.Controls;
 
 namespace GymFitnessOlympic.View.Dialog
 {
@@ -24,6 +25,7 @@ namespace GymFitnessOlympic.View.Dialog
         public FrmHoiVienEdit(HoiVien h = null)
         {
             InitializeComponent();
+            pictureEdit1.Properties.SizeMode = PictureSizeMode.Stretch;
             current = h;
             if (current != null)
             {

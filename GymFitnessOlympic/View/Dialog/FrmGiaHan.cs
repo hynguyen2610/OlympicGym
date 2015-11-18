@@ -32,6 +32,17 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
+            if(cbbGiaHanGoi.SelectedItem == null){
+                errorProvider1.SetError(cbbGiaHanGoi, "Chưa chọn gói để gia hạn");
+                cbbGiaHanGoi.Focus();
+                return;
+            }
+            int tien;
+            if(txtGiaHanSoTien.Text == "" || !int.TryParse(txtGiaHanSoTien.Text, out tien)){
+                errorProvider1.SetError(txtGiaHanSoTien, "Số tiền không hợp lệ");
+                txtGiaHanSoTien.Focus();
+                return;
+            }
             try
             {
                 var r1 = MessageBox.Show("Xác nhận gia hạn không?", "Yêu cầu xác nhận", MessageBoxButtons.OKCancel);

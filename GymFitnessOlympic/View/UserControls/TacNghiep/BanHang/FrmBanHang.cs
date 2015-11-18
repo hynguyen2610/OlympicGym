@@ -12,6 +12,7 @@ using TapHoaCode.GUI.Form1.BanHang;
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.Controller;
+using GymFitnessOlympic.Utils;
 
 namespace TanHongPhat
 {
@@ -24,11 +25,13 @@ namespace TanHongPhat
         public FrmBanHang(bool isNhap = false)
         {
             InitializeComponent();
+            lblTongTien.Visible = !isNhap;
             int phongID = Login1.GetPhongHienTai().MaPhongTap;
             allSanPham = SanPhamController.GetList(phongID);
             lbSanPham.DisplayMember = "ListBoxString";
             hoaDon = new HoaDon();
             this.isNhap = isNhap;
+            lblTitle.Text = isNhap ? "Nhập hàng" : "Bán hàng";
             if (isNhap) {
                 btnReset.Text = "Hủy phiếu nhập hiện tại";
                 btnSave.Text = "Nhập hàng";
@@ -52,9 +55,9 @@ namespace TanHongPhat
 
         private void txtTenHangTim_EditValueChanged(object sender, EventArgs e)
         {
-            var st = txtTenHangTim.Text.Trim();
-            var li = allSanPham.Where(s => s.TenSanPham.ToUpper().Contains(st.ToUpper())).ToList();
-            loadListSanPham(li);
+            //var st = txtTenHangTim.Text.Trim();
+            //var li = allSanPham.Where(s => s.TenSanPham.ToUpper().Contains(st.ToUpper())).ToList();
+            //loadListSanPham(li);
         }
 
 
@@ -69,17 +72,29 @@ namespace TanHongPhat
 
         private void lbHang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbSanPham.SelectedItem != null)
-            {
-                var h = (SanPham)lbSanPham.SelectedItem;
-                txtMaHang.Text = h.MaSanPham.ToString();
-                txtTenHang.Text = h.TenSanPham;
-                txtDonGia.Text = h.Gia.ToString();
-            }
+            
+        }
+
+        void chuanBiThemSanPham(SanPham h) {
+            txtMaVach.Text = h.MaVachSanPham.ToString();
+            txtTenHang.Text = h.TenSanPham;
+            txtDonGia.Text = h.Gia.ToString();
+            spnSoLuong.Value = 1 ;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            int soLuong;
+            if (txtDonGia.Text == "" || !int.TryParse(txtDonGia.Text, out soLuong)) {
+                ep.SetError(txtDonGia, "Đơn giá chưa nhập hoặc không hợp lệ");
+                txtDonGia.Focus();
+                return;
+            }
+            if (spnSoLuong.Value <= 0) {
+                ep.SetError(spnSoLuong, "Số lượng phải là số nguyên dương");
+                spnSoLuong.Focus();
+                return;
+            }
             var h = (SanPham)lbSanPham.SelectedItem;
             var r = HelperBanHang.themVaoPhieuNhap(this, h);
             if (r == 0)
@@ -91,6 +106,8 @@ namespace TanHongPhat
             capNhatLabelTien();
 
         }
+
+
 
         private void updateGridHoaDon()
         {
@@ -106,7 +123,7 @@ namespace TanHongPhat
 
         private void capNhatLabelTien()
         {
-            lblTongTien.Text = hoaDon.DanhSachChiTiet.Sum(c => c.SoLuong * c.Gia).ToString();
+            lblTongTien.Text = hoaDon.DanhSachChiTiet.Sum(c => c.SoLuong * c.Gia).ToString().FormatCurrency() + "đ";
 
         }
 
@@ -145,31 +162,7 @@ namespace TanHongPhat
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!isNhap)
-            {
-                var ct = hoaDon.DanhSachChiTiet.FirstOrDefault(c => c.SoLuong > c.SanPham.SoLuongHienTai);
-                if (ct != null)
-                {
-                    MessageBox.Show("Mặt hàng " + ct.SanPham.TenSanPham + " có số lượng bán ra yêu cầu lớn hơn số lượng hiện có");
-                    return;
-                }
-            }
-            if (hoaDon.DanhSachChiTiet.Count > 0)
-            {
-                //hoaDon.ThoiGianTao = DateTime.Now;
-                var nhanVien = Login1.TaiKhoanHienTai;
-
-                string message = isNhap ? "Đã tạo phiếu nhập" : "Đã tạo hóa đơn";
-                hoaDon.IsNhap = isNhap;
-                hoaDon.NgayLap = dtpThoiGian.Value;
-                HelperBanHang.taoHoaDonTamThoi(hoaDon, nhanVien, message);
-                btnReset_Click(null, null);
-                return;
-            }
             
-            else {
-                MessageBox.Show("Chưa có mặt hàng nào trong "+ (isNhap ? "phiếu nhập" : "hóa đơn"));
-            }
         }
 
         private void btnChiTietXoa_Click(object sender, EventArgs e)
@@ -217,6 +210,73 @@ namespace TanHongPhat
         private void lbSanPham_Validating(object sender, CancelEventArgs e)
         {
             
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            if (!isNhap)
+            {
+                var ct = hoaDon.DanhSachChiTiet.FirstOrDefault(c => c.SoLuong > c.SanPham.SoLuongHienTai);
+                if (ct != null)
+                {
+                    MessageBox.Show("Mặt hàng " + ct.SanPham.TenSanPham + " có số lượng bán ra yêu cầu lớn hơn số lượng hiện có");
+                    return;
+                }
+            }
+            if (hoaDon.DanhSachChiTiet.Count > 0)
+            {
+                //hoaDon.ThoiGianTao = DateTime.Now;
+                var nhanVien = Login1.TaiKhoanHienTai;
+
+                string message = isNhap ? "Đã tạo phiếu nhập" : "Đã tạo hóa đơn";
+                hoaDon.IsNhap = isNhap;
+                hoaDon.NgayLap = dtpThoiGian.Value;
+                HelperBanHang.taoHoaDonTamThoi(hoaDon, nhanVien, message);
+                btnReset_Click(null, null);
+                return;
+            }
+
+            else
+            {
+                MessageBox.Show("Chưa có mặt hàng nào trong " + (isNhap ? "phiếu nhập" : "hóa đơn"));
+            }
+        }
+
+        private void btnQuet_Click(object sender, EventArgs e)
+        {
+            lblThongBao.Visible = false;
+            if (txtTimKiem.Text == "") {
+                ep.SetError(txtTimKiem, "Mã hàng không được trống");
+                txtTimKiem.Focus();
+                return;
+            }
+            var ma = txtTimKiem.Text.Trim();
+            var hang = SanPhamController.GetByMa(ma);
+            if (hang != null)
+            {
+                chuanBiThemSanPham(hang);
+                lblThongBao.Text = "Tìm thấy mặt hàng";
+            }
+            else {
+                lblThongBao.Text = "Không tìm thấy mặt hàng có mã này";
+            }
+            lblThongBao.Visible = true;
+        }
+
+        private void txtTenHangTim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) {
+                btnQuet.PerformClick();
+            }
+        }
+
+        private void lbSanPham_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lbSanPham.SelectedItem != null)
+            {
+                var h = (SanPham)lbSanPham.SelectedItem;
+                chuanBiThemSanPham(h);
+            }
         }
     }
 }

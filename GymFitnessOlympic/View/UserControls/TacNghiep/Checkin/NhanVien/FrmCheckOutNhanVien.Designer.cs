@@ -43,11 +43,13 @@
             // 
             // txtMa
             // 
+            this.txtMa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMa.Location = new System.Drawing.Point(12, 25);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMa.Properties.Appearance.Options.UseFont = true;
-            this.txtMa.Size = new System.Drawing.Size(534, 40);
+            this.txtMa.Size = new System.Drawing.Size(650, 40);
             this.txtMa.TabIndex = 4;
             this.txtMa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMa_KeyPress);
             // 
@@ -65,9 +67,9 @@
             // 
             this.btnCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCheckout.Image = global::GymFitnessOlympic.Properties.Resources.checkout;
-            this.btnCheckout.Location = new System.Drawing.Point(601, 18);
+            this.btnCheckout.Location = new System.Drawing.Point(687, 28);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(98, 52);
+            this.btnCheckout.Size = new System.Drawing.Size(94, 37);
             this.btnCheckout.TabIndex = 11;
             this.btnCheckout.Text = "Check Out";
             this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);

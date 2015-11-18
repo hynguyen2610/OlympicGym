@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
+using GymFitnessOlympic.Models.Util;
 
 namespace GymFitnessOlympic.View.ActForm
 {
@@ -16,55 +17,25 @@ namespace GymFitnessOlympic.View.ActForm
     {
         PhongTap phongHienTai;
 
-        public FrmKiemKho()
+        public FrmKiemKho(PhongTap phong = null)
         {
             InitializeComponent();
+            phongHienTai = phong != null ? phong : Login1.GetPhongHienTai();
             dataGridView1.AutoGenerateColumns = false;
-            rdTheoThang.Checked = true;
             loc();
-            for (int i = 2010; i < 2100; i++ ) {
-                cbbTheoThangNam.Items.Add(i);
-            }
-            DataFiller.fillPhongCombo(cbbPhong);
+           
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            if (cbbPhong.SelectedItem == null) {
-                dxErrorProvider1.SetError(cbbPhong, "Chưa chọn phòng");
-                cbbPhong.Focus();
-                return;
-            }
-            loc();
-        }
+     
 
         void loc()
         {
-            try
-            {
-                phongHienTai = (PhongTap)cbbPhong.SelectedItem;
-            }
-            catch
-            {
-            }
+      
             var maPhong = phongHienTai != null ? phongHienTai.MaPhongTap : -1;
             try
             {
-                DateTime start = new DateTime(), end = new DateTime();
-                if (rdTheoThang.Checked)
-                {
-                    int month = int.Parse(cbbTheoThangThang.Text.ToString());
-                    int year = int.Parse(cbbTheoThangNam.Text.ToString());
-                    start = new DateTime(year, month, 1);
-                    end = start.AddMonths(1).AddDays(-1);
-                }
                 
-                else if (rdTheoKhoangNgay.Checked)
-                {
-                    start = dtpFrom.Value;
-                    end = dtpTo.Value;
-                }
-                List<ThongKeSoLuongModel> tks = SanPhamController.ThongKeSoLuong(start, end, phongHienTai);
+                List<ThongKeSoLuongModel> tks = SanPhamController.ThongKeSoLuong(phongHienTai);
                 dataGridView1.DataSource = tks;
             }
             catch { }
@@ -87,5 +58,10 @@ namespace GymFitnessOlympic.View.ActForm
                 }
             }
         }
+
+      private void groupBox1_Enter(object sender, EventArgs e)
+      {
+
+      }
     }
 }

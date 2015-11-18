@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.dgrCa = new System.Windows.Forms.DataGridView();
+            this.dgrCa = new CEMS.Controls.Commons.DataGridViewEx();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,8 +109,6 @@
             this.Controls.Add(this.lblChucNang);
             this.Controls.Add(this.dgrCa);
             this.Controls.Add(this.btnEdit);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmCaList";
             this.Text = "Quản lý ca làm việc";
             ((System.ComponentModel.ISupportInitialize)(this.dgrCa)).EndInit();
@@ -122,7 +120,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private System.Windows.Forms.DataGridView dgrCa;
+        private CEMS.Controls.Commons.DataGridViewEx dgrCa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

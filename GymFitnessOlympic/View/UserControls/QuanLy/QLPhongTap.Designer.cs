@@ -152,9 +152,9 @@
             this.lblChucNang.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChucNang.Location = new System.Drawing.Point(3, 0);
             this.lblChucNang.Name = "lblChucNang";
-            this.lblChucNang.Size = new System.Drawing.Size(414, 58);
+            this.lblChucNang.Size = new System.Drawing.Size(468, 58);
             this.lblChucNang.TabIndex = 13;
-            this.lblChucNang.Text = "Quản lý hội viên";
+            this.lblChucNang.Text = "Quản lý phòng tập";
             // 
             // btnXoa
             // 

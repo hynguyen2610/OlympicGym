@@ -1,5 +1,6 @@
 ﻿using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Models;
+using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
 using System;
 using System.Collections.Generic;
@@ -21,24 +22,24 @@ namespace GymFitnessOlympic.View.MainForms
             InitializeComponent();
             this.isGym = isGYM;
             dataGridView1.AutoGenerateColumns = false;
-
-            cbbGYM.SelectedIndex = isGYM ? 0 : 1;
+            DataFiller.fillPhongCombo(cbbPhong, append:true);
+           // cbbGYM.SelectedIndex = isGYM ? 0 : 1;
             loadData();
             for (int i = 2010; i < 2250; i++)
             {
                 cbbTheoThangNam.Items.Add(i);
 
             }
-            cbbTheoThangThang.SelectedIndex = cbbGYM.SelectedIndex = cbbMode.SelectedIndex = 0;
+            cbbTheoThangThang.SelectedIndex = cbbTheoThangNam.SelectedIndex = 0;
          
         }
 
         void loadData()
         {
 
-            var isGym = cbbGYM.SelectedIndex == 0;
+            //var isGym = cbbGYM.SelectedIndex == 0;
             //danhSachLichSu = HistoryHoiVienController.GetList(Login.GetPhongHienTai().MaPhongTap, isGym);
-            danhSachLichSu = HistoryHoiVienController.GetList(1, isGym);
+            danhSachLichSu = HistoryHoiVienController.GetList();
             updateTable(danhSachLichSu);
         }
         void updateTable(List<HistoryHoiVien> li)
@@ -70,22 +71,16 @@ namespace GymFitnessOlympic.View.MainForms
                     start = dtpFrom.Value;
                     end = dtpTo.Value;
                 }
-                IEnumerable<HistoryHoiVien> li = new List<HistoryHoiVien>();
-                var st = txtTim.Text.ToUpper();
-                switch (cbbMode.SelectedIndex)
-                {
-                    case 0:
-                        li = danhSachLichSu.Where(h => h.HoiVien.MaThe.ToUpper().Contains(st) || h.HoiVien.TenHoiVien.ToUpper().Contains(st)).ToList();
-                        break;
-                    case 1:
-                        li = danhSachLichSu.Where(h => h.HoiVien.MaThe.ToUpper().Contains(st));
-                        break;
-                    case 2:
-                        li = danhSachLichSu.Where(h => h.HoiVien.TenHoiVien.ToUpper().Contains(st));
-                        break;
-                }
+                var phong = (PhongTap)cbbPhong.SelectedItem;
+                IEnumerable<HistoryHoiVien> li = HistoryHoiVienController.GetList(phong.MaPhongTap);
                 
-                li = li.Where(h => h.ThoiGian.CompareTo(start) >= 0 && h.ThoiGian.CompareTo(end) <= 0);
+                li = li.Where(h => h.ThoiGian.CompareTo(start) >= 0
+                    && h.ThoiGian.CompareTo(end) <= 0
+                    
+                    );
+                if (phong.MaPhongTap != -1) {
+                    li = li.Where(h=>h.HoiVien.PhongTap.MaPhongTap == phong.MaPhongTap);
+                }
                 updateTable(li.ToList());
             }
             catch { }
@@ -109,15 +104,7 @@ namespace GymFitnessOlympic.View.MainForms
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            var hvh = (HistoryHoiVien)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-            if (e.ColumnIndex == 0)
-            {
-                e.Value = hvh.HoiVien.MaThe;
-            }
-            if (e.ColumnIndex == 1)
-            {
-                e.Value = hvh.HoiVien.TenHoiVien;
-            }
+           
         }
 
         private void txtTim_KeyPress(object sender, KeyPressEventArgs e)

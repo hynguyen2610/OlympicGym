@@ -20,6 +20,7 @@ namespace GymFitnessOlympic.Controller
                 var nvs = context.HistoryHoiVien.Include(d=>d.HoiVien.PhongTap);
                 if (phongID != -1) {
                     nvs = nvs.Where(d=>d.HoiVien.PhongTap.MaPhongTap == phongID);
+                    
                 }
                 return nvs.ToList();
             }
@@ -131,13 +132,17 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static List<HistoryHoiVien> GetToDay()
+        internal static List<HistoryHoiVien> GetToDay(int maPhong = -1)
         {
             using (var db = DBContext.GetContext()) { 
                 var start = DateTimeUtil.StartOfDay(DateTime.Now);
                 var end = DateTimeUtil.EndOfDay(DateTime.Now);
-                return db.HistoryHoiVien.Include(h => h.HoiVien).Where(h => h.ThoiGian >= start
-                    && h.ThoiGian <= end).ToList();
+                var data = db.HistoryHoiVien.Include(h => h.HoiVien.PhongTap).Where(h => h.ThoiGian >= start
+                    && h.ThoiGian <= end);
+                if (maPhong != -1) {
+                    data = data.Where(d => d.HoiVien.PhongTap.MaPhongTap == maPhong);
+                }
+                return data.ToList();
             }
         }
 

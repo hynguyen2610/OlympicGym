@@ -30,29 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnGioLamViec = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnGioLamViec = new DevExpress.XtraEditors.SimpleButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.spnBaoSinhNhat = new DevExpress.XtraEditors.SpinEdit();
-            this.spnBaoHetHan = new DevExpress.XtraEditors.SpinEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.spnBaoHetHan = new System.Windows.Forms.NumericUpDown();
+            this.spnBaoSinhNhat = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spnBaoSinhNhat.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnBaoHetHan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnBaoHetHan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnBaoSinhNhat)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.spnBaoSinhNhat);
+            this.groupBox2.Controls.Add(this.spnBaoHetHan);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.btnGioLamViec);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.spnBaoSinhNhat);
-            this.groupBox2.Controls.Add(this.spnBaoHetHan);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(9, 3);
             this.groupBox2.Name = "groupBox2";
@@ -60,17 +60,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cấu hình hệ thống";
-            // 
-            // btnGioLamViec
-            // 
-            this.btnGioLamViec.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGioLamViec.Appearance.Options.UseFont = true;
-            this.btnGioLamViec.Location = new System.Drawing.Point(188, 80);
-            this.btnGioLamViec.Name = "btnGioLamViec";
-            this.btnGioLamViec.Size = new System.Drawing.Size(55, 24);
-            this.btnGioLamViec.TabIndex = 2;
-            this.btnGioLamViec.Text = "...";
-            this.btnGioLamViec.Click += new System.EventHandler(this.btnGioLamViec_Click);
             // 
             // label1
             // 
@@ -94,6 +83,17 @@
             this.label8.Text = "Báo sinh nhật";
             this.label8.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnGioLamViec
+            // 
+            this.btnGioLamViec.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGioLamViec.Appearance.Options.UseFont = true;
+            this.btnGioLamViec.Location = new System.Drawing.Point(188, 88);
+            this.btnGioLamViec.Name = "btnGioLamViec";
+            this.btnGioLamViec.Size = new System.Drawing.Size(55, 24);
+            this.btnGioLamViec.TabIndex = 2;
+            this.btnGioLamViec.Text = "...";
+            this.btnGioLamViec.Click += new System.EventHandler(this.btnGioLamViec_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -105,47 +105,13 @@
             this.label7.Text = "Báo thẻ sắp hết hạn";
             this.label7.Click += new System.EventHandler(this.label1_Click);
             // 
-            // spnBaoSinhNhat
-            // 
-            this.spnBaoSinhNhat.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spnBaoSinhNhat.Location = new System.Drawing.Point(188, 52);
-            this.spnBaoSinhNhat.Name = "spnBaoSinhNhat";
-            this.spnBaoSinhNhat.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.spnBaoSinhNhat.Properties.Appearance.Options.UseFont = true;
-            this.spnBaoSinhNhat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.spnBaoSinhNhat.Size = new System.Drawing.Size(55, 22);
-            this.spnBaoSinhNhat.TabIndex = 1;
-            this.spnBaoSinhNhat.EditValueChanged += new System.EventHandler(this.spnBaoSinhNhat_EditValueChanged);
-            // 
-            // spnBaoHetHan
-            // 
-            this.spnBaoHetHan.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spnBaoHetHan.Location = new System.Drawing.Point(188, 24);
-            this.spnBaoHetHan.Name = "spnBaoHetHan";
-            this.spnBaoHetHan.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.spnBaoHetHan.Properties.Appearance.Options.UseFont = true;
-            this.spnBaoHetHan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.spnBaoHetHan.Size = new System.Drawing.Size(55, 22);
-            this.spnBaoHetHan.TabIndex = 0;
-            this.spnBaoHetHan.EditValueChanged += new System.EventHandler(this.spnBaoHetHan_EditValueChanged);
-            // 
             // btnOK
             // 
             this.btnOK.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.Location = new System.Drawing.Point(86, 141);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(62, 33);
+            this.btnOK.Size = new System.Drawing.Size(62, 25);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -157,7 +123,7 @@
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnHuy.Location = new System.Drawing.Point(154, 141);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(70, 33);
+            this.btnHuy.Size = new System.Drawing.Size(70, 25);
             this.btnHuy.TabIndex = 2;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -166,25 +132,37 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // spnBaoHetHan
+            // 
+            this.spnBaoHetHan.Location = new System.Drawing.Point(188, 29);
+            this.spnBaoHetHan.Name = "spnBaoHetHan";
+            this.spnBaoHetHan.Size = new System.Drawing.Size(82, 22);
+            this.spnBaoHetHan.TabIndex = 3;
+            // 
+            // spnBaoSinhNhat
+            // 
+            this.spnBaoSinhNhat.Location = new System.Drawing.Point(188, 57);
+            this.spnBaoSinhNhat.Name = "spnBaoSinhNhat";
+            this.spnBaoSinhNhat.Size = new System.Drawing.Size(82, 22);
+            this.spnBaoSinhNhat.TabIndex = 3;
+            // 
             // FrmCauHinh
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnHuy;
-            this.ClientSize = new System.Drawing.Size(311, 186);
+            this.ClientSize = new System.Drawing.Size(311, 174);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmCauHinh";
             this.Text = "Cấu hình";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spnBaoSinhNhat.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnBaoHetHan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnBaoHetHan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnBaoSinhNhat)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,13 +172,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private DevExpress.XtraEditors.SpinEdit spnBaoSinhNhat;
-        private DevExpress.XtraEditors.SpinEdit spnBaoHetHan;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private DevExpress.XtraEditors.SimpleButton btnGioLamViec;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown spnBaoSinhNhat;
+        private System.Windows.Forms.NumericUpDown spnBaoHetHan;
 
 
     }

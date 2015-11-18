@@ -25,13 +25,37 @@ namespace GymFitnessOlympic.Models
         public List<HoaDon> DanhSachHoaDon { get; set; }
         public List<HistoryNhanVien> LichSu { get; set; }
         public List<KhachLe> KhachLe { get; set; }
+        public DateTime NgaySinh { get; set; }
+        public bool IsKhoa { get; set; }
+        public bool IsConLamViec { get; set; }
+
         public NhanVien() {
-            MaThe = Guid.NewGuid().ToString();
+            IsKhoa = false;
+            IsConLamViec = true;
         }
 
         public override string ToString()
         {
             return TenNhanVien;
         }
+
+        public String KhoaString {
+            get { 
+                return IsKhoa ?"Đã bị khóa" : "Không khóa";
+            }
+        }
+
+        public String ConLamViecString {
+            get {
+                return IsConLamViec ? "Còn làm việc" : "Đã nghỉ";
+            }
+        }
+
+        public string TenPhong {
+            get {
+                return PhongTap.TenPhongTap;
+            }
+        }
+
     }
 }

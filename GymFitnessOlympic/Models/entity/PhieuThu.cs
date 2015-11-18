@@ -16,10 +16,25 @@ namespace GymFitnessOlympic.Models
         public HoiVien HoiVien { get; set; }
         public GoiTap GoiTap { get; set; }
         public string LyDo { get; set; }
+        public GiamGia GiamGia { get; set; }
 
         public string TenLoai {
             get {
                 return GoiTap.LoaiVe;
+            }
+        }
+
+        public string MaTheHoiVien {
+            get {
+                return HoiVien != null ? HoiVien.MaThe : "Khách lẻ";
+            }
+        }
+
+        public string TenPhong
+        {
+            get
+            {
+                return NhanVien.PhongTap.TenPhongTap;
             }
         }
     }

@@ -11,6 +11,7 @@ namespace GymFitnessOlympic.Models
     {
        
         public int MaSanPham { get; set; }
+        public string MaVachSanPham { get; set; }
         public String TenSanPham { get; set; }
         public int Gia { get; set; }
         public PhongTap PhongTap { get; set; }
@@ -32,7 +33,7 @@ namespace GymFitnessOlympic.Models
         public string ListBoxString {
             get
             {
-                return TenSanPham + "(" + SoLuongHienTai + ")";
+                return TenSanPham + "(hiện còn " + SoLuongHienTai + " đơn vị)";
             }
         }
     }

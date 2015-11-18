@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymFitnessOlympic.Models.entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,10 +10,13 @@ namespace GymFitnessOlympic.Models
     public class GiamGia
     {
    
-        public int MaGiamGia { get; set; }
+        public string MaGiamGia { get; set; }
         public string TenGiamGia { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
-        public decimal PhanTramGiam { get; set; }
+        public int PhanTramGiam { get; set; }
+
+        public List<KhachLe> DanhSachKhachLe { get; set; }
+        public List<PhieuThu> DanhSachPhieuThu { get; set; }
     }
 }

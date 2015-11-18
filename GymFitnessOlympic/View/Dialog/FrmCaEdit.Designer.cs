@@ -67,7 +67,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 14);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 92);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thời gian làm việc";
             // 
@@ -85,7 +85,7 @@
             this.spnPhutKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.spnPhutKetThuc.Size = new System.Drawing.Size(55, 22);
-            this.spnPhutKetThuc.TabIndex = 1;
+            this.spnPhutKetThuc.TabIndex = 3;
             this.spnPhutKetThuc.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.spnPhutKetThuc_EditValueChanging);
             // 
             // label6
@@ -130,7 +130,7 @@
             this.spnGioKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.spnGioKetThuc.Size = new System.Drawing.Size(55, 22);
-            this.spnGioKetThuc.TabIndex = 1;
+            this.spnGioKetThuc.TabIndex = 2;
             this.spnGioKetThuc.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.spnGioKetThuc_EditValueChanging);
             // 
             // label3
@@ -169,7 +169,7 @@
             this.spnGioBatDau.Properties.IsFloatValue = false;
             this.spnGioBatDau.Properties.Mask.EditMask = "N00";
             this.spnGioBatDau.Size = new System.Drawing.Size(55, 22);
-            this.spnGioBatDau.TabIndex = 1;
+            this.spnGioBatDau.TabIndex = 0;
             this.spnGioBatDau.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.spnGioBatDau_EditValueChanging);
             // 
             // label4
@@ -207,7 +207,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(88, 120);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(82, 32);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -217,7 +217,7 @@
             this.simpleButton2.Location = new System.Drawing.Point(176, 120);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(78, 32);
-            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "Hủy";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -235,8 +235,6 @@
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmCaEdit";
             this.Text = "Chỉnh sửa giờ làm";
             this.groupBox1.ResumeLayout(false);

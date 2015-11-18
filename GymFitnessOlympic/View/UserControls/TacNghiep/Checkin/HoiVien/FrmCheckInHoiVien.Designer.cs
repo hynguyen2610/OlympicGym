@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
-            this.lblTen = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblPT_SoNgayConLai = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lblPT_NgayHetHan = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.lblPT_GiaHanCuoi = new System.Windows.Forms.Label();
+            this.lblTen = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.lblKetQuaGYM = new System.Windows.Forms.Label();
+            this.btnGiaHanGYM = new DevExpress.XtraEditors.SimpleButton();
+            this.btnInGYMHienTai = new DevExpress.XtraEditors.SimpleButton();
             this.lblChucNang = new System.Windows.Forms.Label();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.lblKetQuaSauna = new System.Windows.Forms.Label();
@@ -54,15 +56,9 @@
             this.lblSauNgayHetHan = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblSauGiaHanCuoi = new System.Windows.Forms.Label();
+            this.btnGiaHanSauna = new DevExpress.XtraEditors.SimpleButton();
+            this.btnInSaunaHienTai = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new CEMS.Controls.Commons.DataGridViewEx();
-            this.lblThongBao = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblNgaySinh = new System.Windows.Forms.Label();
-            this.lblMaThe = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,14 +67,18 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblThongBao = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.picAva = new DevExpress.XtraEditors.PictureEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMaThe = new System.Windows.Forms.Label();
+            this.lblNgaySinh = new System.Windows.Forms.Label();
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnInSauna = new DevExpress.XtraEditors.SimpleButton();
             this.btnInGYM = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGiaHanSauna = new DevExpress.XtraEditors.SimpleButton();
-            this.btnInSaunaHienTai = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGiaHanGYM = new DevExpress.XtraEditors.SimpleButton();
-            this.btnInGYMHienTai = new DevExpress.XtraEditors.SimpleButton();
-            this.picAva = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
@@ -119,16 +119,6 @@
             this.groupControl5.Size = new System.Drawing.Size(320, 124);
             this.groupControl5.TabIndex = 4;
             this.groupControl5.Text = "Thông tin chi tiết";
-            // 
-            // lblTen
-            // 
-            this.lblTen.AutoSize = true;
-            this.lblTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTen.Location = new System.Drawing.Point(165, 27);
-            this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(105, 19);
-            this.lblTen.TabIndex = 1;
-            this.lblTen.Text = "Chưa rõ tên";
             // 
             // label12
             // 
@@ -199,6 +189,16 @@
             this.lblPT_GiaHanCuoi.TabIndex = 2;
             this.lblPT_GiaHanCuoi.Text = "Không rõ";
             // 
+            // lblTen
+            // 
+            this.lblTen.AutoSize = true;
+            this.lblTen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTen.Location = new System.Drawing.Point(165, 27);
+            this.lblTen.Name = "lblTen";
+            this.lblTen.Size = new System.Drawing.Size(105, 19);
+            this.lblTen.TabIndex = 1;
+            this.lblTen.Text = "Chưa rõ tên";
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.lblKetQuaGYM);
@@ -220,6 +220,38 @@
             this.lblKetQuaGYM.Size = new System.Drawing.Size(267, 42);
             this.lblKetQuaGYM.TabIndex = 0;
             this.lblKetQuaGYM.Text = "Chưa Check in";
+            // 
+            // btnGiaHanGYM
+            // 
+            this.btnGiaHanGYM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGiaHanGYM.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGiaHanGYM.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnGiaHanGYM.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnGiaHanGYM.Appearance.Options.UseImage = true;
+            this.btnGiaHanGYM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGiaHanGYM.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
+            this.btnGiaHanGYM.Location = new System.Drawing.Point(224, 196);
+            this.btnGiaHanGYM.Name = "btnGiaHanGYM";
+            this.btnGiaHanGYM.Size = new System.Drawing.Size(101, 44);
+            this.btnGiaHanGYM.TabIndex = 1;
+            this.btnGiaHanGYM.Text = "Gia hạn";
+            this.btnGiaHanGYM.Click += new System.EventHandler(this.btnGiaHanGYM_Click);
+            // 
+            // btnInGYMHienTai
+            // 
+            this.btnInGYMHienTai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInGYMHienTai.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnInGYMHienTai.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnInGYMHienTai.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnInGYMHienTai.Appearance.Options.UseImage = true;
+            this.btnInGYMHienTai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnInGYMHienTai.Image = global::GymFitnessOlympic.Properties.Resources.printerBlue;
+            this.btnInGYMHienTai.Location = new System.Drawing.Point(123, 196);
+            this.btnInGYMHienTai.Name = "btnInGYMHienTai";
+            this.btnInGYMHienTai.Size = new System.Drawing.Size(95, 44);
+            this.btnInGYMHienTai.TabIndex = 0;
+            this.btnInGYMHienTai.Text = "In phiếu";
+            this.btnInGYMHienTai.Click += new System.EventHandler(this.btnInGYMHienTai_Click);
             // 
             // lblChucNang
             // 
@@ -338,28 +370,60 @@
             this.lblSauGiaHanCuoi.TabIndex = 2;
             this.lblSauGiaHanCuoi.Text = "Không rõ";
             // 
+            // btnGiaHanSauna
+            // 
+            this.btnGiaHanSauna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGiaHanSauna.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGiaHanSauna.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnGiaHanSauna.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnGiaHanSauna.Appearance.Options.UseImage = true;
+            this.btnGiaHanSauna.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGiaHanSauna.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
+            this.btnGiaHanSauna.Location = new System.Drawing.Point(224, 196);
+            this.btnGiaHanSauna.Name = "btnGiaHanSauna";
+            this.btnGiaHanSauna.Size = new System.Drawing.Size(101, 44);
+            this.btnGiaHanSauna.TabIndex = 1;
+            this.btnGiaHanSauna.Text = "Gia hạn";
+            this.btnGiaHanSauna.Click += new System.EventHandler(this.btnGiaHanSauna_Click);
+            // 
+            // btnInSaunaHienTai
+            // 
+            this.btnInSaunaHienTai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInSaunaHienTai.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnInSaunaHienTai.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnInSaunaHienTai.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnInSaunaHienTai.Appearance.Options.UseImage = true;
+            this.btnInSaunaHienTai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnInSaunaHienTai.Image = global::GymFitnessOlympic.Properties.Resources.printer;
+            this.btnInSaunaHienTai.Location = new System.Drawing.Point(124, 196);
+            this.btnInSaunaHienTai.Name = "btnInSaunaHienTai";
+            this.btnInSaunaHienTai.Size = new System.Drawing.Size(94, 44);
+            this.btnInSaunaHienTai.TabIndex = 0;
+            this.btnInSaunaHienTai.Text = "In phiếu";
+            this.btnInSaunaHienTai.Click += new System.EventHandler(this.btnInSaunaHienTai_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(253)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(253)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -370,14 +434,14 @@
             this.Column4,
             this.Column6,
             this.Column5});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(221)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(221)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ExportFilePath = null;
             this.dataGridView1.GridColor = System.Drawing.Color.LightSteelBlue;
@@ -385,103 +449,18 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(212)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.Size = new System.Drawing.Size(990, 158);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.UseAsListBox = false;
-            // 
-            // lblThongBao
-            // 
-            this.lblThongBao.AutoSize = true;
-            this.lblThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongBao.Location = new System.Drawing.Point(680, 68);
-            this.lblThongBao.Name = "lblThongBao";
-            this.lblThongBao.Size = new System.Drawing.Size(195, 25);
-            this.lblThongBao.TabIndex = 12;
-            this.lblThongBao.Text = "Thẻ không hợp lệ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 380);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(421, 25);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Danh sách hội viên checkin trong ngày";
-            // 
-            // groupControl4
-            // 
-            this.groupControl4.Controls.Add(this.picAva);
-            this.groupControl4.Controls.Add(this.label4);
-            this.groupControl4.Controls.Add(this.label6);
-            this.groupControl4.Controls.Add(this.label2);
-            this.groupControl4.Controls.Add(this.lblMaThe);
-            this.groupControl4.Controls.Add(this.lblNgaySinh);
-            this.groupControl4.Controls.Add(this.lblTen);
-            this.groupControl4.Location = new System.Drawing.Point(13, 106);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(296, 248);
-            this.groupControl4.TabIndex = 14;
-            this.groupControl4.Text = "Thông tin hội viên";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ngày sinh";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 23);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Họ tên";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 92);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 23);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Mã thẻ";
-            // 
-            // lblNgaySinh
-            // 
-            this.lblNgaySinh.AutoSize = true;
-            this.lblNgaySinh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgaySinh.Location = new System.Drawing.Point(165, 59);
-            this.lblNgaySinh.Name = "lblNgaySinh";
-            this.lblNgaySinh.Size = new System.Drawing.Size(105, 19);
-            this.lblNgaySinh.TabIndex = 1;
-            this.lblNgaySinh.Text = "Chưa rõ tên";
-            // 
-            // lblMaThe
-            // 
-            this.lblMaThe.AutoSize = true;
-            this.lblMaThe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaThe.Location = new System.Drawing.Point(165, 96);
-            this.lblMaThe.Name = "lblMaThe";
-            this.lblMaThe.Size = new System.Drawing.Size(105, 19);
-            this.lblMaThe.TabIndex = 1;
-            this.lblMaThe.Text = "Chưa rõ tên";
             // 
             // Column1
             // 
@@ -531,8 +510,8 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "ThoiGian";
-            dataGridViewCellStyle8.Format = "hh:mm";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "hh:mm";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column6.HeaderText = "Thời gian checkin";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -544,6 +523,100 @@
             this.Column5.HeaderText = "";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // lblThongBao
+            // 
+            this.lblThongBao.AutoSize = true;
+            this.lblThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongBao.Location = new System.Drawing.Point(680, 68);
+            this.lblThongBao.Name = "lblThongBao";
+            this.lblThongBao.Size = new System.Drawing.Size(195, 25);
+            this.lblThongBao.TabIndex = 12;
+            this.lblThongBao.Text = "Thẻ không hợp lệ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 380);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(421, 25);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Danh sách hội viên checkin trong ngày";
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.picAva);
+            this.groupControl4.Controls.Add(this.label4);
+            this.groupControl4.Controls.Add(this.label6);
+            this.groupControl4.Controls.Add(this.label2);
+            this.groupControl4.Controls.Add(this.lblMaThe);
+            this.groupControl4.Controls.Add(this.lblNgaySinh);
+            this.groupControl4.Controls.Add(this.lblTen);
+            this.groupControl4.Location = new System.Drawing.Point(13, 106);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(296, 248);
+            this.groupControl4.TabIndex = 14;
+            this.groupControl4.Text = "Thông tin hội viên";
+            // 
+            // picAva
+            // 
+            this.picAva.BackgroundImage = global::GymFitnessOlympic.Properties.Resources.empty_avatar;
+            this.picAva.Location = new System.Drawing.Point(85, 125);
+            this.picAva.Name = "picAva";
+            this.picAva.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.picAva.Size = new System.Drawing.Size(124, 115);
+            this.picAva.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(5, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 23);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Họ tên";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 23);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Mã thẻ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Ngày sinh";
+            // 
+            // lblMaThe
+            // 
+            this.lblMaThe.AutoSize = true;
+            this.lblMaThe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaThe.Location = new System.Drawing.Point(165, 96);
+            this.lblMaThe.Name = "lblMaThe";
+            this.lblMaThe.Size = new System.Drawing.Size(105, 19);
+            this.lblMaThe.TabIndex = 1;
+            this.lblMaThe.Text = "Chưa rõ tên";
+            // 
+            // lblNgaySinh
+            // 
+            this.lblNgaySinh.AutoSize = true;
+            this.lblNgaySinh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgaySinh.Location = new System.Drawing.Point(165, 59);
+            this.lblNgaySinh.Name = "lblNgaySinh";
+            this.lblNgaySinh.Size = new System.Drawing.Size(105, 19);
+            this.lblNgaySinh.TabIndex = 1;
+            this.lblNgaySinh.Text = "Chưa rõ tên";
             // 
             // btnCheckin
             // 
@@ -588,79 +661,6 @@
             this.btnInGYM.TabIndex = 4;
             this.btnInGYM.Text = "In phiếu GYM";
             this.btnInGYM.Click += new System.EventHandler(this.btnInGYM_Click);
-            // 
-            // btnGiaHanSauna
-            // 
-            this.btnGiaHanSauna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGiaHanSauna.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnGiaHanSauna.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnGiaHanSauna.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
-            this.btnGiaHanSauna.Appearance.Options.UseImage = true;
-            this.btnGiaHanSauna.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGiaHanSauna.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
-            this.btnGiaHanSauna.Location = new System.Drawing.Point(224, 196);
-            this.btnGiaHanSauna.Name = "btnGiaHanSauna";
-            this.btnGiaHanSauna.Size = new System.Drawing.Size(101, 44);
-            this.btnGiaHanSauna.TabIndex = 1;
-            this.btnGiaHanSauna.Text = "Gia hạn";
-            this.btnGiaHanSauna.Click += new System.EventHandler(this.btnGiaHanSauna_Click);
-            // 
-            // btnInSaunaHienTai
-            // 
-            this.btnInSaunaHienTai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInSaunaHienTai.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnInSaunaHienTai.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnInSaunaHienTai.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
-            this.btnInSaunaHienTai.Appearance.Options.UseImage = true;
-            this.btnInSaunaHienTai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnInSaunaHienTai.Image = global::GymFitnessOlympic.Properties.Resources.printer;
-            this.btnInSaunaHienTai.Location = new System.Drawing.Point(124, 196);
-            this.btnInSaunaHienTai.Name = "btnInSaunaHienTai";
-            this.btnInSaunaHienTai.Size = new System.Drawing.Size(94, 44);
-            this.btnInSaunaHienTai.TabIndex = 0;
-            this.btnInSaunaHienTai.Text = "In phiếu";
-            this.btnInSaunaHienTai.Click += new System.EventHandler(this.btnInSaunaHienTai_Click);
-            // 
-            // btnGiaHanGYM
-            // 
-            this.btnGiaHanGYM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGiaHanGYM.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnGiaHanGYM.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnGiaHanGYM.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
-            this.btnGiaHanGYM.Appearance.Options.UseImage = true;
-            this.btnGiaHanGYM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGiaHanGYM.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
-            this.btnGiaHanGYM.Location = new System.Drawing.Point(224, 196);
-            this.btnGiaHanGYM.Name = "btnGiaHanGYM";
-            this.btnGiaHanGYM.Size = new System.Drawing.Size(101, 44);
-            this.btnGiaHanGYM.TabIndex = 1;
-            this.btnGiaHanGYM.Text = "Gia hạn";
-            this.btnGiaHanGYM.Click += new System.EventHandler(this.btnGiaHanGYM_Click);
-            // 
-            // btnInGYMHienTai
-            // 
-            this.btnInGYMHienTai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInGYMHienTai.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnInGYMHienTai.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnInGYMHienTai.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
-            this.btnInGYMHienTai.Appearance.Options.UseImage = true;
-            this.btnInGYMHienTai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnInGYMHienTai.Image = global::GymFitnessOlympic.Properties.Resources.printerBlue;
-            this.btnInGYMHienTai.Location = new System.Drawing.Point(123, 196);
-            this.btnInGYMHienTai.Name = "btnInGYMHienTai";
-            this.btnInGYMHienTai.Size = new System.Drawing.Size(95, 44);
-            this.btnInGYMHienTai.TabIndex = 0;
-            this.btnInGYMHienTai.Text = "In phiếu";
-            this.btnInGYMHienTai.Click += new System.EventHandler(this.btnInGYMHienTai_Click);
-            // 
-            // picAva
-            // 
-            this.picAva.BackgroundImage = global::GymFitnessOlympic.Properties.Resources.empty_avatar;
-            this.picAva.Location = new System.Drawing.Point(83, 125);
-            this.picAva.Name = "picAva";
-            this.picAva.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.picAva.Size = new System.Drawing.Size(124, 115);
-            this.picAva.TabIndex = 3;
             // 
             // FrmCheckinHoiVien
             // 

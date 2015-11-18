@@ -77,14 +77,14 @@
             this.spnSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.spnSoLuong.Size = new System.Drawing.Size(233, 20);
-            this.spnSoLuong.TabIndex = 2;
+            this.spnSoLuong.TabIndex = 0;
             // 
             // btnCapNhat
             // 
             this.btnCapNhat.Location = new System.Drawing.Point(108, 74);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(76, 29);
-            this.btnCapNhat.TabIndex = 3;
+            this.btnCapNhat.TabIndex = 2;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 

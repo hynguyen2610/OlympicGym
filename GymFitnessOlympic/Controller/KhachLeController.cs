@@ -17,6 +17,10 @@ namespace GymFitnessOlympic.Controller
                 try
                 {
                     k.NhanVien = db.NhanVien.Find(k.NhanVien.MaNhanVien);
+                    if (k.GiamGia != null && k.GiamGia.MaGiamGia != "")
+                    {
+                        k.GiamGia = db.GiamGia.Find(k.GiamGia.MaGiamGia);
+                    }
                     db.KhachLe.Add(k);
                     db.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;

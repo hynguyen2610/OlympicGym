@@ -12,6 +12,7 @@ using System.IO;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.Utils;
+using DevExpress.XtraEditors.Controls;
 
 namespace GymFitnessOlympic.View.Dialog
 {
@@ -23,6 +24,8 @@ namespace GymFitnessOlympic.View.Dialog
         public FrmNhanVienEdit(NhanVien nv = null)
         {
             InitializeComponent();
+            imgAnh.Properties.SizeMode = PictureSizeMode.Stretch;
+            loadQuyen();
             current = nv;
             if (current != null)
             {
@@ -30,24 +33,34 @@ namespace GymFitnessOlympic.View.Dialog
                 loadField();
                 isThem = false;
                 cbbPhong.Enabled = false;
+                txtPassword.Enabled = false;
+               
             }
             else
             {
                 isThem = true;
+                datNgaySinh.Value = new DateTime(1900, 1, 1);
+                cbbChucVu.SelectedIndex = 1;
+                //cbbChucVu.Enabled = false;
+                cbbConLamViec.SelectedIndex = 0;
             }
             cbbPhong.Properties.NullText = "Chọn một phòng tập";
             DataFiller.fillPhongCombo(cbbPhong);
+           
+        }
+
+        void loadQuyen() {
             List<Quyen> quyens = QuyenController.GetList();
             cbbChucVu.DataSource = quyens;
             cbbChucVu.DisplayMember = "TenQuyen";
             cbbChucVu.ValueMember = "MaQuyen";
             cbbPhong.Properties.NullText = "Vui lòng chọn một phòng";
-            cbbChucVu.SelectedIndex = 1;
         }
 
         private void loadField()
         {
-
+            txtMathe.Text = current.MaThe;
+            txtMathe.Enabled = false;
             txtDiaChi.Text = current.DiaChi;
             txtSoDienThoai.Text = current.SoDienThoai;
             txtTenNhanVien.Text = current.TenNhanVien;
@@ -55,12 +68,14 @@ namespace GymFitnessOlympic.View.Dialog
             cbbPhong.EditValue = current.PhongTap.MaPhongTap;
             txtSoDienThoai.Text = current.SoDienThoai;
             radNam.Checked = current.GioiTinh;
+            datNgaySinh.Value = current.NgaySinh;
             if (current.Anh != null)
             {
                 imgAnh.Image = StreamUtil.byteArrayToImage(current.Anh);
             }
             cbbPhong.EditValue = current.PhongTap.MaPhongTap;
             cbbChucVu.SelectedValue = current.Quyen.MaQuyen;
+            cbbConLamViec.SelectedIndex = current.IsConLamViec ? 0 : 1;
             btnSave.Text = "Cập nhật";
             Text = "Chỉnh sửa hội viên";
             if (current.GioiTinh)
@@ -75,6 +90,46 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtMathe.Text == "") {
+                errorProvider1.SetError(txtMathe, "Chưa nhập mã thẻ");
+                txtMathe.Focus();
+                return;
+            }
+            if (txtUserName.Text == "") {
+                errorProvider1.SetError(txtMathe, "Chưa nhập tên đăng nhập");
+                txtUserName.Focus();
+                return;
+            }
+
+            if (txtTenNhanVien. Text == "")
+            {
+                errorProvider1.SetError(txtTenNhanVien, "Chưa nhập tên nhân viên");
+                txtTenNhanVien.Focus();
+                return;
+            }
+            if (datNgaySinh.Value.Year == 1900)
+            {
+                errorProvider1.SetError(datNgaySinh, "Ngày sinh không hợp lệ");
+                datNgaySinh.Focus();
+                return;
+            }
+
+             if (current==null && txtPassword.Text == "")
+            {
+                errorProvider1.SetError(datNgaySinh, "Mật khẩu không được rỗng");
+                txtPassword.Focus();
+                return;
+            }
+
+            if (cbbPhong.GetSelectedDataRow() == null)
+            {
+                errorProvider1.SetError(cbbPhong, "Chưa chọn phòng");
+                cbbPhong.Focus();
+                return;
+            }
+
+           
+
             if (cbbPhong.GetSelectedDataRow() == null) {
                 //cbbPhong.ShowPopup();
                 //cbbPhong.Focus();
@@ -83,7 +138,7 @@ namespace GymFitnessOlympic.View.Dialog
             if (dxValidationProvider1.Validate())
             {
                 current = prepareNhanVien();
-                if (isThem)
+                if (isThem) 
                 {
                     if (NhanVienController.Add(current) == CODE_RESULT_RETURN.ThanhCong)
                     {
@@ -116,18 +171,21 @@ namespace GymFitnessOlympic.View.Dialog
             {
                 current = new NhanVien()
                 {
-                    Password = "123456"
+                    Password = txtPassword.Text.Trim()
                 };
                 current.Password = CryptoMd5.MD5Hash(current.Password);
             }
+            current.MaThe = txtMathe.Text;
             current.DiaChi = txtDiaChi.Text.Trim();
             current.SoDienThoai = txtSoDienThoai.Text.Trim();
             current.TenNhanVien = txtTenNhanVien.Text.Trim();
             current.UserName = txtUserName.Text.Trim();
-            //current.Password = "123456";
+            
             current.Quyen = (Quyen)cbbChucVu.SelectedItem;
             current.PhongTap = (PhongTap)cbbPhong.GetSelectedDataRow();
-
+            current.NgaySinh = datNgaySinh.Value;
+            current.IsConLamViec = cbbConLamViec.SelectedIndex == 0 ? true : false;
+            //current.ngay
             var o = cbbPhong.GetSelectedDataRow();
             if (isHaveFile)
             {

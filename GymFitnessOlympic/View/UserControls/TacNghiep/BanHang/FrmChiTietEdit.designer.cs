@@ -46,53 +46,53 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(14, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(59, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên hàng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 51);
+            this.label2.Location = new System.Drawing.Point(14, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Số lượng";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 74);
+            this.label3.Location = new System.Drawing.Point(14, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Đơn giá";
             // 
             // txtTenHang
             // 
             this.txtTenHang.Enabled = false;
-            this.txtTenHang.Location = new System.Drawing.Point(71, 21);
+            this.txtTenHang.Location = new System.Drawing.Point(83, 24);
             this.txtTenHang.Name = "txtTenHang";
-            this.txtTenHang.Size = new System.Drawing.Size(190, 21);
-            this.txtTenHang.TabIndex = 1;
+            this.txtTenHang.Size = new System.Drawing.Size(221, 21);
+            this.txtTenHang.TabIndex = 0;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(54, 117);
+            this.btnSave.Location = new System.Drawing.Point(83, 126);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.Size = new System.Drawing.Size(87, 27);
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Cập nhật";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(157, 117);
+            this.btnCancel.Location = new System.Drawing.Point(176, 126);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -103,12 +103,12 @@
             0,
             0,
             0});
-            this.txtSL.Location = new System.Drawing.Point(71, 49);
+            this.txtSL.Location = new System.Drawing.Point(83, 57);
             this.txtSL.Name = "txtSL";
             this.txtSL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtSL.Size = new System.Drawing.Size(190, 20);
-            this.txtSL.TabIndex = 3;
+            this.txtSL.Size = new System.Drawing.Size(222, 20);
+            this.txtSL.TabIndex = 1;
             // 
             // dxErrorProvider1
             // 
@@ -116,16 +116,16 @@
             // 
             // txtDG
             // 
-            this.txtDG.Location = new System.Drawing.Point(71, 76);
+            this.txtDG.Location = new System.Drawing.Point(83, 88);
             this.txtDG.Name = "txtDG";
-            this.txtDG.Size = new System.Drawing.Size(190, 20);
-            this.txtDG.TabIndex = 4;
+            this.txtDG.Size = new System.Drawing.Size(222, 20);
+            this.txtDG.TabIndex = 2;
             // 
             // FrmChiTietEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 158);
+            this.ClientSize = new System.Drawing.Size(331, 165);
             this.Controls.Add(this.txtDG);
             this.Controls.Add(this.txtSL);
             this.Controls.Add(this.btnCancel);

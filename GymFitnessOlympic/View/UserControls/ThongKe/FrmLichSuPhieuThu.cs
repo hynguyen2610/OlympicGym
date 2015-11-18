@@ -15,7 +15,7 @@ namespace GymFitnessOlympic.View.ActForm
 {
     public partial class FrmLichSuPhieuThu : UserControl
     {
-        NhanVien nhanVienHienTai ;
+        NhanVien nhanVienHienTai;
         PhongTap phongHienTai;
         List<PhieuThu> allPhieuThu;
 
@@ -27,30 +27,30 @@ namespace GymFitnessOlympic.View.ActForm
             for (int i = 2010; i < 2250; i++)
             {
                 cbbTheoThangNam.Items.Add(i);
-
+                cbbTheoThangNam.SelectedIndex = 0;
             }
-         
+            cbbTheoThangThang.SelectedIndex = 0;
             phongHienTai = Login1.GetPhongHienTai();
-            cbbPhong.Properties.NullText = "Chọn một phòng";
-            DataFiller.fillPhongCombo(cbbPhong);
-            cbbPhong.EditValue = phongHienTai.MaPhongTap;
-            
+            DataFiller.fillPhongCombo(cbbPhong, append:true);
+
             //loadData();
             loc();
             loadEnable();
         }
 
-        void loadEnable() {
+        void loadEnable()
+        {
             cbbPhong.Enabled = nhanVienHienTai == null;
         }
 
-      
+
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if (cbbPhong.SelectedItem == null) {
+            if (cbbPhong.SelectedItem == null)
+            {
                 cbbPhong.Focus();
-                dxErrorProvider1.SetError(cbbPhong,"Chưa chọn phòng");
+                dxErrorProvider1.SetError(cbbPhong, "Chưa chọn phòng");
                 return;
             }
             loc();
@@ -75,11 +75,11 @@ namespace GymFitnessOlympic.View.ActForm
                     start = new DateTime(year, month, 1);
                     end = start.AddMonths(1).AddDays(-1);
                 }
-                
+
                 else if (rdTheoKhoangNgay.Checked)
                 {
-                    start = dtpFrom.Value;
-                    end = dtpTo.Value;
+                    start =DateTimeUtil.StartOfDay(  dtpFrom.Value);
+                    end = DateTimeUtil.EndOfDay( dtpTo.Value);
                 }
                 List<PhieuThu> li = new List<PhieuThu>();
 
@@ -94,7 +94,7 @@ namespace GymFitnessOlympic.View.ActForm
         {
             if (cbbPhong.SelectedItem != null)
             {
-               // phongHienTai = (PhongTap)cbbPhong.SelectedItem;
+                // phongHienTai = (PhongTap)cbbPhong.SelectedItem;
             }
         }
     }

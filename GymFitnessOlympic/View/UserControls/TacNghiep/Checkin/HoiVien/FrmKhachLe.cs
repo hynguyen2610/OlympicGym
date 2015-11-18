@@ -1,4 +1,6 @@
 ﻿using GymFitnessOlympic.Controller;
+using GymFitnessOlympic.Models;
+using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.entity;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.Utils;
@@ -19,7 +21,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
     {
         KhachLe kl;
         bool isValid = false;
-
+        List<KhachLe> danhSachKhachLeTrongNgay = new List<KhachLe>();
         string giaGym1 = Properties.Settings.Default.GiaGym1;
         string giaGym2 = Properties.Settings.Default.GiaGym2;
         string giaSauna1 = Properties.Settings.Default.GiaSauna1;
@@ -28,21 +30,24 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
         public FrmKhachLe()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns = false;
+
             loadCombo();
             loadData();
-            dataGridView1.AutoGenerateColumns = false;
+            DataFiller.fillGiamGiaCombo(cbbGiamGiaGYM, true, true);
+
         }
 
         void loadCombo()
         {
-            comboBox1.Items.Clear();
+            cbbSoTien.Items.Clear();
             if (rdChiGYM.Checked)
             {
-                comboBox1.Items.AddRange(new object[] { giaGym1, giaGym2 });
+                cbbSoTien.Items.AddRange(new object[] { giaGym1, giaGym2 });
             }
             else
             {
-                comboBox1.Items.AddRange(new object[] { giaSauna1, giaSauna2 });
+                cbbSoTien.Items.AddRange(new object[] { giaSauna1, giaSauna2 });
             }
         }
 
@@ -51,22 +56,35 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             //Close();
         }
 
+        void tinhTienPhaiTra()
+        {
+            try
+            {
+                int soTien = int.Parse(cbbSoTien.Text);
+                var giamGia = (GiamGia)cbbGiamGiaGYM.SelectedItem;
+                soTien = soTien - soTien * giamGia.PhanTramGiam / 100;
+                lblTienPhaiTra.Text = soTien.ToString().FormatCurrency() + "đ";
+            }
+            catch { }
+        }
+
         private void btnNhap_Click(object sender, EventArgs e)
         {
             statusStrip1.Text = "";
             isValid = false;
             errorProvider1.Clear();
             int tien;
-            var st = comboBox1.Text;
-            if (comboBox1.Text == "") {
-                errorProvider1.SetError(comboBox1, "Chưa nhập số tiền");
-                comboBox1.Focus();
+            var st = cbbSoTien.Text;
+            if (cbbSoTien.Text == "")
+            {
+                errorProvider1.SetError(cbbSoTien, "Chưa nhập số tiền");
+                cbbSoTien.Focus();
                 return;
             }
             if (!int.TryParse(st, out tien) || tien <= 0 || tien % 500 != 0)
             {
-                errorProvider1.SetError(comboBox1, "Tiền nhập vào không hợp lệ");
-                comboBox1.Focus();
+                errorProvider1.SetError(cbbSoTien, "Tiền nhập vào không hợp lệ");
+                cbbSoTien.Focus();
                 return;
             }
             kl = new KhachLe()
@@ -74,9 +92,14 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
                  ThoiGian = DateTime.Now,
                  SoTien = tien,
                  NhanVien = Login1.TaiKhoanHienTai,
-                 IsGYM = rdChiGYM.Checked
+                 IsGYM = rdChiGYM.Checked,
+
              };
 
+            if (cbbGiamGiaGYM.SelectedIndex > 0)
+            {
+                kl.GiamGia = (GiamGia)cbbGiamGiaGYM.SelectedItem;
+            }
             if (KhachLeController.Add(kl) == CODE_RESULT_RETURN.ThanhCong)
             {
                 if (rdChiGYM.Checked)
@@ -88,7 +111,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
                     rdHisSauna.Checked = true;
                 }
                 statusStrip1.Text = "Hoàn tất";
-                comboBox1.Text = "";
+                cbbSoTien.Text = "";
                 loadData();
                 isValid = true;
             }
@@ -103,10 +126,21 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             var start = DateTimeUtil.StartOfDay(DateTime.Now);
             var end = DateTimeUtil.EndOfDay(DateTime.Now);
             int mode = rdHisCaHai.Checked ? 0 : rdHisGym.Checked ? 1 : 2;
-            List<KhachLe> li = KhachLeController.ThongKe(start, end, Login1.TaiKhoanHienTai, mode);
-            bindingSource1.DataSource = li;
+            danhSachKhachLeTrongNgay = KhachLeController.ThongKe(start, end, Login1.TaiKhoanHienTai, mode);
+            bindingSource1.DataSource = danhSachKhachLeTrongNgay;
             dataGridView1.DataSource = bindingSource1;
-            lblTongTien.Text = li.Sum(c => c.SoTien).ToString().FormatCurrency().Trim() + "đ";
+            updateTienTrongNgay();
+        }
+
+        void updateTienTrongNgay()
+        {
+            try
+            {
+                var tien = danhSachKhachLeTrongNgay.Sum(c => c.SoTien);
+
+                lblTongTien.Text = tien.ToString().FormatCurrency().Trim() + "đ";
+            }
+            catch { }
         }
 
         private void rdChiGYM_CheckedChanged(object sender, EventArgs e)
@@ -140,8 +174,31 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             if (isValid)
             {
                 FrmInPhieu f = new FrmInPhieu(kl);
-                f.ShowDialog();
+               // f.ShowDialog();
             }
+        }
+
+        private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tinhTienPhaiTra();
+        }
+
+        private void cbbSoTien_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            int gia;
+            if (cbbSoTien.Text == "") {
+                errorProvider1.SetError(cbbSoTien, "Chưa nhập số tiền");                
+            }
+            else if (!int.TryParse(cbbSoTien.Text, out gia))
+            {
+                errorProvider1.SetError(cbbSoTien, "Tiền nhập vào không hợp lệ");
+            }
+            try
+            {
+                tinhTienPhaiTra();
+            }
+            catch { }
         }
     }
 }
