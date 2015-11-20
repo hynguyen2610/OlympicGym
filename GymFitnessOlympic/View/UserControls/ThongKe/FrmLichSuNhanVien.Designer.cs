@@ -47,6 +47,7 @@
             this.cbbInOut = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbPhong = new System.Windows.Forms.ComboBox();
+            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.cbbNhanVien = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTongChenhLech = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new CEMS.Controls.Commons.DataGridViewEx();
             this.lblKetQua = new System.Windows.Forms.Label();
-            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +74,7 @@
             // 
             this.dtpTo.CustomFormat = "dd/MM/yyyy";
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(255, 74);
+            this.dtpTo.Location = new System.Drawing.Point(409, 78);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(200, 20);
             this.dtpTo.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             this.rdTheoThang.AutoSize = true;
             this.rdTheoThang.Checked = true;
-            this.rdTheoThang.Location = new System.Drawing.Point(25, 18);
+            this.rdTheoThang.Location = new System.Drawing.Point(28, 19);
             this.rdTheoThang.Name = "rdTheoThang";
             this.rdTheoThang.Size = new System.Drawing.Size(80, 17);
             this.rdTheoThang.TabIndex = 0;
@@ -95,7 +95,7 @@
             // 
             this.dtpFrom.CustomFormat = "dd/MM/yyyy";
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(255, 48);
+            this.dtpFrom.Location = new System.Drawing.Point(409, 51);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(200, 20);
             this.dtpFrom.TabIndex = 3;
@@ -103,7 +103,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(179, 79);
+            this.label6.Location = new System.Drawing.Point(333, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 2;
@@ -126,7 +126,7 @@
             "10",
             "11",
             "12"});
-            this.cbbTheoThangThang.Location = new System.Drawing.Point(75, 54);
+            this.cbbTheoThangThang.Location = new System.Drawing.Point(97, 54);
             this.cbbTheoThangThang.Name = "cbbTheoThangThang";
             this.cbbTheoThangThang.Size = new System.Drawing.Size(80, 21);
             this.cbbTheoThangThang.TabIndex = 1;
@@ -135,7 +135,7 @@
             // rdTheoKhoangNgay
             // 
             this.rdTheoKhoangNgay.AutoSize = true;
-            this.rdTheoKhoangNgay.Location = new System.Drawing.Point(182, 18);
+            this.rdTheoKhoangNgay.Location = new System.Drawing.Point(305, 28);
             this.rdTheoKhoangNgay.Name = "rdTheoKhoangNgay";
             this.rdTheoKhoangNgay.Size = new System.Drawing.Size(115, 17);
             this.rdTheoKhoangNgay.TabIndex = 0;
@@ -146,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 81);
+            this.label2.Location = new System.Drawing.Point(47, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 2;
@@ -156,7 +156,7 @@
             // 
             this.cbbTheoThangNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTheoThangNam.FormattingEnabled = true;
-            this.cbbTheoThangNam.Location = new System.Drawing.Point(75, 81);
+            this.cbbTheoThangNam.Location = new System.Drawing.Point(97, 81);
             this.cbbTheoThangNam.Name = "cbbTheoThangNam";
             this.cbbTheoThangNam.Size = new System.Drawing.Size(80, 21);
             this.cbbTheoThangNam.TabIndex = 1;
@@ -173,7 +173,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 54);
+            this.label5.Location = new System.Drawing.Point(333, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 2;
@@ -187,9 +187,9 @@
             "Checkin/Checkout",
             "Check In",
             "Checkout"});
-            this.cbbInOut.Location = new System.Drawing.Point(143, 111);
+            this.cbbInOut.Location = new System.Drawing.Point(163, 111);
             this.cbbInOut.Name = "cbbInOut";
-            this.cbbInOut.Size = new System.Drawing.Size(140, 21);
+            this.cbbInOut.Size = new System.Drawing.Size(117, 21);
             this.cbbInOut.TabIndex = 14;
             this.cbbInOut.SelectedIndexChanged += new System.EventHandler(this.cbbInOut_SelectedIndexChanged);
             // 
@@ -236,6 +236,16 @@
             this.cbbPhong.Size = new System.Drawing.Size(140, 21);
             this.cbbPhong.TabIndex = 13;
             this.cbbPhong.SelectedIndexChanged += new System.EventHandler(this.cbbMode_SelectedIndexChanged);
+            // 
+            // btnTim
+            // 
+            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
+            this.btnTim.Location = new System.Drawing.Point(28, 142);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(123, 46);
+            this.btnTim.TabIndex = 15;
+            this.btnTim.Text = "Lọc";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // cbbNhanVien
             // 
@@ -291,7 +301,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 56);
+            this.label1.Location = new System.Drawing.Point(47, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 2;
@@ -371,22 +381,13 @@
             this.lblKetQua.TabIndex = 18;
             this.lblKetQua.Text = "Thống kê nhân viên";
             // 
-            // btnTim
-            // 
-            this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
-            this.btnTim.Location = new System.Drawing.Point(25, 142);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(123, 46);
-            this.btnTim.TabIndex = 15;
-            this.btnTim.Text = "Lọc";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MaThe";
             this.Column1.HeaderText = "Mã thẻ";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
             // 
             // Column2
             // 
@@ -394,6 +395,7 @@
             this.Column2.HeaderText = "Tên";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
             // 
             // Column3
             // 
@@ -419,7 +421,6 @@
             // tgDung
             // 
             this.tgDung.DataPropertyName = "ThoiGianDung";
-            dataGridViewCellStyle3.Format = "hh:mm";
             dataGridViewCellStyle3.NullValue = "Không rõ";
             this.tgDung.DefaultCellStyle = dataGridViewCellStyle3;
             this.tgDung.HeaderText = "Thời gian đúng";
@@ -428,7 +429,7 @@
             // 
             // tgThucTe
             // 
-            dataGridViewCellStyle4.Format = "hh:mm";
+            this.tgThucTe.DataPropertyName = "ThoiGianThucTe";
             dataGridViewCellStyle4.NullValue = "Không rõ";
             this.tgThucTe.DefaultCellStyle = dataGridViewCellStyle4;
             this.tgThucTe.HeaderText = "Thời gian thực tế";

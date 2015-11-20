@@ -127,6 +127,14 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+           if(  dataGridView1.Columns[e.ColumnIndex].Name == "tgThucTe"
+                ||
+                dataGridView1.Columns[e.ColumnIndex].Name == "tgDung"){
+            
+            if (e.Value != null && e.Value != DBNull.Value)
+                e.Value = ((TimeSpan)e.Value).Hours.ToString("00") + ":" +
+                           ((TimeSpan)e.Value).Minutes.ToString("00");
+                }
             //var hvh = (HistoryNhanVien)dataGridView1.Rows[e.RowIndex].DataBoundItem;
             //if (e.ColumnIndex == 0)
             //{

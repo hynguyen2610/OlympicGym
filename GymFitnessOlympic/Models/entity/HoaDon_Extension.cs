@@ -14,7 +14,7 @@ namespace GymFitnessOlympic.Models
             {
                 try
                 {
-                    return DanhSachChiTiet.Sum(c => c.SoLuong * c.Gia);
+                    return ChiTietHoaDon.Sum(c => c.SoLuong * c.Gia);
                 }
                 catch {
                     return 0;

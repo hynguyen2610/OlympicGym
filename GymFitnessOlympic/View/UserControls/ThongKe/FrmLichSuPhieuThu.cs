@@ -2,6 +2,7 @@
 using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
+using GymFitnessOlympic.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,6 +87,7 @@ namespace GymFitnessOlympic.View.ActForm
 
                 li = allPhieuThu.Where(h => h.NgayLap.CompareTo(start) >= 0 && h.NgayLap.CompareTo(end) <= 0).ToList();
                 dataGridView1.DataSource = li;
+                lblTongTien.Text = li.Sum(c => c.SoTien).ToString().FormatCurrency()+" đ";
             }
             catch { }
         }

@@ -26,7 +26,15 @@ namespace GymFitnessOlympic.Models
 
         public string MaTheHoiVien {
             get {
-                return HoiVien != null ? HoiVien.MaThe : "Khách lẻ";
+                return HoiVien != null ? HoiVien.MaThe : "Không có";
+            }
+        }
+
+        public string TenHoiVien
+        {
+            get
+            {
+                return HoiVien != null ? HoiVien.TenHoiVien : "Khách lẻ";
             }
         }
 

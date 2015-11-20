@@ -3,6 +3,7 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.DataFiller;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.Utils;
+using GymFitnessOlympic.View.UserControls.ThongKe.HangBanNhap;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,19 +15,19 @@ using System.Windows.Forms;
 
 namespace GymFitnessOlympic.View.ActForm.ThongKe
 {
-    public partial class FrmLichSuHoaDon : UserControl
+    public partial class FrmHangBanDuoc : UserControl
     {
         NhanVien nhanVienHienTai;
         PhongTap phongHienTai;
-        List<HoaDon> allHoaDon;
         List<ThongKeSanPhamModel> allThongKe;
         bool IsNhap;
 
-        public FrmLichSuHoaDon(NhanVien _maNV = null, bool isNhap = false)
+        public FrmHangBanDuoc(NhanVien nhanVien = null, bool isNhap = false)
         {
             InitializeComponent();
-            nhanVienHienTai = _maNV;
-            dataGridView1.AutoGenerateColumns = false;
+            nhanVienHienTai = nhanVien;
+
+
             for (int i = 2010; i < 2250; i++)
             {
                 cbbTheoThangNam.Items.Add(i);
@@ -37,24 +38,26 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 = cbbTheoThangThang.SelectedIndex = 0;
 
             phongHienTai = Login1.GetPhongHienTai();
-            // cbbPhong.Properties.NullText = "Chọn một phòng";
-            DataFiller.fillPhongCombo(cbbPhong, append:true);
+            DataFiller.fillNhanVienCombo(cbbNhanVien, phongHienTai.MaPhongTap, append: true);
+            DataFiller.fillPhongCombo(cbbPhong, append: true);
             cbbPhong.SelectedValue = phongHienTai.MaPhongTap;
-
+            cbbPhong.Enabled = cbbNhanVien.Enabled = nhanVien == null;
             //loadData();
             loc();
-            loadEnable();
+
             if (IsNhap)
             {
                 lblTitle.Text = "Thống kê nhập hàng";
                 pnTongTien.Visible = false;
             }
+            if (nhanVien != null)
+            {
+                cbbNhanVien.Enabled = false;
+                cbbNhanVien.SelectedValue = nhanVien.MaNhanVien;
+            }
         }
 
-        void loadEnable()
-        {
-            cbbPhong.Enabled = nhanVienHienTai == null;
-        }
+
 
         private void btnTim_Click(object sender, EventArgs e)
         {
@@ -92,19 +95,36 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
                 else if (rdTheoKhoangNgay.Checked)
                 {
-                    start =DateTimeUtil.StartOfDay( dtpFrom.Value);
-                    end = DateTimeUtil.StartOfDay( dtpTo.Value);
+                    start = DateTimeUtil.StartOfDay(dtpFrom.Value);
+                    end = DateTimeUtil.EndOfDay(dtpTo.Value);
                 }
                 //List<HoaDon> li = new List<HoaDon>();
 
 
                 //li = allPhieuThu.Where(h => h.NgayLap.CompareTo(start) >= 0 && h.NgayLap.CompareTo(end) <= 0).ToList();
-                allThongKe = SanPhamController.ThongKeMuaVaoBanRa(start, end, maPhong, nhanVienHienTai);
-                dataGridView1.DataSource = allThongKe;
+                allThongKe = SanPhamController.ThongKeMuaVaoBanRa(start, end, maPhong, nhanVienHienTai, IsNhap);
                 lblTongTien.Text = allThongKe.Sum(c => c.TongTien).ToString().FormatCurrency();
-                dataGridView1.Columns[3].Visible = !IsNhap;
+                pnGrid.Controls.Clear();
+                if (IsNhap)
+                {
+                    var grid = new UcGridHangNhap();
+
+                    pnGrid.Controls.Add(grid);
+                    grid.dataGridView1.DataSource = allThongKe;
+                }
+                else
+                {
+                    var grid = new UcGridHangBan();
+                    pnGrid.Controls.Add(grid);
+                    grid.dataGridView1.DataSource = allThongKe;
+                }
             }
             catch { }
+        }
+
+        private void cbbNhanVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nhanVienHienTai = (NhanVien)cbbNhanVien.SelectedItem;
         }
     }
 
@@ -112,9 +132,14 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
     {
         public SanPham SanPham { get; set; }
         public NhanVien NhanVien { get; set; }
-        public PhongTap PhongTap { get; set; } 
+        public PhongTap PhongTap { get; set; }
         public int SoLuong { get; set; }
         public int TongTien { get; set; }
+        public DateTime NgayNhap
+        {
+            get;
+            set;
+        }
 
         public string TenNhanVien
         {
@@ -126,8 +151,10 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
             }
         }
 
-        public string TenPhong {
-            get {
+        public string TenPhong
+        {
+            get
+            {
                 return NhanVien.PhongTap.TenPhongTap;
             }
         }

@@ -19,7 +19,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
 {
     public partial class FrmKhachLe : UserControl
     {
-        KhachLe kl;
+        KhachLe khachLe;
         bool isValid = false;
         List<KhachLe> danhSachKhachLeTrongNgay = new List<KhachLe>();
         string giaGym1 = Properties.Settings.Default.GiaGym1;
@@ -70,6 +70,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
 
         private void btnNhap_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             statusStrip1.Text = "";
             isValid = false;
             errorProvider1.Clear();
@@ -87,7 +88,9 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
                 cbbSoTien.Focus();
                 return;
             }
-            kl = new KhachLe()
+            var gg = (GiamGia)cbbGiamGiaGYM.SelectedItem;
+            tien = tien - tien * gg.PhanTramGiam / 100;
+            khachLe = new KhachLe()
              {
                  ThoiGian = DateTime.Now,
                  SoTien = tien,
@@ -98,9 +101,9 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
 
             if (cbbGiamGiaGYM.SelectedIndex > 0)
             {
-                kl.GiamGia = (GiamGia)cbbGiamGiaGYM.SelectedItem;
+                khachLe.GiamGia = (GiamGia)cbbGiamGiaGYM.SelectedItem;
             }
-            if (KhachLeController.Add(kl) == CODE_RESULT_RETURN.ThanhCong)
+            if (KhachLeController.Add(khachLe) == CODE_RESULT_RETURN.ThanhCong)
             {
                 if (rdChiGYM.Checked)
                 {
@@ -126,7 +129,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             var start = DateTimeUtil.StartOfDay(DateTime.Now);
             var end = DateTimeUtil.EndOfDay(DateTime.Now);
             int mode = rdHisCaHai.Checked ? 0 : rdHisGym.Checked ? 1 : 2;
-            danhSachKhachLeTrongNgay = KhachLeController.ThongKe(start, end, Login1.TaiKhoanHienTai, mode);
+            danhSachKhachLeTrongNgay = KhachLeController.ThongKe(start, end,Login1.GetPhongHienTai(), Login1.TaiKhoanHienTai, mode);
             bindingSource1.DataSource = danhSachKhachLeTrongNgay;
             dataGridView1.DataSource = bindingSource1;
             updateTienTrongNgay();
@@ -173,7 +176,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
             btnNhap.PerformClick();
             if (isValid)
             {
-                FrmInPhieu f = new FrmInPhieu(kl);
+                FrmInPhieu f = new FrmInPhieu(khachLe);
                // f.ShowDialog();
             }
         }
@@ -185,15 +188,7 @@ namespace GymFitnessOlympic.View.UserControls.TacNghiep.Checkin.HoiVien
 
         private void cbbSoTien_TextChanged(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
-            int gia;
-            if (cbbSoTien.Text == "") {
-                errorProvider1.SetError(cbbSoTien, "Chưa nhập số tiền");                
-            }
-            else if (!int.TryParse(cbbSoTien.Text, out gia))
-            {
-                errorProvider1.SetError(cbbSoTien, "Tiền nhập vào không hợp lệ");
-            }
+            
             try
             {
                 tinhTienPhaiTra();

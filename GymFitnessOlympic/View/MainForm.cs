@@ -244,7 +244,7 @@ namespace GymFitnessOlympic.View
 
         private void rbBtnThongKeHoaDon_ItemClick(object sender, ItemClickEventArgs e)
         {
-            LoadUC(new FrmLichSuHoaDon());
+            LoadUC(new FrmHangBanDuoc());
         }
 
         private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
@@ -255,7 +255,7 @@ namespace GymFitnessOlympic.View
 
         private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
         {
-            LoadUC(new FrmLichSuHoaDon(Login1.TaiKhoanHienTai));
+            LoadUC(new FrmHangBanDuoc(Login1.TaiKhoanHienTai));
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
@@ -275,7 +275,7 @@ namespace GymFitnessOlympic.View
 
         private void barButtonItem18_ItemClick_1(object sender, ItemClickEventArgs e)
         {
-            LoadUC(new FrmLichSuHoaDon(Login1.TaiKhoanHienTai));
+            LoadUC(new FrmHangBanDuoc(Login1.TaiKhoanHienTai));
         }
 
         private void rbBtnConfig_ItemClick(object sender, ItemClickEventArgs e)
@@ -332,7 +332,7 @@ namespace GymFitnessOlympic.View
 
         private void barButtonItem25_ItemClick(object sender, ItemClickEventArgs e)
         {
-            LoadUC(new FrmLichSuHoaDon(isNhap:true));
+            LoadUC(new FrmHangBanDuoc(isNhap:true));
         }
 
         private void barButtonItem20_ItemClick(object sender, ItemClickEventArgs e)

@@ -82,8 +82,17 @@ namespace GymFitnessOlympic.Controller
                     var g = context.GoiTap.Find(pt.GoiTap.MaGoiTap);
                     pt.GoiTap = g;
                     pt.NhanVien = context.NhanVien.Find(pt.NhanVien.MaNhanVien);
+                    if (pt.GiamGia != null && pt.GiamGia.MaGiamGia != "") {
+                        pt.GiamGia = context.GiamGia.Find(pt.GiamGia.MaGiamGia);
+                    }
                     context.PhieuThu.Add(pt);
-                    context.SaveChanges();
+                    try
+                    {
+                        context.SaveChanges();
+                    }
+                    catch (Exception ex) {
+                        var s = ex.Message;
+                    }
                     if (pt.GoiTap.Type == 1)
                     {
                         if (pt.HoiVien.NgayHetHanGYM > DateTime.Now)

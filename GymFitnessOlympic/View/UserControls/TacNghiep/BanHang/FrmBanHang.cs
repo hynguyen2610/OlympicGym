@@ -13,6 +13,7 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.Controller;
 using GymFitnessOlympic.Utils;
+using GymFitnessOlympic.View.Utils;
 
 namespace TanHongPhat
 {
@@ -21,6 +22,7 @@ namespace TanHongPhat
         List<SanPham> allSanPham;
         public HoaDon hoaDon;
         bool isNhap;
+        SanPham hangHienTai;
 
         public FrmBanHang(bool isNhap = false)
         {
@@ -84,9 +86,15 @@ namespace TanHongPhat
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int soLuong;
-            if (txtDonGia.Text == "" || !int.TryParse(txtDonGia.Text, out soLuong)) {
+            ep.Clear();
+            int soLuong = 0,  gia = 0;
+            if (txtDonGia.Text == "" || !int.TryParse(txtDonGia.Text, out gia)) {
                 ep.SetError(txtDonGia, "Đơn giá chưa nhập hoặc không hợp lệ");
+                txtDonGia.Focus();
+                return;
+            }
+            if (gia < 0) {
+                ep.SetError(txtDonGia, "Đơn giá phải là số nguyên dương");
                 txtDonGia.Focus();
                 return;
             }
@@ -95,13 +103,34 @@ namespace TanHongPhat
                 spnSoLuong.Focus();
                 return;
             }
-            var h = (SanPham)lbSanPham.SelectedItem;
-            var r = HelperBanHang.themVaoPhieuNhap(this, h);
-            if (r == 0)
-            {
-                HelperBanHang.tangSoLuong(hoaDon, h, Convert.ToInt32(spnSoLuong.Value));
-            }
-          
+            soLuong = Convert.ToInt32( spnSoLuong.Value);
+            //var h = (SanPham)lbSanPham.SelectedItem;
+            //if (!isNhap)
+            //{
+            //    var r = HelperBanHang.themVaoPhieuNhap(this, hangHienTai);
+            //}
+            //else { 
+                
+            //}
+            //if (r == 0)
+            //{
+            //    HelperBanHang.tangSoLuong(hoaDon, hangHienTai, Convert.ToInt32(spnSoLuong.Value));
+            //}
+            ChiTietHoaDon ct = new ChiTietHoaDon() { 
+                SanPham = hangHienTai,
+                SoLuong = soLuong,
+                Gia = gia
+            };
+            //if (isNhap) {
+                var c1 = hoaDon.ChiTietHoaDon.FirstOrDefault(c => c.SanPham.MaSanPham == hangHienTai.MaSanPham);
+                if (c1 == null)
+                {
+                    hoaDon.ChiTietHoaDon.Add(ct);
+                }
+                else {
+                    c1.SoLuong += soLuong;
+                }
+            //}
             updateGridHoaDon();
             capNhatLabelTien();
 
@@ -113,7 +142,7 @@ namespace TanHongPhat
         {
             var pn = hoaDon;
             lvHangNhap.Items.Clear();
-            foreach (ChiTietHoaDon c in pn.DanhSachChiTiet)
+            foreach (ChiTietHoaDon c in pn.ChiTietHoaDon)
             {
                 string[] s = { c.SanPham.MaSanPham.ToString(), c.SanPham.TenSanPham, c.SoLuong.ToString(), c.Gia.ToString(), (c.SoLuong * c.Gia).ToString() };
                 ListViewItem i = new ListViewItem(s);
@@ -123,7 +152,7 @@ namespace TanHongPhat
 
         private void capNhatLabelTien()
         {
-            lblTongTien.Text = hoaDon.DanhSachChiTiet.Sum(c => c.SoLuong * c.Gia).ToString().FormatCurrency() + "đ";
+            lblTongTien.Text = hoaDon.ChiTietHoaDon.Sum(c => c.SoLuong * c.Gia).ToString().FormatCurrency() + "đ";
 
         }
 
@@ -132,7 +161,7 @@ namespace TanHongPhat
             if (lvHangNhap.SelectedItems[0] != null)
             {
                 var mh = Convert.ToInt32(lvHangNhap.SelectedItems[0].SubItems[0].Text);
-                var c = hoaDon.DanhSachChiTiet.FirstOrDefault(c1 => c1.MaSanPham == mh);
+                var c = hoaDon.ChiTietHoaDon.FirstOrDefault(c1 => c1.MaSanPham == mh);
                 FrmChiTietEdit f = new FrmChiTietEdit(c);
                 f.Show();
                 f.FormClosed += finishEdit;
@@ -170,10 +199,10 @@ namespace TanHongPhat
             if (lvHangNhap.SelectedItems.Count > 0)
             {
                 var mh = int.Parse(lvHangNhap.SelectedItems[0].SubItems[0].Text);
-                var c = hoaDon.DanhSachChiTiet.FirstOrDefault(c1 => c1.SanPham.MaSanPham == mh);
+                var c = hoaDon.ChiTietHoaDon.FirstOrDefault(c1 => c1.SanPham.MaSanPham == mh);
                 if (c != null)
                 {
-                    hoaDon.DanhSachChiTiet.Remove(c);
+                    hoaDon.ChiTietHoaDon.Remove(c);
                 }
                 updateForm();
             }
@@ -216,23 +245,32 @@ namespace TanHongPhat
         {
             if (!isNhap)
             {
-                var ct = hoaDon.DanhSachChiTiet.FirstOrDefault(c => c.SoLuong > c.SanPham.SoLuongHienTai);
+                var ct = hoaDon.ChiTietHoaDon.FirstOrDefault(c => c.SoLuong > c.SanPham.SoLuongHienTai);
                 if (ct != null)
                 {
                     MessageBox.Show("Mặt hàng " + ct.SanPham.TenSanPham + " có số lượng bán ra yêu cầu lớn hơn số lượng hiện có");
                     return;
                 }
             }
-            if (hoaDon.DanhSachChiTiet.Count > 0)
+            if (hoaDon.ChiTietHoaDon.Count > 0)
             {
                 //hoaDon.ThoiGianTao = DateTime.Now;
                 var nhanVien = Login1.TaiKhoanHienTai;
 
-                string message = isNhap ? "Đã tạo phiếu nhập" : "Đã tạo hóa đơn";
+                string message = isNhap ? "phiếu nhập" : "hóa đơn";
                 hoaDon.IsNhap = isNhap;
-                hoaDon.NgayLap = dtpThoiGian.Value;
-                HelperBanHang.taoHoaDonTamThoi(hoaDon, nhanVien, message);
-                btnReset_Click(null, null);
+                hoaDon.NgayLap = DateTime.Now;
+                hoaDon.NhanVien = nhanVien;                
+
+                if (HoaDonController.Add(hoaDon) == CODE_RESULT_RETURN.ThanhCong)
+                {
+                    DialogUtils.ShowMessage("Đã tạo "+message);
+                }
+                else {
+                    DialogUtils.ShowMessage("Có lỗi khi tạo "+message);
+                }
+
+                btnReset.PerformClick();
                 return;
             }
 
@@ -251,10 +289,10 @@ namespace TanHongPhat
                 return;
             }
             var ma = txtTimKiem.Text.Trim();
-            var hang = SanPhamController.GetByMa(ma);
-            if (hang != null)
+            hangHienTai = SanPhamController.GetByMa(ma);
+            if (hangHienTai != null)
             {
-                chuanBiThemSanPham(hang);
+                chuanBiThemSanPham(hangHienTai);
                 lblThongBao.Text = "Tìm thấy mặt hàng";
             }
             else {
@@ -274,8 +312,8 @@ namespace TanHongPhat
         {
             if (lbSanPham.SelectedItem != null)
             {
-                var h = (SanPham)lbSanPham.SelectedItem;
-                chuanBiThemSanPham(h);
+                hangHienTai = (SanPham)lbSanPham.SelectedItem;
+                chuanBiThemSanPham(hangHienTai);
             }
         }
     }

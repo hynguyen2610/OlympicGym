@@ -99,7 +99,7 @@ namespace QldtSdh.DAL.Models
             modelBuilder.Entity<HoiVien>().HasRequired(x => x.PhongTap).WithMany(x => x.DanhSachHoiVien)
             .WillCascadeOnDelete();
             //Chi tiet hoa don
-            modelBuilder.Entity<ChiTietHoaDon>().HasRequired(x => x.HoaDon).WithMany(x => x.DanhSachChiTiet)
+            modelBuilder.Entity<ChiTietHoaDon>().HasRequired(x => x.HoaDon).WithMany(x => x.ChiTietHoaDon)
            .WillCascadeOnDelete();
             modelBuilder.Configurations.Add(new KeyValueConfigMap());
             //

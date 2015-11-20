@@ -12,6 +12,7 @@ using GymFitnessOlympic.Models;
 using GymFitnessOlympic.Models.Util;
 using GymFitnessOlympic.View.Utils;
 using GymFitnessOlympic.Utils;
+using GymFitnessOlympic.Models.DataFiller;
 
 namespace GymFitnessOlympic.View.UserControls.ThongKe
 {
@@ -22,46 +23,51 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
         public UcThongKeKhachLe(NhanVien nv = null)
         {
             InitializeComponent();
-            var nvs = NhanVienController.GetList(Login1.GetPhongHienTai().MaPhongTap);
-            nvs.Insert(0, new NhanVien() { MaNhanVien =-1, TenNhanVien = "--Tất cả--"});
-            cbbNhanVien.DataSource = nvs;
-            cbbNhanVien.DisplayMember = "TenNhanVien";
-            cbbNhanVien.ValueMember = "MaNhanVien";
+            //var nvs = NhanVienController.GetList(Login1.GetPhongHienTai().MaPhongTap);
+            //nvs.Insert(0, new NhanVien() { MaNhanVien =-1, TenNhanVien = "--Tất cả--"});
+            //cbbNhanVien.DataSource = nvs;
+            //cbbNhanVien.DisplayMember = "TenNhanVien";
+            //cbbNhanVien.ValueMember = "MaNhanVien";
+            DataFiller.fillPhongCombo(cbbPhong, append: true);
+            var phong =(PhongTap) cbbPhong.SelectedItem;
+            DataFiller.fillNhanVienCombo(cbbNhanVien, phong.MaPhongTap, append: true);
             dataGridView1.AutoGenerateColumns = false;
             cbbNhanVien.SelectedIndex = 0;
             nhanVienHienTai = nv;
-            if (nv != null) {
-                cbbNhanVien.Enabled = false;
-                foreach (var nv1 in nvs)
-                {
-                    if (nv1.MaNhanVien == nv.MaNhanVien)
-                    {
-                        cbbNhanVien.SelectedValue = nv.MaNhanVien;
-                        break;
-                    }
-                }
-                
+            if (nv != null)
+            {
+                cbbNhanVien.SelectedValue = nv.MaNhanVien;
             }
         }
 
-        
+
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             if (cbbNhanVien.SelectedItem != null)
             {
-                var nv1 = (NhanVien)cbbNhanVien.SelectedItem;
+                var phong = (PhongTap)cbbPhong.SelectedItem;
+                var nhanVienLap = (NhanVien)cbbNhanVien.SelectedItem;
                 var start = DateTimeUtil.StartOfDay(dtpFrom.Value);
                 var end = DateTimeUtil.EndOfDay(dtpTo.Value);
                 int mode = rdCaHai.Checked ? 0 : rdChiGYM.Checked ? 1 : 2;
-                List<KhachLe> li = KhachLeController.ThongKe(start, end, nv1, mode);
+                List<KhachLe> li = KhachLeController.ThongKe(start, end,phong,  nhanVienLap, mode);
                 bindingSource1.DataSource = li;
                 dataGridView1.DataSource = bindingSource1;
 
-                lblTongTien.Text = li.Sum(c => c.SoTien).ToString().FormatCurrency().Trim() +"đ";
+                lblTongTien.Text = li.Sum(c => c.SoTien).ToString().FormatCurrency().Trim() + "đ";
             }
-            else {
+            else
+            {
                 DialogUtils.ShowError("Chưa chọn nhân viên");
+            }
+        }
+
+        private void cbbPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbbPhong.SelectedItem != null){
+                var p = (PhongTap)cbbPhong.SelectedItem;
+                DataFiller.fillNhanVienCombo(cbbNhanVien, p.MaPhongTap, append: true);
             }
         }
 

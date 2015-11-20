@@ -20,7 +20,10 @@ namespace GymFitnessOlympic.Controller
                 {
                     nvs = nvs.Where(n => n.PhongTap.MaPhongTap == phongID);
                 }
-                return nvs.ToList();
+                return nvs.
+                    OrderByDescending(h => h.GiaHanCuoiGYM)
+                    .OrderByDescending(h => h.GiaHanCuoiSauna)
+                    .OrderByDescending(h => h.NgayGioDangKy).ToList();
             }
         }
 
@@ -95,10 +98,7 @@ namespace GymFitnessOlympic.Controller
                     context.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;
                 }
-                if (hv.Anh != null)
-                {
 
-                }
             }
         }
 

@@ -387,8 +387,8 @@
             // 
             // barButtonItem18
             // 
-            this.barButtonItem18.Caption = "Sản phẩm";
-            this.barButtonItem18.Glyph = global::GymFitnessOlympic.Properties.Resources.statistics4;
+            this.barButtonItem18.Caption = "Sản phẩm bán được";
+            this.barButtonItem18.Glyph = global::GymFitnessOlympic.Properties.Resources.dollar;
             this.barButtonItem18.Id = 22;
             this.barButtonItem18.Name = "barButtonItem18";
             this.barButtonItem18.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;

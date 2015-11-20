@@ -19,7 +19,7 @@ namespace GymFitnessOlympic.Controller
             {
                 var nvs = context.HistoryHoiVien.Include(d=>d.HoiVien.PhongTap);
                 if (phongID != -1) {
-                    nvs = nvs.Where(d=>d.HoiVien.PhongTap.MaPhongTap == phongID);
+                    nvs = nvs.Where(d=>d.HoiVien.PhongTap.MaPhongTap == phongID).OrderByDescending(h=>h.ThoiGian);
                     
                 }
                 return nvs.ToList();

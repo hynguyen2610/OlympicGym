@@ -57,6 +57,12 @@ namespace GymFitnessOlympic.View.ActForm
                     return SoNhap - SoBan;
                 }
             }
+
+            public string MaVachSanPham {
+                get {
+                    return SanPham.MaVachSanPham;
+                }
+            }
         }
 
       private void groupBox1_Enter(object sender, EventArgs e)

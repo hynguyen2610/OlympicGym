@@ -22,5 +22,12 @@ namespace GymFitnessOlympic.Models.entity
                 return IsGYM ? "GYM" : "Sauna";
             }
         }
+
+        public string TenPhong {
+            get {
+                return NhanVien.PhongTap.TenPhongTap;
+
+            }
+        }
     }
 }

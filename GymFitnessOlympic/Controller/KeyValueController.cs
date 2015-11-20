@@ -51,7 +51,6 @@ namespace GymFitnessOlympic.Controller
                         context.SaveChanges();
                         return CODE_RESULT_RETURN.ThanhCong;
                     }
-                    return CODE_RESULT_RETURN.MaTrung;
                 }
                 catch
                 {

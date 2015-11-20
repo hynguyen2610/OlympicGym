@@ -95,9 +95,33 @@ namespace GymFitnessOlympic.Models
             }
         }
 
-       
+        //public string ThoiGianDung {
+        //    get {
+        //        return IsCheckin ?  Ca.GioBatDau.ToString("c") : Ca.GioKetThuc.ToString("c");
+        //    }
+        //}
 
+        public TimeSpan ThoiGianDung
+        {
+            get
+            {
+                return IsCheckin ? Ca.GioBatDau : Ca.GioKetThuc;
+            }
+        }
 
+        //public string ThoiGianThucTe {
+        //    get { 
+        //        return ThoiGian.TimeOfDay.ToString("c"); 
+        //    }
+        //}
+
+        public TimeSpan ThoiGianThucTe
+        {
+            get
+            {
+                return ThoiGian.TimeOfDay;
+            }
+        }
 
     }
 }

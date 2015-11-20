@@ -48,9 +48,6 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            int gioBatDau, gioKetThuc, phutBatDau, phutKetThuc, ngayHetHan, ngaySinhNhat;
-           
-
             //KeyValueController.Set(sGioBatDau, spnGioBatDau.Text);
             //KeyValueController.Set(sGioKetPhuc, spnGioKetThuc.Text);
             //KeyValueController.Set(sPhutBatDau, spnPhutBatDau.Text);

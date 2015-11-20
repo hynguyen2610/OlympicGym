@@ -47,11 +47,12 @@
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.cbbPhong = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new CEMS.Controls.Commons.DataGridViewEx();
-            this.lblKetQua = new System.Windows.Forms.Label();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblKetQua = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -203,7 +204,7 @@
             // btnTim
             // 
             this.btnTim.Image = global::GymFitnessOlympic.Properties.Resources.statistics3;
-            this.btnTim.Location = new System.Drawing.Point(125, 136);
+            this.btnTim.Location = new System.Drawing.Point(30, 143);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(123, 46);
             this.btnTim.TabIndex = 8;
@@ -248,7 +249,8 @@
             this.Column4,
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column5});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -279,16 +281,6 @@
             this.dataGridView1.UseAsListBox = false;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // lblKetQua
-            // 
-            this.lblKetQua.AutoSize = true;
-            this.lblKetQua.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKetQua.Location = new System.Drawing.Point(6, 14);
-            this.lblKetQua.Name = "lblKetQua";
-            this.lblKetQua.Size = new System.Drawing.Size(453, 58);
-            this.lblKetQua.TabIndex = 18;
-            this.lblKetQua.Text = "Thống kê hội viên";
-            // 
             // Column4
             // 
             this.Column4.DataPropertyName = "TenPhong";
@@ -298,27 +290,44 @@
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.DataPropertyName = "MaThe";
             this.Column1.HeaderText = "Mã thẻ";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
             // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "HoiVien.TenHoiVien";
+            this.Column2.DataPropertyName = "TenHoiVien";
             this.Column2.HeaderText = "Tên";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.DataPropertyName = "ThoiGian";
             this.Column3.HeaderText = "Thời gian checkin";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.HeaderText = "";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // lblKetQua
+            // 
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKetQua.Location = new System.Drawing.Point(6, 14);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(453, 58);
+            this.lblKetQua.TabIndex = 18;
+            this.lblKetQua.Text = "Thống kê hội viên";
             // 
             // FrmLichSuHoiVien
             // 
@@ -359,5 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

@@ -33,7 +33,7 @@ namespace NhaHang.Code.Helper.BanHang
 
         internal static int themVaoPhieuNhap(FrmBanHang f, SanPham h)
         {
-            var li = f.hoaDon.DanhSachChiTiet;
+            var li = f.hoaDon.ChiTietHoaDon;
             var c1 = li.FirstOrDefault(c => c.MaSanPham.ToString() == h.MaSanPham.ToString());
             if (c1 == null)
             {
@@ -46,7 +46,7 @@ namespace NhaHang.Code.Helper.BanHang
                     Gia = donGia,
                     SoLuong = soLuong
                 };
-                f.hoaDon.DanhSachChiTiet.Add(c);
+                f.hoaDon.ChiTietHoaDon.Add(c);
                 loadGridHoaDon(f);
                 return 1;
             }
@@ -68,7 +68,7 @@ namespace NhaHang.Code.Helper.BanHang
 
         internal static void tangSoLuong(HoaDon hoaDon, SanPham h, int p)
         {
-            var c = hoaDon.DanhSachChiTiet.FirstOrDefault(c1 => c1.MaSanPham == h.MaSanPham);
+            var c = hoaDon.ChiTietHoaDon.FirstOrDefault(c1 => c1.MaSanPham == h.MaSanPham);
             c.SoLuong += p;
         }
 
@@ -83,10 +83,10 @@ namespace NhaHang.Code.Helper.BanHang
                 {
                     //hoaDon.ThoiGianTao = DateTime.Now;
                     hoaDon.NhanVien = nhanVien;
-                    var banC = db.NhanVien.Find(hoaDon.NhanVien.MaNhanVien);
-                    hoaDon.NhanVien = banC;
+                    var nhanVienLap = db.NhanVien.Find(hoaDon.NhanVien.MaNhanVien);
+                    hoaDon.NhanVien = nhanVienLap;
                     
-                    foreach (var c in hoaDon.DanhSachChiTiet)
+                    foreach (var c in hoaDon.ChiTietHoaDon)
                     {
                         c.SanPham = db.SanPham.Find(c.MaSanPham);
                         c.HoaDon = hoaDon;
@@ -95,10 +95,10 @@ namespace NhaHang.Code.Helper.BanHang
 
                 }
                 else {
-                    old.DanhSachChiTiet.Clear();
-                    foreach (var c in hoaDon.DanhSachChiTiet)
+                    old.ChiTietHoaDon.Clear();
+                    foreach (var c in hoaDon.ChiTietHoaDon)
                     {
-                        old.DanhSachChiTiet.Add(new ChiTietHoaDon() {
+                        old.ChiTietHoaDon.Add(new ChiTietHoaDon() {
                             MaSanPham = c.SanPham.MaSanPham,
                             SoLuong= c.SoLuong,
                             Gia= c.Gia
@@ -114,7 +114,7 @@ namespace NhaHang.Code.Helper.BanHang
 
   
 
-        internal static void taoHoaDonTamThoi(HoaDon hoaDon, NhanVien banHienTai, string message)
+        internal static void taoHoaDon(HoaDon hoaDon, NhanVien banHienTai, string message)
         {
             save(hoaDon, banHienTai);
             MessageBox.Show(message);

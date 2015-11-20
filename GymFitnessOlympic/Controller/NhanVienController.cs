@@ -144,25 +144,26 @@ namespace GymFitnessOlympic.Controller
         {
             using (var db = DBContext.GetContext())
             {
-                var hvc = db.NhanVien.FirstOrDefault(h => h.MaNhanVien == hv.MaNhanVien);
-                if (hvc != null)
+                var nhanVienCu = db.NhanVien.FirstOrDefault(h => h.MaNhanVien == hv.MaNhanVien);
+                if (nhanVienCu != null)
                 {
-                    hvc.TenNhanVien = hv.TenNhanVien;
-                    hvc.UserName = hv.UserName;
+                    nhanVienCu.TenNhanVien = hv.TenNhanVien;
+                    nhanVienCu.UserName = hv.UserName;
                     if (hv.PhongTap != null)
                     {
                         var phongMoi = db.PhongTap.FirstOrDefault(p => p.MaPhongTap == hv.PhongTap.MaPhongTap);
-                        hvc.PhongTap = phongMoi;
+                        nhanVienCu.PhongTap = phongMoi;
                     }
                     var quyen = db.Quyen.Find(hv.Quyen.MaQuyen);
-                    hvc.NgaySinh = hv.NgaySinh;
-                    hvc.Quyen = quyen;
-                    hvc.SoDienThoai = hv.SoDienThoai;
-                    hvc.DiaChi = hv.DiaChi;
-                    hvc.Password = hvc.Password;
-                    hvc.IsKhoa = hv.IsKhoa;
-                    hvc.IsConLamViec = hv.IsConLamViec;
-                    hvc.Anh = hv.Anh;
+                    nhanVienCu.NgaySinh = hv.NgaySinh;
+                    nhanVienCu.Quyen = quyen;
+                    nhanVienCu.SoDienThoai = hv.SoDienThoai;
+                    nhanVienCu.DiaChi = hv.DiaChi;
+                    nhanVienCu.Password = hv.Password;
+                    nhanVienCu.IsKhoa = hv.IsKhoa;
+                    nhanVienCu.IsConLamViec = hv.IsConLamViec;
+                    nhanVienCu.Anh = hv.Anh;
+                    nhanVienCu.MaThe = hv.MaThe;
                     db.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;
                 }
@@ -252,5 +253,11 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
+
+        internal static bool IsTrungMaNvKhac(NhanVien current)
+        {
+            var t = GetByMaThe(current.MaThe);
+            return t != null && t.MaNhanVien != current.MaNhanVien;
+        }
     }
 }

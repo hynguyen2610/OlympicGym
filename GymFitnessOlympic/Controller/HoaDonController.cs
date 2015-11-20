@@ -14,7 +14,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nvs = context.HoaDon.Include(n => n.DanhSachChiTiet).Include(h=>h.NhanVien)
+                var nvs = context.HoaDon.Include(n => n.ChiTietHoaDon).Include(h=>h.NhanVien)
                     .Include(h=>h.NhanVien.PhongTap);
                 if (maPhong != -1) {
                     nvs = nvs.Where(n => n.NhanVien.PhongTap.MaPhongTap == maPhong);
@@ -30,7 +30,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nv = context.HoaDon.Include(h=>h.DanhSachChiTiet).FirstOrDefault(n => n.MaHoaDon == manv);
+                var nv = context.HoaDon.Include(h=>h.ChiTietHoaDon).FirstOrDefault(n => n.MaHoaDon == manv);
                 return nv;
             }
         }
@@ -43,8 +43,8 @@ namespace GymFitnessOlympic.Controller
                 if (hvc != null)
                 {
                     hvc.NgayLap = hv.NgayLap;
-                    hvc.DanhSachChiTiet.Clear();
-                    foreach(ChiTietHoaDon c in hv.DanhSachChiTiet){
+                    hvc.ChiTietHoaDon.Clear();
+                    foreach(ChiTietHoaDon c in hv.ChiTietHoaDon){
                         db.ChiTietHoaDon.Add(c);
                     }
                     db.SaveChanges();
@@ -54,18 +54,23 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static CODE_RESULT_RETURN Add(HoaDon hv)
+        internal static CODE_RESULT_RETURN Add(HoaDon hoaDon)
         {
             using (var context = DBContext.GetContext())
             {
                 var ds = (from e in context.HoaDon
-                          where e.MaHoaDon == hv.MaHoaDon
+                          where e.MaHoaDon == hoaDon.MaHoaDon
                           select e).SingleOrDefault();
                 if (ds != null)
                     return CODE_RESULT_RETURN.MaTrung;
                 else
                 {
-                    context.HoaDon.Add(hv);
+                    hoaDon.NhanVien = context.NhanVien.Find(hoaDon.NhanVien.MaNhanVien);
+                    foreach (var ct in hoaDon.ChiTietHoaDon) {
+                        ct.SanPham = context.SanPham.Find(ct.SanPham.MaSanPham);
+                        ct.HoaDon = hoaDon;
+                    }
+                    context.HoaDon.Add(hoaDon);
                     context.SaveChanges();
                     return CODE_RESULT_RETURN.ThanhCong;
                 }

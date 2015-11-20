@@ -105,21 +105,17 @@ namespace GymFitnessOlympic.Controller
 
         }
 
-        internal static List<ThongKeSanPhamModel> ThongKeMuaVaoBanRa(DateTime start, DateTime end, int maPhong = -1, NhanVien nhanVienHienTai = null)
+        internal static List<ThongKeSanPhamModel> ThongKeMuaVaoBanRa(DateTime start, DateTime end, int maPhong = -1,
+            NhanVien nhanVienHienTai = null, bool isNhap = false)
         {
             List<ThongKeSanPhamModel> li = new List<ThongKeSanPhamModel>();
             using (var db = DBContext.GetContext())
             {
-                //var chiTietHoaDonTrongKhoang = db.HoaDon.
-                //    Include(h => h.NhanVien.PhongTap).Include(h => h.NhanVien).Include(h => h.DanhSachChiTiet)
-                //    .Where(h => h.NgayLap >= start 
-                //        &&
-                //        h.NgayLap <= end).SelectMany(h => h.DanhSachChiTiet);
+  
                 var chiTietHoaDonTrongKhoang = db.ChiTietHoaDon.Include(c => c.HoaDon)
                     .Include(c => c.HoaDon.NhanVien)
                     .Include(c=>c.HoaDon.NhanVien.PhongTap).Include(c=>c.SanPham)
                     .Where(c=>c.HoaDon.NgayLap >= start && c.HoaDon.NgayLap <= end)
-                    
                     ;
                 if (maPhong != -1)
                 {
@@ -129,36 +125,59 @@ namespace GymFitnessOlympic.Controller
               
                 var tatCaHang = db.SanPham.ToList();
                 var tatCaNhanVien = new List<NhanVien>();
-                if (nhanVienHienTai != null)
+                if (nhanVienHienTai != null && nhanVienHienTai.MaNhanVien != -1)
                 {
                     tatCaNhanVien.Add(nhanVienHienTai);
                 }
                 else
                   tatCaNhanVien =  db.NhanVien.ToList();
-
-                foreach (var sp in tatCaHang)
+                if (!isNhap)
                 {
-                    foreach (var nv in tatCaNhanVien)
+                    #region banHang
+                    foreach (var sp in tatCaHang)
                     {
-                        ThongKeSanPhamModel tk = new ThongKeSanPhamModel()
+                        foreach (var nv in tatCaNhanVien)
                         {
-                            SanPham = sp,
-                            NhanVien = nv,
-                            PhongTap = nv.PhongTap
-                        };
+                            ThongKeSanPhamModel tk = new ThongKeSanPhamModel()
+                            {
+                                SanPham = sp,
+                                NhanVien = nv,
+                                PhongTap = nv.PhongTap
+                            };
 
-                        tk.SoLuong = chiTietHoaDonTrongKhoang.ToList().Where(c => c.SanPham.MaSanPham == sp.MaSanPham
-                            && c.HoaDon.NhanVien.MaNhanVien == nv.MaNhanVien).ToList().Sum(c => c.SoLuong);
-                        tk.TongTien = chiTietHoaDonTrongKhoang.ToList()
-                            .Where(c => c.SanPham.MaSanPham == sp.MaSanPham
-                            && c.HoaDon.NhanVien.MaNhanVien == nv.MaNhanVien
-                            ).ToList().Sum(c => c.SoLuong * c.Gia);
-                        if (tk.SoLuong > 0)
-                        {
-                            li.Add(tk);
+                            tk.SoLuong = chiTietHoaDonTrongKhoang.ToList().Where(c => c.SanPham.MaSanPham == sp.MaSanPham
+                                && c.HoaDon.NhanVien.MaNhanVien == nv.MaNhanVien).ToList().Sum(c => c.SoLuong);
+                            tk.TongTien = chiTietHoaDonTrongKhoang.ToList()
+                                .Where(c => c.SanPham.MaSanPham == sp.MaSanPham
+                                && c.HoaDon.NhanVien.MaNhanVien == nv.MaNhanVien
+                                ).ToList().Sum(c => c.SoLuong * c.Gia);
+                            if (tk.SoLuong > 0)
+                            {
+                                li.Add(tk);
+                            }
                         }
                     }
+                    #endregion banHang
                 }
+                else
+                {
+                    #region nhapHang
+                    foreach (var ct in chiTietHoaDonTrongKhoang) {
+                        ThongKeSanPhamModel model = new ThongKeSanPhamModel() { 
+                            NhanVien = ct.HoaDon.NhanVien,
+                            PhongTap = ct.HoaDon.NhanVien.PhongTap,
+                            SanPham = ct.SanPham,
+                            SoLuong = ct.SoLuong,
+                            TongTien = ct.ThanhTien,
+                            NgayNhap = ct.HoaDon.NgayLap
+                        };
+                        li.Add(model);
+                    }
+
+                    #endregion nhapHang
+
+                }
+
                 return li.OrderBy(l=>l.NhanVien.MaNhanVien).ToList();
             }
         }

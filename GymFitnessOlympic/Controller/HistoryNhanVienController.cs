@@ -15,7 +15,9 @@ namespace GymFitnessOlympic.Controller
         {
             using (var context = DBContext.GetContext())
             {
-                var nvs = context.HistoryNhanVien.Include(h=>h.Ca).Include(h=>h.NhanVien).AsEnumerable();
+                var nvs = context.HistoryNhanVien.Include(h=>h.Ca).Include(h=>h.NhanVien)
+                    .OrderByDescending(h=>h.ThoiGian)
+                    .AsEnumerable();
                 if (checkMode != 0) {
                     bool isIn = checkMode == 1 ? true : false;
                     nvs = nvs.Where(d => d.IsCheckin == isIn);

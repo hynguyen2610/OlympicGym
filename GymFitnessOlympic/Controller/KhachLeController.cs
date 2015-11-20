@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using GymFitnessOlympic.Models;
 
 namespace GymFitnessOlympic.Controller
 {
@@ -32,13 +33,16 @@ namespace GymFitnessOlympic.Controller
             }
         }
 
-        internal static List<KhachLe> ThongKe(DateTime start, DateTime end, Models.NhanVien nhanVienHienTai, int mode)
+        internal static List<KhachLe> ThongKe(DateTime start, DateTime end, PhongTap phong, Models.NhanVien nhanVienHienTai, int mode)
         {
             using (var db = DBContext.GetContext())
             {
-                var ks = db.KhachLe.Include(k => k.NhanVien).Where(k => k.ThoiGian >= start
+                var ks = db.KhachLe.Include(k => k.NhanVien).Include(k=>k.NhanVien.PhongTap).Where(k => k.ThoiGian >= start
                     &&
                     k.ThoiGian <= end);
+                if (phong.MaPhongTap != -1) {
+                    ks = ks.Where(p => p.NhanVien.PhongTap.MaPhongTap == phong.MaPhongTap);
+                }
                 if (nhanVienHienTai.MaNhanVien != -1)
                 {
                     ks = ks.Where(h => h.NhanVien.MaNhanVien == nhanVienHienTai.MaNhanVien);

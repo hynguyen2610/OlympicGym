@@ -32,7 +32,7 @@ namespace GymFitnessOlympic.View.Dialog
                 Text = "Chỉnh sửa nhân viên";
                 loadField();
                 isThem = false;
-                cbbPhong.Enabled = false;
+                //cbbPhong.Enabled = false;
                 txtPassword.Enabled = false;
                
             }
@@ -60,7 +60,7 @@ namespace GymFitnessOlympic.View.Dialog
         private void loadField()
         {
             txtMathe.Text = current.MaThe;
-            txtMathe.Enabled = false;
+            //txtMathe.Enabled = false;
             txtDiaChi.Text = current.DiaChi;
             txtSoDienThoai.Text = current.SoDienThoai;
             txtTenNhanVien.Text = current.TenNhanVien;
@@ -90,6 +90,7 @@ namespace GymFitnessOlympic.View.Dialog
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             if (txtMathe.Text == "") {
                 errorProvider1.SetError(txtMathe, "Chưa nhập mã thẻ");
                 txtMathe.Focus();
@@ -128,13 +129,6 @@ namespace GymFitnessOlympic.View.Dialog
                 return;
             }
 
-           
-
-            if (cbbPhong.GetSelectedDataRow() == null) {
-                //cbbPhong.ShowPopup();
-                //cbbPhong.Focus();
-                //return;
-            }
             if (dxValidationProvider1.Validate())
             {
                 current = prepareNhanVien();
@@ -152,14 +146,22 @@ namespace GymFitnessOlympic.View.Dialog
                 }
                 else
                 {
-                    if (NhanVienController.Update(current) == CODE_RESULT_RETURN.ThanhCong)
+                    if (!NhanVienController.IsTrungMaNvKhac(current))
                     {
-                        DialogResult = DialogResult.OK;
-                        Close();
+                        if (NhanVienController.Update(current) == CODE_RESULT_RETURN.ThanhCong)
+                        {
+                            DialogResult = DialogResult.OK;
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Có lỗi khi cập nhật");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Có lỗi khi cập nhật");
+                    else {
+                        errorProvider1.SetError(txtMathe, "Mã thẻ này đã sử dụng cho nhân viên khác");
+                        txtMathe.Focus();
+                        return;
                     }
                 }
             }

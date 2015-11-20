@@ -34,6 +34,24 @@
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CEMS.Controls, Version=2.2010.8.23, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -361,11 +379,11 @@
     <Compile Include="View\UserControls\ThongKe\FrmSinhNhat.Designer.cs">
       <DependentUpon>FrmSinhNhat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\ThongKe\FrmLichSuHoaDon.cs">
+    <Compile Include="View\UserControls\ThongKe\HangBanNhap\FrmHangBanDuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserControls\ThongKe\FrmLichSuHoaDon.Designer.cs">
-      <DependentUpon>FrmLichSuHoaDon.cs</DependentUpon>
+    <Compile Include="View\UserControls\ThongKe\HangBanNhap\FrmHangBanDuoc.Designer.cs">
+      <DependentUpon>FrmHangBanDuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\ThongKe\FrmLichSuHoiVien.cs">
       <SubType>UserControl</SubType>
@@ -518,6 +536,18 @@
     <Compile Include="View\UserControls\TacNghiep\FrmDangKyNhanh.Designer.cs">
       <DependentUpon>FrmDangKyNhanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\ThongKe\HangBanNhap\UcGridHangBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\HangBanNhap\UcGridHangBan.Designer.cs">
+      <DependentUpon>UcGridHangBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\HangBanNhap\UcGridHangNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ThongKe\HangBanNhap\UcGridHangNhap.Designer.cs">
+      <DependentUpon>UcGridHangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\ThongKe\UcThongKeKhachLe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -614,8 +644,8 @@
     <EmbeddedResource Include="View\UserControls\ThongKe\FrmSinhNhat.resx">
       <DependentUpon>FrmSinhNhat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\ThongKe\FrmLichSuHoaDon.resx">
-      <DependentUpon>FrmLichSuHoaDon.cs</DependentUpon>
+    <EmbeddedResource Include="View\UserControls\ThongKe\HangBanNhap\FrmHangBanDuoc.resx">
+      <DependentUpon>FrmHangBanDuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\ThongKe\FrmLichSuHoiVien.resx">
       <DependentUpon>FrmLichSuHoiVien.cs</DependentUpon>
@@ -691,6 +721,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\TacNghiep\FrmDangKyNhanh.resx">
       <DependentUpon>FrmDangKyNhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\ThongKe\HangBanNhap\UcGridHangBan.resx">
+      <DependentUpon>UcGridHangBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\ThongKe\HangBanNhap\UcGridHangNhap.resx">
+      <DependentUpon>UcGridHangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\ThongKe\UcThongKeKhachLe.resx">
       <DependentUpon>UcThongKeKhachLe.cs</DependentUpon>

@@ -24,7 +24,7 @@ namespace GymFitnessOlympic.View.UserControls
         {
             InitializeComponent();
             dgrHoiVien.AutoGenerateColumns = false;
-            DataFiller.fillPhongCombo(cbbPhong1);
+            DataFiller.fillPhongCombo(cbbPhong1, append:true);
             //gridView1.CustomColumnDisplayText += gridView1_CustomColumnDisplayText;
         }
 
@@ -33,7 +33,8 @@ namespace GymFitnessOlympic.View.UserControls
 
         void loadData()
         {
-            all = HoiVienController.GetList();
+            var p = (PhongTap)cbbPhong1.SelectedItem;
+            all = HoiVienController.GetList(phongID: p.MaPhongTap);
             updateTable(all);
             //gridControl1.DataSource = all;
         }
@@ -220,8 +221,14 @@ namespace GymFitnessOlympic.View.UserControls
 
         private void cbbPhong1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
             var p = (PhongTap)cbbPhong1.SelectedItem;
-            if (p != null) {
+            if (p != null)
+            {
                 var hvs = HoiVienController.GetList(p.MaPhongTap);
                 dgrHoiVien.DataSource = hvs;
             }

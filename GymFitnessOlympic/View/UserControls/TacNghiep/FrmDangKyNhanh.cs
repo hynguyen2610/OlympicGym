@@ -30,7 +30,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-
+            errorProvider1.Clear();
             lblThanhCong.Visible = false;
             #region validate
             dxErrorProvider1.ClearErrors();
