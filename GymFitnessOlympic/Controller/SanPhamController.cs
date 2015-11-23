@@ -128,6 +128,8 @@ namespace GymFitnessOlympic.Controller
                 if (nhanVienHienTai != null && nhanVienHienTai.MaNhanVien != -1)
                 {
                     tatCaNhanVien.Add(nhanVienHienTai);
+                    chiTietHoaDonTrongKhoang = chiTietHoaDonTrongKhoang
+                        .Where(c=>c.HoaDon.NhanVien.MaNhanVien == nhanVienHienTai.MaNhanVien);
                 }
                 else
                   tatCaNhanVien =  db.NhanVien.ToList();

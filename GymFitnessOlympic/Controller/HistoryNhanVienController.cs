@@ -32,7 +32,7 @@ namespace GymFitnessOlympic.Controller
             {
                 var nvs = context.HistoryNhanVien.Include(h => h.Ca).Include(h => h.NhanVien).Include(h=>h.NhanVien.PhongTap).AsEnumerable();
                 nvs = nvs.Where(h => h.ThoiGian >= start && h.ThoiGian <= end);
-                return nvs.ToList();
+                return nvs.OrderByDescending(h => h.Ngay).ToList();
             }
         }
 

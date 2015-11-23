@@ -45,5 +45,11 @@ namespace GymFitnessOlympic.Models
                 return NhanVien.PhongTap.TenPhongTap;
             }
         }
+
+        public int TienPhaiTraDangKy {
+            get {
+                return GiamGia != null ?  GoiTap.Gia - GoiTap.Gia * GiamGia.PhanTramGiam / 100 : GoiTap.Gia;
+            }
+        }
     }
 }

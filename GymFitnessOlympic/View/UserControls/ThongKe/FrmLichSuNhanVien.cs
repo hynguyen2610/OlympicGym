@@ -50,7 +50,7 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
         private void cbbInOut_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loc();
+            //loc();
         }
         void loc()
         {
@@ -83,10 +83,10 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 var mode = cbbInOut.SelectedIndex;
                 switch (mode) { 
                     case 1:
-                        li = li.Where(h => h.IsCheckin = true);
+                        li = li.Where(h => h.IsCheckin == true);
                         break;
                     case 2:
-                        li = li.Where(h => h.IsCheckin = false);
+                        li = li.Where(h => h.IsCheckin == false);
                         break;
                 }
                 if (phong.MaPhongTap != -1) {
@@ -159,26 +159,26 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
 
         private void cbbTheoThangThang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(rdTheoThang.Checked)
-            loc();
+            //if(rdTheoThang.Checked)
+           // loc();
         }
 
         private void rdTheoQuy_CheckedChanged(object sender, EventArgs e)
         {
            // if (rdTheoQuy.Checked)
-                loc();
+               // loc();
         }
 
         private void rdTheoKhoangNgay_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdTheoKhoangNgay.Checked)
-                loc();
+           // if (rdTheoKhoangNgay.Checked)
+               // loc();
         }
 
         private void cbbMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadNhanVien();
-            loc();
+            //loadNhanVien();
+            //loc();
         }
 
         private void loadNhanVien()

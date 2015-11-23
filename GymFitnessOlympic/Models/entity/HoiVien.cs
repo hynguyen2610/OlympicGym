@@ -39,5 +39,12 @@ namespace GymFitnessOlympic.Models
                 return IsDangKyNhanh ? "Chưa cập nhật" : "Đã cập nhật";
             }
         }
+
+        public int TongTien {
+            get {
+                return DanhSachPhieuThu.Sum(p => p.SoTien);
+
+            }
+        }
     }
 }

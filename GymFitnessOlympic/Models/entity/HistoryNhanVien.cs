@@ -95,11 +95,14 @@ namespace GymFitnessOlympic.Models
             }
         }
 
-        //public string ThoiGianDung {
-        //    get {
-        //        return IsCheckin ?  Ca.GioBatDau.ToString("c") : Ca.GioKetThuc.ToString("c");
-        //    }
-        //}
+        public DateTime Ngay
+        {
+            get
+            {
+                return ThoiGian.Date;
+
+            }
+        }
 
         public TimeSpan ThoiGianDung
         {

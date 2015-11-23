@@ -93,7 +93,7 @@
             this.spnSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spnSoLuong.Size = new System.Drawing.Size(173, 20);
-            this.spnSoLuong.TabIndex = 69;
+            this.spnSoLuong.TabIndex = 4;
             // 
             // labelControl6
             // 
@@ -141,7 +141,7 @@
             this.groupControl1.Location = new System.Drawing.Point(380, 93);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(222, 64);
-            this.groupControl1.TabIndex = 68;
+            this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin hóa đơn";
             // 
             // dtpThoiGian
@@ -151,7 +151,7 @@
             this.dtpThoiGian.Location = new System.Drawing.Point(63, 28);
             this.dtpThoiGian.Name = "dtpThoiGian";
             this.dtpThoiGian.Size = new System.Drawing.Size(153, 20);
-            this.dtpThoiGian.TabIndex = 14;
+            this.dtpThoiGian.TabIndex = 0;
             // 
             // labelControl10
             // 
@@ -170,7 +170,7 @@
             this.txtTimKiem.Properties.Appearance.Options.UseFont = true;
             this.txtTimKiem.Properties.Appearance.Options.UseForeColor = true;
             this.txtTimKiem.Size = new System.Drawing.Size(275, 24);
-            this.txtTimKiem.TabIndex = 43;
+            this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.ToolTip = "Gõ để tìm kiếm, kết quả tức thì";
             this.txtTimKiem.EditValueChanged += new System.EventHandler(this.txtTenHangTim_EditValueChanged);
             this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenHangTim_KeyPress);
@@ -183,7 +183,7 @@
             this.lbSanPham.Location = new System.Drawing.Point(29, 200);
             this.lbSanPham.Name = "lbSanPham";
             this.lbSanPham.Size = new System.Drawing.Size(326, 200);
-            this.lbSanPham.TabIndex = 57;
+            this.lbSanPham.TabIndex = 3;
             this.lbSanPham.ToolTip = "Click đúp chuột vào mặt hàng để thêm";
             this.lbSanPham.SelectedIndexChanged += new System.EventHandler(this.lbHang_SelectedIndexChanged);
             this.lbSanPham.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lbSanPham_MeasureItem);
@@ -221,7 +221,7 @@
             this.lvHangNhap.Location = new System.Drawing.Point(638, 91);
             this.lvHangNhap.Name = "lvHangNhap";
             this.lvHangNhap.Size = new System.Drawing.Size(402, 168);
-            this.lvHangNhap.TabIndex = 56;
+            this.lvHangNhap.TabIndex = 8;
             this.lvHangNhap.UseCompatibleStateImageBehavior = false;
             this.lvHangNhap.View = System.Windows.Forms.View.Details;
             this.lvHangNhap.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lvHangNhap_DrawItem);
@@ -272,7 +272,7 @@
             this.txtDonGia.Location = new System.Drawing.Point(430, 309);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(173, 20);
-            this.txtDonGia.TabIndex = 46;
+            this.txtDonGia.TabIndex = 5;
             // 
             // lblTongTien
             // 
@@ -297,7 +297,7 @@
             this.btnSave.Location = new System.Drawing.Point(629, 348);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(193, 52);
-            this.btnSave.TabIndex = 70;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Tạo hóa đơn";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
@@ -308,7 +308,7 @@
             this.btnChiTietXoa.Location = new System.Drawing.Point(940, 50);
             this.btnChiTietXoa.Name = "btnChiTietXoa";
             this.btnChiTietXoa.Size = new System.Drawing.Size(100, 24);
-            this.btnChiTietXoa.TabIndex = 63;
+            this.btnChiTietXoa.TabIndex = 8;
             this.btnChiTietXoa.Text = "Xóa";
             this.btnChiTietXoa.Click += new System.EventHandler(this.btnChiTietXoa_Click);
             // 
@@ -321,7 +321,7 @@
             this.btnReset.Location = new System.Drawing.Point(839, 347);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(190, 52);
-            this.btnReset.TabIndex = 66;
+            this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Hủy hóa đơn hiện tại";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -331,7 +331,7 @@
             this.btnQuet.Location = new System.Drawing.Point(260, 128);
             this.btnQuet.Name = "btnQuet";
             this.btnQuet.Size = new System.Drawing.Size(95, 41);
-            this.btnQuet.TabIndex = 62;
+            this.btnQuet.TabIndex = 2;
             this.btnQuet.Text = "Quyét";
             this.btnQuet.Click += new System.EventHandler(this.btnQuet_Click);
             // 
@@ -342,7 +342,7 @@
             this.btnChiTietSua.Location = new System.Drawing.Point(839, 50);
             this.btnChiTietSua.Name = "btnChiTietSua";
             this.btnChiTietSua.Size = new System.Drawing.Size(95, 24);
-            this.btnChiTietSua.TabIndex = 62;
+            this.btnChiTietSua.TabIndex = 7;
             this.btnChiTietSua.Text = "Sửa";
             this.btnChiTietSua.Click += new System.EventHandler(this.btnChiTietSua_Click);
             // 
@@ -354,7 +354,7 @@
             this.btnThem.Location = new System.Drawing.Point(430, 347);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(172, 52);
-            this.btnThem.TabIndex = 58;
+            this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.ToolTip = "Thêm mặt hàng vào danh sách nhập, một khi đã click, không\r\nthể thay đổi nhà cung " +
     "cấp được nữa, trừ khi click \"Làm lại từ đầu\"\r\nđể tạo phiếu nhập mới.";

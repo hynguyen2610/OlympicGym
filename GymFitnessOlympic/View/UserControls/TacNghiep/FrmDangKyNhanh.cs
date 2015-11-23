@@ -18,6 +18,8 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
 {
     public partial class FrmDangKyNhanh : UserControl
     {
+        int tienGym, tienSauna;
+
         public FrmDangKyNhanh()
         {
             InitializeComponent();
@@ -98,8 +100,9 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                     HoiVien = hv,
                     NgayLap = DateTime.Now,
                     NhanVien = Login1.TaiKhoanHienTai,
-                    SoTien = g1.Gia
+                    SoTien = tienGym
                 };
+
                 if (cbbGiamGiaGYM.SelectedValue.ToString() != "")
                 {
                     pt.GiamGia = (GiamGia)cbbGiamGiaGYM.SelectedItem;
@@ -115,7 +118,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                     HoiVien = hv,
                     NgayLap = DateTime.Now,
                     NhanVien = Login1.TaiKhoanHienTai,
-                    SoTien = g1.Gia
+                    SoTien = tienSauna
                 };
                 if (cbbGiamGiaSauna.SelectedValue.ToString() != "")
                 {
@@ -144,6 +147,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
         {
             List<HoiVien> li = HoiVienController.GetDangKyNhanhTrongNgay(Login1.GetPhongHienTai());
             dgrDangKy.DataSource = li;
+            lblTongTienTrongNgay.Text = HoiVienController.TongTienDknTrongNgay().ToString().FormatCurrency();
 
         }
 
@@ -219,8 +223,8 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
             var g2 = (GoiTap)cbbGoiSauna.SelectedItem;
             if (g1 != null && g2 != null)
             {
-                var tienGym = g1.MaGoiTap != -1 ? g1.Gia : 0;
-                var tienSauna = g2.MaGoiTap != -1 ? g2.Gia : 0;
+                tienGym = g1.MaGoiTap != -1 ? g1.Gia : 0;
+                tienSauna = g2.MaGoiTap != -1 ? g2.Gia : 0;
                 //Neu co giam gia
                 int giamGym = 0, giamSauna = 0;
                 if (cbbGiamGiaGYM.SelectedItem != null)
@@ -234,7 +238,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                     giamSauna = gSau.PhanTramGiam * tienSauna / 100;
                 }
                 //
-                
+
                 tienGym = tienGym - giamGym;
                 tienSauna = tienSauna - giamSauna;
 
@@ -263,6 +267,15 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
             if (dgrDangKy.SelectedRows.Count > 0)
             {
                 var hv = (HoiVien)dgrDangKy.SelectedRows[0].DataBoundItem;
+                if (isGYM && hv.NgayHetHanGYM.Date <= DateTime.Now.Date) {
+                    DialogUtils.ShowMessage("Thẻ này đã hết hạn GYM");
+                    return;
+                }
+                else if (!isGYM && hv.NgayHetHanSauNa.Date <= DateTime.Now.Date)
+                {
+                    DialogUtils.ShowMessage("Thẻ này đã hết hạn Sauna");
+                    return;
+                }
                 FrmInPhieu f = new FrmInPhieu(hv, isGYM);
                 //f.ShowDialog();
             }

@@ -38,6 +38,7 @@ namespace TanHongPhat
                 btnReset.Text = "Hủy phiếu nhập hiện tại";
                 btnSave.Text = "Nhập hàng";
             }
+            txtMaVach.Focus();
         }
 
         void loadListSanPham(List<SanPham> li)

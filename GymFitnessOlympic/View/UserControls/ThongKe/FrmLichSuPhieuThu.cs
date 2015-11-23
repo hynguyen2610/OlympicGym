@@ -20,10 +20,10 @@ namespace GymFitnessOlympic.View.ActForm
         PhongTap phongHienTai;
         List<PhieuThu> allPhieuThu;
 
-        public FrmLichSuPhieuThu(NhanVien _maNV = null)
+        public FrmLichSuPhieuThu(NhanVien nhanVienTruyenVao = null)
         {
             InitializeComponent();
-            nhanVienHienTai = _maNV;
+            nhanVienHienTai = nhanVienTruyenVao;
             dataGridView1.AutoGenerateColumns = false;
             for (int i = 2010; i < 2250; i++)
             {
@@ -33,16 +33,20 @@ namespace GymFitnessOlympic.View.ActForm
             cbbTheoThangThang.SelectedIndex = 0;
             phongHienTai = Login1.GetPhongHienTai();
             DataFiller.fillPhongCombo(cbbPhong, append:true);
-
+           
+            if (nhanVienTruyenVao != null) {
+                cbbNhanVien.SelectedValue = nhanVienTruyenVao.MaNhanVien;
+                cbbNhanVien.Enabled = cbbPhong.Enabled = false;
+            }
             //loadData();
             loc();
-            loadEnable();
+           // loadEnable();
         }
 
-        void loadEnable()
-        {
-            cbbPhong.Enabled = nhanVienHienTai == null;
-        }
+        //void loadEnable()
+        //{
+        //    cbbPhong.Enabled = nhanVienHienTai == null;
+        //}
 
 
 
@@ -96,7 +100,15 @@ namespace GymFitnessOlympic.View.ActForm
         {
             if (cbbPhong.SelectedItem != null)
             {
-                // phongHienTai = (PhongTap)cbbPhong.SelectedItem;
+                var phong = (PhongTap)cbbPhong.SelectedItem;
+                DataFiller.fillNhanVienCombo(cbbNhanVien, phong.MaPhongTap, append: true);
+            }
+        }
+
+        private void cbbNhanVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbNhanVien.SelectedItem != null) {
+                nhanVienHienTai = (NhanVien)cbbNhanVien.SelectedItem;
             }
         }
     }

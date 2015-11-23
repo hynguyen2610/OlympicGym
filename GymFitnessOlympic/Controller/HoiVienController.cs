@@ -169,13 +169,23 @@ namespace GymFitnessOlympic.Controller
             var cuoiNgay = DateTimeUtil.EndOfDay(DateTime.Now);
             using (var db = DBContext.GetContext())
             {
-                var hs =db.HoiVien.Include(h=>h.PhongTap).Where(h=>
+                var hs =db.HoiVien.Include(h=>h.PhongTap).Include(h=>h.DanhSachPhieuThu).Where(h=>
                     //h.IsDangKyNhanh
                     //&&
                     h.PhongTap.MaPhongTap == p.MaPhongTap
                     &&
                     h.NgayGioDangKy >= dauNgay && h.NgayGioDangKy <=cuoiNgay).OrderByDescending(d=>d.NgayGioDangKy).ToList();
                 return hs;
+            }
+        }
+
+        public static int TongTienDknTrongNgay() {
+            using (var db = DBContext.GetContext()) {
+                var start = DateTimeUtil.StartOfDay( DateTime.Now);
+                var end = DateTimeUtil.EndOfDay(DateTime.Now);
+                var pts = db.PhieuThu.Include(p => p.HoiVien)
+                    .Where(p => p.HoiVien.NgayGioDangKy >= start && p.HoiVien.NgayGioDangKy <= end);
+                return pts.ToList().Sum(p => p.SoTien);
             }
         }
 

@@ -21,7 +21,7 @@ namespace GymFitnessOlympic.Controller
                 if (maPhong != -1) {
                     nvs = nvs.Where(n => n.NhanVien.PhongTap.MaPhongTap == maPhong);
                 }
-                if (nv != null)
+                if (nv != null && nv.MaNhanVien != -1)
                 {
                     nvs = nvs.Where(n => n.NhanVien.MaNhanVien == nv.MaNhanVien);
                 }

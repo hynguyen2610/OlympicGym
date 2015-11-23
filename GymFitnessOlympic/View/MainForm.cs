@@ -50,6 +50,7 @@ namespace GymFitnessOlympic.View
             pnMain.Controls.Clear();
             ucContent.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ucContent);
+            ucContent.Focus();
         }
         public void Logout()
         {
