@@ -25,6 +25,7 @@ namespace GymFitnessOlympic.View.Dialog
                 InitializeComponent();
                 this.hoiVien = hv;
                 DataFiller.fillGoiCombo(cbbGiaHanGoi, isGYM ? 1 : 2, hoiVien.PhongTap.MaPhongTap);
+                DataFiller.fillGiamGiaCombo(cbbGiamGia, chuaNgayHienTai:true, append: true);
                 cbbGiaHanGoi_SelectedIndexChanged(null, null);
             }
            
@@ -49,7 +50,9 @@ namespace GymFitnessOlympic.View.Dialog
                 if (r1 == DialogResult.OK)
                 {
                     var g = (GoiTap)cbbGiaHanGoi.SelectedItem;
-                    var soTien = int.Parse(txtGiaHanSoTien.Text);
+                    var gg = (GiamGia)cbbGiamGia.SelectedItem;
+                    var tienNhapVao = int.Parse(txtGiaHanSoTien.Text);
+                    var soTien = tienNhapVao- tienNhapVao *gg.PhanTramGiam / 100;
                     PhieuThu p = new PhieuThu()
                     {
                         GoiTap = g,
@@ -57,18 +60,24 @@ namespace GymFitnessOlympic.View.Dialog
                         
                         NgayLap = DateTime.Now,
                         NhanVien = Login1.GetTaiKhoanHienTai(),
-                        SoTien = soTien,
-                        LyDo = txtLyDo.Text.Trim()
+                        SoTien = g.Gia,
+                        PhanTramGiam = gg.PhanTramGiam,
+                        LyDo = txtLyDo.Text.Trim(),
+                        TenGiamGia =gg.MaGiamGia != "" ? gg.TenGiamGia : ""
                     };
+                    //if (gg.MaGiamGia != "") {
+                    //    p.GiamGia = gg;
+                    //}
                     var r = PhieuThuController.Add(p);
                     if (r == CODE_RESULT_RETURN.ThanhCong)
                     {
 
-                        //
-                        //lblKetQuaGiaHan.Text = "Gia hạn thành công";
-                        MessageBox.Show("Gia hạn thành công");
+                        DialogUtils.ShowMessage("Gia hạn thành công");
                         DialogResult = DialogResult.OK;
                         Close();
+                    }
+                    else {
+                        DialogUtils.ShowError("Có lỗi khi gia hạn");
                     }
                 }
             }

@@ -42,7 +42,7 @@ namespace GymFitnessOlympic.Models
 
         public int TongTien {
             get {
-                return DanhSachPhieuThu.Sum(p => p.SoTien);
+                return DanhSachPhieuThu.Sum(p => p.TienSauGiam);
 
             }
         }

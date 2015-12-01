@@ -109,9 +109,9 @@ namespace GymFitnessOlympic.Controller
         {
             using (var db = DBContext.GetContext())
             {
-                var phieuThus = db.PhieuThu.Include(p => p.GiamGia).FirstOrDefault(p => p.GiamGia.MaGiamGia == g.MaGiamGia);
-                if (phieuThus != null)
-                    return false;
+                //var phieuThus = db.PhieuThu.FirstOrDefault(p => p.GiamGia.MaGiamGia == g.MaGiamGia);
+                //if (phieuThus != null)
+                //    return false;
                 var khachLe = db.KhachLe.Include(p => p.GiamGia).FirstOrDefault(p => p.GiamGia.MaGiamGia == g.MaGiamGia);
                 if (khachLe != null)
                     return false;

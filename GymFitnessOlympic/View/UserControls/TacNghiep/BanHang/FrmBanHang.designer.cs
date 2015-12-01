@@ -184,7 +184,6 @@
             this.lbSanPham.Name = "lbSanPham";
             this.lbSanPham.Size = new System.Drawing.Size(326, 200);
             this.lbSanPham.TabIndex = 3;
-            this.lbSanPham.ToolTip = "Click đúp chuột vào mặt hàng để thêm";
             this.lbSanPham.SelectedIndexChanged += new System.EventHandler(this.lbHang_SelectedIndexChanged);
             this.lbSanPham.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lbSanPham_MeasureItem);
             this.lbSanPham.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbSanPham_MouseDoubleClick);

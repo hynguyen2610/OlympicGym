@@ -27,7 +27,7 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
             InitializeComponent();
             nhanVienHienTai = nhanVien;
 
-
+            //pnGrid.Dock = DockStyle.Fill;
             for (int i = 2010; i < 2250; i++)
             {
                 cbbTheoThangNam.Items.Add(i);
@@ -55,6 +55,10 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 cbbNhanVien.Enabled = false;
                 cbbNhanVien.SelectedValue = nhanVien.MaNhanVien;
             }
+        }
+
+        void anchorGrid() { 
+        
         }
 
 
@@ -108,13 +112,14 @@ namespace GymFitnessOlympic.View.ActForm.ThongKe
                 if (IsNhap)
                 {
                     var grid = new UcGridHangNhap();
-
+                    grid.Dock = DockStyle.Fill;
                     pnGrid.Controls.Add(grid);
                     grid.dataGridView1.DataSource = allThongKe;
                 }
                 else
                 {
                     var grid = new UcGridHangBan();
+                    grid.Dock = DockStyle.Fill;
                     pnGrid.Controls.Add(grid);
                     grid.dataGridView1.DataSource = allThongKe;
                 }

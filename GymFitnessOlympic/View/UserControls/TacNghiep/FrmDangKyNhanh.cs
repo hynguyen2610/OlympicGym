@@ -19,6 +19,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
     public partial class FrmDangKyNhanh : UserControl
     {
         int tienGym, tienSauna;
+        HoiVien hoiVienHienTai;
 
         public FrmDangKyNhanh()
         {
@@ -32,6 +33,8 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
+            var ggGym = (GiamGia)cbbGiamGiaGYM.SelectedItem;
+            var ggSauna = (GiamGia)cbbGiamGiaSauna.SelectedItem;
             errorProvider1.Clear();
             lblThanhCong.Visible = false;
             #region validate
@@ -70,7 +73,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                 return;
             }
             #endregion validate
-            var hv = new HoiVien()
+            hoiVienHienTai = new HoiVien()
             {
                 TenHoiVien = txtHoTen.Text.Trim(),
                 MaThe = txtMaThe.Text.Trim(),
@@ -80,7 +83,7 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                 IsDangKyNhanh = true,
 
             };
-            var r = HoiVienController.Add(hv);
+            var r = HoiVienController.Add(hoiVienHienTai);
             if (r == CODE_RESULT_RETURN.ThatBai)
             {
                 DialogUtils.ShowError("Có lỗi khi tạo hội viên");
@@ -97,16 +100,15 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                 PhieuThu pt = new PhieuThu()
                 {
                     GoiTap = g1,
-                    HoiVien = hv,
+                    HoiVien = hoiVienHienTai,
                     NgayLap = DateTime.Now,
                     NhanVien = Login1.TaiKhoanHienTai,
-                    SoTien = tienGym
+                    SoTien = g1.Gia,
+                    PhanTramGiam = ggGym.PhanTramGiam,
+                    TenGiamGia =ggGym.MaGiamGia!=""? ggGym.TenGiamGia:""
                 };
-
-                if (cbbGiamGiaGYM.SelectedValue.ToString() != "")
-                {
-                    pt.GiamGia = (GiamGia)cbbGiamGiaGYM.SelectedItem;
-                }
+                tienGym = pt.TienSauGiam;
+            
                 PhieuThuController.Add(pt);
             }
 
@@ -115,15 +117,14 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                 PhieuThu pt = new PhieuThu()
                 {
                     GoiTap = g2,
-                    HoiVien = hv,
+                    HoiVien = hoiVienHienTai,
                     NgayLap = DateTime.Now,
                     NhanVien = Login1.TaiKhoanHienTai,
-                    SoTien = tienSauna
+                    SoTien = g2.Gia,
+                    PhanTramGiam = ggSauna.PhanTramGiam,
+                    TenGiamGia =ggSauna.MaGiamGia != "" ? ggSauna.TenGiamGia :""
                 };
-                if (cbbGiamGiaSauna.SelectedValue.ToString() != "")
-                {
-                    pt.GiamGia = (GiamGia)cbbGiamGiaSauna.SelectedItem;
-                }
+                tienSauna = pt.TienSauGiam;
                 PhieuThuController.Add(pt);
             }
 
@@ -221,35 +222,40 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
         {
             var g1 = (GoiTap)cbbGoiGym.SelectedItem;
             var g2 = (GoiTap)cbbGoiSauna.SelectedItem;
-            if (g1 != null && g2 != null)
-            {
-                tienGym = g1.MaGoiTap != -1 ? g1.Gia : 0;
-                tienSauna = g2.MaGoiTap != -1 ? g2.Gia : 0;
-                //Neu co giam gia
-                int giamGym = 0, giamSauna = 0;
-                if (cbbGiamGiaGYM.SelectedItem != null)
-                {
+
+            //if (g1 != null && g2 != null)
+            //{
+            //    tienGym = g1.MaGoiTap != -1 ? g1.Gia : 0;
+            //    tienSauna = g2.MaGoiTap != -1 ? g2.Gia : 0;
+            //    //Neu co giam gia
+            //    int giamGym = 0, giamSauna = 0;
+            //    if (cbbGiamGiaGYM.SelectedItem != null)
+            //    {
                     var gGym = (GiamGia)cbbGiamGiaGYM.SelectedItem;
-                    giamGym = gGym.PhanTramGiam * tienGym / 100;
-                }
-                if (cbbGiamGiaSauna.SelectedItem != null)
-                {
+            //        giamGym = gGym.PhanTramGiam * tienGym / 100;
+            //    }
+            //    if (cbbGiamGiaSauna.SelectedItem != null)
+            //    {
                     var gSau = (GiamGia)cbbGiamGiaSauna.SelectedItem;
-                    giamSauna = gSau.PhanTramGiam * tienSauna / 100;
-                }
-                //
+            //        giamSauna = gSau.PhanTramGiam * tienSauna / 100;
+            //    }
+            //    //
 
-                tienGym = tienGym - giamGym;
-                tienSauna = tienSauna - giamSauna;
-
-                var tongTine = tienGym + tienSauna;
-                lblSoTienThanhToan.Text = tongTine.ToString().FormatCurrency();
-            }
+            //    tienGym = tienGym - giamGym;
+            //    tienSauna = tienSauna - giamSauna;
+                    if (gGym != null && gSau != null && g1 != null && g2 != null)
+                    {
+                        tienGym = g1.Gia - gGym.PhanTramGiam * g1.Gia / 100;
+                        tienSauna = g2.Gia - gSau.PhanTramGiam * g2.Gia / 100;
+                        var tongTine = tienGym + tienSauna;
+                        lblSoTienThanhToan.Text = tongTine.ToString().FormatCurrency();
+                    }
+            //}
         }
 
         private void FrmDangKyNhanh_Load(object sender, EventArgs e)
         {
-            tinhTien();
+           // tinhTien();
         }
 
         private void cbbGoiSauna_SelectedIndexChanged(object sender, EventArgs e)
@@ -276,6 +282,9 @@ namespace GymFitnessOlympic.View.UserControls.ThongKe
                     DialogUtils.ShowMessage("Thẻ này đã hết hạn Sauna");
                     return;
                 }
+                HistoryHoiVien hs = new HistoryHoiVien() { 
+                
+                };
                 FrmInPhieu f = new FrmInPhieu(hv, isGYM);
                 //f.ShowDialog();
             }

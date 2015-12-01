@@ -86,8 +86,12 @@ namespace GymFitnessOlympic.View.Dialog
                 MaThe = txtMaHoiVien.Text,
                 NgayHetHanGYM = DateTime.Now,
                 NgayHetHanSauNa = DateTime.Now,
-                IsDangKyNhanh = false
+                IsDangKyNhanh = false,
+                
             };
+            if (current != null) {
+                hv.MaHoiVien = current.MaHoiVien;
+            }
             if (isHaveFile)
             {
                 String fileName = opd.FileName;
@@ -124,13 +128,13 @@ namespace GymFitnessOlympic.View.Dialog
                 datNgaySinh.Focus();
                 return;
             }
-            int so;
-            if (txtSoDienThoai.Text == "" || !int.TryParse(txtSoDienThoai.Text, out so))
-            {
-                errorProvider1.SetError(txtSoDienThoai, "Số điện thoại không hợp lệ");
-                txtSoDienThoai.Focus();
-                return;
-            }
+           // int so;
+            //if (txtSoDienThoai.Text == "" && !int.TryParse(txtSoDienThoai.Text, out so))
+            //{
+            //    errorProvider1.SetError(txtSoDienThoai, "Số điện thoại không hợp lệ");
+            //    txtSoDienThoai.Focus();
+            //    return;
+            //}
             if (txtMaHoiVien.Text == "")
             {
                 errorProvider1.SetError(txtHoTen, "Mã hội viên không được trống");

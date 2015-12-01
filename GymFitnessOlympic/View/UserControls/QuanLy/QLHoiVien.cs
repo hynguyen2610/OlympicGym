@@ -25,7 +25,8 @@ namespace GymFitnessOlympic.View.UserControls
             InitializeComponent();
             dgrHoiVien.AutoGenerateColumns = false;
             DataFiller.fillPhongCombo(cbbPhong1, append:true);
-            //gridView1.CustomColumnDisplayText += gridView1_CustomColumnDisplayText;
+            cbbPhong1.SelectedValue = Login1.GetPhongHienTai().MaPhongTap;
+            cbbPhong1.Enabled = false;
         }
 
 
@@ -188,6 +189,11 @@ namespace GymFitnessOlympic.View.UserControls
         {
             if (dgrHoiVien.SelectedRows.Count > 0)
             {
+                var q = Login1.TaiKhoanHienTai.Quyen.MaQuyen;
+                if (q != 1) {
+                    DialogUtils.ShowMessage("Chỉ có quản trị viên mới có quyền xóa hội viên");
+                    return;
+                }
                 var h = (HoiVien)dgrHoiVien.SelectedRows[0].DataBoundItem;
                 if (!HoiVienController.IsKhongRangBuoc(h))
                 {
@@ -221,16 +227,50 @@ namespace GymFitnessOlympic.View.UserControls
 
         private void cbbPhong1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-        }
-
-        private void btnLoc_Click(object sender, EventArgs e)
-        {
             var p = (PhongTap)cbbPhong1.SelectedItem;
             if (p != null)
             {
                 var hvs = HoiVienController.GetList(p.MaPhongTap);
                 dgrHoiVien.DataSource = hvs;
+            }
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnGiaHanGYM_Click(object sender, EventArgs e)
+        {
+            var hv = (HoiVien)dgrHoiVien.SelectedRows[0].DataBoundItem;
+            if (hv != null)
+            {
+                FrmGiaHan gh = new FrmGiaHan(hv, isGYM: true);
+                if (gh.ShowDialog() == DialogResult.OK)
+                {
+                    loadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn hội viên để gia hạn");
+            }
+        }
+
+        private void btnGiaHanSauna_Click(object sender, EventArgs e)
+        {
+            var hv = (HoiVien)dgrHoiVien.SelectedRows[0].DataBoundItem;
+            if (hv != null)
+            {
+                FrmGiaHan gh = new FrmGiaHan(hv, isGYM: false);
+                if (gh.ShowDialog() == DialogResult.OK)
+                {
+                    loadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn hội viên để gia hạn");
             }
         }
 

@@ -30,5 +30,12 @@ namespace GymFitnessOlympic.Models
                return StreamUtil.byteArrayToImage(Anh);
            }
        }
+
+       public string GioiTinhString
+       {
+           get {
+               return GioiTinh ? "Nam" : "Nữ";
+           }
+       }
     }
 }

@@ -216,41 +216,13 @@
     <Compile Include="Controller\QuyenController.cs" />
     <Compile Include="Controller\SanPhamController.cs" />
     <Compile Include="FrmBarcode.cs" />
-    <Compile Include="Migrations\201511151004486_mg2.cs" />
-    <Compile Include="Migrations\201511151004486_mg2.Designer.cs">
-      <DependentUpon>201511151004486_mg2.cs</DependentUpon>
+    <Compile Include="Migrations\201511280641209_mg1.cs" />
+    <Compile Include="Migrations\201511280641209_mg1.Designer.cs">
+      <DependentUpon>201511280641209_mg1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511151028061_mg3.cs" />
-    <Compile Include="Migrations\201511151028061_mg3.Designer.cs">
-      <DependentUpon>201511151028061_mg3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511151035567_mg4.cs" />
-    <Compile Include="Migrations\201511151035567_mg4.Designer.cs">
-      <DependentUpon>201511151035567_mg4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511160318204_mg21.cs" />
-    <Compile Include="Migrations\201511160318204_mg21.Designer.cs">
-      <DependentUpon>201511160318204_mg21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511160319518_mg31.cs" />
-    <Compile Include="Migrations\201511160319518_mg31.Designer.cs">
-      <DependentUpon>201511160319518_mg31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511172303041_mg41.cs" />
-    <Compile Include="Migrations\201511172303041_mg41.Designer.cs">
-      <DependentUpon>201511172303041_mg41.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511172304286_mg5.cs" />
-    <Compile Include="Migrations\201511172304286_mg5.Designer.cs">
-      <DependentUpon>201511172304286_mg5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511180827356_mg32.cs" />
-    <Compile Include="Migrations\201511180827356_mg32.Designer.cs">
-      <DependentUpon>201511180827356_mg32.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511180829077_mg42.cs" />
-    <Compile Include="Migrations\201511180829077_mg42.Designer.cs">
-      <DependentUpon>201511180829077_mg42.cs</DependentUpon>
+    <Compile Include="Migrations\201511280818148_mg2.cs" />
+    <Compile Include="Migrations\201511280818148_mg2.Designer.cs">
+      <DependentUpon>201511280818148_mg2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\entity\AppUser.cs" />
@@ -577,32 +549,11 @@
     <Compile Include="View\Utils\DialogUtils.cs" />
     <Compile Include="View\Utils\SortableBindingList.cs" />
     <Compile Include="View\Utils\WinFormsUtils.cs" />
-    <EmbeddedResource Include="Migrations\201511151004486_mg2.resx">
-      <DependentUpon>201511151004486_mg2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511280641209_mg1.resx">
+      <DependentUpon>201511280641209_mg1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511151028061_mg3.resx">
-      <DependentUpon>201511151028061_mg3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511151035567_mg4.resx">
-      <DependentUpon>201511151035567_mg4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511160318204_mg21.resx">
-      <DependentUpon>201511160318204_mg21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511160319518_mg31.resx">
-      <DependentUpon>201511160319518_mg31.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511172303041_mg41.resx">
-      <DependentUpon>201511172303041_mg41.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511172304286_mg5.resx">
-      <DependentUpon>201511172304286_mg5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511180827356_mg32.resx">
-      <DependentUpon>201511180827356_mg32.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511180829077_mg42.resx">
-      <DependentUpon>201511180829077_mg42.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511280818148_mg2.resx">
+      <DependentUpon>201511280818148_mg2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -777,6 +728,9 @@
     <None Include="Resources\lock-lock.png" />
     <None Include="Resources\lock_open.png" />
     <None Include="Resources\product-import.png" />
+    <None Include="Resources\money2.png" />
+    <None Include="Resources\money21.png" />
+    <None Include="Resources\money3.png" />
     <Content Include="View\empty_avatar.png" />
     <None Include="Resources\1447078652_Android-Barcode-Reader.png" />
     <Content Include="Lib\CEMS.Controls.dll" />

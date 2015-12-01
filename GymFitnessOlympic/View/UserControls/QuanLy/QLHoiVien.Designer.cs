@@ -31,25 +31,30 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dgrHoiVien = new CEMS.Controls.Commons.DataGridViewEx();
             this.lblChucNang = new System.Windows.Forms.Label();
             this.cbbPhong1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnGiaHanSauna = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGiaHanGYM = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLoc = new DevExpress.XtraEditors.SimpleButton();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrHoiVien)).BeginInit();
@@ -94,15 +99,17 @@
             this.Column2,
             this.Column3,
             this.Column5,
+            this.Column4,
+            this.Column7,
             this.Column6});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrHoiVien.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrHoiVien.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgrHoiVien.EnableHeadersVisualStyles = false;
             this.dgrHoiVien.ExportFilePath = null;
             this.dgrHoiVien.GridColor = System.Drawing.Color.LightSteelBlue;
@@ -110,15 +117,14 @@
             this.dgrHoiVien.MultiSelect = false;
             this.dgrHoiVien.Name = "dgrHoiVien";
             this.dgrHoiVien.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrHoiVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgrHoiVien.RowHeadersVisible = false;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrHoiVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgrHoiVien.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgrHoiVien.Size = new System.Drawing.Size(1098, 396);
             this.dgrHoiVien.TabIndex = 4;
@@ -157,12 +163,44 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Phòng tập";
             // 
+            // btnGiaHanSauna
+            // 
+            this.btnGiaHanSauna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGiaHanSauna.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGiaHanSauna.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnGiaHanSauna.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnGiaHanSauna.Appearance.Options.UseImage = true;
+            this.btnGiaHanSauna.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGiaHanSauna.Image = global::GymFitnessOlympic.Properties.Resources.money3;
+            this.btnGiaHanSauna.Location = new System.Drawing.Point(693, 87);
+            this.btnGiaHanSauna.Name = "btnGiaHanSauna";
+            this.btnGiaHanSauna.Size = new System.Drawing.Size(116, 29);
+            this.btnGiaHanSauna.TabIndex = 10;
+            this.btnGiaHanSauna.Text = "Gia hạn Sauna";
+            this.btnGiaHanSauna.Click += new System.EventHandler(this.btnGiaHanSauna_Click);
+            // 
+            // btnGiaHanGYM
+            // 
+            this.btnGiaHanGYM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGiaHanGYM.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGiaHanGYM.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnGiaHanGYM.Appearance.Image = global::GymFitnessOlympic.Properties.Resources.birthday;
+            this.btnGiaHanGYM.Appearance.Options.UseImage = true;
+            this.btnGiaHanGYM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGiaHanGYM.Image = global::GymFitnessOlympic.Properties.Resources.giahan;
+            this.btnGiaHanGYM.Location = new System.Drawing.Point(571, 87);
+            this.btnGiaHanGYM.Name = "btnGiaHanGYM";
+            this.btnGiaHanGYM.Size = new System.Drawing.Size(116, 29);
+            this.btnGiaHanGYM.TabIndex = 10;
+            this.btnGiaHanGYM.Text = "Gia hạn GYM";
+            this.btnGiaHanGYM.Click += new System.EventHandler(this.btnGiaHanGYM_Click);
+            // 
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Enabled = false;
             this.btnThem.Image = global::GymFitnessOlympic.Properties.Resources.add;
-            this.btnThem.Location = new System.Drawing.Point(844, 87);
+            this.btnThem.Location = new System.Drawing.Point(833, 87);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 29);
             this.btnThem.TabIndex = 5;
@@ -173,7 +211,7 @@
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa.Image = global::GymFitnessOlympic.Properties.Resources.delete;
-            this.btnXoa.Location = new System.Drawing.Point(1034, 87);
+            this.btnXoa.Location = new System.Drawing.Point(1025, 87);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(86, 29);
             this.btnXoa.TabIndex = 5;
@@ -184,22 +222,12 @@
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.Image = global::GymFitnessOlympic.Properties.Resources.Edit;
-            this.btnSua.Location = new System.Drawing.Point(936, 87);
+            this.btnSua.Location = new System.Drawing.Point(927, 87);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(92, 29);
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnLoc
-            // 
-            this.btnLoc.Image = global::GymFitnessOlympic.Properties.Resources.Find;
-            this.btnLoc.Location = new System.Drawing.Point(211, 81);
-            this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(78, 29);
-            this.btnLoc.TabIndex = 10;
-            this.btnLoc.Text = "Lọc";
-            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // Column8
             // 
@@ -212,17 +240,18 @@
             this.Column9.DataPropertyName = "MaThe";
             this.Column9.HeaderText = "Mã thẻ";
             this.Column9.Name = "Column9";
+            this.Column9.Width = 150;
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.DataPropertyName = "TenHoiVien";
             this.Column1.HeaderText = "Tên hội viên";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "GioiTinh";
+            this.Column2.DataPropertyName = "GioiTinhString";
             this.Column2.HeaderText = "Giới tính";
             this.Column2.Name = "Column2";
             // 
@@ -237,10 +266,28 @@
             // 
             // Column5
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column5.DataPropertyName = "SoDienThoai";
             this.Column5.HeaderText = "Số điện thoại";
             this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "NgayHetHanGYM";
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle4.NullValue = "Không rõ";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "Ngày hết hạn GYM";
+            this.Column4.Name = "Column4";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "NgayHetHanSauna";
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle5.NullValue = "Không rõ";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column7.HeaderText = "Ngày hết hạn Sauna";
+            this.Column7.Name = "Column7";
             // 
             // Column6
             // 
@@ -252,7 +299,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnLoc);
+            this.Controls.Add(this.btnGiaHanSauna);
+            this.Controls.Add(this.btnGiaHanGYM);
             this.Controls.Add(this.cbbPhong1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblChucNang);
@@ -281,13 +329,16 @@
         private System.Windows.Forms.ComboBox cbbPhong1;
         private System.Windows.Forms.Label label2;
         private CEMS.Controls.Commons.DataGridViewEx dgrHoiVien;
-        private DevExpress.XtraEditors.SimpleButton btnLoc;
+        private DevExpress.XtraEditors.SimpleButton btnGiaHanGYM;
+        private DevExpress.XtraEditors.SimpleButton btnGiaHanSauna;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

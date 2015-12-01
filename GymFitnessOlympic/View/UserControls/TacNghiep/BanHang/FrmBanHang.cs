@@ -30,6 +30,7 @@ namespace TanHongPhat
             lblTongTien.Visible = !isNhap;
             int phongID = Login1.GetPhongHienTai().MaPhongTap;
             allSanPham = SanPhamController.GetList(phongID);
+            lbSanPham.DataSource = allSanPham;
             lbSanPham.DisplayMember = "ListBoxString";
             hoaDon = new HoaDon();
             this.isNhap = isNhap;
@@ -41,16 +42,11 @@ namespace TanHongPhat
             txtMaVach.Focus();
         }
 
-        void loadListSanPham(List<SanPham> li)
-        {
-
-            lbSanPham.DataSource = li;
-        }
-
+       
         private void FrmBanHang_Load(object sender, EventArgs e)
         {
             hoaDon = new HoaDon();
-            loadListSanPham(allSanPham);
+           // loadListSanPham(allSanPham);
         }
 
       
@@ -75,7 +71,11 @@ namespace TanHongPhat
 
         private void lbHang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (lbSanPham.SelectedItem != null)
+            {
+                hangHienTai = (SanPham)lbSanPham.SelectedItem;
+                chuanBiThemSanPham(hangHienTai);
+            }
         }
 
         void chuanBiThemSanPham(SanPham h) {
@@ -311,11 +311,7 @@ namespace TanHongPhat
 
         private void lbSanPham_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (lbSanPham.SelectedItem != null)
-            {
-                hangHienTai = (SanPham)lbSanPham.SelectedItem;
-                chuanBiThemSanPham(hangHienTai);
-            }
+           
         }
     }
 }

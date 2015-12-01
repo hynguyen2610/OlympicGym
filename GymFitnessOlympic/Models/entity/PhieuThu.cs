@@ -16,7 +16,16 @@ namespace GymFitnessOlympic.Models
         public HoiVien HoiVien { get; set; }
         public GoiTap GoiTap { get; set; }
         public string LyDo { get; set; }
-        public GiamGia GiamGia { get; set; }
+        public string TenGiamGia { get; set; }
+       // public int TienGoi;
+        public int PhanTramGiam{get;set;}
+
+
+        public int TienSauGiam { 
+            get {
+                return SoTien - SoTien * PhanTramGiam / 100;
+            } 
+        }
 
         public string TenLoai {
             get {
@@ -46,10 +55,31 @@ namespace GymFitnessOlympic.Models
             }
         }
 
-        public int TienPhaiTraDangKy {
+        //public int TienPhaiTraDangKy {
+        //    get {
+        //        return GiamGia != null ?  GoiTap.Gia - GoiTap.Gia * GiamGia.PhanTramGiam / 100 : GoiTap.Gia;
+        //    }
+        //}
+
+        public string TenGoi
+        {
             get {
-                return GiamGia != null ?  GoiTap.Gia - GoiTap.Gia * GiamGia.PhanTramGiam / 100 : GoiTap.Gia;
+                return GoiTap.TenGoiTap;
             }
         }
+
+
+
+       
+        //public in SoTienGoi
+        //{
+        //    get
+        //    {
+        //        return GoiTap.Gia.ToString();
+        //    }
+        //}
+
+
+
     }
 }

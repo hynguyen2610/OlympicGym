@@ -91,7 +91,7 @@ namespace GymFitnessOlympic.View.ActForm
 
                 li = allPhieuThu.Where(h => h.NgayLap.CompareTo(start) >= 0 && h.NgayLap.CompareTo(end) <= 0).ToList();
                 dataGridView1.DataSource = li;
-                lblTongTien.Text = li.Sum(c => c.SoTien).ToString().FormatCurrency()+" đ";
+                lblTongTien.Text = li.Sum(c => c.TienSauGiam).ToString().FormatCurrency()+" đ";
             }
             catch { }
         }

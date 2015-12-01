@@ -138,8 +138,8 @@ namespace QldtSdh.DAL.Models
             //Giam gia
             modelBuilder.Entity<KhachLe>().HasOptional(x => x.GiamGia).WithMany(x => x.DanhSachKhachLe)
        .WillCascadeOnDelete();
-            modelBuilder.Entity<PhieuThu>().HasOptional(x => x.GiamGia).WithMany(x => x.DanhSachPhieuThu)
-       .WillCascadeOnDelete();
+            //modelBuilder.Entity<PhieuThu>().HasOptional(x => x.GiamGia).WithMany(x => x.DanhSachPhieuThu)
+       //.WillCascadeOnDelete();
 
             System.Diagnostics.Debug.WriteLine("Kết thúc tạo Model");
         }

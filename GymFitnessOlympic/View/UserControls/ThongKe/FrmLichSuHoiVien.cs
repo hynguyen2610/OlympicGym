@@ -68,8 +68,8 @@ namespace GymFitnessOlympic.View.MainForms
                 
                 else if (rdTheoKhoangNgay.Checked)
                 {
-                    start = dtpFrom.Value;
-                    end = dtpTo.Value;
+                    start =DateTimeUtil.StartOfDay( dtpFrom.Value);
+                    end =DateTimeUtil.EndOfDay(  dtpTo.Value);
                 }
                 var phong = (PhongTap)cbbPhong.SelectedItem;
                 IEnumerable<HistoryHoiVien> li = HistoryHoiVienController.GetList(phong.MaPhongTap);
@@ -117,27 +117,27 @@ namespace GymFitnessOlympic.View.MainForms
 
         private void cbbTheoThangThang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loc();
+           // loc();
         }
 
         private void cbbTheoThangNam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loc();
+            //loc();
         }
 
         private void rdTheoThang_CheckedChanged(object sender, EventArgs e)
         {
-            loc();
+            //loc();
         }
 
         private void rdTheoQuy_CheckedChanged(object sender, EventArgs e)
         {
-            loc();
+            //loc();
         }
 
         private void rdTheoKhoangNgay_CheckedChanged(object sender, EventArgs e)
         {
-            loc();
+          //  loc();
         }
     }
 }

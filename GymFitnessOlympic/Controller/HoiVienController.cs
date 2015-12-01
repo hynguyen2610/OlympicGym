@@ -56,7 +56,7 @@ namespace GymFitnessOlympic.Controller
         {
             using (var db = DBContext.GetContext())
             {
-                var hvc = db.HoiVien.FirstOrDefault(h => h.MaThe == hv.MaThe);
+                var hvc = db.HoiVien.FirstOrDefault(h => h.MaHoiVien == hv.MaHoiVien);
                 if (hvc != null)
                 {
                     hvc.NgayHetHanGYM = hv.NgayHetHanGYM;
