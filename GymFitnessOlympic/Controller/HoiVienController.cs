@@ -185,7 +185,7 @@ namespace GymFitnessOlympic.Controller
                 var end = DateTimeUtil.EndOfDay(DateTime.Now);
                 var pts = db.PhieuThu.Include(p => p.HoiVien)
                     .Where(p => p.HoiVien.NgayGioDangKy >= start && p.HoiVien.NgayGioDangKy <= end);
-                return pts.ToList().Sum(p => p.SoTien);
+                return pts.ToList().Sum(p => p.TienSauGiam);
             }
         }
 

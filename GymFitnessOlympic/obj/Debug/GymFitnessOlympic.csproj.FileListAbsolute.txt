@@ -371,3 +371,4 @@ E:\github\commit3\OlympicGym\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.cspro
 E:\github\commit3\OlympicGym\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.exe.licenses
 E:\github\commit3\OlympicGym\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.exe
 E:\github\commit3\OlympicGym\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.pdb
+E:\github\commit3\OlympicGym\GymFitnessOlympic\obj\Debug\GymFitnessOlympic.csprojResolveAssemblyReference.cache
